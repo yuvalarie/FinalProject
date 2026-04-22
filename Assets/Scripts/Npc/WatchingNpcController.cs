@@ -64,6 +64,7 @@ namespace Npc
             
                     if (player != null)
                     {
+                        if (player.IsTrans) return;
                         Debug.Log($"CAUGHT! Spotted {target.name} moving or holding an item in the vision cone.");
                         Debug.DrawRay(eyes.position, directionToTarget * hit.distance, Color.red);
                     }

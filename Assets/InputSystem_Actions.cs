@@ -1126,6 +1126,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Trans"",
+                    ""type"": ""Button"",
+                    ""id"": ""37ee521a-f560-4768-8025-10cee68f2ace"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1181,6 +1190,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PickUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2a1bf827-e69b-4b66-b3b3-6fac47fbcbad"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Trans"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1280,6 +1300,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Game_MoveUp = m_Game.FindAction("MoveUp", throwIfNotFound: true);
         m_Game_MoveDown = m_Game.FindAction("MoveDown", throwIfNotFound: true);
         m_Game_PickUp = m_Game.FindAction("PickUp", throwIfNotFound: true);
+        m_Game_Trans = m_Game.FindAction("Trans", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -1746,6 +1767,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Game_MoveUp;
     private readonly InputAction m_Game_MoveDown;
     private readonly InputAction m_Game_PickUp;
+    private readonly InputAction m_Game_Trans;
     /// <summary>
     /// Provides access to input actions defined in input action map "Game".
     /// </summary>
@@ -1777,6 +1799,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Game/PickUp".
         /// </summary>
         public InputAction @PickUp => m_Wrapper.m_Game_PickUp;
+        /// <summary>
+        /// Provides access to the underlying input action "Game/Trans".
+        /// </summary>
+        public InputAction @Trans => m_Wrapper.m_Game_Trans;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1818,6 +1844,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @PickUp.started += instance.OnPickUp;
             @PickUp.performed += instance.OnPickUp;
             @PickUp.canceled += instance.OnPickUp;
+            @Trans.started += instance.OnTrans;
+            @Trans.performed += instance.OnTrans;
+            @Trans.canceled += instance.OnTrans;
         }
 
         /// <summary>
@@ -1844,6 +1873,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @PickUp.started -= instance.OnPickUp;
             @PickUp.performed -= instance.OnPickUp;
             @PickUp.canceled -= instance.OnPickUp;
+            @Trans.started -= instance.OnTrans;
+            @Trans.performed -= instance.OnTrans;
+            @Trans.canceled -= instance.OnTrans;
         }
 
         /// <summary>
@@ -2133,5 +2165,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPickUp(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Trans" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTrans(InputAction.CallbackContext context);
     }
 }

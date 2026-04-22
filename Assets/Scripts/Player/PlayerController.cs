@@ -25,12 +25,25 @@ namespace Player
     
         private InputSystem_Actions _inputActions;
         private Rigidbody2D _rb;
+        private SpriteRenderer _renderer;
+        private Color _reg_color;
+        private Color _trans_color;
+
+        public bool IsTrans { get; set; }
 
         private void Awake()
         {
             _inputActions = new InputSystem_Actions();
             _inputActions.Game.Enable();
             _rb = GetComponent<Rigidbody2D>();
+            _renderer = GetComponent<SpriteRenderer>();
+            _reg_color = _renderer.color;
+            _trans_color.g = _reg_color.g;
+            _trans_color.r = _reg_color.r;
+            _trans_color.b = _reg_color.b;
+            _trans_color.a = 0.5f;
+            _renderer.color = _trans_color;
+            IsTrans = true;
         }
         
         private void OnEnable()
@@ -44,6 +57,10 @@ namespace Player
             _inputActions.Game.MoveDown.performed += ctx => _moveInput.y = -1f;
             _inputActions.Game.MoveDown.canceled += ctx => _moveInput.y = 0f;
             _inputActions.Game.PickUp.performed += OnPickUp;
+            _inputActions.Game.Trans.performed += ctx => { IsTrans = false; _renderer.color = _reg_color;
+            };
+            _inputActions.Game.Trans.canceled += ctx => { IsTrans = true; _renderer.color = _trans_color;
+            };
         }
         
         private void OnDisable()
@@ -71,6 +88,12 @@ namespace Player
         private void TryPickUp()
         {
             Debug.Log("Attempting to pick up item...");
+
+            if (IsTrans)
+            {
+                Debug.Log("can't interact while transparent");
+                return;
+            }
 
             RaycastHit2D hit = Physics2D.CircleCast(transform.position, grabRadius, Vector2.zero, 0f, grabbableLayer);
 
@@ -101,6 +124,12 @@ namespace Player
         private void DropItem()
         {
             Debug.Log("Attempting to drop item...");
+            
+            if (IsTrans)
+            {
+                Debug.Log("can't interact while transparent");
+                return;
+            }
 
             // 1. Check if we are standing in a valid drop zone
             Collider2D dropZone = Physics2D.OverlapCircle(transform.position, grabRadius, dropZoneLayer);
