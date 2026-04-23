@@ -1119,7 +1119,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""PickUp"",
+                    ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""0f1a1701-5989-4477-9a02-c95198e48906"",
                     ""expectedControlType"": """",
@@ -1189,7 +1189,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""PickUp"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1299,7 +1299,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Game_MoveLeft = m_Game.FindAction("MoveLeft", throwIfNotFound: true);
         m_Game_MoveUp = m_Game.FindAction("MoveUp", throwIfNotFound: true);
         m_Game_MoveDown = m_Game.FindAction("MoveDown", throwIfNotFound: true);
-        m_Game_PickUp = m_Game.FindAction("PickUp", throwIfNotFound: true);
+        m_Game_Interact = m_Game.FindAction("Interact", throwIfNotFound: true);
         m_Game_Trans = m_Game.FindAction("Trans", throwIfNotFound: true);
     }
 
@@ -1766,7 +1766,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Game_MoveLeft;
     private readonly InputAction m_Game_MoveUp;
     private readonly InputAction m_Game_MoveDown;
-    private readonly InputAction m_Game_PickUp;
+    private readonly InputAction m_Game_Interact;
     private readonly InputAction m_Game_Trans;
     /// <summary>
     /// Provides access to input actions defined in input action map "Game".
@@ -1796,9 +1796,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @MoveDown => m_Wrapper.m_Game_MoveDown;
         /// <summary>
-        /// Provides access to the underlying input action "Game/PickUp".
+        /// Provides access to the underlying input action "Game/Interact".
         /// </summary>
-        public InputAction @PickUp => m_Wrapper.m_Game_PickUp;
+        public InputAction @Interact => m_Wrapper.m_Game_Interact;
         /// <summary>
         /// Provides access to the underlying input action "Game/Trans".
         /// </summary>
@@ -1841,9 +1841,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @MoveDown.started += instance.OnMoveDown;
             @MoveDown.performed += instance.OnMoveDown;
             @MoveDown.canceled += instance.OnMoveDown;
-            @PickUp.started += instance.OnPickUp;
-            @PickUp.performed += instance.OnPickUp;
-            @PickUp.canceled += instance.OnPickUp;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
             @Trans.started += instance.OnTrans;
             @Trans.performed += instance.OnTrans;
             @Trans.canceled += instance.OnTrans;
@@ -1870,9 +1870,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @MoveDown.started -= instance.OnMoveDown;
             @MoveDown.performed -= instance.OnMoveDown;
             @MoveDown.canceled -= instance.OnMoveDown;
-            @PickUp.started -= instance.OnPickUp;
-            @PickUp.performed -= instance.OnPickUp;
-            @PickUp.canceled -= instance.OnPickUp;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
             @Trans.started -= instance.OnTrans;
             @Trans.performed -= instance.OnTrans;
             @Trans.canceled -= instance.OnTrans;
@@ -2159,12 +2159,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMoveDown(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "PickUp" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnPickUp(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Trans" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
