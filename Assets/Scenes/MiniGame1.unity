@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 27126866}
   - component: {fileID: 27126865}
   - component: {fileID: 27126864}
-  - component: {fileID: 27126863}
+  - component: {fileID: 27126868}
   m_Layer: 10
   m_Name: Capsule (1)
   m_TagString: Untagged
@@ -276,27 +276,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &27126863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 27126862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89b416316d51cae4db0ea4e6a1fa19d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerController
-  speed: 5
-  holdSlot: {fileID: 27126867}
-  grabbableLayer:
-    serializedVersion: 2
-    m_Bits: 2048
-  grabRadius: 1
-  dropZoneLayer:
-    serializedVersion: 2
-    m_Bits: 4096
 --- !u!50 &27126864
 Rigidbody2D:
   serializedVersion: 5
@@ -434,6 +413,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &27126868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27126862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c678a722ec84f38a052ca4eae2e21bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerMiniGame1
+  speed: 5
+  holdSlot: {fileID: 27126867}
+  grabbableLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  grabRadius: 1
+  dropZoneLayer:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!1 &621580091
 GameObject:
   m_ObjectHideFlags: 0

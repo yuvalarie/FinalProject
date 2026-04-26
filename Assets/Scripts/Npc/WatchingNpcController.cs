@@ -60,7 +60,7 @@ namespace Npc
                 RaycastHit2D hit = Physics2D.Raycast(eyes.position, directionToTarget, viewDistance, targetLayer);
                 if (hit.collider != null && hit.collider == targetCollider)
                 {
-                    var player = hit.collider.GetComponent<PlayerController>();
+                    var player = hit.collider.GetComponent<PlayerControllerBase>();
             
                     if (player != null)
                     {
