@@ -2,18 +2,14 @@ using UnityEngine;
 
 namespace Objects
 {
+    [RequireComponent(typeof(Collider2D))]
     public class PullableObject : MonoBehaviour
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-        
-        }
+        private Collider2D _pullableCollider;
+        [SerializeField] private Vector2 pullDirection = new Vector2(1, 0);
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
+        private bool _isBeingPulled = false;
+
     }
 }
+ 
