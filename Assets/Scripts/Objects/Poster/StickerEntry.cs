@@ -10,5 +10,6 @@ namespace Objects.Poster
         public Vector3 localPos;
         public Quaternion localRot;
         public Vector3 localScale;
+        public int sortingOrder;
     }
 }

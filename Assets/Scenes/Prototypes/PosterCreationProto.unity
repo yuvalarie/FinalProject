@@ -709,7 +709,7 @@ MonoBehaviour:
   dropZoneLayer:
     serializedVersion: 2
     m_Bits: 4096
-  startingStickerOrderInLayer: 0
+  startingStickerOrderInLayer: 1
 --- !u!114 &1015985438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -775,8 +775,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -325624611
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: fd8f49a63942b419285128bcd995819f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

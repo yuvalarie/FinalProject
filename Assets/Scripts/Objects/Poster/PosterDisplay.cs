@@ -32,6 +32,7 @@ namespace Objects.Poster
                     stickerInstance.transform.localPosition = entry.localPos;
                     stickerInstance.transform.localRotation = entry.localRot;
                     stickerInstance.transform.localScale = entry.localScale;
+                    stickerInstance.GetComponent<SpriteRenderer>().sortingOrder = entry.sortingOrder;
 
                     // remove the unnecessary components from the instantiated sticker prefab
                     if (stickerInstance.TryGetComponent<Rigidbody2D>(out var rb)) rb.simulated = false;

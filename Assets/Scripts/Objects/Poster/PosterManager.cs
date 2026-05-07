@@ -29,12 +29,14 @@ namespace Objects.Poster
             {
                 var sticker = child.GetComponent<PosterSticker>();
                 if (sticker == null) continue;
+                int orderInLayer = child.GetComponent<SpriteRenderer>()?.sortingOrder ?? 0;
                 var entry = new StickerEntry
                 {
                     id = sticker.StickerID,
                     localPos = child.localPosition,
                     localRot = child.localRotation,
-                    localScale = child.localScale
+                    localScale = child.localScale,
+                    sortingOrder = orderInLayer
                 };
                 posterData.placedStickers.Add(entry);
             }
