@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4f04d899ea87d945beceae3b1113ae1, type: 3}
+  m_Name: PosterObjectLibrary
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.Poster.PosterObjectLibrary
+  posterEntries:
+  - stickerID: 0
+    displayName: icon
+    stickerPrefab: {fileID: 5431043735024551708, guid: 8fc66ac1dfe0ca747895f44b36494737, type: 3}
+  - stickerID: 1
+    displayName: lifeon
+    stickerPrefab: {fileID: 7733401819360063059, guid: bcb4bba3b03549345bbc16e2a0932640, type: 3}
+  - stickerID: 2
+    displayName: milkbutton
+    stickerPrefab: {fileID: 1817206223801414786, guid: b7a787a4463c5d845a734bbd4e38aff6, type: 3}
+  - stickerID: 3
+    displayName: milkpres
+    stickerPrefab: {fileID: 1780723953250114903, guid: 9396a6092df5f86499be6b1719a79555, type: 3}
+  - stickerID: 4
+    displayName: shortbutton
+    stickerPrefab: {fileID: 7291362707553482039, guid: 18bb2daafc842f6498836eb7ffd739c7, type: 3}
+  - stickerID: 5
+    displayName: waterbutton
+    stickerPrefab: {fileID: 8447329845947861557, guid: fe0075c69e7dce2419b80146bb414046, type: 3}
