@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Objects.Poster
@@ -8,8 +9,21 @@ namespace Objects.Poster
         [SerializeField] private Transform posterContainer;
         // [SerializeField] private PosterObjectLibrary posterObjectLibrary;
 
+        private void Start()
+        {
+            if (posterData != null)
+            {
+                posterData.ClearData();
+            }
+        }
+
         public void SavePoster()
         {
+            if (posterData == null)
+            {
+                Debug.LogError("PosterManager: PosterData reference is missing in the inspector!");
+                return;
+            }
             posterData.ClearData();
             foreach (Transform child in posterContainer)
             {
