@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-namespace Objects
+namespace Objects.Poster
 {
     [Serializable]
     public class PosterLibraryEntry

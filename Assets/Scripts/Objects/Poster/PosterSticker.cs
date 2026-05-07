@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Objects
+namespace Objects.Poster
 {
     public class PosterSticker : MonoBehaviour
     {
