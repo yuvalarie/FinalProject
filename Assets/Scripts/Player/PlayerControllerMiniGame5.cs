@@ -11,7 +11,7 @@ namespace Player
      *          cutting nails - in the feet
      *          
      */
-    public class PlayerControllerMiniGame3 : PlayerControllerBase 
+    public class PlayerControllerMiniGame5 : PlayerControllerBase 
     {
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
