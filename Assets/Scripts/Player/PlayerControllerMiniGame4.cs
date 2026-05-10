@@ -36,6 +36,15 @@ namespace Player
                 Debug.Log("can't interact while transparent");
                 return;
             }
+            
+            foreach (RoamingNpcController npc in RoamingNpcController.AllNpcs)
+            {
+                if (npc.CanSeeTarget(IsTrans))
+                {
+                    Debug.Log($"FAILED: You were spotted by {npc.gameObject.name}! Cannot grab anything.");
+                    return; 
+                }
+            }
 
             RaycastHit2D hit = Physics2D.CircleCast(transform.position, grabRadius, Vector2.zero, 0f, grabbableLayer);
 
@@ -44,6 +53,7 @@ namespace Player
                 Debug.Log($"SUCCESS: Found '{hit.collider.name}' on the Grabbable layer!");
                 _heldItem = hit.collider.GetComponent<RoamingNpcController>();
                 if (_heldItem == null) return;
+                
                 Rigidbody2D itemRb = _heldItem.GetComponent<Rigidbody2D>();
                 if (itemRb != null)                {
                     itemRb.bodyType = RigidbodyType2D.Kinematic; // Kinematic for 2D
