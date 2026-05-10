@@ -52,6 +52,7 @@ namespace Player
             InputActions.Game.MoveDown.canceled += ctx => MoveInput.y = 0f;
             
             InputActions.Game.Interact.performed += OnInteraction;
+            InputActions.Game.Interact.canceled += OnInteraction;
             
             InputActions.Game.Trans.performed += ctx => { IsTrans = false; Renderer.color = RegColor;
             };
@@ -69,7 +70,7 @@ namespace Player
             HandleMovement(); 
         }
         
-        private void HandleMovement()
+        protected virtual void HandleMovement()
         {
             Vector3 targetVelocity = new Vector2(MoveInput.x * speed, MoveInput.y * speed);
             Rb.linearVelocity = targetVelocity;
