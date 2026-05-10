@@ -65,7 +65,7 @@ namespace Player
             InputActions.Game.Disable();
         }
 
-        void FixedUpdate()
+        protected virtual void FixedUpdate()
         {
             HandleMovement(); 
         }
