@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace Player
 {
-    public class PlayerControllerFriendsTinder : MonoBehaviour
+    public class PlayerControllerFriendsTinder : PlayerControllerBase
     {
         [SerializeField] private Transform leftButton;
         [SerializeField] private Transform rightButton;
