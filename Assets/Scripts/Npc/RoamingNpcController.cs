@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -7,32 +8,60 @@ namespace Npc
     [RequireComponent(typeof(Rigidbody2D))] // Forces Unity to add a Rigidbody2D
     public class RoamingNpcController : MonoBehaviour
     {
+        public static readonly List<RoamingNpcController> AllNpcs = new List<RoamingNpcController>();
+        
         [Header("Movement Settings")] 
         [Tooltip("Drag empty GameObjects here to define the path.")] 
         [SerializeField] protected Transform[] waypoints;
-
         [SerializeField] protected float moveSpeed = 2.0f;
         [SerializeField] protected float waitTimeAtPoint = 1.0f;
         [SerializeField] protected bool randomPatrol;
-        
         [Tooltip("How far the NPC wanders from its current spot if no waypoints are set.")]
         [SerializeField] protected float wanderRadius = 3f;
 
+        [Header("Vision Settings")]
+        [SerializeField, Tooltip("How far the NPC can see.")] 
+        private float viewDistance = 4f;
+        [SerializeField, Tooltip("The angle of the vision cone.")] 
+        private float viewAngle = 45f;
+        
         private int _currentWaypointIndex = 0;
         private float _waitTimer;
         private bool _isWaiting;
         private Vector2 _currentTargetPosition;
         private Rigidbody2D _rb;
+        private Vector2 _currentFacingDirection = Vector2.right;
+        
+        private Transform _playerTarget;
         
         public bool Roaming { get; set; } = true;
+        
+        private void OnEnable()
+        {
+            AllNpcs.Add(this);
+        }
+        
+        private void OnDisable()
+        {
+            AllNpcs.Remove(this);
+        }
         
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
         }
-
+        
         private void Start()
         {
+            GameObject playerObj = GameObject.FindGameObjectWithTag("Angel");
+            if (playerObj != null)
+            {
+                _playerTarget = playerObj.transform;
+            }
+            else
+            {
+                Debug.LogWarning("NPC cannot find the Player! Did you forget to tag your Player as 'Player'?");
+            }
             if (waypoints != null && waypoints.Length > 0)
             {
                 _currentTargetPosition = waypoints[_currentWaypointIndex].position;
@@ -43,7 +72,6 @@ namespace Npc
             }
         }
 
-        // Physics movement MUST happen in FixedUpdate
         private void FixedUpdate()
         {
             HandlePatrolPhysics();
@@ -53,7 +81,6 @@ namespace Npc
         {
             if (!Roaming) 
             {
-                // Instantly stop horizontal movement if grabbed, but keep gravity
                 _rb.linearVelocity = new Vector2(0, _rb.linearVelocity.y);
                 return;
             }
@@ -69,13 +96,12 @@ namespace Npc
                 return;
             }
 
-            // Calculate which way to walk on the X axis
             float directionX = _currentTargetPosition.x - transform.position.x;
             
-            // If we are far enough away, walk towards it using velocity
             if (Mathf.Abs(directionX) > 0.1f)
             {
                 float moveDirection = Mathf.Sign(directionX); // Returns 1 for right, -1 for left
+                _currentFacingDirection = moveDirection > 0 ? Vector2.right : Vector2.left;
                 _rb.linearVelocity = new Vector2(moveDirection * moveSpeed, _rb.linearVelocity.y);
             }
             else
@@ -83,8 +109,27 @@ namespace Npc
                 _isWaiting = true;
             }
         }
+        
+        public bool CanSeeTarget(bool isTargetTrans)
+        {
+            if (isTargetTrans || _playerTarget == null) return false;
 
-        // If the NPC walks into a wall before reaching its destination, give up and wait
+            float distanceToTarget = Vector2.Distance(transform.position, _playerTarget.position);
+
+            if (distanceToTarget <= viewDistance)
+            {
+                Vector2 directionToTarget = ((Vector2)_playerTarget.position - (Vector2)transform.position).normalized;
+                float angle = Vector2.Angle(_currentFacingDirection, directionToTarget);
+                
+                if (angle <= viewAngle / 2f)
+                {
+                    Debug.Log("Target is within vision cone! Checking line of sight...");
+                    return true; 
+                }
+            }
+            return false;
+        }
+
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (Roaming && !_isWaiting)
@@ -134,6 +179,18 @@ namespace Npc
         public void ClearWaypoints()
         {
             waypoints = Array.Empty<Transform>();
+        }
+        
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Vector3 startPos = transform.position;
+            Vector3 facing3D = new Vector3(_currentFacingDirection.x, _currentFacingDirection.y, 0);
+            if (facing3D == Vector3.zero) facing3D = Vector3.right;
+            Vector3 rightLimit = Quaternion.Euler(0, 0, viewAngle / 2f) * facing3D;
+            Vector3 leftLimit = Quaternion.Euler(0, 0, -viewAngle / 2f) * facing3D;
+            Gizmos.DrawLine(startPos, startPos + rightLimit * viewDistance);
+            Gizmos.DrawLine(startPos, startPos + leftLimit * viewDistance);
         }
     }
 }
