@@ -64,12 +64,12 @@ namespace Player
             InputActions.Game.Disable();
         }
 
-        void FixedUpdate()
+        protected virtual void FixedUpdate()
         {
             HandleMovement(); 
         }
         
-        private void HandleMovement()
+        protected virtual void HandleMovement()
         {
             Vector3 targetVelocity = new Vector2(MoveInput.x * speed, MoveInput.y * speed);
             Rb.linearVelocity = targetVelocity;
