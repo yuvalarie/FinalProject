@@ -110,9 +110,10 @@ namespace Npc
             }
         }
         
-        public bool CanSeeTarget(bool isTargetTrans)
+        public bool CanSeeTarget() //this used to take in a bool for whether the target is trans
         {
-            if (isTargetTrans || _playerTarget == null) return false;
+            //if (isTargetTrans || _playerTarget == null) return false;
+            if (_playerTarget == null) return false;
 
             float distanceToTarget = Vector2.Distance(transform.position, _playerTarget.position);
 

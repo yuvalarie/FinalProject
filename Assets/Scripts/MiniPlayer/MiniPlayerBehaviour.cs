@@ -19,12 +19,12 @@ namespace MiniPlayer
         [SerializeField, Tooltip("Place an empty GameObject at the absolute top-right the big character can reach.")]
         private Transform bigTopRightMarker;
         
-        [Header("Transparency Link")]
-        [SerializeField, Tooltip("The big character's controller script.")]
-        private PlayerControllerBase bigPlayerController;
-        
-        [SerializeField, Tooltip("The big character's SpriteRenderer.")]
-        private SpriteRenderer bigSpriteRenderer;
+        // [Header("Transparency Link")]
+        // [SerializeField, Tooltip("The big character's controller script.")]
+        // private PlayerControllerBase bigPlayerController;
+        //
+        // [SerializeField, Tooltip("The big character's SpriteRenderer.")]
+        // private SpriteRenderer bigSpriteRenderer;
         
         private SpriteRenderer mySpriteRenderer;
 
@@ -33,15 +33,15 @@ namespace MiniPlayer
             mySpriteRenderer = GetComponent<SpriteRenderer>();
         }
         
-        public bool IsTrans => bigPlayerController != null && bigPlayerController.IsTrans;
+        //public bool IsTrans => bigPlayerController != null && bigPlayerController.IsTrans;
 
         private void Update()
         {
             // --- 1. Visual Link ---
-            if (mySpriteRenderer != null && bigSpriteRenderer != null)
-            {
-                mySpriteRenderer.color = bigSpriteRenderer.color;
-            }
+            // if (mySpriteRenderer != null && bigSpriteRenderer != null)
+            // {
+            //     mySpriteRenderer.color = bigSpriteRenderer.color;
+            // }
             
             // --- 2. Movement Link ---
             if (bigCharacter == null || littleFrameBoundary == null || 
