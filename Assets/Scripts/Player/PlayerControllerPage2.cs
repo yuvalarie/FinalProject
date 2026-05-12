@@ -14,6 +14,12 @@ namespace Player
         [SerializeField] private float frame2To6Scale = 1f;
         [Tooltip("The scale factor for the player's size in frame 7.")]
         [SerializeField] private float frame7Scale = 1.5f;
+
+        [Header("Transition Settings")]
+        [Tooltip("How long the player is frozen in the dark between frames.")]
+        [SerializeField] private float freezeDuration = 2f;
+        [Tooltip("How far backward (to the left) the player is moved before entering the new frame.")]
+        [SerializeField] private float backwardDistance = 1.5f;
         
         [Header("Trigger Settings")]
         [Tooltip("Trigger to transition to frame 2.")]
@@ -36,9 +42,12 @@ namespace Player
         [SerializeField] private SpriteMask frame6Mask;
         [SerializeField] private SpriteMask frame7Mask;
         
-        protected override void OnInteraction(InputAction.CallbackContext context)
-        {
-        }
+        [Header("Elevator Settings")]
+        [SerializeField] private Collider2D elevatorTrigger;
+        [SerializeField] private Transform elevatorTarget;
+
+        private bool _isTransitioning;
+        private float _elevatorOffsetY;
 
         private void Start()
         {
@@ -50,39 +59,91 @@ namespace Player
             frame7Mask.gameObject.SetActive(false);
         }
 
+        protected override void OnInteraction(InputAction.CallbackContext context)
+        {
+        }
+        
+        protected override void HandleMovement()
+        {
+            // If the player is in the dark gutter, ignore their inputs completely!
+            if (_isTransitioning) return;
+            
+            // Otherwise, let the Base script apply the velocity as normal
+            base.HandleMovement();
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (other == elevatorTrigger)
+            {
+                _elevatorOffsetY = elevatorTarget.position.y - transform.position.y;
+                return;
+            }
+            if (_isTransitioning) return;
+            float moveDir = MoveInput.x != 0 ? MoveInput.x : Rb.linearVelocity.x;
+            if (moveDir == 0) return;
+            float directionSign = Mathf.Sign(moveDir);
+
             if (other == frame1To2Trigger)
             {
-                transform.localScale = Vector3.one * frame2To6Scale;
-                StartCoroutine(MoveToNextFrame(frame1Mask, frame2Mask));
+                StartCoroutine(directionSign > 0
+                    ? MoveToNextFrame(frame1Mask, frame2Mask, frame2To6Scale, directionSign)
+                    : MoveToNextFrame(frame2Mask, frame1Mask, frame1Scale, directionSign));
             }
             else if (other == frame2To3Trigger)
             {
-                StartCoroutine(MoveToNextFrame(frame2Mask, frame3Mask));
-                frame4Mask.gameObject.SetActive(true);
+                StartCoroutine(directionSign > 0
+                    ? MoveToNextFrame(frame2Mask, frame3Mask, frame2To6Scale, directionSign)
+                    : MoveToNextFrame(frame3Mask, frame2Mask, frame2To6Scale, directionSign));
+                frame4Mask.gameObject.SetActive(directionSign > 0);
             }
             else if (other == frame4To5Trigger)
             {
-                frame3Mask.gameObject.SetActive(false);
-                StartCoroutine(MoveToNextFrame(frame4Mask, frame5Mask));
+                frame3Mask.gameObject.SetActive((directionSign > 0));
+                StartCoroutine(directionSign > 0
+                    ? MoveToNextFrame(frame5Mask, frame4Mask, frame2To6Scale, directionSign)
+                    : MoveToNextFrame(frame4Mask, frame5Mask, frame2To6Scale, directionSign));
             }
             else if (other == frame5To6Trigger)
             {
-                StartCoroutine(MoveToNextFrame(frame5Mask, frame6Mask));
+                StartCoroutine(directionSign > 0
+                    ? MoveToNextFrame(frame6Mask, frame5Mask, frame2To6Scale, directionSign)
+                    : MoveToNextFrame(frame5Mask, frame6Mask, frame2To6Scale, directionSign));
             }
             else if (other == frame6To7Trigger)
             {
-                transform.localScale = Vector3.one * frame7Scale;
-                StartCoroutine(MoveToNextFrame(frame6Mask, frame7Mask));
+                StartCoroutine(directionSign > 0
+                    ? MoveToNextFrame(frame7Mask, frame6Mask, frame2To6Scale, directionSign)
+                    : MoveToNextFrame(frame6Mask, frame7Mask, frame7Scale, directionSign));
             }
         }
-        
-        private IEnumerator MoveToNextFrame(SpriteMask currentMask, SpriteMask nextMask)
+
+        private void OnTriggerStay2D(Collider2D other)
         {
+            if (other == elevatorTrigger && MoveInput.y != 0f)
+            {
+                elevatorTarget.position = new Vector3(
+                    elevatorTarget.position.x, 
+                    transform.position.y + _elevatorOffsetY, 
+                    elevatorTarget.position.z
+                );
+            }
+        }
+
+        private IEnumerator MoveToNextFrame(SpriteMask currentMask, SpriteMask nextMask, float targetScale, float directionSign)
+        {
+            _isTransitioning = true;
             currentMask.gameObject.SetActive(false);
-            yield return new WaitForSeconds(0.2f);
+            //InputActions.Game.Disable();
+            Rb.linearVelocity = Vector2.zero;
+            Rb.bodyType = RigidbodyType2D.Kinematic;
+            yield return new WaitForSeconds(freezeDuration);
+            //transform.position -= new Vector3(backwardDistance * directionSign, 0f, 0f);
+            transform.localScale = Vector3.one * targetScale;
             nextMask.gameObject.SetActive(true);
+            Rb.bodyType = RigidbodyType2D.Dynamic;
+            //InputActions.Game.Enable();
+            _isTransitioning = false;
         }
     }
 }

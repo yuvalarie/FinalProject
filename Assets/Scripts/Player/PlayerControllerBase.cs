@@ -18,7 +18,7 @@ namespace Player
 
         //public bool IsTrans { get; private set; }
 
-        private void Awake()
+        protected virtual void Awake()
         {
             InputActions = new InputSystem_Actions();
             InputActions.Game.Enable();
