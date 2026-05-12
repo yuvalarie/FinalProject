@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Objects;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Player
@@ -18,6 +19,7 @@ namespace Player
         private LayerMask dropZoneLayer;
         
         private GameObject _heldItem;
+        private GrabbableObject _heldGrabbable;
         
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
@@ -41,6 +43,16 @@ namespace Player
             {
                 Debug.Log($"SUCCESS: Found '{hit.collider.name}' on the Grabbable layer!");
                 _heldItem = hit.collider.gameObject;
+                // try get GrabbableObject component for debug purposes, but it's not required to pick up
+                _heldGrabbable = _heldItem.GetComponent<GrabbableObject>();
+                if (_heldGrabbable == null || _heldGrabbable.currentState != GrabbableObject.ObjectState.Start)
+                {
+                    Debug.LogWarning($"Wait, '{hit.collider.name}' is already placed? Are you sure it's on the right layer?");
+                    _heldItem = null;
+                    return;
+                }
+                _heldGrabbable.currentState = GrabbableObject.ObjectState.Held;
+                _heldGrabbable.SwitchState();
                 
                 Rigidbody2D itemRb = _heldItem.GetComponent<Rigidbody2D>();
                 if (itemRb != null) 
@@ -75,15 +87,19 @@ namespace Player
 
             if (dropZone != null)
             {
+                if (dropZone != _heldGrabbable.targetDropSpot) return;
                 Debug.Log($"SUCCESS: Dropping '{_heldItem.name}' in zone '{dropZone.name}'");
 
                 _heldItem.transform.SetParent(null);
+                _heldGrabbable.currentState = GrabbableObject.ObjectState.Placed;
+                _heldGrabbable.SwitchState();
         
                 // Optional: If you want it to drop exactly where the player is standing
                 // instead of floating in the HoldSlot position, uncomment this:
                 // _heldItem.transform.position = transform.position; 
 
                 _heldItem = null;
+                _heldGrabbable = null;
             }
             else
             {
