@@ -10,7 +10,7 @@ namespace Player
         Right
     }
     
-    public class PlayerControllerFriendsTinder : PlayerControllerBase
+    public class PlayerControllerMiniGame4New : PlayerControllerBase
     {
         [SerializeField] private Transform leftButton;
         [SerializeField] private Transform rightButton;
