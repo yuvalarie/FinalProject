@@ -29,11 +29,11 @@ namespace Player
         {
             Debug.Log("Attempting to pick up item...");
 
-            if (IsTrans)
-            {
-                Debug.Log("can't interact while transparent");
-                return;
-            }
+            // if (IsTrans)
+            // {
+            //     Debug.Log("can't interact while transparent");
+            //     return;
+            // }
 
             RaycastHit2D hit = Physics2D.CircleCast(transform.position, grabRadius, Vector2.zero, 0f, grabbableLayer);
 
@@ -65,11 +65,11 @@ namespace Player
         {
             Debug.Log("Attempting to drop item...");
             
-            if (IsTrans)
-            {
-                Debug.Log("can't interact while transparent");
-                return;
-            }
+            // if (IsTrans)
+            // {
+            //     Debug.Log("can't interact while transparent");
+            //     return;
+            // }
 
             Collider2D dropZone = Physics2D.OverlapCircle(transform.position, grabRadius, dropZoneLayer);
 

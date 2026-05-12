@@ -33,7 +33,7 @@ namespace MiniPlayer
             mySpriteRenderer = GetComponent<SpriteRenderer>();
         }
         
-        public bool IsTrans => bigPlayerController != null && bigPlayerController.IsTrans;
+        //public bool IsTrans => bigPlayerController != null && bigPlayerController.IsTrans;
 
         private void Update()
         {
