@@ -16,16 +16,16 @@ namespace Player
         protected Color RegColor;
         protected Color TransColor;
 
-        public bool IsTrans { get; private set; }
+        //public bool IsTrans { get; private set; }
 
-        private void Awake()
+        protected virtual void Awake()
         {
             InputActions = new InputSystem_Actions();
             InputActions.Game.Enable();
             
             Rb = GetComponent<Rigidbody2D>();
             
-            SetTransparency();
+            //SetTransparency();
         }
 
         private void SetTransparency()
@@ -37,7 +37,7 @@ namespace Player
             TransColor.b = RegColor.b;
             TransColor.a = 0.5f;
             Renderer.color = TransColor;
-            IsTrans = true;
+            //IsTrans = true;
         }
 
         private void OnEnable()
@@ -54,10 +54,10 @@ namespace Player
             InputActions.Game.Interact.performed += OnInteraction;
             InputActions.Game.Interact.canceled += OnInteraction;
             
-            InputActions.Game.Trans.performed += ctx => { IsTrans = false; Renderer.color = RegColor;
-            };
-            InputActions.Game.Trans.canceled += ctx => { IsTrans = true; Renderer.color = TransColor;
-            };
+            //InputActions.Game.Trans.performed += ctx => { IsTrans = false; Renderer.color = RegColor;
+            //};
+            //InputActions.Game.Trans.canceled += ctx => { IsTrans = true; Renderer.color = TransColor;
+            //};
         }
         
         private void OnDisable()

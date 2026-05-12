@@ -29,11 +29,11 @@ namespace Player
 
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
-            if (IsTrans) 
-            {
-                Debug.Log("Cannot slap while transparent!");
-                return;
-            }
+            // if (IsTrans) 
+            // {
+            //     Debug.Log("Cannot slap while transparent!");
+            //     return;
+            // }
 
             // Calculate the center of the slap slightly in front of the player
             Vector2 slapCenter = (Vector2)transform.position + (_lastFacingDirection * 0.75f);
