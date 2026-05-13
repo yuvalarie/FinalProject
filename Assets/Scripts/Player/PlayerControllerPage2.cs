@@ -79,43 +79,43 @@ namespace Player
                 _elevatorOffsetY = elevatorTarget.position.y - transform.position.y;
                 return;
             }
-            if (_isTransitioning) return;
-            float moveDir = MoveInput.x != 0 ? MoveInput.x : Rb.linearVelocity.x;
-            if (moveDir == 0) return;
-            float directionSign = Mathf.Sign(moveDir);
-
-            if (other == frame1To2Trigger)
-            {
-                StartCoroutine(directionSign > 0
-                    ? MoveToNextFrame(frame1Mask, frame2Mask, frame2To6Scale, directionSign)
-                    : MoveToNextFrame(frame2Mask, frame1Mask, frame1Scale, directionSign));
-            }
-            else if (other == frame2To3Trigger)
-            {
-                StartCoroutine(directionSign > 0
-                    ? MoveToNextFrame(frame2Mask, frame3Mask, frame2To6Scale, directionSign)
-                    : MoveToNextFrame(frame3Mask, frame2Mask, frame2To6Scale, directionSign));
-                frame4Mask.gameObject.SetActive(directionSign > 0);
-            }
-            else if (other == frame4To5Trigger)
-            {
-                frame3Mask.gameObject.SetActive((directionSign > 0));
-                StartCoroutine(directionSign > 0
-                    ? MoveToNextFrame(frame5Mask, frame4Mask, frame2To6Scale, directionSign)
-                    : MoveToNextFrame(frame4Mask, frame5Mask, frame2To6Scale, directionSign));
-            }
-            else if (other == frame5To6Trigger)
-            {
-                StartCoroutine(directionSign > 0
-                    ? MoveToNextFrame(frame6Mask, frame5Mask, frame2To6Scale, directionSign)
-                    : MoveToNextFrame(frame5Mask, frame6Mask, frame2To6Scale, directionSign));
-            }
-            else if (other == frame6To7Trigger)
-            {
-                StartCoroutine(directionSign > 0
-                    ? MoveToNextFrame(frame7Mask, frame6Mask, frame2To6Scale, directionSign)
-                    : MoveToNextFrame(frame6Mask, frame7Mask, frame7Scale, directionSign));
-            }
+            // if (_isTransitioning) return;
+            // float moveDir = MoveInput.x != 0 ? MoveInput.x : Rb.linearVelocity.x;
+            // if (moveDir == 0) return;
+            // float directionSign = Mathf.Sign(moveDir);
+            //
+            // if (other == frame1To2Trigger)
+            // {
+            //     StartCoroutine(directionSign > 0
+            //         ? MoveToNextFrame(frame1Mask, frame2Mask, frame2To6Scale, directionSign)
+            //         : MoveToNextFrame(frame2Mask, frame1Mask, frame1Scale, directionSign));
+            // }
+            // else if (other == frame2To3Trigger)
+            // {
+            //     StartCoroutine(directionSign > 0
+            //         ? MoveToNextFrame(frame2Mask, frame3Mask, frame2To6Scale, directionSign)
+            //         : MoveToNextFrame(frame3Mask, frame2Mask, frame2To6Scale, directionSign));
+            //     frame4Mask.gameObject.SetActive(directionSign > 0);
+            // }
+            // else if (other == frame4To5Trigger)
+            // {
+            //     frame3Mask.gameObject.SetActive((directionSign > 0));
+            //     StartCoroutine(directionSign > 0
+            //         ? MoveToNextFrame(frame5Mask, frame4Mask, frame2To6Scale, directionSign)
+            //         : MoveToNextFrame(frame4Mask, frame5Mask, frame2To6Scale, directionSign));
+            // }
+            // else if (other == frame5To6Trigger)
+            // {
+            //     StartCoroutine(directionSign > 0
+            //         ? MoveToNextFrame(frame6Mask, frame5Mask, frame2To6Scale, directionSign)
+            //         : MoveToNextFrame(frame5Mask, frame6Mask, frame2To6Scale, directionSign));
+            // }
+            // else if (other == frame6To7Trigger)
+            // {
+            //     StartCoroutine(directionSign > 0
+            //         ? MoveToNextFrame(frame7Mask, frame6Mask, frame2To6Scale, directionSign)
+            //         : MoveToNextFrame(frame6Mask, frame7Mask, frame7Scale, directionSign));
+            // }
         }
 
         private void OnTriggerStay2D(Collider2D other)
