@@ -1,7 +1,4 @@
-﻿using System;
-using UnityEditor.Experimental.GraphView;
-using UnityEngine;
-using UnityEngine.Serialization;
+﻿using UnityEngine;
 
 namespace Objects
 {
@@ -17,31 +14,45 @@ namespace Objects
         public Collider2D targetDropSpot;
         
         [Header("Visual Settings")]
-        [SerializeField] Sprite heldSprite;
-        [SerializeField] Sprite placedSprite;
-        
-        private SpriteRenderer _spriteRenderer;
+        [SerializeField] private GameObject startSprite;
+        [SerializeField] private GameObject heldSprite;
+        [SerializeField] private GameObject placedSprite;
         
         private void Start()
         {
-            _spriteRenderer = GetComponent<SpriteRenderer>();
+            SwitchState();
         }
 
         public void SwitchState()
         {
+            if (startSprite != null) startSprite.SetActive(false);
+            if (heldSprite != null) heldSprite.SetActive(false);
+            if (placedSprite != null) placedSprite.SetActive(false);
+
             switch (currentState)
             {
+                case ObjectState.Start:
+                    if (startSprite != null) startSprite.SetActive(true);
+                    break;
                 case ObjectState.Held:
-                    if (heldSprite != null) _spriteRenderer.sprite = heldSprite;
+                    if (heldSprite != null)
+                    {
+                        heldSprite.SetActive(true);
+                        var spriteRenderer = heldSprite.GetComponent<SpriteRenderer>();
+                        if (spriteRenderer != null) spriteRenderer.sortingOrder = 10;
+                    }
                     break;
                 case ObjectState.Placed:
-                    if (placedSprite != null) _spriteRenderer.sprite = placedSprite;
+                    if (placedSprite != null) placedSprite.SetActive(true);
                     break;
-                case ObjectState.Start:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
             }
+        }
+
+        public void CenterChildren()
+        {
+            if (startSprite != null) startSprite.transform.localPosition = Vector3.zero;
+            if (heldSprite != null) heldSprite.transform.localPosition = Vector3.zero;
+            if (placedSprite != null) placedSprite.transform.localPosition = Vector3.zero;
         }
     }
 }
