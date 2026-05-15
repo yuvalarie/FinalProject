@@ -12,14 +12,24 @@ namespace Objects
         [Header("Placement Settings")]
         [Tooltip("The specific trigger collider where this object belongs.")]
         public Collider2D targetDropSpot;
+        public Collider2D[] validDropSpots;
         
         [Header("Visual Settings")]
         [SerializeField] private GameObject startSprite;
         [SerializeField] private GameObject heldSprite;
         [SerializeField] private GameObject placedSprite;
+
+        private Vector3 _originalPosition;
+        private Vector3 _startSpriteOriginalPosition;
+        private Vector3 _heldSpriteOriginalPosition;
+        private Vector3 _placedSpriteOriginalPosition;
         
         private void Start()
         {
+            _originalPosition = transform.position;
+            if (startSprite != null) _startSpriteOriginalPosition = startSprite.transform.localPosition;
+            if (heldSprite != null) _heldSpriteOriginalPosition = heldSprite.transform.localPosition;
+            if (placedSprite != null) _placedSpriteOriginalPosition = placedSprite.transform.localPosition;
             SwitchState();
         }
 
@@ -53,6 +63,14 @@ namespace Objects
             if (startSprite != null) startSprite.transform.localPosition = Vector3.zero;
             if (heldSprite != null) heldSprite.transform.localPosition = Vector3.zero;
             if (placedSprite != null) placedSprite.transform.localPosition = Vector3.zero;
+        }
+        
+        public void ResetPosition()
+        {
+            transform.position = _originalPosition;
+            if (startSprite != null) startSprite.transform.localPosition = _startSpriteOriginalPosition;
+            if (heldSprite != null) heldSprite.transform.localPosition = _heldSpriteOriginalPosition;
+            if (placedSprite != null) placedSprite.transform.localPosition = _placedSpriteOriginalPosition;
         }
     }
 }

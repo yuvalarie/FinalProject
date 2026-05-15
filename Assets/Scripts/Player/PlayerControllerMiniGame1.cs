@@ -74,24 +74,39 @@ namespace Player
         private void DropItem()
         {
             Debug.Log("Attempting to drop item...");
+            DropZone validZone = null;
 
             Collider2D[] dropZones = Physics2D.OverlapCircleAll(transform.position, grabRadius, dropZoneLayer);
             bool foundCorrectZone = false;
 
             foreach (Collider2D zone in dropZones)
             {
-                if (zone == _heldGrabbable.targetDropSpot)
+                if (_heldGrabbable.targetDropSpot != null && zone == _heldGrabbable.targetDropSpot)
                 {
-                    foundCorrectZone = true;
+                    validZone = zone.GetComponent<DropZone>();
                     break;
                 }
+                if(_heldGrabbable.validDropSpots != null && _heldGrabbable.validDropSpots.Length > 0)
+                {
+                    foreach (Collider2D validSpot in _heldGrabbable.validDropSpots)
+                    {
+                        var dropZoneComponent = zone.GetComponent<DropZone>();
+                        if (zone == validSpot && dropZoneComponent != null && !dropZoneComponent.isOccupied)
+                        {
+                            validZone = dropZoneComponent;
+                            break;
+                        }
+                    }
+                }
+                if (validZone != null) break;
             }
 
-            if (foundCorrectZone)
+            if (validZone != null)
             {
                 Debug.Log($"SUCCESS: Dropping '{_heldGrabbable.gameObject.name}' in its correct zone!");
-
-                _heldGrabbable.transform.SetParent(_heldGrabbable.targetDropSpot.transform);
+                
+                validZone.isOccupied = true;
+                _heldGrabbable.transform.SetParent(validZone.transform);
                 _heldGrabbable.transform.localPosition = Vector3.zero; 
                 
                 _heldGrabbable.currentState = GrabbableObject.ObjectState.Placed;
@@ -99,13 +114,14 @@ namespace Player
                 
                 _heldGrabbable = null;
             }
-            else if (dropZones.Length > 0)
-            {
-                Debug.LogWarning("FAILED: You are inside a drop zone, but it is the WRONG zone for this specific item!");
-            }
             else
             {
-                Debug.Log("FAILED: Cannot drop here. You must be in a drop zone!");
+                Debug.Log("FAILED: Returning item to its original location.");
+                _heldGrabbable.transform.SetParent(null);
+                _heldGrabbable.ResetPosition();
+                _heldGrabbable.currentState = GrabbableObject.ObjectState.Start;
+                _heldGrabbable.SwitchState();
+                _heldGrabbable = null;
             }
         }
         
