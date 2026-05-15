@@ -1,48 +1,51 @@
-using System;
 using UnityEngine;
 
-namespace Managers
+namespace Camera
 {
+    [RequireComponent(typeof(UnityEngine.Camera))]
     public class CameraSizeAdjustment : MonoBehaviour
     {
-        private const float RatioChangeThreshold = 0.01f;
+        [Tooltip("The target aspect ratio. 16:9 is 1.777...")]
+        public float targetAspect = 16f / 9f;
 
-        [SerializeField] private Camera cam;
-        [Header("How many world Unity units fit into the screen width")]
-        [SerializeField] private float width = 10f;
-        private float _currRatio;
-
-        private void Awake()
+        void Start()
         {
-            if (cam == null)
-                cam = Camera.main;
-        
-            if (!cam.orthographic) 
-                Debug.LogWarning("Camera is not orthographic, this script is designed for orthographic cameras");
+            ForceAspectRatio();
         }
 
-        private void Start()
+        // Optional: If you allow players to resize the window while playing, 
+        // you can change 'Start' to 'Update'. Otherwise, Start is best for performance.
+        private void ForceAspectRatio()
         {
-            _currRatio = (float)Screen.width / Screen.height;
-            FitToWidth();
-        }
+            // Determine the current screen proportion
+            float windowAspect = (float)Screen.width / (float)Screen.height;
 
-        private void Update()
-        {
-            var newRatio = (float)Screen.width / Screen.height;
-            if (Math.Abs(newRatio - _currRatio) > RatioChangeThreshold)
+            // Compare it to your target (16:9)
+            float scaleHeight = windowAspect / targetAspect;
+
+            UnityEngine.Camera cam = GetComponent<UnityEngine.Camera>();
+
+            // If the screen is narrower than 16:9 (e.g., 16:10 or 4:3) -> Letterbox (Top/Bottom bars)
+            if (scaleHeight < 1.0f)
             {
-                _currRatio = newRatio;
-                FitToWidth();
+                Rect rect = cam.rect;
+                rect.width = 1.0f;
+                rect.height = scaleHeight;
+                rect.x = 0;
+                rect.y = (1.0f - scaleHeight) / 2.0f;
+                cam.rect = rect;
             }
-        }
-
-        private void FitToWidth()
-        {
-            var currHeight = cam.orthographicSize * 2f;
-            var currWidth = currHeight * _currRatio;
-            var ratioChange = width / currWidth;
-            cam.orthographicSize *= ratioChange;
+            // If the screen is wider than 16:9 (e.g., Ultra-wide) -> Pillarbox (Left/Right bars)
+            else 
+            {
+                float scaleWidth = 1.0f / scaleHeight;
+                Rect rect = cam.rect;
+                rect.width = scaleWidth;
+                rect.height = 1.0f;
+                rect.x = (1.0f - scaleWidth) / 2.0f;
+                rect.y = 0;
+                cam.rect = rect;
+            }
         }
     }
 }
