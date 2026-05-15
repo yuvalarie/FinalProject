@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 16173159}
   - component: {fileID: 16173160}
   - component: {fileID: 16173161}
+  - component: {fileID: 16173162}
   m_Layer: 12
   m_Name: book 1 gray
   m_TagString: Untagged
@@ -264,6 +265,19 @@ PolygonCollider2D:
       - {x: 0.20833333, y: 0.6388889}
       - {x: 0.14351852, y: 0.75}
   m_UseDelaunayMesh: 0
+--- !u!114 &16173162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16173158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &27921492
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,6 +289,7 @@ GameObject:
   - component: {fileID: 27921493}
   - component: {fileID: 27921494}
   - component: {fileID: 27921495}
+  - component: {fileID: 27921496}
   m_Layer: 12
   m_Name: toothbrush gary
   m_TagString: Untagged
@@ -411,6 +426,19 @@ PolygonCollider2D:
       - {x: 0.3240741, y: -0.2777778}
       - {x: 0.30555555, y: -0.24074075}
   m_UseDelaunayMesh: 0
+--- !u!114 &27921496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27921492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &29129311
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,6 +450,7 @@ GameObject:
   - component: {fileID: 29129312}
   - component: {fileID: 29129313}
   - component: {fileID: 29129314}
+  - component: {fileID: 29129315}
   m_Layer: 12
   m_Name: cream gary
   m_TagString: Untagged
@@ -564,6 +593,19 @@ PolygonCollider2D:
       - {x: 0.3564815, y: -0.33333334}
       - {x: 0.3564815, y: -0.1851852}
   m_UseDelaunayMesh: 0
+--- !u!114 &29129315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29129311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &51839237
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,6 +617,7 @@ GameObject:
   - component: {fileID: 51839238}
   - component: {fileID: 51839239}
   - component: {fileID: 51839240}
+  - component: {fileID: 51839241}
   m_Layer: 12
   m_Name: pupet1 gary
   m_TagString: Untagged
@@ -752,6 +795,19 @@ PolygonCollider2D:
       - {x: -0.06481481, y: -0.25925925}
       - {x: 0.027777778, y: -0.2685185}
   m_UseDelaunayMesh: 0
+--- !u!114 &51839241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51839237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &72072170
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,6 +856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
   targetDropSpot: {fileID: 2105342998}
+  validDropSpots: []
   startSprite: {fileID: 1183601617}
   heldSprite: {fileID: 1183601617}
   placedSprite: {fileID: 1298897444}
@@ -1277,6 +1334,7 @@ GameObject:
   - component: {fileID: 152873076}
   - component: {fileID: 152873077}
   - component: {fileID: 152873078}
+  - component: {fileID: 152873079}
   m_Layer: 12
   m_Name: pic gary
   m_TagString: Untagged
@@ -1420,6 +1478,19 @@ PolygonCollider2D:
       - {x: 0.6898148, y: -0.44444445}
       - {x: 0.7361111, y: -0.42592594}
   m_UseDelaunayMesh: 0
+--- !u!114 &152873079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152873075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &206240837
 GameObject:
   m_ObjectHideFlags: 0
@@ -2095,6 +2166,7 @@ GameObject:
   - component: {fileID: 243262755}
   - component: {fileID: 243262756}
   - component: {fileID: 243262757}
+  - component: {fileID: 243262758}
   m_Layer: 12
   m_Name: snowball gary
   m_TagString: Untagged
@@ -2238,6 +2310,19 @@ PolygonCollider2D:
       - {x: 0.44444445, y: -0.3703704}
       - {x: 0.44444445, y: 0.0925926}
   m_UseDelaunayMesh: 0
+--- !u!114 &243262758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243262754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &264501463
 GameObject:
   m_ObjectHideFlags: 0
@@ -2286,6 +2371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
   targetDropSpot: {fileID: 51839240}
+  validDropSpots: []
   startSprite: {fileID: 1487781226}
   heldSprite: {fileID: 1487781226}
   placedSprite: {fileID: 2078064834}
@@ -2300,6 +2386,7 @@ GameObject:
   - component: {fileID: 293969112}
   - component: {fileID: 293969113}
   - component: {fileID: 293969114}
+  - component: {fileID: 293969115}
   m_Layer: 12
   m_Name: Teeth lar gary
   m_TagString: Untagged
@@ -2438,6 +2525,97 @@ PolygonCollider2D:
       - {x: 0.39814815, y: -0.5740741}
       - {x: 0.39814815, y: 0.3240741}
   m_UseDelaunayMesh: 0
+--- !u!114 &293969115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293969111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
+--- !u!1 &303797488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 303797490}
+  - component: {fileID: 303797489}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &303797489
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303797488}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.021736145, y: 0.2499702}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 6.694969, y: 4.0648503}
+  m_EdgeRadius: 0
+--- !u!4 &303797490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303797488}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.62, y: -2.34, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &304189905
 GameObject:
   m_ObjectHideFlags: 0
@@ -2998,6 +3176,7 @@ GameObject:
   - component: {fileID: 335364217}
   - component: {fileID: 335364218}
   - component: {fileID: 335364219}
+  - component: {fileID: 335364220}
   m_Layer: 12
   m_Name: flashlight gary
   m_TagString: Untagged
@@ -3140,6 +3319,19 @@ PolygonCollider2D:
       - {x: 0.4398148, y: -0.02314815}
       - {x: 0.5046296, y: 0.041666668}
   m_UseDelaunayMesh: 0
+--- !u!114 &335364220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335364216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &337677237
 GameObject:
   m_ObjectHideFlags: 0
@@ -3188,6 +3380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
   targetDropSpot: {fileID: 1857096697}
+  validDropSpots: []
   startSprite: {fileID: 1509269832}
   heldSprite: {fileID: 1509269832}
   placedSprite: {fileID: 905515088}
@@ -3239,6 +3432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
   targetDropSpot: {fileID: 347663201}
+  validDropSpots: []
   startSprite: {fileID: 2016121930}
   heldSprite: {fileID: 2016121930}
   placedSprite: {fileID: 842495470}
@@ -3253,6 +3447,7 @@ GameObject:
   - component: {fileID: 347663199}
   - component: {fileID: 347663200}
   - component: {fileID: 347663201}
+  - component: {fileID: 347663202}
   m_Layer: 12
   m_Name: pupet3 gary
   m_TagString: Untagged
@@ -3440,6 +3635,19 @@ PolygonCollider2D:
       - {x: -0.25462964, y: -0.14814815}
       - {x: -0.24537037, y: -0.14814815}
   m_UseDelaunayMesh: 0
+--- !u!114 &347663202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347663198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &356323818
 GameObject:
   m_ObjectHideFlags: 0
@@ -3487,7 +3695,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
-  targetDropSpot: {fileID: 1190400133}
+  targetDropSpot: {fileID: 0}
+  validDropSpots:
+  - {fileID: 16173161}
+  - {fileID: 1717613611}
+  - {fileID: 1749316461}
+  - {fileID: 620295300}
+  - {fileID: 1190400133}
+  - {fileID: 1403756605}
   startSprite: {fileID: 2144471570}
   heldSprite: {fileID: 2144471570}
   placedSprite: {fileID: 206240837}
@@ -3628,7 +3843,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
-  targetDropSpot: {fileID: 1749316461}
+  targetDropSpot: {fileID: 0}
+  validDropSpots:
+  - {fileID: 16173161}
+  - {fileID: 1717613611}
+  - {fileID: 1749316461}
+  - {fileID: 620295300}
+  - {fileID: 1190400133}
+  - {fileID: 1403756605}
   startSprite: {fileID: 216498586}
   heldSprite: {fileID: 216498586}
   placedSprite: {fileID: 1503769565}
@@ -3643,6 +3865,7 @@ GameObject:
   - component: {fileID: 427196288}
   - component: {fileID: 427196289}
   - component: {fileID: 427196290}
+  - component: {fileID: 427196291}
   m_Layer: 12
   m_Name: Postre5 gary
   m_TagString: Untagged
@@ -3776,6 +3999,19 @@ PolygonCollider2D:
       - {x: 0.2638889, y: -0.36574075}
       - {x: 0.2638889, y: 0.36574075}
   m_UseDelaunayMesh: 0
+--- !u!114 &427196291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427196287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &433958201
 GameObject:
   m_ObjectHideFlags: 0
@@ -3806,7 +4042,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
-  targetDropSpot: {fileID: 1717613611}
+  targetDropSpot: {fileID: 0}
+  validDropSpots:
+  - {fileID: 16173161}
+  - {fileID: 1717613611}
+  - {fileID: 1749316461}
+  - {fileID: 620295300}
+  - {fileID: 1190400133}
+  - {fileID: 1403756605}
   startSprite: {fileID: 551359129}
   heldSprite: {fileID: 551359129}
   placedSprite: {fileID: 320239509}
@@ -3875,6 +4118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
   targetDropSpot: {fileID: 243262757}
+  validDropSpots: []
   startSprite: {fileID: 304189905}
   heldSprite: {fileID: 304189905}
   placedSprite: {fileID: 1640684659}
@@ -4106,6 +4350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
   targetDropSpot: {fileID: 27921495}
+  validDropSpots: []
   startSprite: {fileID: 593848409}
   heldSprite: {fileID: 593848409}
   placedSprite: {fileID: 1211331503}
@@ -4337,6 +4582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
   targetDropSpot: {fileID: 1254596453}
+  validDropSpots: []
   startSprite: {fileID: 578365907}
   heldSprite: {fileID: 578365907}
   placedSprite: {fileID: 1287828110}
@@ -5659,6 +5905,7 @@ GameObject:
   - component: {fileID: 599504637}
   - component: {fileID: 599504638}
   - component: {fileID: 599504639}
+  - component: {fileID: 599504640}
   m_Layer: 12
   m_Name: Pillow2 gray
   m_TagString: Untagged
@@ -5814,6 +6061,19 @@ PolygonCollider2D:
       - {x: -0.1388889, y: -0.43055555}
       - {x: 0.11111111, y: -0.3935185}
   m_UseDelaunayMesh: 0
+--- !u!114 &599504640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599504636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &620295297
 GameObject:
   m_ObjectHideFlags: 0
@@ -5825,6 +6085,7 @@ GameObject:
   - component: {fileID: 620295298}
   - component: {fileID: 620295299}
   - component: {fileID: 620295300}
+  - component: {fileID: 620295301}
   m_Layer: 12
   m_Name: book 4 gray
   m_TagString: Untagged
@@ -5961,6 +6222,19 @@ PolygonCollider2D:
       - {x: 0.20833333, y: 0.3148148}
       - {x: 0.18981482, y: 0.6851852}
   m_UseDelaunayMesh: 0
+--- !u!114 &620295301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620295297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &625688354
 GameObject:
   m_ObjectHideFlags: 0
@@ -6009,6 +6283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
   targetDropSpot: {fileID: 1440561900}
+  validDropSpots: []
   startSprite: {fileID: 2027904296}
   heldSprite: {fileID: 2027904296}
   placedSprite: {fileID: 1090794831}
@@ -6060,6 +6335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
   targetDropSpot: {fileID: 427196290}
+  validDropSpots: []
   startSprite: {fileID: 334957869}
   heldSprite: {fileID: 334957869}
   placedSprite: {fileID: 1171470077}
@@ -6074,6 +6350,7 @@ GameObject:
   - component: {fileID: 655035950}
   - component: {fileID: 655035951}
   - component: {fileID: 655035952}
+  - component: {fileID: 655035953}
   m_Layer: 12
   m_Name: poster 1 gary
   m_TagString: Untagged
@@ -6223,6 +6500,19 @@ PolygonCollider2D:
       - {x: 0.9675926, y: -0.8240741}
       - {x: 0.9212963, y: -0.5185185}
   m_UseDelaunayMesh: 0
+--- !u!114 &655035953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655035949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &677218341
 GameObject:
   m_ObjectHideFlags: 0
@@ -6234,6 +6524,7 @@ GameObject:
   - component: {fileID: 677218342}
   - component: {fileID: 677218343}
   - component: {fileID: 677218344}
+  - component: {fileID: 677218345}
   m_Layer: 12
   m_Name: Asset 7
   m_TagString: Untagged
@@ -6380,6 +6671,19 @@ PolygonCollider2D:
       - {x: 0.12962963, y: -0.16666667}
       - {x: 0.16666667, y: -0.11111111}
   m_UseDelaunayMesh: 0
+--- !u!114 &677218345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677218341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &685933594
 GameObject:
   m_ObjectHideFlags: 0
@@ -6852,6 +7156,84 @@ PolygonCollider2D:
       - {x: 0.7731482, y: -1.4537038}
       - {x: 0.8657408, y: -1.3981482}
   m_UseDelaunayMesh: 0
+--- !u!1 &696923689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 696923691}
+  - component: {fileID: 696923690}
+  m_Layer: 0
+  m_Name: GameObject (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &696923690
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696923689}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.03260541, y: 0.2499702}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 4.7604156, y: 4.0648503}
+  m_EdgeRadius: 0
+--- !u!4 &696923691
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696923689}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.31, y: -2.34, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &707578759
 GameObject:
   m_ObjectHideFlags: 0
@@ -6863,6 +7245,7 @@ GameObject:
   - component: {fileID: 707578760}
   - component: {fileID: 707578761}
   - component: {fileID: 707578762}
+  - component: {fileID: 707578763}
   m_Layer: 12
   m_Name: chips gary
   m_TagString: Untagged
@@ -7012,6 +7395,19 @@ PolygonCollider2D:
       - {x: 0.8240741, y: -0.25925925}
       - {x: 0.8240741, y: -0.12037037}
   m_UseDelaunayMesh: 0
+--- !u!114 &707578763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707578759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &708266370
 GameObject:
   m_ObjectHideFlags: 0
@@ -7060,6 +7456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
   targetDropSpot: {fileID: 677218344}
+  validDropSpots: []
   startSprite: {fileID: 1629474600}
   heldSprite: {fileID: 1629474600}
   placedSprite: {fileID: 368001908}
@@ -7201,6 +7598,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
   targetDropSpot: {fileID: 1924181127}
+  validDropSpots: []
   startSprite: {fileID: 923543065}
   heldSprite: {fileID: 923543065}
   placedSprite: {fileID: 105667013}
@@ -7393,6 +7791,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
   targetDropSpot: {fileID: 599504639}
+  validDropSpots: []
   startSprite: {fileID: 815334984}
   heldSprite: {fileID: 815334984}
   placedSprite: {fileID: 1702711317}
@@ -7668,6 +8067,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
   targetDropSpot: {fileID: 1665759240}
+  validDropSpots: []
   startSprite: {fileID: 149957252}
   heldSprite: {fileID: 149957252}
   placedSprite: {fileID: 521144952}
@@ -8377,6 +8777,84 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &866834105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 866834107}
+  - component: {fileID: 866834106}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &866834106
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866834105}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.21736503, y: 0.20649707}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 5.8255086, y: 3.9779046}
+  m_EdgeRadius: 0
+--- !u!4 &866834107
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866834105}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.94, y: 1.94, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &873632308
 GameObject:
   m_ObjectHideFlags: 0
@@ -8605,6 +9083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
   targetDropSpot: {fileID: 335364219}
+  validDropSpots: []
   startSprite: {fileID: 206851226}
   heldSprite: {fileID: 206851226}
   placedSprite: {fileID: 475463673}
@@ -9080,7 +9559,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
-  targetDropSpot: {fileID: 16173161}
+  targetDropSpot: {fileID: 0}
+  validDropSpots:
+  - {fileID: 16173161}
+  - {fileID: 1717613611}
+  - {fileID: 1749316461}
+  - {fileID: 620295300}
+  - {fileID: 1190400133}
+  - {fileID: 1403756605}
   startSprite: {fileID: 857231138}
   heldSprite: {fileID: 857231138}
   placedSprite: {fileID: 2041306531}
@@ -9654,6 +10140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
   targetDropSpot: {fileID: 655035952}
+  validDropSpots: []
   startSprite: {fileID: 1032033971}
   heldSprite: {fileID: 1032033971}
   placedSprite: {fileID: 557174259}
@@ -10022,6 +10509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
   targetDropSpot: {fileID: 29129314}
+  validDropSpots: []
   startSprite: {fileID: 1559581129}
   heldSprite: {fileID: 1559581129}
   placedSprite: {fileID: 96711757}
@@ -10073,6 +10561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
   targetDropSpot: {fileID: 1851077724}
+  validDropSpots: []
   startSprite: {fileID: 1713879245}
   heldSprite: {fileID: 1713879245}
   placedSprite: {fileID: 1022542791}
@@ -10087,6 +10576,7 @@ GameObject:
   - component: {fileID: 1168213779}
   - component: {fileID: 1168213780}
   - component: {fileID: 1168213781}
+  - component: {fileID: 1168213782}
   m_Layer: 12
   m_Name: pupet4 gary
   m_TagString: Untagged
@@ -10252,6 +10742,19 @@ PolygonCollider2D:
       - {x: 0.34722224, y: -0.5694445}
       - {x: 0.45833334, y: -0.6157407}
   m_UseDelaunayMesh: 0
+--- !u!114 &1168213782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168213778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &1171470077
 GameObject:
   m_ObjectHideFlags: 0
@@ -10537,6 +11040,7 @@ GameObject:
   - component: {fileID: 1190400131}
   - component: {fileID: 1190400132}
   - component: {fileID: 1190400133}
+  - component: {fileID: 1190400134}
   m_Layer: 12
   m_Name: book 5 gray
   m_TagString: Untagged
@@ -10671,6 +11175,19 @@ PolygonCollider2D:
       - {x: 0.2037037, y: 0.5324074}
       - {x: 0.17592593, y: 0.7268519}
   m_UseDelaunayMesh: 0
+--- !u!114 &1190400134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190400130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &1197970459
 GameObject:
   m_ObjectHideFlags: 0
@@ -10796,7 +11313,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
-  targetDropSpot: {fileID: 620295300}
+  targetDropSpot: {fileID: 0}
+  validDropSpots:
+  - {fileID: 16173161}
+  - {fileID: 1717613611}
+  - {fileID: 1749316461}
+  - {fileID: 620295300}
+  - {fileID: 1190400133}
+  - {fileID: 1403756605}
   startSprite: {fileID: 1543458019}
   heldSprite: {fileID: 1543458019}
   placedSprite: {fileID: 1141793233}
@@ -10901,6 +11425,7 @@ GameObject:
   - component: {fileID: 1254596451}
   - component: {fileID: 1254596452}
   - component: {fileID: 1254596453}
+  - component: {fileID: 1254596454}
   m_Layer: 12
   m_Name: pupet gray
   m_TagString: Untagged
@@ -11056,6 +11581,19 @@ PolygonCollider2D:
       - {x: 0.0787037, y: -0.25}
       - {x: 0.060185187, y: -0.25}
   m_UseDelaunayMesh: 0
+--- !u!114 &1254596454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254596450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &1275046130
 GameObject:
   m_ObjectHideFlags: 0
@@ -11067,6 +11605,7 @@ GameObject:
   - component: {fileID: 1275046131}
   - component: {fileID: 1275046132}
   - component: {fileID: 1275046133}
+  - component: {fileID: 1275046134}
   m_Layer: 12
   m_Name: Asset 4
   m_TagString: Untagged
@@ -11218,6 +11757,19 @@ PolygonCollider2D:
       - {x: 0.08796296, y: -0.39814815}
       - {x: 0.2175926, y: -0.4074074}
   m_UseDelaunayMesh: 0
+--- !u!114 &1275046134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275046130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &1287828110
 GameObject:
   m_ObjectHideFlags: 0
@@ -11409,6 +11961,7 @@ GameObject:
   - component: {fileID: 1311552246}
   - component: {fileID: 1311552247}
   - component: {fileID: 1311552248}
+  - component: {fileID: 1311552249}
   m_Layer: 12
   m_Name: meds gary
   m_TagString: Untagged
@@ -11550,6 +12103,19 @@ PolygonCollider2D:
       - {x: 0.3148148, y: -0.17592593}
       - {x: 0.3148148, y: -0.074074075}
   m_UseDelaunayMesh: 0
+--- !u!114 &1311552249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311552245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &1380261600
 GameObject:
   m_ObjectHideFlags: 0
@@ -11598,6 +12164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
   targetDropSpot: {fileID: 152873078}
+  validDropSpots: []
   startSprite: {fileID: 598521240}
   heldSprite: {fileID: 598521240}
   placedSprite: {fileID: 969275033}
@@ -11612,6 +12179,7 @@ GameObject:
   - component: {fileID: 1403756603}
   - component: {fileID: 1403756604}
   - component: {fileID: 1403756605}
+  - component: {fileID: 1403756606}
   m_Layer: 12
   m_Name: book 6 gray
   m_TagString: Untagged
@@ -11747,6 +12315,19 @@ PolygonCollider2D:
       - {x: 0.20833333, y: 0.3101852}
       - {x: 0.1712963, y: 0.7546296}
   m_UseDelaunayMesh: 0
+--- !u!114 &1403756606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403756602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &1419912831
 GameObject:
   m_ObjectHideFlags: 0
@@ -11999,6 +12580,7 @@ GameObject:
   - component: {fileID: 1433472960}
   - component: {fileID: 1433472961}
   - component: {fileID: 1433472962}
+  - component: {fileID: 1433472963}
   m_Layer: 12
   m_Name: Porn gary
   m_TagString: Untagged
@@ -12151,6 +12733,19 @@ PolygonCollider2D:
       - {x: 0.7222222, y: -0.38425925}
       - {x: 0.8611111, y: -0.23611112}
   m_UseDelaunayMesh: 0
+--- !u!114 &1433472963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433472959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &1440561897
 GameObject:
   m_ObjectHideFlags: 0
@@ -12162,6 +12757,7 @@ GameObject:
   - component: {fileID: 1440561898}
   - component: {fileID: 1440561899}
   - component: {fileID: 1440561900}
+  - component: {fileID: 1440561901}
   m_Layer: 12
   m_Name: alarm clock gary
   m_TagString: Untagged
@@ -12316,6 +12912,19 @@ PolygonCollider2D:
       - {x: 0.33333334, y: -0.041666668}
       - {x: 0.3425926, y: 0.013888889}
   m_UseDelaunayMesh: 0
+--- !u!114 &1440561901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440561897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &1476001030
 GameObject:
   m_ObjectHideFlags: 0
@@ -12364,6 +12973,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
   targetDropSpot: {fileID: 707578762}
+  validDropSpots: []
   startSprite: {fileID: 1509400438}
   heldSprite: {fileID: 1509400438}
   placedSprite: {fileID: 873632308}
@@ -13730,6 +14340,280 @@ MonoBehaviour:
   littleFrameBoundary: {fileID: 1197970460}
   bigBottomLeftMarker: {fileID: 1804555197}
   bigTopRightMarker: {fileID: 90818985}
+  mappings:
+  - panelCollider: {fileID: 866834106}
+    xMapping:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    yMapping:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: -2.7535608
+        outSlope: -2.7535608
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.25435838
+        value: 0.29960874
+        inSlope: -1.5749063
+        outSlope: -1.5749063
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.9944458
+        value: 0.0063476562
+        inSlope: -0.39625198
+        outSlope: -0.39625198
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  - panelCollider: {fileID: 303797489}
+    xMapping:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    yMapping:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: -0.9242531
+        outSlope: -0.9242531
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.52230275
+        value: 0.5172601
+        inSlope: -1.0031834
+        outSlope: -1.0031834
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.9944458
+        value: 0.0063476562
+        inSlope: -1.0821136
+        outSlope: -1.0821136
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  - panelCollider: {fileID: 866834106}
+    xMapping:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    yMapping:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: -2.7535608
+        outSlope: -2.7535608
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.25435838
+        value: 0.29960874
+        inSlope: -1.5749063
+        outSlope: -1.5749063
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.9944458
+        value: 0.0063476562
+        inSlope: -0.39625198
+        outSlope: -0.39625198
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  - panelCollider: {fileID: 696923690}
+    xMapping:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    yMapping:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  - panelCollider: {fileID: 1733765974}
+    xMapping:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0.0027770996
+        value: 0.9968262
+        inSlope: -1.0056444
+        outSlope: -1.0056444
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.9861145
+        value: 0.007938385
+        inSlope: -1.0056444
+        outSlope: -1.0056444
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    yMapping:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  smoothTime: 0.05
 --- !u!1 &1629474600
 GameObject:
   m_ObjectHideFlags: 0
@@ -13998,6 +14882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
   targetDropSpot: {fileID: 1275046133}
+  validDropSpots: []
   startSprite: {fileID: 1424486048}
   heldSprite: {fileID: 1424486048}
   placedSprite: {fileID: 726431757}
@@ -14102,6 +14987,7 @@ GameObject:
   - component: {fileID: 1665759238}
   - component: {fileID: 1665759239}
   - component: {fileID: 1665759240}
+  - component: {fileID: 1665759241}
   m_Layer: 12
   m_Name: Asset 17
   m_TagString: Untagged
@@ -14243,6 +15129,19 @@ PolygonCollider2D:
       - {x: 0.6944445, y: -0.6064815}
       - {x: 0.6944445, y: 0.6342593}
   m_UseDelaunayMesh: 0
+--- !u!114 &1665759241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665759237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &1671121322
 GameObject:
   m_ObjectHideFlags: 0
@@ -14291,6 +15190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
   targetDropSpot: {fileID: 1311552248}
+  validDropSpots: []
   startSprite: {fileID: 550311679}
   heldSprite: {fileID: 550311679}
   placedSprite: {fileID: 907083271}
@@ -14650,6 +15550,7 @@ GameObject:
   - component: {fileID: 1717613609}
   - component: {fileID: 1717613610}
   - component: {fileID: 1717613611}
+  - component: {fileID: 1717613612}
   m_Layer: 12
   m_Name: book 2 gray
   m_TagString: Untagged
@@ -14786,6 +15687,19 @@ PolygonCollider2D:
       - {x: 0.20833333, y: 0.19444445}
       - {x: 0.18055555, y: 0.712963}
   m_UseDelaunayMesh: 0
+--- !u!114 &1717613612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717613608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &1717943817
 GameObject:
   m_ObjectHideFlags: 0
@@ -14846,6 +15760,84 @@ Transform:
   - {fileID: 243262755}
   - {fileID: 1857096695}
   - {fileID: 27921493}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1733765973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1733765975}
+  - component: {fileID: 1733765974}
+  m_Layer: 0
+  m_Name: GameObject (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &1733765974
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733765973}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.02173686, y: 2.3475456}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 4.17353, y: 8.259998}
+  m_EdgeRadius: 0
+--- !u!4 &1733765975
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733765973}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.96, y: -2.34, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1738799392
@@ -15039,6 +16031,7 @@ GameObject:
   - component: {fileID: 1749316459}
   - component: {fileID: 1749316460}
   - component: {fileID: 1749316461}
+  - component: {fileID: 1749316462}
   m_Layer: 12
   m_Name: book 3 gray
   m_TagString: Untagged
@@ -15175,6 +16168,19 @@ PolygonCollider2D:
       - {x: 0.20833333, y: -0.7083333}
       - {x: 0.20833333, y: 0.24537037}
   m_UseDelaunayMesh: 0
+--- !u!114 &1749316462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749316458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &1804555196
 GameObject:
   m_ObjectHideFlags: 0
@@ -15254,6 +16260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
   targetDropSpot: {fileID: 1838090416}
+  validDropSpots: []
   startSprite: {fileID: 685933594}
   heldSprite: {fileID: 685933594}
   placedSprite: {fileID: 329578910}
@@ -15268,6 +16275,7 @@ GameObject:
   - component: {fileID: 1838090414}
   - component: {fileID: 1838090415}
   - component: {fileID: 1838090416}
+  - component: {fileID: 1838090417}
   m_Layer: 12
   m_Name: earphons gary
   m_TagString: Untagged
@@ -15441,6 +16449,19 @@ PolygonCollider2D:
       - {x: 0.9027778, y: -0.27314815}
       - {x: 1.0231482, y: -0.097222224}
   m_UseDelaunayMesh: 0
+--- !u!114 &1838090417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838090413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &1851077721
 GameObject:
   m_ObjectHideFlags: 0
@@ -15452,6 +16473,7 @@ GameObject:
   - component: {fileID: 1851077722}
   - component: {fileID: 1851077723}
   - component: {fileID: 1851077724}
+  - component: {fileID: 1851077725}
   m_Layer: 12
   m_Name: Poster 2 gary
   m_TagString: Untagged
@@ -15588,6 +16610,19 @@ PolygonCollider2D:
       - {x: 0.5925926, y: -0.8240741}
       - {x: 0.5925926, y: 0.8055556}
   m_UseDelaunayMesh: 0
+--- !u!114 &1851077725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851077721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &1857096694
 GameObject:
   m_ObjectHideFlags: 0
@@ -15599,6 +16634,7 @@ GameObject:
   - component: {fileID: 1857096695}
   - component: {fileID: 1857096696}
   - component: {fileID: 1857096697}
+  - component: {fileID: 1857096698}
   m_Layer: 12
   m_Name: thonge gray
   m_TagString: Untagged
@@ -15749,6 +16785,19 @@ PolygonCollider2D:
       - {x: -0.11574074, y: -0.2638889}
       - {x: -0.041666668, y: -0.16203704}
   m_UseDelaunayMesh: 0
+--- !u!114 &1857096698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857096694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &1893371713
 GameObject:
   m_ObjectHideFlags: 0
@@ -15850,6 +16899,7 @@ GameObject:
   - component: {fileID: 1924181125}
   - component: {fileID: 1924181126}
   - component: {fileID: 1924181127}
+  - component: {fileID: 1924181128}
   m_Layer: 12
   m_Name: pupet2 gray
   m_TagString: Untagged
@@ -16025,6 +17075,19 @@ PolygonCollider2D:
       - {x: 0.2037037, y: -0.5509259}
       - {x: 0.28703704, y: -0.5509259}
   m_UseDelaunayMesh: 0
+--- !u!114 &1924181128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924181124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &1936283614
 GameObject:
   m_ObjectHideFlags: 0
@@ -17113,7 +18176,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
-  targetDropSpot: {fileID: 1403756605}
+  targetDropSpot: {fileID: 0}
+  validDropSpots:
+  - {fileID: 16173161}
+  - {fileID: 1717613611}
+  - {fileID: 1749316461}
+  - {fileID: 620295300}
+  - {fileID: 1190400133}
+  - {fileID: 1403756605}
   startSprite: {fileID: 773903535}
   heldSprite: {fileID: 773903535}
   placedSprite: {fileID: 859164917}
@@ -17165,6 +18235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
   targetDropSpot: {fileID: 293969114}
+  validDropSpots: []
   startSprite: {fileID: 691902000}
   heldSprite: {fileID: 691902000}
   placedSprite: {fileID: 474752058}
@@ -17269,6 +18340,7 @@ GameObject:
   - component: {fileID: 2105342996}
   - component: {fileID: 2105342997}
   - component: {fileID: 2105342998}
+  - component: {fileID: 2105342999}
   m_Layer: 12
   m_Name: Asset 2
   m_TagString: Untagged
@@ -17406,6 +18478,19 @@ PolygonCollider2D:
       - {x: 0.30555555, y: 0.08796296}
       - {x: 0.28703704, y: 0.4027778}
   m_UseDelaunayMesh: 0
+--- !u!114 &2105342999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105342995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1644eaa4f0c94074bbe1cea56a66bebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.DropZone
+  isOccupied: 0
 --- !u!1 &2118768732
 GameObject:
   m_ObjectHideFlags: 0
@@ -17454,6 +18539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
   currentState: 0
   targetDropSpot: {fileID: 1433472962}
+  validDropSpots: []
   startSprite: {fileID: 2018120604}
   heldSprite: {fileID: 2018120604}
   placedSprite: {fileID: 224863496}
@@ -17697,3 +18783,7 @@ SceneRoots:
   - {fileID: 1197970461}
   - {fileID: 1804555197}
   - {fileID: 90818985}
+  - {fileID: 866834107}
+  - {fileID: 303797490}
+  - {fileID: 696923691}
+  - {fileID: 1733765975}
