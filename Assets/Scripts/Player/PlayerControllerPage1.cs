@@ -38,8 +38,8 @@ namespace Player
                 var rowTransition = other.GetComponent<RowTransition>();
                 if (rowTransition == null) return;
                 transform.position = rowTransition.destinationSpawn.position;
-                transform.localScale = new Vector3(rowTransition.targetScale, rowTransition.targetScale, 1f);
                 _spriteRenderer.sortingOrder = rowTransition.sortingOrder;
+                transform.localScale = new Vector3(rowTransition.targetScale, rowTransition.targetScale, 1f);
             }
         }
     }

@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Transitions.RowTransition
   destinationSpawn: {fileID: 1772683056}
-  targetScale: 0.2144127
+  targetScale: 0.2643709
   sortingOrder: 4
 --- !u!1 &195938380
 GameObject:
@@ -540,7 +540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Transitions.RowTransition
   destinationSpawn: {fileID: 549987114}
-  targetScale: 0.1432009
+  targetScale: 0.1833544
   sortingOrder: 3
 --- !u!61 &239295500
 BoxCollider2D:
@@ -576,7 +576,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.03408718, y: 0.36572647}
+  m_Offset: {x: 0.03408718, y: 0.238904}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -586,7 +586,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.1267376, y: 1.1521816}
+  m_Size: {x: 0.1267376, y: 0.8985367}
   m_EdgeRadius: 0
 --- !u!1 &286013076
 GameObject:
@@ -634,7 +634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Transitions.RowTransition
   destinationSpawn: {fileID: 1443608741}
-  targetScale: 0.09439222
+  targetScale: 0.1352452
   sortingOrder: 2
 --- !u!61 &286013079
 BoxCollider2D:
@@ -670,7 +670,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.07216525, y: 0.1371131}
+  m_Offset: {x: -0.07216525, y: 0.18225193}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -680,7 +680,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.08590889, y: 0.5621977}
+  m_Size: {x: 0.08590889, y: 0.47192}
   m_EdgeRadius: 0
 --- !u!1 &321278627
 GameObject:
@@ -2454,7 +2454,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.14265108, y: -0.20462704}
+  m_Offset: {x: -0.14265108, y: -0.31333256}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2464,7 +2464,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.09101343, y: 1.1613503}
+  m_Size: {x: 0.09101343, y: 0.9439392}
   m_EdgeRadius: 0
 --- !u!114 &859103714
 MonoBehaviour:
@@ -2479,7 +2479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Transitions.RowTransition
   destinationSpawn: {fileID: 47646393}
-  targetScale: 0.480992
+  targetScale: 1.058808
   sortingOrder: 5
 --- !u!1 &895041517
 GameObject:
@@ -3279,7 +3279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Transitions.RowTransition
   destinationSpawn: {fileID: 1782450975}
-  targetScale: 0.2144127
+  targetScale: 0.2643709
   sortingOrder: 4
 --- !u!1 &1333227777
 GameObject:
@@ -5283,7 +5283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Transitions.RowTransition
   destinationSpawn: {fileID: 1698479649}
-  targetScale: 0.14320089
+  targetScale: 0.1833544
   sortingOrder: 3
 --- !u!1 &2054451880
 GameObject:
