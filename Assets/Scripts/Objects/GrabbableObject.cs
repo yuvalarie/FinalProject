@@ -23,6 +23,8 @@ namespace Objects
         private Vector3 _startSpriteOriginalPosition;
         private Vector3 _heldSpriteOriginalPosition;
         private Vector3 _placedSpriteOriginalPosition;
+        private int _startSpriteOriginalSortingOrder;
+        private SpriteRenderer _startSpriteRenderer;
         
         private void Start()
         {
@@ -30,6 +32,11 @@ namespace Objects
             if (startSprite != null) _startSpriteOriginalPosition = startSprite.transform.localPosition;
             if (heldSprite != null) _heldSpriteOriginalPosition = heldSprite.transform.localPosition;
             if (placedSprite != null) _placedSpriteOriginalPosition = placedSprite.transform.localPosition;
+            if (startSprite != null)
+            {
+                _startSpriteRenderer = startSprite.GetComponent<SpriteRenderer>();
+                if (_startSpriteRenderer != null) _startSpriteOriginalSortingOrder = _startSpriteRenderer.sortingOrder;
+            }
             SwitchState();
         }
 
@@ -68,6 +75,7 @@ namespace Objects
         public void ResetPosition()
         {
             transform.position = _originalPosition;
+            _startSpriteRenderer.sortingOrder = _startSpriteOriginalSortingOrder;
             if (startSprite != null) startSprite.transform.localPosition = _startSpriteOriginalPosition;
             if (heldSprite != null) heldSprite.transform.localPosition = _heldSpriteOriginalPosition;
             if (placedSprite != null) placedSprite.transform.localPosition = _placedSpriteOriginalPosition;
