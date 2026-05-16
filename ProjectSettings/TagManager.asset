@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Angel
+  - Transition
+  - End
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Pickable
   - Dropable
   - Npc
-  - 
+  - Frame
   - 
   - 
   - 

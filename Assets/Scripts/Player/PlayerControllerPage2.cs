@@ -7,82 +7,80 @@ namespace Player
 {
     public class PlayerControllerPage2 : PlayerControllerBase
     {
+        private static readonly int Open = Animator.StringToHash("Open");
+
         [Header("Size Settings")]
-        [Tooltip("The scale factor for the player's size in frame 1.")]
-        [SerializeField] private float frame1Scale = 0.5f;
-        [Tooltip("The scale factor for the player's size in frame 2-6.")]
-        [SerializeField] private float frame2To6Scale = 1f;
+        [Tooltip("The scale factor for the player's size in frame 1-6.")]
+        [SerializeField] private float frame1To6Scale = 1f;
         [Tooltip("The scale factor for the player's size in frame 7.")]
         [SerializeField] private float frame7Scale = 1.5f;
         
+        [Header("Elevator Settings")]
+        [SerializeField] private Collider2D elevatorTrigger;
+        [SerializeField] private Transform elevatorTarget;
+        
         [Header("Trigger Settings")]
-        [Tooltip("Trigger to transition to frame 2.")]
-        [SerializeField] private Collider2D frame1To2Trigger;
-        [Tooltip("Trigger to transition to frame 3.")]
-        [SerializeField] private Collider2D frame2To3Trigger;
-        [Tooltip("Trigger to transition to frame 5.")]
-        [SerializeField] private Collider2D frame4To5Trigger;
-        [Tooltip("Trigger to transition to frame 6.")]
-        [SerializeField] private Collider2D frame5To6Trigger;
-        [Tooltip("Trigger to transition to frame 7.")]
-        [SerializeField] private Collider2D frame6To7Trigger;
+        [SerializeField, Tooltip("The trigger that initiates the transition from frame 6 to 7.")]
+        private Collider2D frame6To7Trigger;
+        [SerializeField, Tooltip("The trigger that initiates the transition from frame 7 to 6.")]
+        private Collider2D frame7To6Trigger;
         
-        [Header("Mask Settings")]
-        [SerializeField] private SpriteMask frame1Mask;
-        [SerializeField] private SpriteMask frame2Mask;
-        [SerializeField] private SpriteMask frame3Mask;
-        [SerializeField] private SpriteMask frame4Mask;
-        [SerializeField] private SpriteMask frame5Mask;
-        [SerializeField] private SpriteMask frame6Mask;
-        [SerializeField] private SpriteMask frame7Mask;
-        
-        protected override void OnInteraction(InputAction.CallbackContext context)
-        {
-        }
+        [Header("Helmet interaction settings")]
+        [SerializeField, Tooltip("The placement for the helmet.")]
+        private Vector3 helmetPlacement;
+        [SerializeField] private GameObject helmetObject;
+        [SerializeField] private Animator leftDoorAnimator;
+        [SerializeField] private Animator rightDoorAnimator;
+
+        private SpriteRenderer _spriteRenderer;
+        private float _elevatorOffsetY;
+        private bool _hasHelmet = false;
 
         private void Start()
         {
-            frame2Mask.gameObject.SetActive(false);
-            frame3Mask.gameObject.SetActive(false);
-            frame4Mask.gameObject.SetActive(false);
-            frame5Mask.gameObject.SetActive(false);
-            frame6Mask.gameObject.SetActive(false);
-            frame7Mask.gameObject.SetActive(false);
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        protected override void OnInteraction(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            if (_hasHelmet) return;
+            helmetObject.transform.SetParent(gameObject.transform);
+            helmetObject.transform.localPosition = helmetPlacement;
+            _hasHelmet = true;
+            leftDoorAnimator.SetTrigger(Open);
+            rightDoorAnimator.SetTrigger(Open);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other == frame1To2Trigger)
+            if (other == elevatorTrigger)
             {
-                transform.localScale = Vector3.one * frame2To6Scale;
-                StartCoroutine(MoveToNextFrame(frame1Mask, frame2Mask));
+                _elevatorOffsetY = elevatorTarget.position.y - transform.position.y;
             }
-            else if (other == frame2To3Trigger)
+            if (other == frame6To7Trigger)
             {
-                StartCoroutine(MoveToNextFrame(frame2Mask, frame3Mask));
-                frame4Mask.gameObject.SetActive(true);
+                transform.localScale = new Vector3(frame7Scale, frame7Scale, 1f);
+                _spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+                
             }
-            else if (other == frame4To5Trigger)
+            else if (other == frame7To6Trigger)
             {
-                frame3Mask.gameObject.SetActive(false);
-                StartCoroutine(MoveToNextFrame(frame4Mask, frame5Mask));
-            }
-            else if (other == frame5To6Trigger)
-            {
-                StartCoroutine(MoveToNextFrame(frame5Mask, frame6Mask));
-            }
-            else if (other == frame6To7Trigger)
-            {
-                transform.localScale = Vector3.one * frame7Scale;
-                StartCoroutine(MoveToNextFrame(frame6Mask, frame7Mask));
+                transform.localScale = new Vector3(frame1To6Scale, frame1To6Scale, 1f);
+                _spriteRenderer.maskInteraction = SpriteMaskInteraction.None;
             }
         }
-        
-        private IEnumerator MoveToNextFrame(SpriteMask currentMask, SpriteMask nextMask)
+
+        private void OnTriggerStay2D(Collider2D other)
         {
-            currentMask.gameObject.SetActive(false);
-            yield return new WaitForSeconds(0.2f);
-            nextMask.gameObject.SetActive(true);
+            if (other == elevatorTrigger && MoveInput.y != 0f)
+            {
+                elevatorTarget.position = new Vector3(
+                    elevatorTarget.position.x, 
+                    transform.position.y + _elevatorOffsetY, 
+                    elevatorTarget.position.z
+                );
+            }
         }
     }
 }
