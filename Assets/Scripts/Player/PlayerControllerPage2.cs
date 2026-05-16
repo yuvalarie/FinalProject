@@ -7,6 +7,8 @@ namespace Player
 {
     public class PlayerControllerPage2 : PlayerControllerBase
     {
+        private static readonly int Open = Animator.StringToHash("Open");
+
         [Header("Size Settings")]
         [Tooltip("The scale factor for the player's size in frame 1-6.")]
         [SerializeField] private float frame1To6Scale = 1f;
@@ -22,9 +24,17 @@ namespace Player
         private Collider2D frame6To7Trigger;
         [SerializeField, Tooltip("The trigger that initiates the transition from frame 7 to 6.")]
         private Collider2D frame7To6Trigger;
+        
+        [Header("Helmet interaction settings")]
+        [SerializeField, Tooltip("The placement for the helmet.")]
+        private Vector3 helmetPlacement;
+        [SerializeField] private GameObject helmetObject;
+        [SerializeField] private Animator leftDoorAnimator;
+        [SerializeField] private Animator rightDoorAnimator;
 
         private SpriteRenderer _spriteRenderer;
         private float _elevatorOffsetY;
+        private bool _hasHelmet = false;
 
         private void Start()
         {
@@ -33,6 +43,13 @@ namespace Player
 
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
+            if (!context.performed) return;
+            if (_hasHelmet) return;
+            helmetObject.transform.SetParent(gameObject.transform);
+            helmetObject.transform.localPosition = helmetPlacement;
+            _hasHelmet = true;
+            leftDoorAnimator.SetTrigger(Open);
+            rightDoorAnimator.SetTrigger(Open);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
