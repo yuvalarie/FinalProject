@@ -2,6 +2,7 @@
 using Transitions;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Player
 {
@@ -9,21 +10,27 @@ namespace Player
     {
         [SerializeField] private Sprite page1Sprite;
         private SpriteRenderer _spriteRenderer;
-        private bool _hasChangedSprite = false;
+        public bool canMove;
  
         private void Start()
         {
                 _spriteRenderer = GetComponent<SpriteRenderer>();
         }
+        
+        protected override void HandleMovement()
+        {
+            if (!canMove)
+            {
+                Rb.linearVelocity = Vector2.zero;
+                return;
+            }
+            base.HandleMovement();
+        }
 
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
-            if (_hasChangedSprite) return;
-            if (page1Sprite == null) return;
-            _spriteRenderer.sprite = page1Sprite;
-            _hasChangedSprite = true;
         }
-        
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Transition"))
@@ -33,11 +40,6 @@ namespace Player
                 transform.position = rowTransition.destinationSpawn.position;
                 transform.localScale = new Vector3(rowTransition.targetScale, rowTransition.targetScale, 1f);
                 _spriteRenderer.sortingOrder = rowTransition.sortingOrder;
-            }
-
-            if (other.CompareTag("End"))
-            {
-                gameObject.SetActive(false);
             }
         }
     }
