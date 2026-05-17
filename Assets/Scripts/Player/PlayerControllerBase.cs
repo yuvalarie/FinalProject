@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -77,5 +78,10 @@ namespace Player
         }
 
         protected abstract void OnInteraction(InputAction.CallbackContext context);
+
+        private void OnDestroy()
+        {
+            InputActions?.Dispose();
+        }
     }
 }
