@@ -7561,6 +7561,16 @@ MonoBehaviour:
   dropZoneLayer:
     serializedVersion: 2
     m_Bits: 4096
+  totalObjectsToPlace: 31
+  secondStatePercentage: 0
+  secondStateSprite: {fileID: 0}
+  thirdStatePercentage: 0
+  thirdStateSprite: {fileID: 0}
+  fourthStatePercentage: 0
+  fourthStateSprite: {fileID: 0}
+  fifthStatePercentage: 0
+  fifthStateSprite: {fileID: 0}
+  tableSpriteRenderer: {fileID: 0}
 --- !u!50 &755708804
 Rigidbody2D:
   serializedVersion: 5

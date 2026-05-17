@@ -1,6 +1,8 @@
-﻿using Objects;
+﻿using System;
+using Objects;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Player
 {
@@ -17,8 +19,21 @@ namespace Player
         
         [SerializeField, Tooltip("The layer used for valid drop zones.")]
         private LayerMask dropZoneLayer;
+
+        [Header("Table Status Settings")] 
+        [SerializeField] private int totalObjectsToPlace;
+        [SerializeField] private int secondStatePercentage;
+        [SerializeField] private Sprite secondStateSprite;
+        [SerializeField] private int thirdStatePercentage;
+        [SerializeField] private Sprite thirdStateSprite;
+        [SerializeField] private int fourthStatePercentage;
+        [SerializeField] private Sprite fourthStateSprite;
+        [SerializeField] private int fifthStatePercentage;
+        [SerializeField] private Sprite fifthStateSprite;
+        [SerializeField] private SpriteRenderer tableSpriteRenderer;  
         
         private GrabbableObject _heldGrabbable;
+        private int _numOfPlacedObjects = 0;
         
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
@@ -27,7 +42,24 @@ namespace Player
             if (_heldGrabbable == null) TryPickUp();
             else DropItem();
         }
-        
+
+        private void Update()
+        {
+            UpdateTableStatus();
+        }
+
+        private void UpdateTableStatus()
+        {
+            tableSpriteRenderer.sprite = (_numOfPlacedObjects / totalObjectsToPlace * 100) switch
+            {
+                var n when n >= fifthStatePercentage && fifthStateSprite != null => fifthStateSprite,
+                var n when n >= fourthStatePercentage && fourthStateSprite != null => fourthStateSprite,
+                var n when n >= thirdStatePercentage && thirdStateSprite != null => thirdStateSprite,
+                var n when n >= secondStatePercentage && secondStateSprite != null => secondStateSprite,
+                _ => tableSpriteRenderer.sprite
+            };
+        }
+
         private void TryPickUp()
         {
             Debug.Log("Attempting to pick up item...");
@@ -113,6 +145,7 @@ namespace Player
                 _heldGrabbable.SwitchState();
                 
                 _heldGrabbable = null;
+                _numOfPlacedObjects++;
             }
             else
             {
