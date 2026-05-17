@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Managers;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +9,8 @@ namespace Player
     public class PlayerControllerPage2 : PlayerControllerBase
     {
         private static readonly int Open = Animator.StringToHash("Open");
+        
+        [SerializeField,Tooltip("The next scene's name")] private string nextSceneName;
 
         [Header("Size Settings")]
         [Tooltip("The scale factor for the player's size in frame 1-6.")]
@@ -81,6 +84,11 @@ namespace Player
                 StartCoroutine(LastFrameSequenceCoroutine());
                 hasActivatedLastFrameSequence = true;
             }
+            
+            if(other.CompareTag("End")) 
+            {
+                SceneLoader.Instance?.LoadScene(nextSceneName);
+            }
         }
 
         private void OnTriggerStay2D(Collider2D other)
@@ -98,7 +106,7 @@ namespace Player
         private IEnumerator LastFrameSequenceCoroutine()
         {
             textBubble1.SetActive(true);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.1f);
             textBubble2.SetActive(true);
         }
     }

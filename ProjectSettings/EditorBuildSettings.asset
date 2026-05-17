@@ -14,6 +14,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Prototypes/PosterDisplay.unity
     guid: 77f5647460617b44b89bdeeb5de030cd
+  - enabled: 1
+    path: Assets/Scenes/ArtPage1.unity
+    guid: c16e644746d834f699558a1d8cc7e27d
+  - enabled: 1
+    path: Assets/Scenes/ArtNewPage2.unity
+    guid: 3ca5c4da119674bce8a5efb720fd2f3f
+  - enabled: 1
+    path: Assets/Scenes/ArtPage3.unity
+    guid: 2466e9452f83e46db88dac6cbc0a4ac6
+  - enabled: 1
+    path: Assets/Scenes/MiniGame1-WithArt.unity
+    guid: ee4c6451a8c45b444bac61016b3e00ea
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Managers;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,6 +9,8 @@ namespace Player
 {
     public class PlayerControllerPage3 : PlayerControllerBase
     {
+        [SerializeField, Tooltip("next scene name")] private string nextSceneName;
+        
         [Header("Text Settings")]
         [SerializeField] private GameObject textBubble;
         [SerializeField] private GameObject textBubble1;
@@ -21,6 +24,7 @@ namespace Player
         [SerializeField] private GameObject letterObject;
         [SerializeField] private GameObject doorObject;
         [SerializeField] private GameObject doorHandleObject;
+        [SerializeField] private GameObject endTriggerObject;
         
         private int _interactionCount = 0;
         protected override void OnInteraction(InputAction.CallbackContext context)
@@ -86,12 +90,17 @@ namespace Player
             textBubble3.SetActive(false);
             yield return new WaitForSeconds(0.1f);
             textBubble4.SetActive(true);
+            endTriggerObject.SetActive(true);
             _interactionCount++;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Start") && _interactionCount == 0) StartCoroutine(Sequence1Coroutine());
+            if (other.CompareTag("End") && _interactionCount >= 5)
+            {
+                SceneLoader.Instance?.LoadScene(nextSceneName);
+            }
         }
     }
 }
