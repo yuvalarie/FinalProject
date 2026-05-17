@@ -1,4 +1,5 @@
 ﻿using System;
+using Managers;
 using Transitions;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,6 +14,8 @@ namespace Player
         private SpriteRenderer _spriteRenderer;
         public bool canMove;
         private float _lastTransitionTime = -1f;
+        
+        [SerializeField, Tooltip("The next scene's name")] private string nextSceneName;
  
         private void Start()
         {
@@ -44,6 +47,11 @@ namespace Player
                 _spriteRenderer.sortingOrder = rowTransition.sortingOrder;
                 transform.localScale = new Vector3(rowTransition.targetScale, rowTransition.targetScale, 1f);
                 _lastTransitionTime = Time.time;
+            }
+
+            if (other.CompareTag("End"))
+            {
+                SceneLoader.Instance.LoadScene(nextSceneName);
             }
         }
     }

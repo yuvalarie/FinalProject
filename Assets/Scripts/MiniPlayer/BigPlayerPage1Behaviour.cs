@@ -1,4 +1,5 @@
 ﻿using Player;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -40,6 +41,7 @@ namespace MiniPlayer
             {
                 gameObject.SetActive(false);
                 player.canMove = true;
+                other.gameObject.SetActive(false);
             }
         }
     }
