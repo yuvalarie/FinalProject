@@ -32,9 +32,15 @@ namespace Player
         [SerializeField] private Animator leftDoorAnimator;
         [SerializeField] private Animator rightDoorAnimator;
 
+        [Header("Last frame interaction settings")] 
+        [SerializeField] private Collider2D lastFrameTrigger;
+        [SerializeField] private GameObject textBubble1;
+        [SerializeField] private GameObject textBubble2;
+
         private SpriteRenderer _spriteRenderer;
         private float _elevatorOffsetY;
         private bool _hasHelmet = false;
+        private bool hasActivatedLastFrameSequence = false;
 
         private void Start()
         {
@@ -69,6 +75,12 @@ namespace Player
                 transform.localScale = new Vector3(frame1To6Scale, frame1To6Scale, 1f);
                 _spriteRenderer.maskInteraction = SpriteMaskInteraction.None;
             }
+            
+            if (other == lastFrameTrigger && !hasActivatedLastFrameSequence)
+            {
+                StartCoroutine(LastFrameSequenceCoroutine());
+                hasActivatedLastFrameSequence = true;
+            }
         }
 
         private void OnTriggerStay2D(Collider2D other)
@@ -81,6 +93,13 @@ namespace Player
                     elevatorTarget.position.z
                 );
             }
+        }
+
+        private IEnumerator LastFrameSequenceCoroutine()
+        {
+            textBubble1.SetActive(true);
+            yield return new WaitForSeconds(1f);
+            textBubble2.SetActive(true);
         }
     }
 }
