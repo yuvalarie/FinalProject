@@ -63,9 +63,18 @@ namespace Objects
                     if (placedSprite != null)
                     {
                         placedSprite.SetActive(true);
+                        SpriteRenderer targetSpriteRenderer = null;
+                        if (targetDropSpot != null)
+                        {
+                            targetSpriteRenderer = targetDropSpot.GetComponent<SpriteRenderer>();
+                        }
+                        else
+                        {
+                            targetSpriteRenderer = validDropSpots[0].GetComponent<SpriteRenderer>();
+                        }
                         var spriteRenderer = placedSprite.GetComponent<SpriteRenderer>();
-                        var targetSpriteRenderer = targetDropSpot.GetComponent<SpriteRenderer>();
-                        if (spriteRenderer != null && targetSpriteRenderer != null) spriteRenderer.sortingOrder = targetSpriteRenderer.sortingOrder;
+                        if (spriteRenderer != null && targetSpriteRenderer != null) spriteRenderer.sortingOrder = targetSpriteRenderer.sortingOrder + 1;
+            
                     }
                     break;
             }
