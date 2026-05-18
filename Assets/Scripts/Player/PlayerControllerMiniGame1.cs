@@ -22,17 +22,12 @@ namespace Player
 
         [Header("Table Status Settings")] 
         [SerializeField] private int totalObjectsToPlace;
-        [SerializeField] private int secondStatePercentage;
-        [SerializeField] private Sprite secondStateSprite;
-        [SerializeField] private int thirdStatePercentage;
-        [SerializeField] private Sprite thirdStateSprite;
-        [SerializeField] private int fourthStatePercentage;
-        [SerializeField] private Sprite fourthStateSprite;
-        [SerializeField] private int fifthStatePercentage;
-        [SerializeField] private Sprite fifthStateSprite;
-        [SerializeField] private int sixthStatePercentage;
-        [SerializeField] private Sprite sixthStateSprite;
-        [SerializeField] private SpriteRenderer tableSpriteRenderer;  
+        [SerializeField] private GameObject firstStateSprite;
+        [SerializeField] private GameObject secondStateSprite;
+        [SerializeField] private GameObject thirdStateSprite;
+        [SerializeField] private GameObject fourthStateSprite;
+        [SerializeField] private GameObject fifthStateSprite;
+        [SerializeField] private GameObject sixthStateSprite;
         
         private GrabbableObject _heldGrabbable;
         private int _numOfPlacedObjects = 0;
@@ -52,14 +47,32 @@ namespace Player
 
         private void UpdateTableStatus()
         {
-            tableSpriteRenderer.sprite = (_numOfPlacedObjects / totalObjectsToPlace * 100) switch
+            // Force float division by casting the numerator to (float)
+            float percentage = ((float)_numOfPlacedObjects / totalObjectsToPlace) * 100f;
+
+            Debug.Log($"Updating table status: {_numOfPlacedObjects}/{totalObjectsToPlace} objects placed, percentage: {percentage}%");
+
+            switch (percentage)
             {
-                var n when n >= fifthStatePercentage && fifthStateSprite != null => fifthStateSprite,
-                var n when n >= fourthStatePercentage && fourthStateSprite != null => fourthStateSprite,
-                var n when n >= thirdStatePercentage && thirdStateSprite != null => thirdStateSprite,
-                var n when n >= secondStatePercentage && secondStateSprite != null => secondStateSprite,
-                _ => tableSpriteRenderer.sprite
-            };
+                case >= 16 and < 32:
+                    firstStateSprite.SetActive(false);
+                    break;
+                case >= 32 and < 48:
+                    secondStateSprite.SetActive(false);
+                    break;
+                case >= 48 and < 64:
+                    thirdStateSprite.SetActive(false);
+                    break;
+                case >= 64 and < 80:
+                    fourthStateSprite.SetActive(false);
+                    break;
+                case >= 80 and < 100:
+                    fifthStateSprite.SetActive(false);
+                    break;
+                case >= 100:
+                    sixthStateSprite.SetActive(false);
+                    break;
+            }
         }
 
         private void TryPickUp()
