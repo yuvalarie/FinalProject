@@ -30,6 +30,8 @@ namespace Player
         [SerializeField] private Sprite fourthStateSprite;
         [SerializeField] private int fifthStatePercentage;
         [SerializeField] private Sprite fifthStateSprite;
+        [SerializeField] private int sixthStatePercentage;
+        [SerializeField] private Sprite sixthStateSprite;
         [SerializeField] private SpriteRenderer tableSpriteRenderer;  
         
         private GrabbableObject _heldGrabbable;

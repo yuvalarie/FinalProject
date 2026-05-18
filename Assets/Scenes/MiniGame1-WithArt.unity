@@ -7834,13 +7834,15 @@ MonoBehaviour:
     m_Bits: 4096
   totalObjectsToPlace: 31
   secondStatePercentage: 0
-  secondStateSprite: {fileID: 0}
+  secondStateSprite: {fileID: 21300000, guid: 61319941d130246e192447a7e77c2fc3, type: 3}
   thirdStatePercentage: 0
-  thirdStateSprite: {fileID: 0}
+  thirdStateSprite: {fileID: 21300000, guid: 7fcac3e4bed1944c887e3ba3abe7ff91, type: 3}
   fourthStatePercentage: 0
-  fourthStateSprite: {fileID: 0}
+  fourthStateSprite: {fileID: 21300000, guid: cb3fff59fd9a242a582378443e7046b8, type: 3}
   fifthStatePercentage: 0
-  fifthStateSprite: {fileID: 0}
+  fifthStateSprite: {fileID: 21300000, guid: f8f660d3202024e7bb527ea9f251324f, type: 3}
+  sixthStatePercentage: 0
+  sixthStateSprite: {fileID: 21300000, guid: ac5b1ebb087b14ae7ac11d1f863b8cd8, type: 3}
   tableSpriteRenderer: {fileID: 0}
 --- !u!50 &755708804
 Rigidbody2D:
@@ -15367,7 +15369,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: fd8f49a63942b419285128bcd995819f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
