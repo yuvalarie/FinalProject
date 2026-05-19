@@ -46,6 +46,7 @@ namespace Player
                 transform.position = rowTransition.destinationSpawn.position;
                 _spriteRenderer.sortingOrder = rowTransition.sortingOrder;
                 transform.localScale = new Vector3(rowTransition.targetScale, rowTransition.targetScale, 1f);
+                speed = rowTransition.targetSpeed;
                 _lastTransitionTime = Time.time;
             }
 

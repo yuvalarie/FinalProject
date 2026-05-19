@@ -12,5 +12,6 @@ namespace Transitions
         [Tooltip("The scale the player should instantly become when arriving at this row.")]
         [SerializeField] public float targetScale = 1f;
         [SerializeField] public int sortingOrder = 0;
+        [SerializeField] public float targetSpeed;
     }
 }

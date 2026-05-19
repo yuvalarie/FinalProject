@@ -15,13 +15,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Prototypes/PosterDisplay.unity
     guid: 77f5647460617b44b89bdeeb5de030cd
   - enabled: 1
-    path: Assets/Scenes/ArtPage1.unity
+    path: Assets/Scenes/Page 1.unity
     guid: c16e644746d834f699558a1d8cc7e27d
   - enabled: 1
-    path: Assets/Scenes/ArtNewPage2.unity
+    path: Assets/Scenes/Page 2.unity
     guid: 3ca5c4da119674bce8a5efb720fd2f3f
   - enabled: 1
-    path: Assets/Scenes/ArtPage3.unity
+    path: Assets/Scenes/Page 3.unity
     guid: 2466e9452f83e46db88dac6cbc0a4ac6
   - enabled: 1
     path: Assets/Scenes/MiniGame1-WithArt.unity
