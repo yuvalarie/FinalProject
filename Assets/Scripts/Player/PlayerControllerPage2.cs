@@ -21,6 +21,8 @@ namespace Player
         [Header("Elevator Settings")]
         [SerializeField] private Collider2D elevatorTrigger;
         [SerializeField] private Transform elevatorTarget;
+        [SerializeField] private Transform elevatorPlacement;
+        [SerializeField] private Transform elevatorTargetPlacement;
         
         [Header("Trigger Settings")]
         [SerializeField, Tooltip("The trigger that initiates the transition from frame 6 to 7.")]
@@ -34,6 +36,7 @@ namespace Player
         [SerializeField] private GameObject helmetObject;
         [SerializeField] private Animator leftDoorAnimator;
         [SerializeField] private Animator rightDoorAnimator;
+        [SerializeField] private Collider2D leftDoorCollider;
 
         [Header("Last frame interaction settings")] 
         [SerializeField] private Collider2D lastFrameTrigger;
@@ -43,11 +46,13 @@ namespace Player
         private SpriteRenderer _spriteRenderer;
         private float _elevatorOffsetY;
         private bool _hasHelmet = false;
-        private bool hasActivatedLastFrameSequence = false;
+        private bool _hasActivatedLastFrameSequence = false;
+        private Vector3 _elevatorStartPosition;
 
         private void Start()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
+            _elevatorStartPosition = elevatorTarget.position;
         }
 
         protected override void OnInteraction(InputAction.CallbackContext context)
@@ -59,13 +64,15 @@ namespace Player
             _hasHelmet = true;
             leftDoorAnimator.SetTrigger(Open);
             rightDoorAnimator.SetTrigger(Open);
+            leftDoorCollider.enabled = false;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other == elevatorTrigger)
             {
-                _elevatorOffsetY = elevatorTarget.position.y - transform.position.y;
+                var newPosition = new Vector3(elevatorPlacement.position.x, elevatorPlacement.position.y, transform.position.z);
+                _elevatorOffsetY = elevatorTarget.position.y - newPosition.y;
             }
             if (other == frame6To7Trigger)
             {
@@ -79,10 +86,10 @@ namespace Player
                 _spriteRenderer.maskInteraction = SpriteMaskInteraction.None;
             }
             
-            if (other == lastFrameTrigger && !hasActivatedLastFrameSequence)
+            if (other == lastFrameTrigger && !_hasActivatedLastFrameSequence)
             {
                 StartCoroutine(LastFrameSequenceCoroutine());
-                hasActivatedLastFrameSequence = true;
+                _hasActivatedLastFrameSequence = true;
             }
             
             if(other.CompareTag("End")) 
@@ -90,16 +97,28 @@ namespace Player
                 SceneLoader.Instance?.LoadScene(nextSceneName);
             }
         }
-
+        
         private void OnTriggerStay2D(Collider2D other)
         {
-            if (other == elevatorTrigger && MoveInput.y != 0f)
+            if (other == elevatorTrigger)
             {
-                elevatorTarget.position = new Vector3(
-                    elevatorTarget.position.x, 
-                    transform.position.y + _elevatorOffsetY, 
-                    elevatorTarget.position.z
-                );
+                bool isAwayFromTop = Vector3.Distance(elevatorTarget.position, elevatorTargetPlacement.position) > 0.05f;
+                bool isAwayFromBottom = Vector3.Distance(elevatorTarget.position, _elevatorStartPosition) > 0.05f;
+
+                if (isAwayFromTop && isAwayFromBottom)
+                {
+                    transform.position = new Vector3(elevatorPlacement.position.x, transform.position.y, transform.position.z);
+                }
+                
+                if (MoveInput.y != 0f)
+                {
+                    if (MoveInput.y < 0 && !isAwayFromBottom) return;
+                    elevatorTarget.position = new Vector3(
+                        elevatorTarget.position.x, 
+                        transform.position.y + _elevatorOffsetY, 
+                        elevatorTarget.position.z
+                    );
+                }
             }
         }
 
