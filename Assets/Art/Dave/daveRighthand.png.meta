@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4c20ecf2d5c894e1d9deea2700d8a03a
+guid: c06aa1d56563143219f51e959a96fa66
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7562426316838853893
-    second: thonge state3_0
+      213: -2768390900633444107
+    second: daveRighthand_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,8 +49,8 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.71819836, y: 0.45344144}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 108
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: thonge state3_0
+      name: daveRighthand_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 368
-        height: 602
+        width: 237
+        height: 191
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 50dde3feaa223f860800000000000000
-      internalID: 7562426316838853893
+      spriteID: 5f0e158b423b499d0800000000000000
+      internalID: -2768390900633444107
       vertices: []
       indices: 
       edges: []
@@ -126,7 +126,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      thonge state3_0: 7562426316838853893
+      daveRighthand_0: -2768390900633444107
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
