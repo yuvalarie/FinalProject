@@ -19,29 +19,39 @@ namespace MiniPlayer
         [SerializeField, Tooltip("Place an empty GameObject at the absolute top-right the big character can reach.")]
         private Transform bigTopRightMarker;
         
-        [Header("Transparency Link")]
-        [SerializeField, Tooltip("The big character's controller script.")]
-        private PlayerControllerBase bigPlayerController;
+        [Header("Mapping Adjustments")]
+        [SerializeField, Tooltip("Check this to flip the horizontal movement (Right becomes Left).")]
+        private bool invertX = true; // Set to true by default for your specific room layout!
         
-        [SerializeField, Tooltip("The big character's SpriteRenderer.")]
-        private SpriteRenderer bigSpriteRenderer;
+        [SerializeField, Tooltip("Check this to flip the vertical movement (Up becomes Down).")]
+        private bool invertY = false;
         
-        private SpriteRenderer mySpriteRenderer;
+        [SerializeField] private float offsetX = 0f;
+        [SerializeField] private float offsetY = 0f;
+        
+        // [Header("Transparency Link")]
+        // [SerializeField, Tooltip("The big character's controller script.")]
+        // private PlayerControllerBase bigPlayerController;
+        //
+        // [SerializeField, Tooltip("The big character's SpriteRenderer.")]
+        // private SpriteRenderer bigSpriteRenderer;
+        
+        //private SpriteRenderer mySpriteRenderer;
 
         private void Start()
         {
-            mySpriteRenderer = GetComponent<SpriteRenderer>();
+            //mySpriteRenderer = GetComponent<SpriteRenderer>();
         }
         
-        public bool IsTrans => bigPlayerController != null && bigPlayerController.IsTrans;
+        //public bool IsTrans => bigPlayerController != null && bigPlayerController.IsTrans;
 
         private void Update()
         {
             // --- 1. Visual Link ---
-            if (mySpriteRenderer != null && bigSpriteRenderer != null)
-            {
-                mySpriteRenderer.color = bigSpriteRenderer.color;
-            }
+            // if (mySpriteRenderer != null && bigSpriteRenderer != null)
+            // {
+            //     mySpriteRenderer.color = bigSpriteRenderer.color;
+            // }
             
             // --- 2. Movement Link ---
             if (bigCharacter == null || littleFrameBoundary == null || 
@@ -51,9 +61,12 @@ namespace MiniPlayer
 
             float normalizedX = Mathf.InverseLerp(bigBottomLeftMarker.position.x, bigTopRightMarker.position.x, bigCharacter.position.x);
             float normalizedY = Mathf.InverseLerp(bigBottomLeftMarker.position.y, bigTopRightMarker.position.y, bigCharacter.position.y);
-
-            float targetX = Mathf.Lerp(littleBounds.min.x, littleBounds.max.x, normalizedX);
-            float targetY = Mathf.Lerp(littleBounds.min.y, littleBounds.max.y, normalizedY);
+            
+            if (invertX) normalizedX = 1f - normalizedX;
+            if (invertY) normalizedY = 1f - normalizedY;
+            
+            float targetX = Mathf.Lerp(littleBounds.min.x, littleBounds.max.x, normalizedX) + offsetX;
+            float targetY = Mathf.Lerp(littleBounds.min.y, littleBounds.max.y, normalizedY) + offsetY;
 
             transform.position = new Vector3(targetX, targetY, transform.position.z);
         }

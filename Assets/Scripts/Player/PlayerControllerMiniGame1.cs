@@ -1,5 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using Objects;
+using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Player
 {
@@ -16,44 +19,98 @@ namespace Player
         
         [SerializeField, Tooltip("The layer used for valid drop zones.")]
         private LayerMask dropZoneLayer;
+
+        [Header("Table Status Settings")] 
+        [SerializeField] private int totalObjectsToPlace;
+        [SerializeField] private GameObject firstStateSprite;
+        [SerializeField] private GameObject secondStateSprite;
+        [SerializeField] private GameObject thirdStateSprite;
+        [SerializeField] private GameObject fourthStateSprite;
+        [SerializeField] private GameObject fifthStateSprite;
+        [SerializeField] private GameObject sixthStateSprite;
         
-        private GameObject _heldItem;
+        private GrabbableObject _heldGrabbable;
+        private int _numOfPlacedObjects = 0;
         
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
-            if (_heldItem == null) TryPickUp();
+            if (!context.performed) return;
+
+            if (_heldGrabbable == null) TryPickUp();
             else DropItem();
         }
-        
+
+        private void Update()
+        {
+            UpdateTableStatus();
+        }
+
+        private void UpdateTableStatus()
+        {
+            // Force float division by casting the numerator to (float)
+            float percentage = ((float)_numOfPlacedObjects / totalObjectsToPlace) * 100f;
+
+            Debug.Log($"Updating table status: {_numOfPlacedObjects}/{totalObjectsToPlace} objects placed, percentage: {percentage}%");
+
+            switch (percentage)
+            {
+                case >= 16 and < 32:
+                    firstStateSprite.SetActive(false);
+                    break;
+                case >= 32 and < 48:
+                    secondStateSprite.SetActive(false);
+                    break;
+                case >= 48 and < 64:
+                    thirdStateSprite.SetActive(false);
+                    break;
+                case >= 64 and < 80:
+                    fourthStateSprite.SetActive(false);
+                    break;
+                case >= 80 and < 100:
+                    fifthStateSprite.SetActive(false);
+                    break;
+                case >= 100:
+                    sixthStateSprite.SetActive(false);
+                    break;
+            }
+        }
+
         private void TryPickUp()
         {
             Debug.Log("Attempting to pick up item...");
 
-            if (IsTrans)
+            Collider2D[] hits = Physics2D.OverlapCircleAll(holdSlot.position, grabRadius, grabbableLayer);
+            
+            GrabbableObject closestItem = null;
+            float closestDistance = float.MaxValue;
+
+            foreach (Collider2D hit in hits)
             {
-                Debug.Log("can't interact while transparent");
-                return;
+                GrabbableObject grabbable = hit.GetComponentInParent<GrabbableObject>();
+                
+                if (grabbable != null && grabbable.currentState == GrabbableObject.ObjectState.Start)
+                {
+                    float distance = Vector2.Distance(holdSlot.position, grabbable.transform.position);
+                    if (distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        closestItem = grabbable;
+                    }
+                }
             }
 
-            RaycastHit2D hit = Physics2D.CircleCast(transform.position, grabRadius, Vector2.zero, 0f, grabbableLayer);
-
-            if (hit.collider != null)
+            if (closestItem != null)
             {
-                Debug.Log($"SUCCESS: Found '{hit.collider.name}' on the Grabbable layer!");
-                _heldItem = hit.collider.gameObject;
+                Debug.Log($"SUCCESS: Picking up '{closestItem.gameObject.name}'!");
+                _heldGrabbable = closestItem;
                 
-                Rigidbody2D itemRb = _heldItem.GetComponent<Rigidbody2D>();
-                if (itemRb != null) 
-                {
-                    itemRb.bodyType = RigidbodyType2D.Kinematic; // Kinematic for 2D
-                }
-                else
-                {
-                    Debug.LogWarning($"Wait, '{hit.collider.name}' doesn't have a Rigidbody2D attached!");
-                }
+                _heldGrabbable.currentState = GrabbableObject.ObjectState.Held;
+                _heldGrabbable.SwitchState();
+                
+                _heldGrabbable.CenterChildren();
 
-                _heldItem.transform.position = holdSlot.position;
-                _heldItem.transform.SetParent(holdSlot);
+                _heldGrabbable.transform.SetParent(holdSlot);
+                _heldGrabbable.transform.localPosition = Vector3.zero;
             }
             else
             {
@@ -64,38 +121,62 @@ namespace Player
         private void DropItem()
         {
             Debug.Log("Attempting to drop item...");
-            
-            if (IsTrans)
+            DropZone validZone = null;
+
+            Collider2D[] dropZones = Physics2D.OverlapCircleAll(holdSlot.position, grabRadius, dropZoneLayer);
+            bool foundCorrectZone = false;
+
+            foreach (Collider2D zone in dropZones)
             {
-                Debug.Log("can't interact while transparent");
-                return;
+                if (_heldGrabbable.targetDropSpot != null && zone == _heldGrabbable.targetDropSpot)
+                {
+                    validZone = zone.GetComponent<DropZone>();
+                    break;
+                }
+                if(_heldGrabbable.validDropSpots != null && _heldGrabbable.validDropSpots.Length > 0)
+                {
+                    foreach (Collider2D validSpot in _heldGrabbable.validDropSpots)
+                    {
+                        var dropZoneComponent = zone.GetComponent<DropZone>();
+                        if (zone == validSpot && dropZoneComponent != null && !dropZoneComponent.isOccupied)
+                        {
+                            validZone = dropZoneComponent;
+                            break;
+                        }
+                    }
+                }
+                if (validZone != null) break;
             }
 
-            Collider2D dropZone = Physics2D.OverlapCircle(transform.position, grabRadius, dropZoneLayer);
-
-            if (dropZone != null)
+            if (validZone != null)
             {
-                Debug.Log($"SUCCESS: Dropping '{_heldItem.name}' in zone '{dropZone.name}'");
-
-                _heldItem.transform.SetParent(null);
-        
-                // Optional: If you want it to drop exactly where the player is standing
-                // instead of floating in the HoldSlot position, uncomment this:
-                // _heldItem.transform.position = transform.position; 
-
-                _heldItem = null;
+                Debug.Log($"SUCCESS: Dropping '{_heldGrabbable.gameObject.name}' in its correct zone!");
+                
+                validZone.isOccupied = true;
+                _heldGrabbable.transform.SetParent(validZone.transform);
+                _heldGrabbable.transform.localPosition = Vector3.zero; 
+                
+                _heldGrabbable.currentState = GrabbableObject.ObjectState.Placed;
+                _heldGrabbable.SwitchState();
+                
+                _heldGrabbable = null;
+                _numOfPlacedObjects++;
             }
             else
             {
-                Debug.Log("FAILED: Cannot drop here. You must be in a drop zone!");
+                Debug.Log("FAILED: Returning item to its original location.");
+                _heldGrabbable.transform.SetParent(null);
+                _heldGrabbable.ResetPosition();
+                _heldGrabbable.currentState = GrabbableObject.ObjectState.Start;
+                _heldGrabbable.SwitchState();
+                _heldGrabbable = null;
             }
         }
         
         private void OnDrawGizmos()
         {
-            // Draws a yellow circle around the player in the Scene view to show exactly where they can grab
             Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(transform.position, grabRadius);
+            Gizmos.DrawWireSphere(holdSlot.position, grabRadius);
         }
     }
 }

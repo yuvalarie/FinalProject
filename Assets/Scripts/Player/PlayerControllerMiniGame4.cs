@@ -31,15 +31,15 @@ namespace Player
         {
             Debug.Log("Attempting to pick up item...");
 
-            if (IsTrans)
-            {
-                Debug.Log("can't interact while transparent");
-                return;
-            }
+            // if (IsTrans)
+            // {
+            //     Debug.Log("can't interact while transparent");
+            //     return;
+            // }
             
             foreach (RoamingNpcController npc in RoamingNpcController.AllNpcs)
             {
-                if (npc.CanSeeTarget(IsTrans))
+                if (npc.CanSeeTarget())
                 {
                     Debug.Log($"FAILED: You were spotted by {npc.gameObject.name}! Cannot grab anything.");
                     return; 
@@ -81,11 +81,11 @@ namespace Player
         {
             Debug.Log("Attempting to drop item...");
             
-            if (IsTrans)
-            {
-                Debug.Log("can't interact while transparent");
-                return;
-            }
+            // if (IsTrans)
+            // {
+            //     Debug.Log("can't interact while transparent");
+            //     return;
+            // }
 
             Collider2D dropZone = Physics2D.OverlapCircle(transform.position, grabRadius, dropZoneLayer);
 
