@@ -8,6 +8,7 @@ TagManager:
   - Transition
   - End
   - Start
+  - Interaction
   layers:
   - Default
   - TransparentFX
