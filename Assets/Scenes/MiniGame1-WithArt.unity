@@ -7825,12 +7825,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c678a722ec84f38a052ca4eae2e21bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerMiniGame1
-  speed: 7
+  speed: 5
   holdSlot: {fileID: 1936283615}
   grabbableLayer:
     serializedVersion: 2
     m_Bits: 2048
-  grabRadius: 0.9
+  grabRadius: 0.5
   dropZoneLayer:
     serializedVersion: 2
     m_Bits: 4096
@@ -18091,7 +18091,7 @@ Transform:
   m_GameObject: {fileID: 1936283614}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.554, y: -0.758, z: 0}
+  m_LocalPosition: {x: -0.177, y: -0.886, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
