@@ -79,7 +79,7 @@ namespace Player
         {
             Debug.Log("Attempting to pick up item...");
 
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, grabRadius, grabbableLayer);
+            Collider2D[] hits = Physics2D.OverlapCircleAll(holdSlot.position, grabRadius, grabbableLayer);
             
             GrabbableObject closestItem = null;
             float closestDistance = float.MaxValue;
@@ -90,7 +90,7 @@ namespace Player
                 
                 if (grabbable != null && grabbable.currentState == GrabbableObject.ObjectState.Start)
                 {
-                    float distance = Vector2.Distance(transform.position, grabbable.transform.position);
+                    float distance = Vector2.Distance(holdSlot.position, grabbable.transform.position);
                     if (distance < closestDistance)
                     {
                         closestDistance = distance;
@@ -123,7 +123,7 @@ namespace Player
             Debug.Log("Attempting to drop item...");
             DropZone validZone = null;
 
-            Collider2D[] dropZones = Physics2D.OverlapCircleAll(transform.position, grabRadius, dropZoneLayer);
+            Collider2D[] dropZones = Physics2D.OverlapCircleAll(holdSlot.position, grabRadius, dropZoneLayer);
             bool foundCorrectZone = false;
 
             foreach (Collider2D zone in dropZones)
@@ -176,7 +176,7 @@ namespace Player
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(transform.position, grabRadius);
+            Gizmos.DrawWireSphere(holdSlot.position, grabRadius);
         }
     }
 }
