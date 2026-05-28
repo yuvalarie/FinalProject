@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace Player
 {
-    public class PlayerControllerMiniGame5 : PlayerControllerBase 
+    public class PlayerControllerMiniGame5PartOne : PlayerControllerBase 
     {
         [SerializeField, Tooltip("Transform where the held object will sit.")]
         private Transform holdSlot;
@@ -30,6 +30,7 @@ namespace Player
         
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
+            if(!context.performed) return;
             if (_heldItem == null) TryPickUp();
             else DropItem();
         }
