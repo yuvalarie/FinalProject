@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 1724ef3fde7ed4b7990b4c10544bf835
+guid: 9e5959073b67f48b5994794a7466fe46
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4132855381196988057
-    second: pic state 3_0
+      213: -3389064470016225015
+    second: Satge 6_0
+  - first:
+      213: -6655117011873072034
+    second: Satge 6_1
+  - first:
+      213: 2507481184921982159
+    second: Satge 6_2
+  - first:
+      213: -7929464796066712083
+    second: Satge 6_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pic state 3_0
+      name: Satge 6_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 671
-        height: 444
+        y: 269
+        width: 386
+        height: 129
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 76121b77de525a6c0800000000000000
-      internalID: -4132855381196988057
+      spriteID: 90119cf02df97f0d0800000000000000
+      internalID: -3389064470016225015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Satge 6_1
+      rect:
+        serializedVersion: 2
+        x: 2051
+        y: 157
+        width: 393
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5c75a8865644a3a0800000000000000
+      internalID: -6655117011873072034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Satge 6_2
+      rect:
+        serializedVersion: 2
+        x: 1867
+        y: 32
+        width: 184
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc4104c3adc5cc220800000000000000
+      internalID: 2507481184921982159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Satge 6_3
+      rect:
+        serializedVersion: 2
+        x: 2068
+        y: 0
+        width: 217
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de57a73b7c1e4f190800000000000000
+      internalID: -7929464796066712083
       vertices: []
       indices: 
       edges: []
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pic state 3_0: -4132855381196988057
+      Satge 6_0: -3389064470016225015
+      Satge 6_1: -6655117011873072034
+      Satge 6_2: 2507481184921982159
+      Satge 6_3: -7929464796066712083
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
