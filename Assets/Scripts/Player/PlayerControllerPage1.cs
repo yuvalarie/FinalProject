@@ -11,8 +11,9 @@ namespace Player
     {
         [Tooltip("How many seconds after teleporting before the player can teleport again.")]
         [SerializeField] private float transitionCooldown = 0.2f;
+        [SerializeField] private Vector3 startPosition;
         private SpriteRenderer _spriteRenderer;
-        public bool canMove;
+        private bool canMove;
         private float _lastTransitionTime = -1f;
         
         [SerializeField, Tooltip("The next scene's name")] private string nextSceneName;
@@ -40,20 +41,26 @@ namespace Player
         {
             if (other.CompareTag("Transition"))
             {
-                if (Time.time < _lastTransitionTime + transitionCooldown) return;
+                //if (Time.time < _lastTransitionTime + transitionCooldown) return;
                 var rowTransition = other.GetComponent<RowTransition>();
                 if (rowTransition == null) return;
-                transform.position = rowTransition.destinationSpawn.position;
+                if (rowTransition.destinationSpawn != null) transform.position = rowTransition.destinationSpawn.position;
                 _spriteRenderer.sortingOrder = rowTransition.sortingOrder;
                 transform.localScale = new Vector3(rowTransition.targetScale, rowTransition.targetScale, 1f);
                 speed = rowTransition.targetSpeed;
-                _lastTransitionTime = Time.time;
+                //_lastTransitionTime = Time.time;
             }
 
             if (other.CompareTag("End"))
             {
                 SceneLoader.Instance.LoadScene(nextSceneName);
             }
+        }
+        
+        public void EnableMovement()
+        {
+            canMove = true;
+            transform.position = startPosition;
         }
     }
 }

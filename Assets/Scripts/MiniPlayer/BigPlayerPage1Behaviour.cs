@@ -40,7 +40,7 @@ namespace MiniPlayer
             if (other.CompareTag("End"))
             {
                 gameObject.SetActive(false);
-                player.canMove = true;
+                player.EnableMovement();
                 other.gameObject.SetActive(false);
             }
         }
