@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: ef076def79cea478888e2562eb89d378
+guid: bd8635b86f67c426aa1bc8c2f086b7a4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4611143542283454140
-    second: center wall_0
+      213: 5387409022399279601
+    second: Asset 789_0
+  - first:
+      213: -4551434269388301651
+    second: Asset 789_1
+  - first:
+      213: 7156709889691688783
+    second: Asset 789_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: center wall_0
+      name: Asset 789_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 4739
-        height: 2979
+        y: 264
+        width: 1150
+        height: 1332
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cb6442eee921eff30800000000000000
-      internalID: 4611143542283454140
+      spriteID: 1f1f7df46fbe3ca40800000000000000
+      internalID: 5387409022399279601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset 789_1
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 1555
+        width: 198
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daa129285ae06d0c0800000000000000
+      internalID: -4551434269388301651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset 789_2
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 0
+        width: 302
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4f199f0abdb15360800000000000000
+      internalID: 7156709889691688783
       vertices: []
       indices: 
       edges: []
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      center wall_0: 4611143542283454140
+      Asset 789_0: 5387409022399279601
+      Asset 789_1: -4551434269388301651
+      Asset 789_2: 7156709889691688783
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

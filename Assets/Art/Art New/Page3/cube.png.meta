@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 550a98ee89d404cdf9148c93d95237db
+guid: a9e5bdafff4b344dd8ab0d161c791ce6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 892034340570063101
-    second: Asset 210_0
+      213: -3415312158800669560
+    second: cube_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 108
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,10 +72,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Asset 210_0
+      name: cube_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2628
-        height: 1409
+        width: 7250
+        height: 3769
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: df0e02da184216c00800000000000000
-      internalID: 892034340570063101
+      spriteID: 8841d99cfaf5a90d0800000000000000
+      internalID: -3415312158800669560
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Asset 210_0: 892034340570063101
+      cube_0: -3415312158800669560
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

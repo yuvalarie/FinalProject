@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: ef076def79cea478888e2562eb89d378
+guid: 195ab3cec5b9041739bb77a06e55f0e5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4611143542283454140
-    second: center wall_0
+      213: 4353292877238378493
+    second: daveRight_0
+  - first:
+      213: 7105378085333747156
+    second: daveRight_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: center wall_0
+      name: daveRight_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 4739
-        height: 2979
+        x: 228
+        y: 539
+        width: 152
+        height: 71
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cb6442eee921eff30800000000000000
-      internalID: 4611143542283454140
+      spriteID: dff180f9ec00a6c30800000000000000
+      internalID: 4353292877238378493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: daveRight_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 444
+        height: 529
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d5c92309bf5b9260800000000000000
+      internalID: 7105378085333747156
       vertices: []
       indices: 
       edges: []
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      center wall_0: 4611143542283454140
+      daveRight_0: 4353292877238378493
+      daveRight_1: 7105378085333747156
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
