@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5f8f32b41065342d484d8d91edf5f073
+guid: 4338cd2b511194d90af6661621696491
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -108,8 +108,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 450
-        height: 531
+        width: 449
+        height: 530
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,10 +128,10 @@ TextureImporter:
       name: daveLeft_1
       rect:
         serializedVersion: 2
-        x: 47
-        y: 525
-        width: 149
-        height: 79
+        x: 25
+        y: 520
+        width: 146
+        height: 84
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

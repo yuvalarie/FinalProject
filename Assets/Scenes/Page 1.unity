@@ -3352,7 +3352,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 15
+  m_SortingOrder: 19
   m_Sprite: {fileID: 21300000, guid: a0c7a7085affe445ab8f5de23d023740, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3536,7 +3536,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: a124e242bf23e4d96abdef4a2d116ed5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3727cda811d614d238fedf3e67c429f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3639,7 +3639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MiniPlayer.BigPlayerPage1Behaviour
   speed: 5
-  page1Sprite: {fileID: 21300000, guid: fd8f49a63942b419285128bcd995819f, type: 3}
+  page1Sprite: {fileID: 21300000, guid: f81f4e9d485854a60a01bb5fe232ae18, type: 3}
   player: {fileID: 1428508827}
 --- !u!1 &1087528445
 GameObject:

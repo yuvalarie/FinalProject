@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 9d3fde234c0bb48169051a475cf4a022
+guid: c121a34c879fd4821bca079ca4f203bf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8641242127782216880
-    second: desk+ boss_0
-  - first:
-      213: 7725900940909520916
-    second: desk+ boss_1
+      213: 3574662351097502663
+    second: Asset 795_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 108
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,10 +72,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,35 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: desk+ boss_0
+      name: Asset 795_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 264
-        width: 1150
-        height: 1331
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 05b766b6114241880800000000000000
-      internalID: -8641242127782216880
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: desk+ boss_1
-      rect:
-        serializedVersion: 2
-        x: 694
         y: 0
-        width: 302
-        height: 633
+        width: 8000
+        height: 4501
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 418a4c0e8f9e73b60800000000000000
-      internalID: 7725900940909520916
+      spriteID: 7cb112d0870cb9130800000000000000
+      internalID: 3574662351097502663
       vertices: []
       indices: 
       edges: []
@@ -150,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      desk+ boss_0: -8641242127782216880
-      desk+ boss_1: 7725900940909520916
+      Asset 795_0: 3574662351097502663
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
