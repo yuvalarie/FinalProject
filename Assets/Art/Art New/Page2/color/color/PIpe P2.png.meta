@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: b3c26113dbf0b434fb6bd4ee6c94b8f1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6363826567487916551
+    second: PIpe P2_0
+  - first:
+      213: -7646425450512973016
+    second: PIpe P2_1
+  - first:
+      213: 2818490029516212492
+    second: PIpe P2_2
+  - first:
+      213: 584026004178189920
+    second: PIpe P2_3
+  - first:
+      213: 4711897819891272491
+    second: PIpe P2_4
+  - first:
+      213: 1596249167501413810
+    second: PIpe P2_5
+  - first:
+      213: 2103296234650804931
+    second: PIpe P2_6
+  - first:
+      213: 649546946676240271
+    second: PIpe P2_7
+  - first:
+      213: -261693233643716030
+    second: PIpe P2_8
+  - first:
+      213: 300489304576072284
+    second: PIpe P2_9
+  - first:
+      213: 1271131097732999065
+    second: PIpe P2_10
+  - first:
+      213: 8297587107397219072
+    second: PIpe P2_11
+  - first:
+      213: 7969573081311495955
+    second: PIpe P2_12
+  - first:
+      213: -759011510336214035
+    second: PIpe P2_13
+  - first:
+      213: 4941363185600767961
+    second: PIpe P2_14
+  - first:
+      213: -646595509585117144
+    second: PIpe P2_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 108
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PIpe P2_0
+      rect:
+        serializedVersion: 2
+        x: 1701
+        y: 2290
+        width: 375
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f570b034752fa7a0800000000000000
+      internalID: -6363826567487916551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PIpe P2_1
+      rect:
+        serializedVersion: 2
+        x: 2184
+        y: 2054
+        width: 726
+        height: 428
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8230ba4b09072e590800000000000000
+      internalID: -7646425450512973016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PIpe P2_2
+      rect:
+        serializedVersion: 2
+        x: 3027
+        y: 2307
+        width: 704
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c094b44bfb94d1720800000000000000
+      internalID: 2818490029516212492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PIpe P2_3
+      rect:
+        serializedVersion: 2
+        x: 5390
+        y: 1778
+        width: 407
+        height: 581
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06eb1a67e80ea1800800000000000000
+      internalID: 584026004178189920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PIpe P2_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2268
+        width: 564
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2b8e8c3a16046140800000000000000
+      internalID: 4711897819891272491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PIpe P2_5
+      rect:
+        serializedVersion: 2
+        x: 2293
+        y: 2273
+        width: 693
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bd4fe91924072610800000000000000
+      internalID: 1596249167501413810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PIpe P2_6
+      rect:
+        serializedVersion: 2
+        x: 4343
+        y: 2184
+        width: 1007
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c227cb18c8603d10800000000000000
+      internalID: 2103296234650804931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PIpe P2_7
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 2225
+        width: 1478
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8fa39da187a30900800000000000000
+      internalID: 649546946676240271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PIpe P2_8
+      rect:
+        serializedVersion: 2
+        x: 3711
+        y: 2184
+        width: 815
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2420b88f3674e5cf0800000000000000
+      internalID: -261693233643716030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PIpe P2_9
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2161
+        width: 99
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5a9f023e6d8b2400800000000000000
+      internalID: 300489304576072284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PIpe P2_10
+      rect:
+        serializedVersion: 2
+        x: 5716
+        y: 682
+        width: 36
+        height: 789
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 997e357aff6f3a110800000000000000
+      internalID: 1271131097732999065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PIpe P2_11
+      rect:
+        serializedVersion: 2
+        x: 5826
+        y: 649
+        width: 31
+        height: 598
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 003b54df283f62370800000000000000
+      internalID: 8297587107397219072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PIpe P2_12
+      rect:
+        serializedVersion: 2
+        x: 5674
+        y: 0
+        width: 660
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 317461b2e7c999e60800000000000000
+      internalID: 7969573081311495955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PIpe P2_13
+      rect:
+        serializedVersion: 2
+        x: 6171
+        y: 223
+        width: 493
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deb2af18d037775f0800000000000000
+      internalID: -759011510336214035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PIpe P2_14
+      rect:
+        serializedVersion: 2
+        x: 6700
+        y: 114
+        width: 715
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d72de703af339440800000000000000
+      internalID: 4941363185600767961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PIpe P2_15
+      rect:
+        serializedVersion: 2
+        x: 7139
+        y: 131
+        width: 926
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82001d15fc4d607f0800000000000000
+      internalID: -646595509585117144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PIpe P2_0: -6363826567487916551
+      PIpe P2_1: -7646425450512973016
+      PIpe P2_10: 1271131097732999065
+      PIpe P2_11: 8297587107397219072
+      PIpe P2_12: 7969573081311495955
+      PIpe P2_13: -759011510336214035
+      PIpe P2_14: 4941363185600767961
+      PIpe P2_15: -646595509585117144
+      PIpe P2_2: 2818490029516212492
+      PIpe P2_3: 584026004178189920
+      PIpe P2_4: 4711897819891272491
+      PIpe P2_5: 1596249167501413810
+      PIpe P2_6: 2103296234650804931
+      PIpe P2_7: 649546946676240271
+      PIpe P2_8: -261693233643716030
+      PIpe P2_9: 300489304576072284
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
