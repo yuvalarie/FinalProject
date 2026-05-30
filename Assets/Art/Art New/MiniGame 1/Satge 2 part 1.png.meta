@@ -1,22 +1,19 @@
 fileFormatVersion: 2
-guid: 96be2165b6dd14278822b968f75a6bb6
+guid: f7898878363fa46c291bcfe399fd2225
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6810360264038750907
-    second: Satge 5_0
+      213: 1816088460549698223
+    second: Satge 2 part 1_0
   - first:
-      213: 4203654688471811857
-    second: Satge 5_1
+      213: 1269650237749078009
+    second: Satge 2 part 1_1
   - first:
-      213: 5054749191439885081
-    second: Satge 5_2
+      213: -123403562483586156
+    second: Satge 2 part 1_2
   - first:
-      213: 3635131074955793599
-    second: Satge 5_3
-  - first:
-      213: 1930140895378395743
-    second: Satge 5_4
+      213: -7091132210714109666
+    second: Satge 2 part 1_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -58,12 +55,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 108
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,10 +81,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -112,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Satge 5_0
+      name: Satge 2 part 1_0
       rect:
         serializedVersion: 2
-        x: 627
-        y: 301
-        width: 46
-        height: 55
+        x: 0
+        y: 0
+        width: 457
+        height: 316
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,19 +124,63 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 545e8853c6dbc71a0800000000000000
-      internalID: -6810360264038750907
+      spriteID: fa230c335da043910800000000000000
+      internalID: 1816088460549698223
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Satge 5_1
+      name: Satge 2 part 1_1
       rect:
         serializedVersion: 2
-        x: 1947
-        y: 217
-        width: 396
+        x: 2044
+        y: 253
+        width: 279
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f726021a24be9110800000000000000
+      internalID: 1269650237749078009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Satge 2 part 1_2
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 162
+        width: 183
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49be52e1d15994ef0800000000000000
+      internalID: -123403562483586156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Satge 2 part 1_3
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 78
+        width: 224
         height: 159
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -149,74 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 11784c0daa1665a30800000000000000
-      internalID: 4203654688471811857
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Satge 5_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 113
-        width: 232
-        height: 110
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 913a770cb93162640800000000000000
-      internalID: 5054749191439885081
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Satge 5_3
-      rect:
-        serializedVersion: 2
-        x: 518
-        y: 0
-        width: 256
-        height: 289
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fb459b2f374927230800000000000000
-      internalID: 3635131074955793599
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Satge 5_4
-      rect:
-        serializedVersion: 2
-        x: 1664
-        y: 149
-        width: 233
-        height: 109
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f52db730bec39ca10800000000000000
-      internalID: 1930140895378395743
+      spriteID: e191e0523dc379d90800000000000000
+      internalID: -7091132210714109666
       vertices: []
       indices: 
       edges: []
@@ -225,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -235,11 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Satge 5_0: -6810360264038750907
-      Satge 5_1: 4203654688471811857
-      Satge 5_2: 5054749191439885081
-      Satge 5_3: 3635131074955793599
-      Satge 5_4: 1930140895378395743
+      Satge 2 part 1_0: 1816088460549698223
+      Satge 2 part 1_1: 1269650237749078009
+      Satge 2 part 1_2: -123403562483586156
+      Satge 2 part 1_3: -7091132210714109666
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
