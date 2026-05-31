@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using Managers;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -33,7 +34,9 @@ namespace Player
         [Header("Helmet interaction settings")]
         [SerializeField, Tooltip("The placement for the helmet.")]
         private Vector3 helmetPlacement;
-        [SerializeField] private GameObject helmetObject;
+        [SerializeField] private List<GameObject> availableHelmets;
+        [SerializeField, Tooltip("How much higher each additional helmet should sit (e.g., Y = 0.2)")]
+        private Vector3 helmetStackOffset = new Vector3(0f, 0.5f, 0f);
         [SerializeField] private Animator leftDoorAnimator;
         [SerializeField] private Animator rightDoorAnimator;
         [SerializeField] private Collider2D leftDoorCollider;
@@ -45,26 +48,38 @@ namespace Player
 
         private SpriteRenderer _spriteRenderer;
         private float _elevatorOffsetY;
-        private bool _hasHelmet = false;
+        private int _equippedHelmetCount = 0;
         private bool _hasActivatedLastFrameSequence = false;
         private Vector3 _elevatorStartPosition;
+        private int _sortingOrderAtStart;
 
         private void Start()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
+            _sortingOrderAtStart = _spriteRenderer.sortingOrder;
             _elevatorStartPosition = elevatorTarget.position;
         }
 
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
             if (!context.performed) return;
-            if (_hasHelmet) return;
+            if (availableHelmets.Count == 0) return;
+            int topHelmetIndex = availableHelmets.Count - 1;
+            GameObject helmetObject = availableHelmets[topHelmetIndex];
+            availableHelmets.RemoveAt(topHelmetIndex);
             helmetObject.transform.SetParent(gameObject.transform);
-            helmetObject.transform.localPosition = helmetPlacement;
-            _hasHelmet = true;
-            leftDoorAnimator.SetTrigger(Open);
-            rightDoorAnimator.SetTrigger(Open);
-            leftDoorCollider.enabled = false;
+            helmetObject.transform.localPosition = helmetPlacement + (helmetStackOffset * _equippedHelmetCount);
+            var spriteRenderer = helmetObject.GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null)            {
+                spriteRenderer.sortingOrder = _sortingOrderAtStart + 1 + _equippedHelmetCount;;
+            }
+            _equippedHelmetCount++;
+            if (_equippedHelmetCount == 1)
+            {
+                leftDoorAnimator.SetTrigger(Open);
+                rightDoorAnimator.SetTrigger(Open);
+                leftDoorCollider.enabled = false;
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D other)
