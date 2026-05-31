@@ -127,12 +127,30 @@ namespace Player
                 
                 if (MoveInput.y != 0f)
                 {
-                    if (MoveInput.y < 0 && !isAwayFromBottom) return;
+                    // if (MoveInput.y < 0 && !isAwayFromBottom) return;
+                    // if (MoveInput.y > 0 && !isAwayFromTop) return;
+                    float desiredY = transform.position.y + _elevatorOffsetY;
+                    float minY = _elevatorStartPosition.y;
+                    float maxY = elevatorTargetPlacement.position.y;
+                    float clampedY = Mathf.Clamp(desiredY, minY, maxY);
+                    // if (Mathf.Abs(desiredY - clampedY) > 0.001f)
+                    // {
+                    //     _elevatorOffsetY = clampedY - transform.position.y;
+                    // }
                     elevatorTarget.position = new Vector3(
                         elevatorTarget.position.x, 
-                        transform.position.y + _elevatorOffsetY, 
+                        //transform.position.y + _elevatorOffsetY, 
+                        clampedY,
                         elevatorTarget.position.z
                     );
+                    if (desiredY != clampedY)
+                    {
+                        transform.position = new Vector3(
+                            transform.position.x, 
+                            clampedY - _elevatorOffsetY, 
+                            transform.position.z
+                        );
+                    }
                 }
             }
         }
