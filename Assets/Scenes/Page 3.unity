@@ -1665,7 +1665,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.62383735, y: 0.048591018}
+  m_Offset: {x: 0.62383735, y: 1.6572266}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1675,7 +1675,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.55754876, y: 0.1808927}
+  m_Size: {x: 0.55754876, y: 4.8009567}
   m_EdgeRadius: 0
 --- !u!4 &1328185593
 Transform:
@@ -1686,7 +1686,7 @@ Transform:
   m_GameObject: {fileID: 1328185591}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.37, y: -4.18, z: 0}
+  m_LocalPosition: {x: -6.84, y: -3.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1779,7 +1779,7 @@ Transform:
   m_GameObject: {fileID: 1428508820}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.12, y: -1.65, z: 0}
+  m_LocalPosition: {x: -6.05, y: -2.02, z: 0}
   m_LocalScale: {x: 0.61109, y: 0.61109, z: 0.61109}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1880,8 +1880,6 @@ MonoBehaviour:
   hellDoor: {fileID: 1542509161}
   letterAnimator: {fileID: 0}
   letterObject: {fileID: 1552387255}
-  doorObject: {fileID: 1870986606}
-  doorHandleObject: {fileID: 0}
   endTriggerObject: {fileID: 1328185591}
 --- !u!1 &1542509161
 GameObject:
