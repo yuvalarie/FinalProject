@@ -22,8 +22,8 @@ namespace Player
         [SerializeField] private GameObject hellDoor;
         [SerializeField] private Animator letterAnimator;
         [SerializeField] private GameObject letterObject;
-        [SerializeField] private GameObject doorObject;
-        [SerializeField] private GameObject doorHandleObject;
+        //[SerializeField] private GameObject doorObject;
+        //[SerializeField] private GameObject doorHandleObject;
         [SerializeField] private GameObject endTriggerObject;
         
         private int _interactionCount = 0;
@@ -85,8 +85,8 @@ namespace Player
         {
             letterObject.SetActive(false);
             yield return new WaitForSeconds(0.1f);
-            doorObject.SetActive(true);
-            doorHandleObject.SetActive(false);
+            //doorObject.SetActive(true);
+            //doorHandleObject.SetActive(false);
             textBubble3.SetActive(false);
             yield return new WaitForSeconds(0.1f);
             textBubble4.SetActive(true);
