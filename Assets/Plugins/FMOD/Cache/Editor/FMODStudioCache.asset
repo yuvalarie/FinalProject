@@ -42,8 +42,32 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639159347302768746
+  lastModified: 639159393562381832
   FileSizes: []
+  Exists: 1
+--- !u!114 &-4827016301418027124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/AmbWind/distanceFromFrame
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: distanceFromFrame
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 451489253
+    data2: 1235270495
+  Type: 0
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &-3419971701234787611
 MonoBehaviour:
@@ -89,21 +113,21 @@ MonoBehaviour:
   - {fileID: -6261359641286254155}
   EditorEvents:
   - {fileID: 5241025778277414641}
-  - {fileID: 8108696548900685217}
   - {fileID: -7940175471234626215}
+  - {fileID: 7184409384577903666}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6021412136081375270}
   StringsBanks:
   - {fileID: 2100893941630395751}
   cacheVersion: 131859
-  cacheTime: 639159347302768746
+  cacheTime: 639159397291290812
   SerializableEventsDict:
   - key: event:/Page1/LetterTubes
     index: 0
-  - key: event:/Page1/AmbWind
-    index: 1
   - key: event:/Page1/AmbOffice
+    index: 1
+  - key: event:/AmbWind
     index: 2
 --- !u!114 &349460952768386623
 MonoBehaviour:
@@ -138,34 +162,10 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639159347302419786
+  lastModified: 639159393562140022
   FileSizes:
   - Name: 
-    Value: 1182
-  Exists: 1
---- !u!114 &3435720588649243806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/AmbWind/distanceFromFrame
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
-  Name: distanceFromFrame
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 451489253
-    data2: 1235270495
-  Type: 0
-  IsGlobal: 0
-  Labels: []
+    Value: 1288
   Exists: 1
 --- !u!114 &5241025778277414641
 MonoBehaviour:
@@ -206,9 +206,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/LetterTubes/LetterFlightPitch
+  m_Name: parameter:/LetterTubes/LetterTubePitch
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
-  Name: LetterFlightPitch
+  Name: LetterTubePitch
   StudioPath: 
   Min: -1
   Max: 1
@@ -235,9 +235,37 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639159347302399878
+  lastModified: 639159393562129976
   FileSizes: []
   Exists: 1
+--- !u!114 &7184409384577903666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/AmbWind
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/AmbWind
+  Guid:
+    Data1: 797408416
+    Data2: 1145181333
+    Data3: 447413635
+    Data4: -1162816259
+  Banks:
+  - {fileID: 7964420797718566781}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -4827016301418027124}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 55258
 --- !u!114 &7964420797718566781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,34 +281,6 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/Ambiance.bank
   Name: Ambiance
   StudioPath: bank:/Ambiance
-  lastModified: 639159347302338278
+  lastModified: 639159397291290812
   FileSizes: []
   Exists: 1
---- !u!114 &8108696548900685217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Page1/AmbWind
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/Page1/AmbWind
-  Guid:
-    Data1: 797408416
-    Data2: 1145181333
-    Data3: 447413635
-    Data4: -1162816259
-  Banks:
-  - {fileID: 7964420797718566781}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 3435720588649243806}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 55258
