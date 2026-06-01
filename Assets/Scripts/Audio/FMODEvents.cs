@@ -1,7 +1,8 @@
 using FMODUnity;
+using Managers;
 using UnityEngine;
 
-namespace Managers
+namespace Audio
 {
     public class FMODEvents : MonoSingleton<FMODEvents>
     {

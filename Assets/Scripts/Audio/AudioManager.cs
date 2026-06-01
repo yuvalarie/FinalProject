@@ -1,10 +1,10 @@
-using System;
 using System.Collections.Generic;
 using FMOD.Studio;
 using FMODUnity;
+using Managers;
 using UnityEngine;
 
-namespace Managers
+namespace Audio
 {
     public class AudioManager : MonoSingleton<AudioManager>
     {
