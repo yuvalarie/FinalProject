@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using FMOD.Studio;
 using FMODUnity;
 using Managers;
 using UnityEngine;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 namespace Audio
 {
@@ -20,7 +22,7 @@ namespace Audio
         
         private List<EventInstance> _activeEvents = new List<EventInstance>();
         private List<StudioEventEmitter> _activeEmitters = new List<StudioEventEmitter>();
-        private List<EventInstance> _ambianceEvents = new List<EventInstance>();
+        // private List<EventInstance> _ambianceEvents = new List<EventInstance>();
 
 
         private void Awake()
@@ -61,6 +63,41 @@ namespace Audio
             }
             _activeEvents.Add(eventInstance);
             return eventInstance;
+        }
+
+        public StudioEventEmitter InitializeEventEmitter(EventReference eventReference, GameObject emitterGameObject,
+            params (string paramName, float value)[] parameters)
+        {
+            var emitter = emitterGameObject.GetComponent<StudioEventEmitter>();
+            emitter.EventReference = eventReference;
+            
+            foreach (var (paramName, value) in parameters)
+            {
+                emitter.SetParameter(paramName, value);
+            }
+            _activeEmitters.Add(emitter);
+            return emitter;
+        }
+
+        private void CleanUp()
+        {
+            // clean up any emitters that haven't finished playing
+            foreach (var eventInstance in _activeEvents)
+            {
+                eventInstance.stop(STOP_MODE.IMMEDIATE);
+                eventInstance.release();
+            }
+
+            foreach (var emitter in _activeEmitters)
+            {
+                emitter.Stop();
+            }
+            
+        }
+
+        private void OnDestroy()
+        {
+            CleanUp();
         }
     }
 }
