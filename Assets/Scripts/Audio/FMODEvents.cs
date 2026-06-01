@@ -8,7 +8,9 @@ namespace Audio
     {
         [Header("Ambiance")]
         public EventReference page1OfficeAmbiance;
-        public EventReference lettersInTubesAmbiance;
         public EventReference windAmbiance;
+        
+        [Header("SFX")]
+        public EventReference lettersInTubesSFX;
     }
 }

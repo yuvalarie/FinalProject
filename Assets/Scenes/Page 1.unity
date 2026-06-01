@@ -3927,13 +3927,6 @@ MonoBehaviour:
       Data3: -577922937
       Data4: -502671367
     Path: event:/Page1/AmbOffice
-  lettersInTubesAmbiance:
-    Guid:
-      Data1: -275646086
-      Data2: 1197934441
-      Data3: -79245930
-      Data4: -736908648
-    Path: event:/Page1/LetterTubes
   windAmbiance:
     Guid:
       Data1: 797408416
@@ -3941,6 +3934,13 @@ MonoBehaviour:
       Data3: 447413635
       Data4: -1162816259
     Path: event:/AmbWind
+  lettersInTubesSFX:
+    Guid:
+      Data1: -275646086
+      Data2: 1197934441
+      Data3: -79245930
+      Data4: -736908648
+    Path: event:/Page1/LetterTubes
 --- !u!1 &1200895307
 GameObject:
   m_ObjectHideFlags: 0
@@ -4599,6 +4599,7 @@ GameObject:
   - component: {fileID: 1374276416}
   - component: {fileID: 1374276415}
   - component: {fileID: 1374276417}
+  - component: {fileID: 1374276418}
   m_Layer: 0
   m_Name: Letter 4
   m_TagString: Untagged
@@ -4701,6 +4702,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1374276418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374276414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adfbcd021ad0d464c8323dacc6328402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.LetterInTube
 --- !u!1 &1389452981
 GameObject:
   m_ObjectHideFlags: 0
@@ -5571,6 +5584,82 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1652084259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1652084262}
+  - component: {fileID: 1652084261}
+  - component: {fileID: 1652084260}
+  m_Layer: 0
+  m_Name: OfficeAmbiance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1652084260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652084259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 538200cec76281540ad9ed6d906f8aa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.OfficeAmbianceEmitter
+--- !u!114 &1652084261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652084259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -807748182
+      Data2: 1226925487
+      Data3: -577922937
+      Data4: -502671367
+    Path: event:/Page1/AmbOffice
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!4 &1652084262
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652084259}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1665870705
 GameObject:
   m_ObjectHideFlags: 0
@@ -7172,6 +7261,7 @@ SceneRoots:
   - {fileID: 1616740999}
   - {fileID: 1011143542}
   - {fileID: 1374276416}
+  - {fileID: 1652084262}
   - {fileID: 658010166}
   - {fileID: 1240379117}
   - {fileID: 1156233407}
