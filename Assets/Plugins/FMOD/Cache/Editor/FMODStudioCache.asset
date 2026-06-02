@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639159432161640200
+  lastModified: 639160057572974766
   FileSizes: []
   Exists: 1
 --- !u!114 &-4827016301418027124
@@ -121,7 +121,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 2100893941630395751}
   cacheVersion: 131859
-  cacheTime: 639159432161640200
+  cacheTime: 639160057572974766
   SerializableEventsDict:
   - key: event:/Page1/LetterTubes
     index: 0
@@ -189,7 +189,7 @@ MonoBehaviour:
   - {fileID: -6261359641286254155}
   IsStream: 0
   Is3D: 0
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters:
   - {fileID: 5551544906156998181}
   - {fileID: -3419971701234787611}

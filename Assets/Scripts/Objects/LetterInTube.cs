@@ -1,3 +1,4 @@
+using System.Collections;
 using Audio;
 using FMOD.Studio;
 using FMODUnity;
@@ -9,28 +10,50 @@ namespace Objects
 {
     public class LetterInTube : MonoBehaviour
     {
-        private EventInstance _letterSoundInstance;
+        [SerializeField] private float minRandomDelay = 0f;
+        [SerializeField] private float maxRandomDelay = 0.5f;
+        private static readonly int Start1 = Animator.StringToHash("Start");
+
+        // private EventInstance _letterSoundInstance;
+        private EventReference _letterSoundReference;
+        private Animator _animator;
+        
 
         private void Start()
         {
-            var reference = FMODEvents.Instance.lettersInTubesSFX;
-            _letterSoundInstance = AudioManager.Instance.CreateInstance(reference);
-            RuntimeManager.AttachInstanceToGameObject(_letterSoundInstance, gameObject, true);
+            _animator = GetComponent<Animator>();
+            _letterSoundReference = FMODEvents.Instance.lettersInTubesSFX;
+            //_letterSoundInstance = AudioManager.Instance.CreateInstance(reference);
+            //RuntimeManager.AttachInstanceToGameObject(_letterSoundInstance, gameObject, true);
+            StartAnimationWithRandomDelay();
         }
         
         public void StartAudio()
         {
             var pitchValue = Random.Range(-1f, 1f);
             var volumeValue = Random.Range(-1f, 1f);
-            _letterSoundInstance.setParameterByName("LetterTubePitch", pitchValue);
-            _letterSoundInstance.setParameterByName("LetterTubeVolume", volumeValue);
-            _letterSoundInstance.start();
+            // _letterSoundInstance.setParameterByName("LetterTubePitch", pitchValue);
+            // _letterSoundInstance.setParameterByName("LetterTubeVolume", volumeValue);
+            // _letterSoundInstance.start();
+            AudioManager.Instance.PlayOneShot(_letterSoundReference, transform.position, ("LetterTubePitch", pitchValue), ("LetterTubeVolume", volumeValue));
         }
 
         public void StopAudio()
         {
-            _letterSoundInstance.stop(STOP_MODE.IMMEDIATE); 
-            _letterSoundInstance.setTimelinePosition(0);
+            // _letterSoundInstance.stop(STOP_MODE.IMMEDIATE); 
+            // _letterSoundInstance.setTimelinePosition(0);
+        }
+        
+        public void StartAnimationWithRandomDelay()
+        {
+            var randomDelay = Random.Range(minRandomDelay, maxRandomDelay);
+            StartCoroutine(StartAnimationAfterDelay(randomDelay));
+        }
+
+        private IEnumerator StartAnimationAfterDelay(float randomDelay)
+        {
+            yield return new WaitForSeconds(randomDelay);
+            _animator.SetTrigger(Start1);
         }
     }
 }
