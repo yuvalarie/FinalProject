@@ -19,7 +19,13 @@ namespace Objects
         [SerializeField] private GameObject heldSprite;
         [SerializeField] private GameObject placedSprite;
 
-        private Vector3 _originalPosition;
+        private Transform _originalParent;
+        
+        // Use LOCAL tracking to perfectly remember size, rotation, and spot
+        private Vector3 _originalLocalPosition;
+        private Quaternion _originalLocalRotation;
+        private Vector3 _originalLocalScale;
+        
         private Vector3 _startSpriteOriginalPosition;
         private Vector3 _heldSpriteOriginalPosition;
         private Vector3 _placedSpriteOriginalPosition;
@@ -28,7 +34,13 @@ namespace Objects
         
         private void Start()
         {
-            _originalPosition = transform.position;
+            _originalParent = transform.parent;
+            
+            // Lock in exactly how it looks in the Inspector on frame 1
+            _originalLocalPosition = transform.localPosition;
+            _originalLocalRotation = transform.localRotation;
+            _originalLocalScale = transform.localScale;
+            
             if (startSprite != null) _startSpriteOriginalPosition = startSprite.transform.localPosition;
             if (heldSprite != null) _heldSpriteOriginalPosition = heldSprite.transform.localPosition;
             if (placedSprite != null) _placedSpriteOriginalPosition = placedSprite.transform.localPosition;
@@ -56,7 +68,7 @@ namespace Objects
                     {
                         heldSprite.SetActive(true);
                         var spriteRenderer = heldSprite.GetComponent<SpriteRenderer>();
-                        if (spriteRenderer != null) spriteRenderer.sortingOrder = 10;
+                        if (spriteRenderer != null) spriteRenderer.sortingOrder = 15;
                     }
                     break;
                 case ObjectState.Placed:
@@ -89,8 +101,15 @@ namespace Objects
         
         public void ResetPosition()
         {
-            transform.position = _originalPosition;
-            _startSpriteRenderer.sortingOrder = _startSpriteOriginalSortingOrder;
+            transform.SetParent(_originalParent);
+            transform.localPosition = _originalLocalPosition;
+            transform.localRotation = _originalLocalRotation;
+            transform.localScale = _originalLocalScale;
+            
+            if (_startSpriteRenderer != null)
+            {
+                _startSpriteRenderer.sortingOrder = _startSpriteOriginalSortingOrder;
+            }
             if (startSprite != null) startSprite.transform.localPosition = _startSpriteOriginalPosition;
             if (heldSprite != null) heldSprite.transform.localPosition = _heldSpriteOriginalPosition;
             if (placedSprite != null) placedSprite.transform.localPosition = _placedSpriteOriginalPosition;
