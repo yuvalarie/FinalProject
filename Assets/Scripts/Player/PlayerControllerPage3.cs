@@ -9,6 +9,7 @@ namespace Player
 {
     public class PlayerControllerPage3 : PlayerControllerBase
     {
+        private static readonly int Play = Animator.StringToHash("Play");
         [SerializeField, Tooltip("next scene name")] private string nextSceneName;
         
         [Header("Text Settings")]
