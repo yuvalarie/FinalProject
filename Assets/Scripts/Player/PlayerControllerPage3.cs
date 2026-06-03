@@ -9,7 +9,6 @@ namespace Player
 {
     public class PlayerControllerPage3 : PlayerControllerBase
     {
-        [SerializeField, Tooltip("next scene name")] private string nextSceneName;
         
         [Header("Text Settings")]
         [SerializeField] private GameObject textBubble;

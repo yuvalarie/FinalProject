@@ -1,4 +1,5 @@
 ﻿using System;
+using Managers;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -147,6 +148,10 @@ namespace Player
             else if (other == frame9EnterCollider)
             {
                 Frame9Sequence();
+            }
+            if (other.CompareTag("End"))
+            {
+                SceneLoader.Instance?.LoadScene(nextSceneName);
             }
         }
         
