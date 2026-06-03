@@ -1262,7 +1262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &354570906
 Transform:
   m_ObjectHideFlags: 0
@@ -3912,8 +3912,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MiniPlayer.BigPlayerPage1Behaviour
   speed: 5
-  page1Sprite: {fileID: 21300000, guid: 5f8f32b41065342d484d8d91edf5f073, type: 3}
+  page1Sprite: {fileID: 21300000, guid: 925fcdb241bcf46eaa318f13c1bf8443, type: 3}
   player: {fileID: 1428508827}
+  phoneAnimator: {fileID: 194628952}
+  size: {x: 0.43510544, y: 0.43510544, z: 0.43510544}
 --- !u!1 &1087528445
 GameObject:
   m_ObjectHideFlags: 0
@@ -5282,7 +5284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerPage1
   speed: 1
   transitionCooldown: 0.6
-  startPosition: {x: -0.94, y: -11.9281, z: 0}
+  startPosition: {x: -1, y: -11.9281, z: 0}
   nextSceneName: Page 2
 --- !u!1 &1429939310
 GameObject:
@@ -5666,7 +5668,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: c6a8f5690d18043ccab5856e744683dd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7377,6 +7379,7 @@ SceneRoots:
   - {fileID: 1049715965}
   - {fileID: 1749971177}
   - {fileID: 354570906}
+  - {fileID: 194628954}
   - {fileID: 1766158537}
   - {fileID: 325395934}
   - {fileID: 49322715}
@@ -7410,4 +7413,3 @@ SceneRoots:
   - {fileID: 658010166}
   - {fileID: 1240379117}
   - {fileID: 1156233407}
-  - {fileID: 194628954}

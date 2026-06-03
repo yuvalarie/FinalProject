@@ -8,9 +8,13 @@ namespace Player
     {
         private static readonly int Play = Animator.StringToHash("Play");
         private static readonly int Pat = Animator.StringToHash("Pat");
+        
+        [Header("Frame1")]
+        [SerializeField] private Collider2D frame1ExitCollider;
 
         [Header("Frame2")]
         [SerializeField] private Collider2D frame2EnterCollider;
+        [SerializeField] private Transform frame2StartPosition;
         [SerializeField] private Animator handAnimator;
         [SerializeField] private Animator pillowAnimator;
         
@@ -18,10 +22,12 @@ namespace Player
         [SerializeField] private Collider2D frame3EnterCollider;
         [SerializeField] private Animator hand2Animator;
         [SerializeField] private Collider2D frame3ExitCollider;
+        [SerializeField] private Transform frame3ExitPosition;
 
         [Header("Frame4")] 
         [SerializeField] private Transform frame4StartPosition;
         [SerializeField] private Collider2D frame4EnterCollider;
+        [SerializeField] private Collider2D frame4ExitCollider;
         [SerializeField] private Animator hand3Animator;
         [SerializeField] private Animator blanketAnimator;
         
@@ -35,13 +41,16 @@ namespace Player
         [SerializeField] private Animator smallMirrorAnimator;
         [SerializeField] private Animator bigMirrorAnimator;
         [SerializeField] private Collider2D frame6ExitCollider;
+        [SerializeField] private Transform frame6ExitPosition;
         
         [Header("Frame7")]
         [SerializeField] private Transform frame7StartPosition;
         [SerializeField] private Collider2D frame7EnterCollider;
+        [SerializeField] private Collider2D frame7EnterRightCollider;
         [SerializeField] private Animator shadowAnimator;
         [SerializeField] private GameObject shadowObject;
         [SerializeField] private Collider2D frame7ExitCollider;
+        [SerializeField] private Collider2D frame7ExitLeftCollider;
         
         [Header("Frame8")]
         [SerializeField] private Collider2D frame8EnterCollider;
@@ -52,10 +61,20 @@ namespace Player
         [SerializeField] private Vector3 frame9Size;
         
         private SpriteRenderer _spriteRenderer;
+        private Animator _animator;
+        private Vector3 _shadowOriginalPosition;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            _animator = GetComponent<Animator>();
+            _animator.SetTrigger(Play);
+        }
 
         private void Start()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
+                if (shadowObject != null) _shadowOriginalPosition = shadowObject.transform.position;
         }
 
         protected override void OnInteraction(InputAction.CallbackContext context)
@@ -64,7 +83,11 @@ namespace Player
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other == frame2EnterCollider)
+            if (other == frame1ExitCollider)
+            {
+                transform.position = frame2StartPosition.position;
+            }
+            else if (other == frame2EnterCollider)
             {
                 Frame2Sequence();
             }
@@ -79,6 +102,10 @@ namespace Player
             else if (other == frame4EnterCollider)
             {
                 Frame4Sequence();
+            }
+            else if (other == frame4ExitCollider)
+            {
+                transform.position = frame3ExitPosition.position;
             }
             else if (other == frame5EnterCollider)
             {
@@ -96,10 +123,22 @@ namespace Player
             {
                 Frame7Sequence();
             }
+            else if (other == frame7EnterRightCollider)
+            {
+                shadowObject.transform.SetParent(gameObject.transform);
+                _spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
+            }
             else if (other == frame7ExitCollider)
             {
                 shadowObject.transform.SetParent(null);
-                _spriteRenderer.enabled = true;
+                _spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+            }
+            else if (other == frame7ExitLeftCollider)
+            {
+                shadowObject.transform.SetParent(null);
+                shadowObject.transform.position = _shadowOriginalPosition;
+                _spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+                transform.position = frame6ExitPosition.position;
             }
             else if (other == frame8EnterCollider)
             {
@@ -155,7 +194,7 @@ namespace Player
         
         private void Frame7Sequence()
         {
-            _spriteRenderer.enabled = false;
+            _spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
             shadowObject.transform.SetParent(gameObject.transform);
             shadowAnimator.SetTrigger(Play);
         }

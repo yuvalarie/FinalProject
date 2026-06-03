@@ -25,8 +25,11 @@ namespace Player
         [SerializeField, Tooltip("The layer used for grabbable objects.")]
         private LayerMask grabbableLayer;
         
-        [SerializeField, Tooltip("How far the player can reach to grab an object.")]
-        private float grabRadius = 1f;
+        [SerializeField, Tooltip("How far the player can reach to pick up an object.")]
+        private float pickupRadius = 1f;
+        
+        [SerializeField, Tooltip("How far the player can reach to drop an object into a zone.")]
+        private float dropRadius = 1.5f;
         
         [SerializeField, Tooltip("The layer used for valid drop zones.")]
         private LayerMask dropZoneLayer;
@@ -159,7 +162,7 @@ namespace Player
             Debug.Log("Attempting to pick up item...");
 
             Vector2 grabOrigin = GetGrabOrigin();
-            Collider2D[] hits = Physics2D.OverlapCircleAll(grabOrigin, grabRadius, grabbableLayer);
+            Collider2D[] hits = Physics2D.OverlapCircleAll(grabOrigin, pickupRadius, grabbableLayer);
             
             GrabbableObject closestItem = null;
             float closestDistance = float.MaxValue;
@@ -206,7 +209,7 @@ namespace Player
             Vector2 grabOrigin = GetGrabOrigin();
             DropZone validZone = null;
 
-            Collider2D[] dropZones = Physics2D.OverlapCircleAll(grabOrigin, grabRadius, dropZoneLayer);
+            Collider2D[] dropZones = Physics2D.OverlapCircleAll(grabOrigin, dropRadius, dropZoneLayer);
             bool foundCorrectZone = false;
 
             foreach (Collider2D zone in dropZones)
@@ -259,8 +262,12 @@ namespace Player
         
         private void OnDrawGizmos()
         {
+            if (rightHand == null || leftHand == null) return; 
+            Vector2 grabOrigin = GetGrabOrigin();
             Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(GetGrabOrigin(), grabRadius);
+            Gizmos.DrawWireSphere(grabOrigin, pickupRadius);
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireSphere(grabOrigin, dropRadius);
         }
     }
 }
