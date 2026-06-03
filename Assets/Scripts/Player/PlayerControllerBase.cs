@@ -7,6 +7,8 @@ namespace Player
     {
         [SerializeField, Tooltip("Movement speed of the player.")]
         protected float speed = 5f;
+        
+        [SerializeField, Tooltip("next scene name")] protected string nextSceneName;
 
         protected Vector2 MoveInput;
     

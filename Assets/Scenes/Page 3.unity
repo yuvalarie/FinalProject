@@ -1871,7 +1871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerPage3
   speed: 3
-  nextSceneName: MiniGame1-WithArt
+  nextSceneName: Page 4
   textBubble: {fileID: 927840240}
   textBubble1: {fileID: 466720709}
   textBubble2: {fileID: 417304388}
