@@ -5514,7 +5514,7 @@ Transform:
   m_GameObject: {fileID: 849736456}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.5, y: -19.55, z: 0}
+  m_LocalPosition: {x: -5.3, y: -19.53, z: 0}
   m_LocalScale: {x: 0.2399655, y: 0.2399655, z: 0.2399655}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6675,7 +6675,7 @@ Transform:
   m_GameObject: {fileID: 990848299}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.18336032, y: -4.042253, z: 0}
+  m_LocalPosition: {x: 0.18336032, y: -4.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9237,7 +9237,7 @@ Transform:
   m_GameObject: {fileID: 1528582965}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.8394872, w: 0.54337955}
-  m_LocalPosition: {x: 3.5845559, y: -2.042362, z: 0}
+  m_LocalPosition: {x: 8.4, y: -3.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10335,7 +10335,7 @@ MonoBehaviour:
   frame8EnterCollider: {fileID: 297835966}
   saltAnimator: {fileID: 1846566650}
   frame9EnterCollider: {fileID: 5523343}
-  frame9Size: {x: 0.24483544, y: 0.24483544, z: 0.24483544}
+  frame9Size: {x: 0.1185248, y: 0.1185248, z: 0.1185248}
 --- !u!50 &1774060944
 Rigidbody2D:
   serializedVersion: 5
