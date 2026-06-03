@@ -52,6 +52,14 @@ namespace Player
         [SerializeField] private Vector3 frame9Size;
         
         private SpriteRenderer _spriteRenderer;
+        private Animator _animator;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            _animator = GetComponent<Animator>();
+            _animator.SetTrigger(Play);
+        }
 
         private void Start()
         {
@@ -99,7 +107,7 @@ namespace Player
             else if (other == frame7ExitCollider)
             {
                 shadowObject.transform.SetParent(null);
-                _spriteRenderer.enabled = true;
+                _spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
             }
             else if (other == frame8EnterCollider)
             {
@@ -155,7 +163,7 @@ namespace Player
         
         private void Frame7Sequence()
         {
-            _spriteRenderer.enabled = false;
+            _spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
             shadowObject.transform.SetParent(gameObject.transform);
             shadowAnimator.SetTrigger(Play);
         }
