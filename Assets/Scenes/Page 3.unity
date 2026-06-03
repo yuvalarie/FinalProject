@@ -1877,7 +1877,7 @@ MonoBehaviour:
   textBubble2: {fileID: 417304388}
   textBubble3: {fileID: 607246524}
   textBubble4: {fileID: 1230491706}
-  hellDoor: {fileID: 1542509161}
+  hellDoor: {fileID: 2035115535}
   letterAnimator: {fileID: 0}
   letterObject: {fileID: 1552387255}
   endTriggerObject: {fileID: 1328185591}
@@ -2607,7 +2607,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &2035115536
 Animator:
   serializedVersion: 7
