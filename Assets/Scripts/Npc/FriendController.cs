@@ -58,11 +58,11 @@
               speechBubble.SetActive(false);
           }
 
-          public void GetThrown(Vector3 portalPosition)
+          public void GetThrown(Vector3 portalPosition, Action onComplete = null)
           {
               friendSpriteRenderer.sprite = _thrownSprite;
               StopAllCoroutines();
-              StartCoroutine(FlyToPortalRoutine(portalPosition));
+              StartCoroutine(FlyToPortalRoutine(portalPosition, onComplete));
           }
 
           private IEnumerator RoamingRoutine()
@@ -104,7 +104,7 @@
               transform.localRotation = Quaternion.identity;
           }
 
-          private IEnumerator FlyToPortalRoutine(Vector3 portalPosition)
+          private IEnumerator FlyToPortalRoutine(Vector3 portalPosition, Action onComplete)
           {
               float elapsed = 0f;
               Vector3 startPosition = transform.position;
@@ -117,7 +117,7 @@
                   transform.Rotate(0f, 0f, throwRotationSpeed * Time.deltaTime);
                   yield return null;
               }
-
+              onComplete?.Invoke();
               Destroy(gameObject);
           }
       }
