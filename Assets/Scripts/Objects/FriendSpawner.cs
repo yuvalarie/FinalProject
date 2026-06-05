@@ -6,78 +6,96 @@ using UnityEngine;
 namespace Objects
 {
     [Serializable]
-    public struct Vector2Pair
+    public struct AreaBounds
     {
+        public MiniGame2FrameArea area;
         public Vector2 bottomLeft;
         public Vector2 topRight;
-
-        public Vector2Pair(Vector2 bottomLeft, Vector2 topRight)
-        {
-            this.bottomLeft = bottomLeft;
-            this.topRight = topRight;
-        }
     }
+
     public class FriendSpawner : MonoBehaviour
     {
-        [SerializeField] private List<Vector2Pair> spawnAreas; // List of tuples containing the bottom-left and top-right corners of spawn areas
-        [SerializeField] private List<GameObject> friendPrefabs;
-        [SerializeField] private Transform friendShowPosition;
-        
-        private GameObject _currentShowingFriend;
+        [Header("Friends")] 
+        [SerializeField] private List<FriendData> friends;
+        [SerializeField] private GameObject friendBasePrefab;
+
+        [Header("Phone Display")] 
+        [SerializeField] private GameObject phoneDisplayObject;
+        private SpriteRenderer _phoneDisplayRenderer;
+
+        [Header("Areas")] [SerializeField] private List<AreaBounds> areaBounds;
+
+        [Header("References")] [SerializeField]
+        private HellPortal hellPortal;
+
+        private FriendController _currentShowingFriend;
         private int _currentFriendIndex = 0;
 
         private void Start()
         {
-            ShowFriendAtPosition();
-        }
-        
-        
-        public void SpawnFriend()
-        {
-            if (friendPrefabs.Count == 0 || spawnAreas.Count == 0)
+            if (phoneDisplayObject)
             {
-                Debug.LogWarning("No friend prefabs or spawn areas defined.");
-                return;
-            }
-
-            // Get the current friend prefab to spawn
-            GameObject friendPrefab = friendPrefabs[_currentFriendIndex];
-
-            // Randomly select a spawn area
-            Vector2Pair spawnArea = spawnAreas[UnityEngine.Random.Range(0, spawnAreas.Count)];
-
-            // Generate a random position within the selected spawn area
-            float randomX = UnityEngine.Random.Range(spawnArea.bottomLeft.x, spawnArea.topRight.x);
-            float randomY = UnityEngine.Random.Range(spawnArea.bottomLeft.y, spawnArea.topRight.y);
-            Vector2 spawnPosition = new Vector2(randomX, randomY);
-
-            // Instantiate the friend prefab at the generated position
-            var newFriend = Instantiate(friendPrefab, spawnPosition, Quaternion.identity);
-            newFriend.GetComponent<RandomMovementNpc>().StartRandomMovement();
-
-            // // Move to the next friend prefab for the next spawn
-            // _currentFriendIndex = (_currentFriendIndex + 1) % friendPrefabs.Count;
-            ShowNextFriend();
-        }
-        
-        public void ShowNextFriend()
-        {
-            Destroy(_currentShowingFriend);
-            _currentFriendIndex = (_currentFriendIndex + 1) % friendPrefabs.Count;
-            ShowFriendAtPosition();
-        }
-        
-        private void ShowFriendAtPosition()
-        {
-            if (friendPrefabs.Count == 0 || friendShowPosition == null)
-            {
-                Debug.LogWarning("No friend prefabs or show position defined.");
-                return;
+                _phoneDisplayRenderer = phoneDisplayObject.GetComponent<SpriteRenderer>();
+                if (_phoneDisplayRenderer == null)
+                {
+                    Debug.LogError("Phone display object does not have a SpriteRenderer component.");
+                }
             }
             
-            // Instantiate the current friend prefab at the designated show position
-            _currentShowingFriend = Instantiate(friendPrefabs[_currentFriendIndex], friendShowPosition.position, Quaternion.identity);
+            ShowFriendOnPhone(); // for now we just show the first friend, will add later to call this only when we actually start the minigame
         }
-        
+
+        public void SpawnFriend()
+        {
+            FriendData data = friends[_currentFriendIndex];
+            AreaBounds bounds = GetBoundsForArea(data.assignedArea);
+
+            var instance = Instantiate(friendBasePrefab);
+            var controller = instance.GetComponent<FriendController>();
+            controller.Setup(data);
+
+            Bounds worldBounds = new Bounds(
+                new Vector3((bounds.bottomLeft.x + bounds.topRight.x) / 2f,
+                    (bounds.bottomLeft.y + bounds.topRight.y) / 2f, 0f),
+                new Vector3(bounds.topRight.x - bounds.bottomLeft.x,
+                    bounds.topRight.y - bounds.bottomLeft.y, 0f)
+            );
+
+            float spawnX = UnityEngine.Random.Range(bounds.bottomLeft.x, bounds.topRight.x);
+            float spawnY = UnityEngine.Random.Range(bounds.bottomLeft.y, bounds.topRight.y);
+            instance.transform.position = new Vector3(spawnX, spawnY, 0f);
+
+            controller.StartRoaming(worldBounds);
+            ShowNextFriend();
+        }
+
+        public void DiscardFriend()
+        {
+            if (_currentShowingFriend == null) return;
+            hellPortal.SuckIn(_currentShowingFriend);
+            ShowNextFriend();
+        }
+
+        private void ShowNextFriend()
+        {
+            _currentFriendIndex = (_currentFriendIndex + 1) % friends.Count;
+            ShowFriendOnPhone();
+        }
+
+        private void ShowFriendOnPhone()
+        {
+            _phoneDisplayRenderer.sprite = friends[_currentFriendIndex].appProfileSprite;
+            _currentShowingFriend = null;
+        }
+
+        private AreaBounds GetBoundsForArea(MiniGame2FrameArea area)
+        {
+            foreach (var b in areaBounds)
+                if (b.area == area)
+                    return b;
+
+            Debug.LogWarning($"No bounds found for area {area}, defaulting to first entry.");
+            return areaBounds[0];
+        }
     }
 }
