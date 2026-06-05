@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f8f6016127c5940ec88d56f2444537a9
+guid: 9e21a9e38ff9325468d51b7d37d5e5dd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4244932167101281003
-    second: DaveHand_0
+      213: -7503311779471129500
+    second: Friend 1 House_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +49,7 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 7
+  alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 108
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DaveHand_0
+      name: Friend 1 House_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1135
-        height: 2007
+        width: 436
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: be273bbb05709ea30800000000000000
-      internalID: 4244932167101281003
+      spriteID: 4648e99d0b1eed790800000000000000
+      internalID: -7503311779471129500
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      DaveHand_0: 4244932167101281003
+      Friend 1 House_0: -7503311779471129500
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
