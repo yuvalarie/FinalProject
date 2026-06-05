@@ -15,84 +15,98 @@ namespace Objects
 
     public class FriendSpawner : MonoBehaviour
     {
-        [Header("Friends")] 
+        [Header("Friends")]
         [SerializeField] private List<FriendData> friends;
         [SerializeField] private GameObject friendBasePrefab;
 
-        [Header("Phone Display")] 
-        [SerializeField] private GameObject phoneDisplayObject;
-        private SpriteRenderer _phoneDisplayRenderer;
+        [Header("Phone Display")]
+        // The SpriteRenderer already in the scene on the phone — we just swap its sprite
+        [SerializeField] private SpriteRenderer phoneDisplayRenderer;
 
-        [Header("Areas")] [SerializeField] private List<AreaBounds> areaBounds;
+        [Header("Spawn Positions")]
+        // Where discarded friends appear before flying to the hell portal
+        [SerializeField] private Transform discardSpawnPosition;
 
-        [Header("References")] [SerializeField]
-        private HellPortal hellPortal;
+        [Header("Areas")]
+        // One entry per MiniGame2FrameArea — defines the world-space bounds of each comic panel
+        [SerializeField] private List<AreaBounds> areaBounds;
 
-        private FriendController _currentShowingFriend;
+        [Header("References")]
+        [SerializeField] private HellPortal hellPortal;
+
         private int _currentFriendIndex = 0;
 
-        private void Start()
+        // Called by MiniGame2SceneController when the hand finishes entering the scene
+        public void StartSpawning()
         {
-            if (phoneDisplayObject)
-            {
-                _phoneDisplayRenderer = phoneDisplayObject.GetComponent<SpriteRenderer>();
-                if (_phoneDisplayRenderer == null)
-                {
-                    Debug.LogError("Phone display object does not have a SpriteRenderer component.");
-                }
-            }
-            
-            ShowFriendOnPhone(); // for now we just show the first friend, will add later to call this only when we actually start the minigame
+            ShowCurrentFriendOnPhone();
         }
 
+        // Called by MiniGame2HandController on right swipe
+        // Spawns the friend into their assigned comic panel and shows the next friend on the phone
         public void SpawnFriend()
         {
             FriendData data = friends[_currentFriendIndex];
             AreaBounds bounds = GetBoundsForArea(data.assignedArea);
 
-            var instance = Instantiate(friendBasePrefab);
+            // Pick a random spawn position within the assigned frame
+            float spawnX = UnityEngine.Random.Range(bounds.bottomLeft.x, bounds.topRight.x);
+            float spawnY = UnityEngine.Random.Range(bounds.bottomLeft.y, bounds.topRight.y);
+
+            var instance = Instantiate(friendBasePrefab, new Vector3(spawnX, spawnY, 0f), Quaternion.identity);
             var controller = instance.GetComponent<FriendController>();
             controller.Setup(data);
 
+            // Convert the Vector2 bounds into a Unity Bounds for the roaming logic
             Bounds worldBounds = new Bounds(
                 new Vector3((bounds.bottomLeft.x + bounds.topRight.x) / 2f,
-                    (bounds.bottomLeft.y + bounds.topRight.y) / 2f, 0f),
+                            (bounds.bottomLeft.y + bounds.topRight.y) / 2f, 0f),
                 new Vector3(bounds.topRight.x - bounds.bottomLeft.x,
-                    bounds.topRight.y - bounds.bottomLeft.y, 0f)
+                            bounds.topRight.y - bounds.bottomLeft.y, 0f)
             );
 
-            float spawnX = UnityEngine.Random.Range(bounds.bottomLeft.x, bounds.topRight.x);
-            float spawnY = UnityEngine.Random.Range(bounds.bottomLeft.y, bounds.topRight.y);
-            instance.transform.position = new Vector3(spawnX, spawnY, 0f);
-
             controller.StartRoaming(worldBounds);
-            ShowNextFriend();
+            AdvanceToNextFriend();
         }
 
+        // Called by MiniGame2HandController on left swipe
+        // Spawns the friend at the discard position and sends them to the hell portal
         public void DiscardFriend()
         {
-            if (_currentShowingFriend == null) return;
-            hellPortal.SuckIn(_currentShowingFriend);
-            ShowNextFriend();
+            FriendData data = friends[_currentFriendIndex];
+
+            var instance = Instantiate(friendBasePrefab, discardSpawnPosition.position, Quaternion.identity);
+            var controller = instance.GetComponent<FriendController>();
+            controller.Setup(data);
+
+            hellPortal.SuckIn(controller);
+            AdvanceToNextFriend();
         }
 
-        private void ShowNextFriend()
+        private void AdvanceToNextFriend()
         {
-            _currentFriendIndex = (_currentFriendIndex + 1) % friends.Count;
-            ShowFriendOnPhone();
+            _currentFriendIndex++;
+
+            if (_currentFriendIndex >= friends.Count)
+            {
+                // All friends have been swiped — this is where the scene-end event will be fired later
+                // (return controls to walking controller, continue the story)
+                Debug.Log("FriendSpawner: all friends swiped, scene complete.");
+                return;
+            }
+
+            ShowCurrentFriendOnPhone();
         }
 
-        private void ShowFriendOnPhone()
+        private void ShowCurrentFriendOnPhone()
         {
-            _phoneDisplayRenderer.sprite = friends[_currentFriendIndex].appProfileSprite;
-            _currentShowingFriend = null;
+            phoneDisplayRenderer.sprite = friends[_currentFriendIndex].appProfileSprite;
         }
 
         private AreaBounds GetBoundsForArea(MiniGame2FrameArea area)
         {
             foreach (var b in areaBounds)
-                if (b.area == area)
-                    return b;
+                if (b.area == area) return b;
 
             Debug.LogWarning($"No bounds found for area {area}, defaulting to first entry.");
             return areaBounds[0];
