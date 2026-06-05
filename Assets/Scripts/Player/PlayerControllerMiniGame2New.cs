@@ -13,7 +13,7 @@ namespace Player
         Middle
     }
     
-    public class PlayerControllerMiniGame4New : PlayerControllerBase
+    public class PlayerControllerMiniGame2New : PlayerControllerBase
     {
         [Header("Hand Setup")]
         [SerializeField] private Transform handPivot; // the whole hand object, pivot at elbow
