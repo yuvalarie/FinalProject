@@ -2114,6 +2114,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 529924918}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &666434987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 666434988}
+  m_Layer: 0
+  m_Name: DiscardSpawnPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &666434988
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666434987}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.53, y: -0.18, z: 0}
+  m_LocalScale: {x: 0.2399182, y: 0.2399182, z: 0.2399182}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &691280452
 GameObject:
   m_ObjectHideFlags: 0
@@ -2358,6 +2389,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &796226062 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1899112733900447661, guid: 654f6c994c5bc094d8241869bcb6bac0, type: 3}
+  m_PrefabInstance: {fileID: 5857740853127349714}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b571f0d9b6bf2b44dbf74780c2d7f05e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.FriendSpawner
 --- !u!1 &860568184
 GameObject:
   m_ObjectHideFlags: 0
@@ -4202,6 +4244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1349934409}
   - component: {fileID: 1349934408}
+  - component: {fileID: 1349934410}
   m_Layer: 0
   m_Name: DaveHand
   m_TagString: Untagged
@@ -4282,6 +4325,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1349934410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349934407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6c106665d94fd04b8011cdc7dec5467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerMiniGame2Hand
+  speed: 5
+  nextSceneName: 
+  handPivot: {fileID: 1349934409}
+  restingAngle: 0
+  chooseAngle: 23.3
+  discardAngle: -26.6
+  gizmoRadius: 4.12
+  totalMovementDuration: 1.2
+  movementCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  friendSpawner: {fileID: 796226062}
 --- !u!1 &1368868943
 GameObject:
   m_ObjectHideFlags: 0
@@ -7217,6 +7305,14 @@ PrefabInstance:
       propertyPath: phoneDisplayObject
       value: 
       objectReference: {fileID: 650324128}
+    - target: {fileID: 1899112733900447661, guid: 654f6c994c5bc094d8241869bcb6bac0, type: 3}
+      propertyPath: discardSpawnPosition
+      value: 
+      objectReference: {fileID: 666434988}
+    - target: {fileID: 1899112733900447661, guid: 654f6c994c5bc094d8241869bcb6bac0, type: 3}
+      propertyPath: phoneDisplayRenderer
+      value: 
+      objectReference: {fileID: 650324129}
     - target: {fileID: 4998785088079839209, guid: 654f6c994c5bc094d8241869bcb6bac0, type: 3}
       propertyPath: m_Name
       value: FriendSpawner
@@ -7241,6 +7337,7 @@ SceneRoots:
   - {fileID: 1035559658}
   - {fileID: 1349934409}
   - {fileID: 608837546}
+  - {fileID: 666434988}
   - {fileID: 5857740853127349714}
   - {fileID: 1606598945}
   - {fileID: 1598521380}
