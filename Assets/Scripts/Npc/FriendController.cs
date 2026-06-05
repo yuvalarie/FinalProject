@@ -1,6 +1,8 @@
+  using System;
   using System.Collections;
   using Objects;
   using UnityEngine;
+  using Random = UnityEngine.Random;
 
   namespace Npc
   {
@@ -24,6 +26,14 @@
 
           private Sprite _thrownSprite;
           private Bounds _areaBounds;
+          // TODO: add a way to offset the speech bubble position that will be relative to the size of the sprite of the roaming friend
+
+          // TODO: add a flip to the X of the sprite when we walk to the right, as all the friends are looking to the left by default.
+          // private void Start()
+          // {
+          //     var testAreaBounds = new Bounds(new Vector3(4.9f, -3.67f, 0f), new Vector3(5f, 0f, 0f)); // Default to current position if not set up
+          //     StartRoaming(testAreaBounds);
+          // }
 
           public void Setup(FriendData data)
           {
