@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerFriendsTinder
   speed: 5
+  nextSceneName: 
   handPivot: {fileID: 810723426}
   radius: 4.05
   restingAngle: 0
@@ -180,7 +181,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  friendSpawner: {fileID: 1367268896}
+  friendSpawnerOld: {fileID: 0}
 --- !u!212 &10214007
 SpriteRenderer:
   m_ObjectHideFlags: 0

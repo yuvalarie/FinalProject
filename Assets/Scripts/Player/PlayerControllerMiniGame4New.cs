@@ -27,7 +27,7 @@ namespace Player
         [SerializeField] private AnimationCurve movementCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
         
         [Header("References")]
-        [SerializeField] private FriendSpawner friendSpawner;
+        [SerializeField] private FriendSpawnerOld friendSpawnerOld;
         private bool _isMoving;
 
         private void Start()
@@ -100,14 +100,14 @@ namespace Player
         {
             Debug.Log("Choose action reached");
             // your choose logic here
-            friendSpawner.SpawnFriend();
+            friendSpawnerOld.SpawnFriend();
         }
 
         private void OnDiscardReached()
         {
             Debug.Log("Discard action reached");
             // your discard logic here
-            friendSpawner.ShowNextFriend();
+            friendSpawnerOld.ShowNextFriend();
         }
 
         private void OnDrawGizmos()
