@@ -11,18 +11,18 @@ namespace Player
     {
         
         [Header("Text Settings")]
-        [SerializeField] private GameObject textBubble;
         [SerializeField] private GameObject textBubble1;
         [SerializeField] private GameObject textBubble2;
         [SerializeField] private GameObject textBubble3;
         [SerializeField] private GameObject textBubble4;
+        [SerializeField] private GameObject textBubble5;
+        [SerializeField] private GameObject textBubble6;
         
         [Header("Sequence Settings")]
         [SerializeField] private GameObject hellDoor;
         [SerializeField] private Animator letterAnimator;
         [SerializeField] private GameObject letterObject;
-        //[SerializeField] private GameObject doorObject;
-        //[SerializeField] private GameObject doorHandleObject;
+        [SerializeField] private GameObject smallLetterObject;
         [SerializeField] private GameObject endTriggerObject;
         
         private int _interactionCount = 0;
@@ -43,15 +43,19 @@ namespace Player
                 case 4:
                     StartCoroutine(Sequence5Coroutine());
                     break;
+                case 5:
+                    StartCoroutine(Sequence6Coroutine());
+                    break;
+                case 6:
+                    StartCoroutine(Sequence7Coroutine());
+                    break;
             }
         }
         
         private IEnumerator Sequence1Coroutine()
         {
-            textBubble.SetActive(true);
             textBubble1.SetActive(true);
-            yield return new WaitForSeconds(2f);
-            hellDoor.SetActive(true);
+            yield return new WaitForSeconds(0.1f);
             _interactionCount++;
         }
         
@@ -66,39 +70,55 @@ namespace Player
         private IEnumerator Sequence3Coroutine()
         {
             textBubble2.SetActive(false);
-            hellDoor.SetActive(false);
             yield return new WaitForSeconds(0.1f);
             textBubble3.SetActive(true);
+            hellDoor.SetActive(true);
             _interactionCount++;
         }
         
         private IEnumerator Sequence4Coroutine()
         {
-            //letterAnimator.SetTrigger("Open");
-            yield return new WaitForSeconds(0.1f); //change to match animation timing
-            letterObject.SetActive(true);
+            hellDoor.SetActive(false);
+            textBubble3.SetActive(false);
+            yield return new WaitForSeconds(0.1f);
+            textBubble4.SetActive(true);
             _interactionCount++;
         }
         
         private IEnumerator Sequence5Coroutine()
         {
+            textBubble4.SetActive(false);
+            yield return new WaitForSeconds(0.1f);
+            textBubble5.SetActive(true);
+            _interactionCount++;
+        }
+        
+        private IEnumerator Sequence6Coroutine()
+        {
+            letterAnimator.SetTrigger("Open");
+            yield return new WaitForSeconds(1.2f); //change to match animation timing
+            letterObject.SetActive(true);
+            _interactionCount++;
+        }
+        
+        private IEnumerator Sequence7Coroutine()
+        {
+            smallLetterObject.SetActive(false);
+            textBubble5.SetActive(false);
             letterObject.SetActive(false);
             yield return new WaitForSeconds(0.1f);
-            //doorObject.SetActive(true);
-            //doorHandleObject.SetActive(false);
-            textBubble3.SetActive(false);
-            yield return new WaitForSeconds(0.1f);
-            textBubble4.SetActive(true);
+            textBubble6.SetActive(true);
             endTriggerObject.SetActive(true);
             _interactionCount++;
         }
+        
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Start") && _interactionCount == 0) StartCoroutine(Sequence1Coroutine());
-            if (other.CompareTag("End") && _interactionCount >= 5)
+            if (other.CompareTag("End") && _interactionCount >= 7)
             {
-                SceneLoader.Instance?.LoadScene(nextSceneName);
+                SceneLoader.Instance?.ActivatePreloadedScene();
             }
         }
     }

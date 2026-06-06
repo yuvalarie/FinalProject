@@ -18,6 +18,9 @@ namespace Objects
         [SerializeField] private GameObject startSprite;
         [SerializeField] private GameObject heldSprite;
         [SerializeField] private GameObject placedSprite;
+        
+        [Tooltip("If true, interacting with this instantly teleports it to its drop spot.")]
+        public bool isInstantPlacement = false;
 
         private Transform _originalParent;
         

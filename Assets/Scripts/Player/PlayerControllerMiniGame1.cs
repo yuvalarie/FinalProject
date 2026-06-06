@@ -96,16 +96,23 @@ namespace Player
                 _spriteRenderer.flipX = _isFacingRight;
             }
             
+            rightHand.SetActive(_isFacingRight);
+            leftHand.SetActive(!_isFacingRight);
+            
             if (_heldGrabbable != null)
             {
                 Transform newHand = GetActiveHand();
                 _heldGrabbable.transform.SetParent(newHand);
                 _heldGrabbable.transform.localPosition = Vector3.zero;
+                
+                rightHandAnimator?.SetTrigger(_isFacingRight ? GrabAnimation : DropAnimation);
+                leftHandAnimator?.SetTrigger(_isFacingRight ? DropAnimation : GrabAnimation);
             }
-
-            // Toggle the active hands
-            rightHand.SetActive(_isFacingRight);
-            leftHand.SetActive(!_isFacingRight);
+            else
+            {
+                rightHandAnimator?.SetTrigger(DropAnimation);
+                leftHandAnimator?.SetTrigger(DropAnimation);
+            }
         }
         
         private Transform GetActiveHand()
@@ -184,6 +191,11 @@ namespace Player
 
             if (closestItem != null)
             {
+                if (closestItem.isInstantPlacement)
+                {
+                    closestItem.currentState = GrabbableObject.ObjectState.Placed;
+                    return;
+                }
                 GetActiveAnimator()?.SetTrigger(GrabAnimation);
                 Debug.Log($"SUCCESS: Picking up '{closestItem.gameObject.name}'!");
                 _heldGrabbable = closestItem;
@@ -257,7 +269,8 @@ namespace Player
                 _heldGrabbable.SwitchState();
                 _heldGrabbable = null;
             }
-            GetActiveAnimator()?.SetTrigger(DropAnimation);
+            rightHandAnimator?.SetTrigger(DropAnimation);
+            leftHandAnimator?.SetTrigger(DropAnimation);
         }
         
         private void OnDrawGizmos()

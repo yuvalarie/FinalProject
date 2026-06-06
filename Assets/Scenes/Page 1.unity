@@ -3912,10 +3912,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MiniPlayer.BigPlayerPage1Behaviour
   speed: 5
+  nextSceneName: 
   page1Sprite: {fileID: 21300000, guid: 10b5e5535ebea4ccabdd02b69ac66c7d, type: 3}
   player: {fileID: 1428508827}
   phoneAnimator: {fileID: 194628952}
   size: {x: 0.2399655, y: 0.2399655, z: 0.2399655}
+  animationDuration: 3.1
 --- !u!1 &1087528445
 GameObject:
   m_ObjectHideFlags: 0
@@ -5283,6 +5285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerPage1
   speed: 1
+  nextSceneName: Page 2
   transitionCooldown: 0.6
   startPosition: {x: -1, y: -11.9281, z: 0}
   nextSceneName: Page 2

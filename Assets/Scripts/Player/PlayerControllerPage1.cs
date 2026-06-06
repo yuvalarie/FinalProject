@@ -53,7 +53,7 @@ namespace Player
 
             if (other.CompareTag("End"))
             {
-                SceneLoader.Instance.LoadScene(nextSceneName);
+                SceneLoader.Instance?.ActivatePreloadedScene();
             }
         }
         
