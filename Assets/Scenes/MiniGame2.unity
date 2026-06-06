@@ -330,6 +330,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &121075410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 121075411}
+  m_Layer: 0
+  m_Name: StartingHandPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &121075411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121075410}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.03, y: -6.83, z: 0}
+  m_LocalScale: {x: 0.2399182, y: 0.2399182, z: 0.2399182}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &172333242
 GameObject:
   m_ObjectHideFlags: 0
@@ -3836,6 +3867,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1196887134 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5960529772525699514, guid: 844ff887f1200e14f851de2ef8dd2151, type: 3}
+  m_PrefabInstance: {fileID: 6354662973385674502}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf3d44f4b9b92934b8628bc9c493b51c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerMiniGame2Walk
 --- !u!1 &1197298176
 GameObject:
   m_ObjectHideFlags: 0
@@ -4078,6 +4120,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 697624063}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1247150378
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1247150379}
+  m_Layer: 0
+  m_Name: HiddenHandPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1247150379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247150378}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.03, y: -9.99, z: 0}
+  m_LocalScale: {x: 0.2399182, y: 0.2399182, z: 0.2399182}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1255586605
 GameObject:
   m_ObjectHideFlags: 0
@@ -4144,6 +4217,22 @@ Transform:
   - {fileID: 232773630}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1349934409 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1860297148090103278, guid: c3cf3e8dc25e05e41aced19691efca4c, type: 3}
+  m_PrefabInstance: {fileID: 2557056506850974003}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1349934410 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8200303444842394907, guid: c3cf3e8dc25e05e41aced19691efca4c, type: 3}
+  m_PrefabInstance: {fileID: 2557056506850974003}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6c106665d94fd04b8011cdc7dec5467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerMiniGame2Hand
 --- !u!1 &1368868943
 GameObject:
   m_ObjectHideFlags: 0
@@ -6122,6 +6211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1866407609}
   - component: {fileID: 1866407608}
+  - component: {fileID: 1866407610}
   m_Layer: 14
   m_Name: MiniGameSceneController
   m_TagString: Untagged
@@ -6190,6 +6280,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1866407610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866407607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf83b7a6d14816347b580e918bdc6d27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Managers.MiniGame2SceneController
+  walkController: {fileID: 1196887134}
+  handController: {fileID: 1349934410}
+  hand: {fileID: 1349934409}
+  handHiddenPosition: {fileID: 1247150379}
+  handStartingPosition: {fileID: 121075411}
+  handEntryDuration: 2
+  handEntryCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  stopTrigger: {fileID: 1866407608}
+  friendSpawner: {fileID: 796226062}
 --- !u!1 &1942435384
 GameObject:
   m_ObjectHideFlags: 0
@@ -7028,6 +7162,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: FriendBase
       objectReference: {fileID: 0}
+    - target: {fileID: 7047629883841461451, guid: 9821806754062094b8c639dd310c9160, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7485800182272535079, guid: 9821806754062094b8c639dd310c9160, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7047,7 +7189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1860297148090103278, guid: c3cf3e8dc25e05e41aced19691efca4c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.83
+      value: -9.99
       objectReference: {fileID: 0}
     - target: {fileID: 1860297148090103278, guid: c3cf3e8dc25e05e41aced19691efca4c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7084,6 +7226,10 @@ PrefabInstance:
     - target: {fileID: 3033543917431106211, guid: c3cf3e8dc25e05e41aced19691efca4c, type: 3}
       propertyPath: m_Name
       value: DaveHand
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200303444842394907, guid: c3cf3e8dc25e05e41aced19691efca4c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8200303444842394907, guid: c3cf3e8dc25e05e41aced19691efca4c, type: 3}
       propertyPath: friendSpawner
@@ -7219,6 +7365,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5822067558026649916}
     - target: {fileID: 1899112733900447661, guid: 654f6c994c5bc094d8241869bcb6bac0, type: 3}
+      propertyPath: friends.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899112733900447661, guid: 654f6c994c5bc094d8241869bcb6bac0, type: 3}
       propertyPath: phoneDisplayObject
       value: 
       objectReference: {fileID: 650324128}
@@ -7230,6 +7380,10 @@ PrefabInstance:
       propertyPath: phoneDisplayRenderer
       value: 
       objectReference: {fileID: 650324129}
+    - target: {fileID: 1899112733900447661, guid: 654f6c994c5bc094d8241869bcb6bac0, type: 3}
+      propertyPath: 'friends.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: bb6750a7d47ce204ea77585db884d595, type: 2}
     - target: {fileID: 4998785088079839209, guid: 654f6c994c5bc094d8241869bcb6bac0, type: 3}
       propertyPath: m_Name
       value: FriendSpawner
@@ -7249,7 +7403,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4890486172466207489, guid: 844ff887f1200e14f851de2ef8dd2151, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.09
+      value: -10.86
       objectReference: {fileID: 0}
     - target: {fileID: 4890486172466207489, guid: 844ff887f1200e14f851de2ef8dd2151, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7314,6 +7468,8 @@ SceneRoots:
   - {fileID: 877933852}
   - {fileID: 1647269343}
   - {fileID: 1035559658}
+  - {fileID: 121075411}
+  - {fileID: 1247150379}
   - {fileID: 2557056506850974003}
   - {fileID: 608837546}
   - {fileID: 666434988}

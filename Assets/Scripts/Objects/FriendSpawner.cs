@@ -133,7 +133,15 @@ namespace Objects
                 Gizmos.DrawWireCube(center, size);
 
 #if UNITY_EDITOR
-                UnityEditor.Handles.Label(center, area.area.ToString());
+                GUIStyle style = new GUIStyle
+                {
+                    fontSize = 20,
+                    normal =
+                    {
+                        textColor = Color.red
+                    }
+                };
+                UnityEditor.Handles.Label(center, area.area.ToString(), style);
 #endif
             }
         }
