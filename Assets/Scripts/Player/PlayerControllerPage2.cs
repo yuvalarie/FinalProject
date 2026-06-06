@@ -11,11 +11,11 @@ namespace Player
     {
         private static readonly int Open = Animator.StringToHash("Open");
         
-        [SerializeField,Tooltip("The next scene's name")] private string nextSceneName;
-
         [Header("Size Settings")]
         [Tooltip("The scale factor for the player's size in frame 1-6.")]
         [SerializeField] private float frame1To6Scale = 1f;
+        [Tooltip("The scale factor for the player's size in frame 6.")]
+        [SerializeField] private float frame6Scale = 1.5f;
         [Tooltip("The scale factor for the player's size in frame 7.")]
         [SerializeField] private float frame7Scale = 1.5f;
         
@@ -26,6 +26,10 @@ namespace Player
         [SerializeField] private Transform elevatorTargetPlacement;
         
         [Header("Trigger Settings")]
+        [SerializeField, Tooltip("The trigger that initiates the transition from frame 5 to 6.")]
+        private Collider2D frame5To6Trigger;
+        [SerializeField, Tooltip("The trigger that initiates the transition from frame 6 to 5.")]
+        private Collider2D frame6To5Trigger;
         [SerializeField, Tooltip("The trigger that initiates the transition from frame 6 to 7.")]
         private Collider2D frame6To7Trigger;
         [SerializeField, Tooltip("The trigger that initiates the transition from frame 7 to 6.")]
@@ -40,6 +44,8 @@ namespace Player
         [SerializeField] private Animator leftDoorAnimator;
         [SerializeField] private Animator rightDoorAnimator;
         [SerializeField] private Collider2D leftDoorCollider;
+        [SerializeField] private Collider2D rightDoorCollider;
+        [SerializeField] private SpriteRenderer rightDoorSpriteRenderer;
 
         [Header("Last frame interaction settings")] 
         [SerializeField] private Collider2D lastFrameTrigger;
@@ -78,7 +84,9 @@ namespace Player
             {
                 leftDoorAnimator.SetTrigger(Open);
                 rightDoorAnimator.SetTrigger(Open);
+                rightDoorCollider.enabled = false;
                 leftDoorCollider.enabled = false;
+                rightDoorSpriteRenderer.sortingOrder = _sortingOrderAtStart + 1;
             }
         }
 
@@ -89,6 +97,14 @@ namespace Player
                 var newPosition = new Vector3(elevatorPlacement.position.x, elevatorPlacement.position.y, transform.position.z);
                 _elevatorOffsetY = elevatorTarget.position.y - newPosition.y;
             }
+            if (other == frame5To6Trigger)
+            {
+                transform.localScale = new Vector3(frame6Scale, frame6Scale, 1f);
+            }
+            else if (other == frame6To5Trigger)
+            {
+                transform.localScale = new Vector3(frame1To6Scale, frame1To6Scale, 1f);
+            }
             if (other == frame6To7Trigger)
             {
                 transform.localScale = new Vector3(frame7Scale, frame7Scale, 1f);
@@ -97,7 +113,7 @@ namespace Player
             }
             else if (other == frame7To6Trigger)
             {
-                transform.localScale = new Vector3(frame1To6Scale, frame1To6Scale, 1f);
+                transform.localScale = new Vector3(frame6Scale, frame6Scale, 1f);
                 _spriteRenderer.maskInteraction = SpriteMaskInteraction.None;
             }
             
