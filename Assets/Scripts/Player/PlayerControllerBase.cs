@@ -1,4 +1,5 @@
 using System;
+using Managers;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,66 +7,48 @@ namespace Player
 {
     public abstract class PlayerControllerBase : MonoBehaviour
     {
-        [SerializeField, Tooltip("Movement speed of the player.")]
-        protected float speed = 5f;
+        [SerializeField, Tooltip("Movement speed of the player.")] protected float speed = 5f;
         
         [SerializeField, Tooltip("next scene name")] protected string nextSceneName;
+        
+        [SerializeField] protected GameObject endTriggerObject;
 
         protected Vector2 MoveInput;
-    
-        protected InputSystem_Actions InputActions;
+
+        private InputSystem_Actions _inputActions;
         protected Rigidbody2D Rb;
-        protected SpriteRenderer Renderer;
-        protected Color RegColor;
-        protected Color TransColor;
-
-        //public bool IsTrans { get; private set; }
-
+        
         protected virtual void Awake()
         {
-            InputActions = new InputSystem_Actions();
-            InputActions.Game.Enable();
+            _inputActions = new InputSystem_Actions();
+            _inputActions.Game.Enable();
             
             Rb = GetComponent<Rigidbody2D>();
-            
-            //SetTransparency();
         }
-
-        private void SetTransparency()
+        
+        protected virtual void Start()
         {
-            Renderer = GetComponent<SpriteRenderer>();
-            RegColor = Renderer.color;
-            TransColor.g = RegColor.g;
-            TransColor.r = RegColor.r;
-            TransColor.b = RegColor.b;
-            TransColor.a = 0.5f;
-            Renderer.color = TransColor;
-            //IsTrans = true;
+            SceneLoader.Instance?.PreloadScene(nextSceneName);
         }
 
         private void OnEnable()
         {
-            InputActions.Game.MoveRight.performed += ctx => MoveInput.x = 1f;
-            InputActions.Game.MoveRight.canceled += ctx => MoveInput.x = 0f;
-            InputActions.Game.MoveLeft.performed += ctx => MoveInput.x = -1f;
-            InputActions.Game.MoveLeft.canceled += ctx => MoveInput.x = 0f;
-            InputActions.Game.MoveUp.performed += ctx => MoveInput.y = 1f;
-            InputActions.Game.MoveUp.canceled += ctx => MoveInput.y = 0f;
-            InputActions.Game.MoveDown.performed += ctx => MoveInput.y = -1f;
-            InputActions.Game.MoveDown.canceled += ctx => MoveInput.y = 0f;
+            _inputActions.Game.MoveRight.performed += ctx => MoveInput.x = 1f;
+            _inputActions.Game.MoveRight.canceled += ctx => MoveInput.x = 0f;
+            _inputActions.Game.MoveLeft.performed += ctx => MoveInput.x = -1f;
+            _inputActions.Game.MoveLeft.canceled += ctx => MoveInput.x = 0f;
+            _inputActions.Game.MoveUp.performed += ctx => MoveInput.y = 1f;
+            _inputActions.Game.MoveUp.canceled += ctx => MoveInput.y = 0f;
+            _inputActions.Game.MoveDown.performed += ctx => MoveInput.y = -1f;
+            _inputActions.Game.MoveDown.canceled += ctx => MoveInput.y = 0f;
             
-            InputActions.Game.Interact.performed += OnInteraction;
-            InputActions.Game.Interact.canceled += OnInteraction;
-            
-            //InputActions.Game.Trans.performed += ctx => { IsTrans = false; Renderer.color = RegColor;
-            //};
-            //InputActions.Game.Trans.canceled += ctx => { IsTrans = true; Renderer.color = TransColor;
-            //};
+            _inputActions.Game.Interact.performed += OnInteraction;
+            _inputActions.Game.Interact.canceled += OnInteraction;
         }
         
         private void OnDisable()
         {
-            InputActions.Game.Disable();
+            _inputActions.Game.Disable();
         }
 
         protected virtual void FixedUpdate()
@@ -83,7 +66,15 @@ namespace Player
 
         private void OnDestroy()
         {
-            InputActions?.Dispose();
+            _inputActions?.Dispose();
+        }
+        
+        protected virtual void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("End"))
+            {
+                SceneLoader.Instance?.ActivatePreloadedScene();
+            }
         }
     }
 }
