@@ -66,10 +66,18 @@ MonoBehaviour:
   - area: 0
     bottomLeft: {x: 2.45, y: 0.06}
     topRight: {x: 4.75, y: 0.06}
+    roamingSortingLayer: Default
+    roamingSortingOrder: 2
   - area: 1
     bottomLeft: {x: -7.3, y: -3.24}
     topRight: {x: -2.7, y: -3.24}
+    roamingSortingLayer: Default
+    roamingSortingOrder: 2
   - area: 2
     bottomLeft: {x: 2.46, y: -3.81}
     topRight: {x: 7.56, y: -3.81}
+    roamingSortingLayer: Default
+    roamingSortingOrder: 4
+  thrownSortingLayer: Default
+  thrownSortingOrder: 12
   hellPortal: {fileID: 0}
