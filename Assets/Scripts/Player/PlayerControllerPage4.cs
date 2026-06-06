@@ -75,7 +75,8 @@ namespace Player
         private void Start()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
-                if (shadowObject != null) _shadowOriginalPosition = shadowObject.transform.position;
+            if (shadowObject != null) _shadowOriginalPosition = shadowObject.transform.position;
+            SceneLoader.Instance.PreloadScene(nextSceneName);
         }
 
         protected override void OnInteraction(InputAction.CallbackContext context)
@@ -151,7 +152,7 @@ namespace Player
             }
             if (other.CompareTag("End"))
             {
-                SceneLoader.Instance?.LoadScene(nextSceneName);
+                SceneLoader.Instance?.ActivatePreloadedScene();
             }
         }
         

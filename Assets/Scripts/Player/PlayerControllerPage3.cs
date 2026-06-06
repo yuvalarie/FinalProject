@@ -98,7 +98,7 @@ namespace Player
             if (other.CompareTag("Start") && _interactionCount == 0) StartCoroutine(Sequence1Coroutine());
             if (other.CompareTag("End") && _interactionCount >= 5)
             {
-                SceneLoader.Instance?.LoadScene(nextSceneName);
+                SceneLoader.Instance?.ActivatePreloadedScene();
             }
         }
     }
