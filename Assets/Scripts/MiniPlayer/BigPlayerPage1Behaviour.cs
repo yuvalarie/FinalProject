@@ -1,6 +1,5 @@
 ﻿using System.Collections; // Required for Coroutines
 using Player;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,8 +19,8 @@ namespace MiniPlayer
         private SpriteRenderer _spriteRenderer;
         private bool _hasChangedSprite = false;
         private bool _canMove = false;
- 
-        private void Start()
+
+        protected override void Start()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
         }
@@ -56,8 +55,8 @@ namespace MiniPlayer
             }
             base.HandleMovement();
         }
-        
-        private void OnTriggerEnter2D(Collider2D other)
+
+        protected override void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("End"))
             {
