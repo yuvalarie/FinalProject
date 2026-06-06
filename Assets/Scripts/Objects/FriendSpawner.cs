@@ -55,6 +55,8 @@ namespace Objects
         [SerializeField] private int debugStartIndex;
         [SerializeField] private bool logOrderedList;
 
+        public event Action AllFriendsSwiped;
+
         private List<FriendData> _orderedFriends;
         private int _currentFriendIndex = 0;
         private bool _isDone = false;
@@ -142,7 +144,7 @@ namespace Objects
         {
             _isDone = true;
             phoneDisplayRenderer.sprite = finishedListSprite;
-            Debug.Log("FriendSpawner: all friends swiped, scene complete.");
+            AllFriendsSwiped?.Invoke();
         }
 
         private void ShowCurrentFriendOnPhone()
