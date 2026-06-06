@@ -1113,6 +1113,7 @@ MonoBehaviour:
   startSprite: {fileID: 1183601617}
   heldSprite: {fileID: 1298897444}
   placedSprite: {fileID: 1298897444}
+  isInstantPlacement: 0
 --- !u!1 &90818984
 GameObject:
   m_ObjectHideFlags: 0
@@ -2917,6 +2918,7 @@ MonoBehaviour:
   startSprite: {fileID: 1487781226}
   heldSprite: {fileID: 2078064834}
   placedSprite: {fileID: 2078064834}
+  isInstantPlacement: 0
 --- !u!1 &273442072
 GameObject:
   m_ObjectHideFlags: 0
@@ -4209,6 +4211,7 @@ MonoBehaviour:
   startSprite: {fileID: 1509269832}
   heldSprite: {fileID: 887930448}
   placedSprite: {fileID: 887930448}
+  isInstantPlacement: 0
 --- !u!1 &344511342
 GameObject:
   m_ObjectHideFlags: 0
@@ -4261,6 +4264,7 @@ MonoBehaviour:
   startSprite: {fileID: 2016121930}
   heldSprite: {fileID: 842495470}
   placedSprite: {fileID: 842495470}
+  isInstantPlacement: 0
 --- !u!1 &347663198
 GameObject:
   m_ObjectHideFlags: 0
@@ -4689,6 +4693,7 @@ MonoBehaviour:
   startSprite: {fileID: 2144471570}
   heldSprite: {fileID: 206240837}
   placedSprite: {fileID: 206240837}
+  isInstantPlacement: 0
 --- !u!1 &368001908
 GameObject:
   m_ObjectHideFlags: 0
@@ -4837,6 +4842,7 @@ MonoBehaviour:
   startSprite: {fileID: 216498586}
   heldSprite: {fileID: 216498586}
   placedSprite: {fileID: 1503769565}
+  isInstantPlacement: 0
 --- !u!1 &427196287
 GameObject:
   m_ObjectHideFlags: 0
@@ -5059,6 +5065,7 @@ MonoBehaviour:
   startSprite: {fileID: 551359129}
   heldSprite: {fileID: 320239509}
   placedSprite: {fileID: 320239509}
+  isInstantPlacement: 0
 --- !u!4 &433958203
 Transform:
   m_ObjectHideFlags: 0
@@ -5128,6 +5135,7 @@ MonoBehaviour:
   startSprite: {fileID: 304189905}
   heldSprite: {fileID: 1640684659}
   placedSprite: {fileID: 1640684659}
+  isInstantPlacement: 0
 --- !u!1 &474752058
 GameObject:
   m_ObjectHideFlags: 0
@@ -5360,6 +5368,7 @@ MonoBehaviour:
   startSprite: {fileID: 593848409}
   heldSprite: {fileID: 1211331503}
   placedSprite: {fileID: 1211331503}
+  isInstantPlacement: 0
 --- !u!1 &488724071
 GameObject:
   m_ObjectHideFlags: 0
@@ -5592,6 +5601,7 @@ MonoBehaviour:
   startSprite: {fileID: 578365907}
   heldSprite: {fileID: 1287828110}
   placedSprite: {fileID: 1287828110}
+  isInstantPlacement: 0
 --- !u!1 &529467780
 GameObject:
   m_ObjectHideFlags: 0
@@ -7591,6 +7601,7 @@ MonoBehaviour:
   startSprite: {fileID: 2027904296}
   heldSprite: {fileID: 1090794831}
   placedSprite: {fileID: 1090794831}
+  isInstantPlacement: 0
 --- !u!1 &630867430
 GameObject:
   m_ObjectHideFlags: 0
@@ -7733,6 +7744,7 @@ MonoBehaviour:
   startSprite: {fileID: 334957869}
   heldSprite: {fileID: 1171470077}
   placedSprite: {fileID: 1171470077}
+  isInstantPlacement: 0
 --- !u!1 &648012079
 GameObject:
   m_ObjectHideFlags: 0
@@ -9081,6 +9093,7 @@ MonoBehaviour:
   startSprite: {fileID: 1629474600}
   heldSprite: {fileID: 368001908}
   placedSprite: {fileID: 368001908}
+  isInstantPlacement: 0
 --- !u!1 &726431757
 GameObject:
   m_ObjectHideFlags: 0
@@ -9223,6 +9236,7 @@ MonoBehaviour:
   startSprite: {fileID: 923543065}
   heldSprite: {fileID: 105667013}
   placedSprite: {fileID: 105667013}
+  isInstantPlacement: 0
 --- !u!1 &755708800
 GameObject:
   m_ObjectHideFlags: 0
@@ -9331,6 +9345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerMiniGame1
   speed: 5
+  nextSceneName: 
   rightHand: {fileID: 2090835416}
   rightHandAnimator: {fileID: 2090835419}
   leftHand: {fileID: 1936283614}
@@ -9344,7 +9359,7 @@ MonoBehaviour:
   dropZoneLayer:
     serializedVersion: 2
     m_Bits: 4096
-  totalObjectsToPlace: 31
+  totalObjectsToPlace: 20
   firstStateSprite: {fileID: 1624540207}
   secondStateSprite: {fileID: 1638612992}
   secondStateSprite2: {fileID: 1638612992}
@@ -9469,6 +9484,7 @@ MonoBehaviour:
   startSprite: {fileID: 815334984}
   heldSprite: {fileID: 1702711317}
   placedSprite: {fileID: 1702711317}
+  isInstantPlacement: 0
 --- !u!1 &773903535
 GameObject:
   m_ObjectHideFlags: 0
@@ -9833,6 +9849,7 @@ MonoBehaviour:
   startSprite: {fileID: 149957252}
   heldSprite: {fileID: 521144952}
   placedSprite: {fileID: 521144952}
+  isInstantPlacement: 0
 --- !u!1 &815334984
 GameObject:
   m_ObjectHideFlags: 0
@@ -10876,6 +10893,7 @@ MonoBehaviour:
   startSprite: {fileID: 206851226}
   heldSprite: {fileID: 475463673}
   placedSprite: {fileID: 475463673}
+  isInstantPlacement: 0
 --- !u!1 &907083271
 GameObject:
   m_ObjectHideFlags: 0
@@ -11633,6 +11651,7 @@ MonoBehaviour:
   startSprite: {fileID: 857231138}
   heldSprite: {fileID: 2041306531}
   placedSprite: {fileID: 2041306531}
+  isInstantPlacement: 0
 --- !u!1 &969275033
 GameObject:
   m_ObjectHideFlags: 0
@@ -12216,6 +12235,7 @@ MonoBehaviour:
   startSprite: {fileID: 1032033971}
   heldSprite: {fileID: 557174259}
   placedSprite: {fileID: 557174259}
+  isInstantPlacement: 0
 --- !u!1 &1090794831
 GameObject:
   m_ObjectHideFlags: 0
@@ -12585,6 +12605,7 @@ MonoBehaviour:
   startSprite: {fileID: 1559581129}
   heldSprite: {fileID: 96711757}
   placedSprite: {fileID: 96711757}
+  isInstantPlacement: 0
 --- !u!1 &1143976937
 GameObject:
   m_ObjectHideFlags: 0
@@ -12637,6 +12658,7 @@ MonoBehaviour:
   startSprite: {fileID: 1713879245}
   heldSprite: {fileID: 1022542791}
   placedSprite: {fileID: 1022542791}
+  isInstantPlacement: 0
 --- !u!1 &1158460449
 GameObject:
   m_ObjectHideFlags: 0
@@ -13718,6 +13740,7 @@ MonoBehaviour:
   startSprite: {fileID: 1543458019}
   heldSprite: {fileID: 1141793233}
   placedSprite: {fileID: 1141793233}
+  isInstantPlacement: 0
 --- !u!1 &1211331503
 GameObject:
   m_ObjectHideFlags: 0
@@ -15186,6 +15209,7 @@ MonoBehaviour:
   startSprite: {fileID: 928816597}
   heldSprite: {fileID: 1418697900}
   placedSprite: {fileID: 1418697900}
+  isInstantPlacement: 0
 --- !u!1 &1380261600
 GameObject:
   m_ObjectHideFlags: 0
@@ -15238,6 +15262,7 @@ MonoBehaviour:
   startSprite: {fileID: 598521240}
   heldSprite: {fileID: 969275033}
   placedSprite: {fileID: 969275033}
+  isInstantPlacement: 0
 --- !u!1 &1403756602
 GameObject:
   m_ObjectHideFlags: 0
@@ -16303,6 +16328,7 @@ MonoBehaviour:
   startSprite: {fileID: 1509400438}
   heldSprite: {fileID: 873632308}
   placedSprite: {fileID: 873632308}
+  isInstantPlacement: 0
 --- !u!1 &1487781226
 GameObject:
   m_ObjectHideFlags: 0
@@ -19124,6 +19150,7 @@ MonoBehaviour:
   startSprite: {fileID: 1424486048}
   heldSprite: {fileID: 726431757}
   placedSprite: {fileID: 726431757}
+  isInstantPlacement: 0
 --- !u!1 &1640684659
 GameObject:
   m_ObjectHideFlags: 0
@@ -19478,6 +19505,7 @@ MonoBehaviour:
   startSprite: {fileID: 550311679}
   heldSprite: {fileID: 907083271}
   placedSprite: {fileID: 907083271}
+  isInstantPlacement: 0
 --- !u!1 &1702711317
 GameObject:
   m_ObjectHideFlags: 0
@@ -20476,6 +20504,7 @@ MonoBehaviour:
   startSprite: {fileID: 685933594}
   heldSprite: {fileID: 329578910}
   placedSprite: {fileID: 329578910}
+  isInstantPlacement: 0
 --- !u!1 &1838090413
 GameObject:
   m_ObjectHideFlags: 0
@@ -23110,6 +23139,7 @@ MonoBehaviour:
   startSprite: {fileID: 773903535}
   heldSprite: {fileID: 859164917}
   placedSprite: {fileID: 859164917}
+  isInstantPlacement: 0
 --- !u!1 &2063616144
 GameObject:
   m_ObjectHideFlags: 0
@@ -23252,6 +23282,7 @@ MonoBehaviour:
   startSprite: {fileID: 691902000}
   heldSprite: {fileID: 474752058}
   placedSprite: {fileID: 474752058}
+  isInstantPlacement: 0
 --- !u!1 &2078064834
 GameObject:
   m_ObjectHideFlags: 0
@@ -23707,6 +23738,7 @@ MonoBehaviour:
   startSprite: {fileID: 2018120604}
   heldSprite: {fileID: 224863496}
   placedSprite: {fileID: 224863496}
+  isInstantPlacement: 0
 --- !u!1 &2144471570
 GameObject:
   m_ObjectHideFlags: 0
