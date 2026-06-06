@@ -2688,6 +2688,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   stopTrigger: {fileID: 1866407608}
   friendSpawner: {fileID: 796226062}
+  skipWalkIn: 0
+  skipHandEntry: 0
 --- !u!1 &1986832245
 GameObject:
   m_ObjectHideFlags: 0
@@ -2966,10 +2968,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 30399584725262558, guid: c3cf3e8dc25e05e41aced19691efca4c, type: 3}
-      propertyPath: m_SortingOrder
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 1860297148090103278, guid: c3cf3e8dc25e05e41aced19691efca4c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.03
@@ -3015,10 +3013,6 @@ PrefabInstance:
       value: DaveHand
       objectReference: {fileID: 0}
     - target: {fileID: 8200303444842394907, guid: c3cf3e8dc25e05e41aced19691efca4c, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8200303444842394907, guid: c3cf3e8dc25e05e41aced19691efca4c, type: 3}
       propertyPath: friendSpawner
       value: 
       objectReference: {fileID: 796226062}
@@ -3035,6 +3029,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1048797841132188679, guid: 86aeb97913c664a449e3bf946a790383, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1048797841132188679, guid: 86aeb97913c664a449e3bf946a790383, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1048797841132188679, guid: 86aeb97913c664a449e3bf946a790383, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1048797841132188679, guid: 86aeb97913c664a449e3bf946a790383, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.05
@@ -3223,10 +3229,6 @@ PrefabInstance:
     - target: {fileID: 5767268255699178011, guid: 844ff887f1200e14f851de2ef8dd2151, type: 3}
       propertyPath: m_Name
       value: Dave+Phone
-      objectReference: {fileID: 0}
-    - target: {fileID: 5767268255699178011, guid: 844ff887f1200e14f851de2ef8dd2151, type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
