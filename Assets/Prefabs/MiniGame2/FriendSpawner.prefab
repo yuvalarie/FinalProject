@@ -46,8 +46,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.FriendSpawner
   friends:
   - {fileID: 11400000, guid: e070d3aa40862814494ae545036a3a1b, type: 2}
+  - {fileID: 11400000, guid: bb6750a7d47ce204ea77585db884d595, type: 2}
+  - {fileID: 11400000, guid: 503fc6fab7ed307408750f69ba352320, type: 2}
+  - {fileID: 11400000, guid: 79ee4a0fb813c704baff1b7d01811716, type: 2}
+  - {fileID: 11400000, guid: 0605373d2d999544195fe4b0b2ae68da, type: 2}
+  - {fileID: 11400000, guid: a6163e721f1fb424bae5a8b4f62a8b77, type: 2}
+  - {fileID: 11400000, guid: 20e4645981e091648871582cce25315f, type: 2}
+  - {fileID: 11400000, guid: 5fe9db480ad383d468d00d5a6b21046f, type: 2}
+  - {fileID: 11400000, guid: 63945bd7f7432ba4083738fe754002ec, type: 2}
+  - {fileID: 11400000, guid: 7fafd50928556cb4eb2056708738346d, type: 2}
+  - {fileID: 11400000, guid: 0fa46a2dbb1ca724583834da9db1acb7, type: 2}
+  - {fileID: 11400000, guid: f03c9076e65cf5846b80fd05aa61669e, type: 2}
+  - {fileID: 11400000, guid: 938db8b41ca4c524980780b61e521d13, type: 2}
+  - {fileID: 11400000, guid: 612ca23aeb8e47049a948808628f3580, type: 2}
   friendBasePrefab: {fileID: 7047629883841461451, guid: 9821806754062094b8c639dd310c9160, type: 3}
-  phoneDisplayObject: {fileID: 0}
+  phoneDisplayRenderer: {fileID: 0}
+  discardSpawnPosition: {fileID: 0}
   areaBounds:
   - area: 0
     bottomLeft: {x: 2.45, y: 0.06}

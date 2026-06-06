@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 730b30fded1c9564f9f8d0ed752c4593, type: 3}
+  m_Name: Friend 9 Data
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.FriendData
+  friendName: Ji-eun Lee
+  appProfileSprite: {fileID: 21300000, guid: 63b5b005ba22c4619869c8406b7786cb, type: 3}
+  roamingSprite: {fileID: 21300000, guid: a9a6ee90696248e4491e73dc46ada445, type: 3}
+  thrownSprite: {fileID: 21300000, guid: d42aeb57e3bca4a8f9ae5f1f8d4ff8a4, type: 3}
+  speechBubbleSprite: {fileID: 21300000, guid: a38b33983cb184e1fb4a5390ab5f9697, type: 3}
+  assignedArea: 2

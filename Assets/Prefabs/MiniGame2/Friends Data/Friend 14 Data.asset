@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 730b30fded1c9564f9f8d0ed752c4593, type: 3}
-  m_Name: ChadStoneData
+  m_Name: Friend 14 Data
   m_EditorClassIdentifier: Assembly-CSharp::Objects.FriendData
-  friendName: Chad Stone
-  appProfileSprite: {fileID: 21300000, guid: 1ee8b7593e7964cce8d7e37c84635a5e, type: 3}
-  roamingSprite: {fileID: 21300000, guid: 272691d06122744faa83c9e0e722783d, type: 3}
-  thrownSprite: {fileID: 21300000, guid: 9e21a9e38ff9325468d51b7d37d5e5dd, type: 3}
-  speechBubbleSprite: {fileID: 21300000, guid: 062732a4af90448e3a73edfe054ef767, type: 3}
+  friendName: Kent Doyle
+  appProfileSprite: {fileID: 21300000, guid: 07c68b4c5c8a24b8ea2875c47c1ca7a9, type: 3}
+  roamingSprite: {fileID: 21300000, guid: 0a0ce429fb82140d78161025939a6b37, type: 3}
+  thrownSprite: {fileID: 21300000, guid: e871dcd18b6ec1145853e346145172cd, type: 3}
+  speechBubbleSprite: {fileID: 21300000, guid: 4a5a136a79e8f43a3b18b00cbd6770f1, type: 3}
   assignedArea: 2
