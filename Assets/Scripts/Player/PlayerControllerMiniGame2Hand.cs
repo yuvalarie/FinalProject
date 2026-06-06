@@ -25,8 +25,9 @@ namespace Player
         private bool _isMoving;
 
         
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             // Set hand to resting position on enable
             if (handPivot != null)
                 handPivot.localRotation = Quaternion.Euler(0f, 0f, restingAngle);
