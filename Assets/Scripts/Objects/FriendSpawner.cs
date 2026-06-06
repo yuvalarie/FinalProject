@@ -42,6 +42,9 @@ namespace Objects
         [SerializeField] private string thrownSortingLayer;
         [SerializeField] private int thrownSortingOrder;
 
+        [Header("Speech Bubble")]
+        [SerializeField] private float speechBubbleDuration = 3f;
+
         [Header("References")]
         [SerializeField] private HellPortal hellPortal;
 
@@ -100,6 +103,7 @@ namespace Objects
             );
 
             controller.StartRoaming(worldBounds);
+            controller.ShowSpeechBubbleForDuration(speechBubbleDuration);
             AdvanceToNextFriend();
         }
 
