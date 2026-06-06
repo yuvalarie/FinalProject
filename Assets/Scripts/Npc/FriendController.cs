@@ -13,6 +13,10 @@
           [SerializeField] private SpriteRenderer speechBubbleSpriteRenderer;
           [SerializeField] private GameObject speechBubble;
 
+          [Header("Speech Bubble")]
+          [Tooltip("Extra vertical gap between the top of the roaming sprite and the speech bubble.")]
+          [SerializeField] private float speechBubbleOffsetY = 0.2f;
+
           [Header("Throw Settings")]
           [SerializeField] private float throwDuration = 0.6f;
           [SerializeField] private float throwRotationSpeed = 360f;
@@ -28,7 +32,6 @@
           private Bounds _areaBounds;
           private string _thrownSortingLayer;
           private int _thrownSortingOrder;
-          // TODO: add a way to offset the speech bubble position that will be relative to the size of the sprite of the roaming friend
 
           // TODO: add a flip to the X of the sprite when we walk to the right, as all the friends are looking to the left by default.
           // private void Start()
@@ -47,6 +50,8 @@
           {
               friendSpriteRenderer.sortingLayerName = roamingLayer;
               friendSpriteRenderer.sortingOrder = roamingOrder;
+              speechBubbleSpriteRenderer.sortingLayerName = roamingLayer;
+              speechBubbleSpriteRenderer.sortingOrder = roamingOrder + 1;
               _thrownSortingLayer = thrownLayer;
               _thrownSortingOrder = thrownOrder;
           }
@@ -56,26 +61,57 @@
               friendSpriteRenderer.sprite = data.roamingSprite;
               speechBubbleSpriteRenderer.sprite = data.speechBubbleSprite;
               _thrownSprite = data.thrownSprite;
+
+              float spriteHeight = data.roamingSprite.bounds.size.y * friendSpriteRenderer.transform.localScale.y;
+              Vector3 bubblePos = speechBubble.transform.localPosition;
+              bubblePos.y = spriteHeight + speechBubbleOffsetY;
+              speechBubble.transform.localPosition = bubblePos;
           }
 
-          public void StartRoaming(Bounds areaBounds)
+          private void StartRoaming(Bounds areaBounds)
           {
               _areaBounds = areaBounds;
               StartCoroutine(RoamingRoutine());
           }
 
-          public void ShowSpeechBubble()
+          private void ShowSpeechBubble()
           {
               speechBubble.SetActive(true);
           }
 
-          public void HideSpeechBubble()
+          private void HideSpeechBubble()
           {
               speechBubble.SetActive(false);
           }
 
+          // public void ShowSpeechBubbleForDuration(float duration)
+          // {
+          //     StartCoroutine(SpeechBubbleRoutine(duration));
+          // }
+
+          public void ShowSpeechBubbleThenRoam(Bounds areaBounds, float duration)
+          {
+              StartCoroutine(SpeechBubbleThenRoamRoutine(areaBounds, duration));
+          }
+
+          // private IEnumerator SpeechBubbleRoutine(float duration)
+          // {
+          //     ShowSpeechBubble();
+          //     yield return new WaitForSeconds(duration);
+          //     HideSpeechBubble();
+          // }
+
+          private IEnumerator SpeechBubbleThenRoamRoutine(Bounds areaBounds, float duration)
+          {
+              ShowSpeechBubble();
+              yield return new WaitForSeconds(duration);
+              HideSpeechBubble();
+              StartRoaming(areaBounds);
+          }
+
           public void GetThrown(Vector3 portalPosition, Action onComplete = null)
           {
+              HideSpeechBubble();
               friendSpriteRenderer.sprite = _thrownSprite;
               friendSpriteRenderer.sortingLayerName = _thrownSortingLayer;
               friendSpriteRenderer.sortingOrder = _thrownSortingOrder;

@@ -61,6 +61,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 612ca23aeb8e47049a948808628f3580, type: 2}
   friendBasePrefab: {fileID: 7047629883841461451, guid: 9821806754062094b8c639dd310c9160, type: 3}
   phoneDisplayRenderer: {fileID: 0}
+  startScreenSprite: {fileID: 21300000, guid: 010a656da6b22094aa9b3a9108fad7d3, type: 3}
+  finishedListSprite: {fileID: 21300000, guid: 720b338c44c83884fb69d1e95928cc87, type: 3}
   discardSpawnPosition: {fileID: 0}
   areaBounds:
   - area: 0

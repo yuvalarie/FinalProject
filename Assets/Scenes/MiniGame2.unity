@@ -1943,7 +1943,7 @@ GameObject:
   - component: {fileID: 1416149759}
   - component: {fileID: 1416149758}
   m_Layer: 0
-  m_Name: Asset 935
+  m_Name: NedSitting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3263,11 +3263,11 @@ SceneRoots:
   - {fileID: 1123259602}
   - {fileID: 370077530}
   - {fileID: 1153607477}
+  - {fileID: 1416149759}
   - {fileID: 5822067558026649915}
   - {fileID: 1231980490}
   - {fileID: 1244565658}
   - {fileID: 1109942903}
-  - {fileID: 1416149759}
   - {fileID: 1114375482}
   - {fileID: 1856258375}
   - {fileID: 1760818662}
