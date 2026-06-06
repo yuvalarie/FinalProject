@@ -10,11 +10,28 @@ namespace Objects
         [SerializeField] private Animator animator;
         private static readonly int PlayTrigger = Animator.StringToHash("Play");
 
+        // Counts how many friends are currently flying toward the portal.
+        // Portal stays open until all in-flight friends have arrived (shared-pointer pattern).
+        private int _inFlightCount;
+
         public void SuckIn(FriendController friend)
         {
             gameObject.SetActive(true);
             // animator.SetTrigger(PlayTrigger);
-            friend.GetThrown(transform.position,  Hide);
+            _inFlightCount++;
+            friend.GetThrown(transform.position, OnFriendArrived);
+        }
+
+        // Called when each individual friend reaches the portal.
+        // Only hides once the last in-flight friend lands.
+        private void OnFriendArrived()
+        {
+            _inFlightCount--;
+            if (_inFlightCount <= 0)
+            {
+                _inFlightCount = 0; // guard against going negative from unexpected calls
+                Hide();
+            }
         }
 
         private void Hide()
