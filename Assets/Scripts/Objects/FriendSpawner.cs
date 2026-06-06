@@ -24,8 +24,10 @@ namespace Objects
         [SerializeField] private GameObject friendBasePrefab;
 
         [Header("Phone Display")]
-        // The SpriteRenderer already in the scene on the phone — we just swap its sprite
+        // The SpriteRenderer already in the scene on the phone - we just swap its sprite
         [SerializeField] private SpriteRenderer phoneDisplayRenderer;
+        [SerializeField] private Sprite startScreenSprite;
+        [SerializeField] private Sprite finishedListSprite;
 
         [Header("Spawn Positions")]
         // Where discarded friends appear before flying to the hell portal
@@ -52,15 +54,22 @@ namespace Objects
 
         private List<FriendData> _orderedFriends;
         private int _currentFriendIndex = 0;
+        private bool _isDone = false;
 
         private void Start()
         {
+            // Show start screen first so the phone is never empty on load.
+            // DebugBuildFriendList may immediately call OnAllFriendsSwiped (via debugStartIndex),
+            // which will overwrite this with the finished sprite - that ordering is intentional.
+            phoneDisplayRenderer.sprite = startScreenSprite;
             DebugBuildFriendList();
         }
 
         // Called by MiniGame2SceneController when the hand finishes entering the scene
         public void StartSpawning()
         {
+            // Guard: debug start index may have already exhausted the list
+            if (_isDone) return;
             ShowCurrentFriendOnPhone();
         }
 
@@ -68,6 +77,7 @@ namespace Objects
         // Spawns the friend into their assigned comic panel and shows the next friend on the phone
         public void SpawnFriend()
         {
+            if (_isDone) return;
             FriendData data = _orderedFriends[_currentFriendIndex];
             AreaBounds bounds = GetBoundsForArea(data.assignedArea);
 
@@ -96,7 +106,8 @@ namespace Objects
         // Called by MiniGame2HandController on left swipe
         // Spawns the friend at the discard position and sends them to the hell portal
         public void DiscardFriend()
-        {
+        { 
+            if(_isDone) return;
             FriendData data = _orderedFriends[_currentFriendIndex];
             AreaBounds bounds = GetBoundsForArea(data.assignedArea);
 
@@ -126,6 +137,8 @@ namespace Objects
         // Future: fire scene-end event, return controls to walking controller, trigger next story beat
         private void OnAllFriendsSwiped()
         {
+            _isDone = true;
+            phoneDisplayRenderer.sprite = finishedListSprite;
             Debug.Log("FriendSpawner: all friends swiped, scene complete.");
         }
 
