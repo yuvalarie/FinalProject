@@ -139,6 +139,7 @@ MonoBehaviour:
   friendSpriteRenderer: {fileID: 5224491458454024626}
   speechBubbleSpriteRenderer: {fileID: 5224577458552806382}
   speechBubble: {fileID: 8761780810066378175}
+  speechBubbleOffsetY: 0.5
   throwDuration: 2
   throwRotationSpeed: 360
   movementDuration: 1.5
@@ -162,7 +163,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5722984960364245825
 Transform:
   m_ObjectHideFlags: 0

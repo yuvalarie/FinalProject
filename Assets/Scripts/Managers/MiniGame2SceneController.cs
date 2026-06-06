@@ -83,9 +83,46 @@ namespace Managers
 
         private void OnHandEntryComplete()
         {
-            // Hand is in position — enable swiping and show the first friend on the phone
             handController.enabled = true;
+            friendSpawner.AllFriendsSwiped += OnSwipingComplete;
             friendSpawner.StartSpawning();
+        }
+
+        // Placeholder for end-of-swiping sequence.
+        // Future: trigger mother reactions and friend exodus here before the hand leaves.
+        private void OnSwipingComplete()
+        {
+            friendSpawner.AllFriendsSwiped -= OnSwipingComplete;
+            StartHandExit();
+        }
+
+        private void StartHandExit()
+        {
+            StartCoroutine(HandExitRoutine());
+        }
+
+        private IEnumerator HandExitRoutine()
+        {
+            float elapsed = 0f;
+            Vector3 startPos = handStartingPosition.position;
+            Vector3 endPos = handHiddenPosition.position;
+
+            while (elapsed < handEntryDuration)
+            {
+                elapsed += Time.deltaTime;
+                float t = handEntryCurve.Evaluate(Mathf.Clamp01(elapsed / handEntryDuration));
+                hand.position = Vector3.Lerp(startPos, endPos, t);
+                yield return null;
+            }
+
+            hand.position = endPos;
+            OnHandExitComplete();
+        }
+
+        private void OnHandExitComplete()
+        {
+            handController.enabled = false;
+            walkController.EnableMovement();
         }
 
         // Handles debug entry points — skips walk-in and/or hand entry if flagged
