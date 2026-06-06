@@ -13,6 +13,8 @@ namespace Objects
         public Vector2 topRight;
         public string roamingSortingLayer;
         public int roamingSortingOrder;
+        public float bobAmplitude;
+        public float bobFrequency;
     }
 
     public class FriendSpawner : MonoBehaviour
@@ -71,6 +73,7 @@ namespace Objects
             var controller = instance.GetComponent<FriendController>();
             controller.Setup(data);
             controller.SetLayers(bounds.roamingSortingLayer, bounds.roamingSortingOrder, thrownSortingLayer, thrownSortingOrder);
+            controller.SetRoamingSettings(bounds.bobAmplitude, bounds.bobFrequency);
 
             // Convert the Vector2 bounds into a Unity Bounds for the roaming logic
             Bounds worldBounds = new Bounds(

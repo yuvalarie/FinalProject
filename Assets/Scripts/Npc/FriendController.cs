@@ -37,6 +37,12 @@
           //     StartRoaming(testAreaBounds);
           // }
 
+          public void SetRoamingSettings(float newBobAmplitude, float newBobFrequency)
+          {
+              bobAmplitude = newBobAmplitude;
+              bobFrequency = newBobFrequency;
+          }
+
           public void SetLayers(string roamingLayer, int roamingOrder, string thrownLayer, int thrownOrder)
           {
               friendSpriteRenderer.sortingLayerName = roamingLayer;
