@@ -1,4 +1,5 @@
-﻿using Player;
+﻿using System.Collections; // Required for Coroutines
+using Player;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,8 +13,13 @@ namespace MiniPlayer
         [SerializeField] private PlayerControllerPage1 player;
         [SerializeField] private Animator phoneAnimator;
         [SerializeField] private Vector3 size;
+        
+        [Tooltip("Set this to the exact length of the Answer animation in seconds.")]
+        [SerializeField] private float animationDuration = 1.5f;
+        
         private SpriteRenderer _spriteRenderer;
         private bool _hasChangedSprite = false;
+        private bool _canMove = false;
  
         private void Start()
         {
@@ -24,15 +30,26 @@ namespace MiniPlayer
         {
             if (_hasChangedSprite) return;
             if (page1Sprite == null) return;
+            
             _spriteRenderer.sprite = page1Sprite;
+            _spriteRenderer.sortingOrder -= 2;
             transform.localScale = size;
+            
             phoneAnimator.SetTrigger(Answer);
             _hasChangedSprite = true;
+            
+            StartCoroutine(WaitForAnimationRoutine());
+        }
+        
+        private IEnumerator WaitForAnimationRoutine()
+        {
+            yield return new WaitForSeconds(animationDuration); 
+            _canMove = true; 
         }
         
         protected override void HandleMovement()
         {
-            if (!_hasChangedSprite)
+            if (!_canMove) 
             {
                 Rb.linearVelocity = Vector2.zero;
                 return;
