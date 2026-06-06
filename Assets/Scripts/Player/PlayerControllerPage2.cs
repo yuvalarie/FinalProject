@@ -59,8 +59,9 @@ namespace Player
         private Vector3 _elevatorStartPosition;
         private int _sortingOrderAtStart;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _sortingOrderAtStart = _spriteRenderer.sortingOrder;
             _elevatorStartPosition = elevatorTarget.position;
@@ -90,8 +91,9 @@ namespace Player
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        protected override void OnTriggerEnter2D(Collider2D other)
         {
+            base.OnTriggerEnter2D(other);
             if (other == elevatorTrigger)
             {
                 var newPosition = new Vector3(elevatorPlacement.position.x, elevatorPlacement.position.y, transform.position.z);
@@ -121,11 +123,6 @@ namespace Player
             {
                 StartCoroutine(LastFrameSequenceCoroutine());
                 _hasActivatedLastFrameSequence = true;
-            }
-            
-            if(other.CompareTag("End")) 
-            {
-                SceneLoader.Instance?.ActivatePreloadedScene();
             }
         }
         

@@ -13,19 +13,17 @@ namespace Player
         [SerializeField] private float transitionCooldown = 0.2f;
         [SerializeField] private Vector3 startPosition;
         private SpriteRenderer _spriteRenderer;
-        private bool canMove;
-        private float _lastTransitionTime = -1f;
+        private bool _canMove;
         
-        [SerializeField, Tooltip("The next scene's name")] private string nextSceneName;
- 
-        private void Start()
+        protected override void Start()
         {
-                _spriteRenderer = GetComponent<SpriteRenderer>();
+            base.Start();
+            _spriteRenderer = GetComponent<SpriteRenderer>();
         }
         
         protected override void HandleMovement()
         {
-            if (!canMove)
+            if (!_canMove)
             {
                 Rb.linearVelocity = Vector2.zero;
                 return;
@@ -37,29 +35,23 @@ namespace Player
         {
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        protected override void OnTriggerEnter2D(Collider2D other)
         {
+            base.OnTriggerEnter2D(other);
             if (other.CompareTag("Transition"))
             {
-                //if (Time.time < _lastTransitionTime + transitionCooldown) return;
                 var rowTransition = other.GetComponent<RowTransition>();
                 if (rowTransition == null) return;
                 if (rowTransition.destinationSpawn != null) transform.position = rowTransition.destinationSpawn.position;
                 _spriteRenderer.sortingOrder = rowTransition.sortingOrder;
                 transform.localScale = new Vector3(rowTransition.targetScale, rowTransition.targetScale, 1f);
                 speed = rowTransition.targetSpeed;
-                //_lastTransitionTime = Time.time;
-            }
-
-            if (other.CompareTag("End"))
-            {
-                SceneLoader.Instance?.ActivatePreloadedScene();
             }
         }
         
         public void EnableMovement()
         {
-            canMove = true;
+            _canMove = true;
             transform.position = startPosition;
         }
     }

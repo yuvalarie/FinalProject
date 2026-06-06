@@ -23,7 +23,6 @@ namespace Player
         [SerializeField] private Animator letterAnimator;
         [SerializeField] private GameObject letterObject;
         [SerializeField] private GameObject smallLetterObject;
-        [SerializeField] private GameObject endTriggerObject;
         
         private int _interactionCount = 0;
         protected override void OnInteraction(InputAction.CallbackContext context)
@@ -113,7 +112,7 @@ namespace Player
         }
         
 
-        private void OnTriggerEnter2D(Collider2D other)
+        protected override void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Start") && _interactionCount == 0) StartCoroutine(Sequence1Coroutine());
             if (other.CompareTag("End") && _interactionCount >= 7)

@@ -1,6 +1,7 @@
 ﻿using System;
 using Managers;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 namespace Player
@@ -72,8 +73,9 @@ namespace Player
             _animator.SetTrigger(Play);
         }
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             _spriteRenderer = GetComponent<SpriteRenderer>();
             if (shadowObject != null) _shadowOriginalPosition = shadowObject.transform.position;
             SceneLoader.Instance.PreloadScene(nextSceneName);
@@ -83,8 +85,9 @@ namespace Player
         {
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        protected override void OnTriggerEnter2D(Collider2D other)
         {
+            base.OnTriggerEnter2D(other);
             if (other == frame1ExitCollider)
             {
                 transform.position = frame2StartPosition.position;
@@ -149,10 +152,6 @@ namespace Player
             else if (other == frame9EnterCollider)
             {
                 Frame9Sequence();
-            }
-            if (other.CompareTag("End"))
-            {
-                SceneLoader.Instance?.ActivatePreloadedScene();
             }
         }
         
