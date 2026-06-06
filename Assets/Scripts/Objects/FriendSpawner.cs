@@ -111,5 +111,31 @@ namespace Objects
             Debug.LogWarning($"No bounds found for area {area}, defaulting to first entry.");
             return areaBounds[0];
         }
+        
+        private void OnDrawGizmos()
+        {
+            if (areaBounds == null) return;
+
+            foreach (var area in areaBounds)
+            {
+                Vector3 center = new Vector3(
+                    (area.bottomLeft.x + area.topRight.x) / 2f,
+                    (area.bottomLeft.y + area.topRight.y) / 2f,
+                    0f
+                );
+                Vector3 size = new Vector3(
+                    area.topRight.x - area.bottomLeft.x,
+                    area.topRight.y - area.bottomLeft.y,
+                    0f
+                );
+
+                Gizmos.color = Color.cyan;
+                Gizmos.DrawWireCube(center, size);
+
+#if UNITY_EDITOR
+                UnityEditor.Handles.Label(center, area.area.ToString());
+#endif
+            }
+        }
     }
 }
