@@ -43,13 +43,19 @@ namespace Objects
         [Header("References")]
         [SerializeField] private HellPortal hellPortal;
 
+        [Header("Debug")]
+        [SerializeField] private List<MiniGame2FrameArea> excludedAreas;
+        [SerializeField] private bool skipBucketOrdering;
+        [SerializeField] private bool useDebugStartIndex;
+        [SerializeField] private int debugStartIndex;
+        [SerializeField] private bool logOrderedList;
+
         private List<FriendData> _orderedFriends;
         private int _currentFriendIndex = 0;
 
         private void Start()
         {
-            // Build the ordered friend list once — order is determined by the weighted bucket algorithm
-            BuildOrderedFriendList();
+            DebugBuildFriendList();
         }
 
         // Called by MiniGame2SceneController when the hand finishes entering the scene
@@ -109,13 +115,18 @@ namespace Objects
 
             if (_currentFriendIndex >= _orderedFriends.Count)
             {
-                // All friends have been swiped — this is where the scene-end event will be fired later
-                // (return controls to walking controller, continue the story)
-                Debug.Log("FriendSpawner: all friends swiped, scene complete.");
+                OnAllFriendsSwiped();
                 return;
             }
 
             ShowCurrentFriendOnPhone();
+        }
+
+        // Called when all friends have been swiped through
+        // Future: fire scene-end event, return controls to walking controller, trigger next story beat
+        private void OnAllFriendsSwiped()
+        {
+            Debug.Log("FriendSpawner: all friends swiped, scene complete.");
         }
 
         private void ShowCurrentFriendOnPhone()
@@ -130,9 +141,54 @@ namespace Objects
         // Tie on remaining count: pick randomly.
         private void BuildOrderedFriendList()
         {
+            BuildOrderedListFromSource(friends);
+        }
+
+        // Checks debug flags and builds accordingly, then applies debug start index if set
+        private void DebugBuildFriendList()
+        {
+            if (excludedAreas.Count == 0 && !skipBucketOrdering)
+            {
+                BuildOrderedFriendList();
+            }
+            else
+            {
+                // Filter out excluded areas
+                var filteredFriends = new List<FriendData>();
+                foreach (var friend in friends)
+                    if (!excludedAreas.Contains(friend.assignedArea))
+                        filteredFriends.Add(friend);
+
+                if (skipBucketOrdering)
+                    _orderedFriends = filteredFriends;
+                else
+                    BuildOrderedListFromSource(filteredFriends);
+            }
+
+            // Apply debug start index independently of how the list was built
+            if (useDebugStartIndex)
+            {
+                if (debugStartIndex >= _orderedFriends.Count)
+                {
+                    // Index is beyond the list — treat as if all friends have been swiped
+                    _currentFriendIndex = _orderedFriends.Count;
+                    OnAllFriendsSwiped();
+                }
+                else
+                {
+                    _currentFriendIndex = debugStartIndex;
+                }
+            }
+
+            if (logOrderedList) LogOrderedList();
+        }
+
+        // Core bucket ordering algorithm — operates on any source list
+        private void BuildOrderedListFromSource(List<FriendData> source)
+        {
             // Group friends into buckets by assigned area and shuffle each bucket
             var buckets = new Dictionary<MiniGame2FrameArea, List<FriendData>>();
-            foreach (var friend in friends)
+            foreach (var friend in source)
             {
                 if (!buckets.ContainsKey(friend.assignedArea))
                     buckets[friend.assignedArea] = new List<FriendData>();
@@ -195,6 +251,12 @@ namespace Objects
                 buckets[selected].RemoveAt(0);
                 chosen[selected]++;
             }
+        }
+
+        private void LogOrderedList()
+        {
+            for (int i = 0; i < _orderedFriends.Count; i++)
+                Debug.Log($"[FriendSpawner] [{i}] {_orderedFriends[i].friendName} ({_orderedFriends[i].assignedArea})");
         }
 
         private void Shuffle<T>(List<T> list)

@@ -24,16 +24,21 @@ namespace Managers
         [Header("Stop Trigger")]
         // The trigger collider the player walks into to stop and begin the hand entry
         [SerializeField] private Collider2D stopTrigger;
-        
+
         [Header("References")]
         [SerializeField] private FriendSpawner friendSpawner;
 
+        [Header("Debug")]
+        [SerializeField] private bool skipWalkIn;
+        [SerializeField] private bool skipHandEntry;
+
         private void Start()
         {
-            // Place the hand at the hidden position and disable the hand controller until entry is complete
             hand.position = handHiddenPosition.position;
             handController.enabled = false;
+            DebugStart();
         }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject != walkController.gameObject) return;
@@ -45,6 +50,16 @@ namespace Managers
             // Lock the player in place and begin the hand entry
             walkController.DisableMovement();
             stopTrigger.enabled = false;
+            StartHandEntry();
+        }
+
+        private void StartHandEntry()
+        {
+            if (skipHandEntry)
+            {
+                OnHandEntryComplete();
+                return;
+            }
             StartCoroutine(HandEntryRoutine());
         }
 
@@ -71,6 +86,13 @@ namespace Managers
             // Hand is in position — enable swiping and show the first friend on the phone
             handController.enabled = true;
             friendSpawner.StartSpawning();
+        }
+
+        // Handles debug entry points — skips walk-in and/or hand entry if flagged
+        private void DebugStart()
+        {
+            if (skipWalkIn)
+                OnPlayerReachedStopPosition();
         }
     }
 }
