@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 730b30fded1c9564f9f8d0ed752c4593, type: 3}
+  m_Name: Friend 12 Data
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.FriendData
+  friendName: Marcus Reed
+  appProfileSprite: {fileID: 21300000, guid: cdc6087c59e23459eb08014b4932aa60, type: 3}
+  roamingSprite: {fileID: 21300000, guid: 4611c9cdc43fa4fb093c863ca3bc50a4, type: 3}
+  thrownSprite: {fileID: 21300000, guid: 72b4f2b2479a80345bf7fae62c201042, type: 3}
+  speechBubbleSprite: {fileID: 21300000, guid: 845ed5ebc01a24b18894c1ed9548954f, type: 3}
+  assignedArea: 1

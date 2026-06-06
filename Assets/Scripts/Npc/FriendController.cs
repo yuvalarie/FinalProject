@@ -26,6 +26,8 @@
 
           private Sprite _thrownSprite;
           private Bounds _areaBounds;
+          private string _thrownSortingLayer;
+          private int _thrownSortingOrder;
           // TODO: add a way to offset the speech bubble position that will be relative to the size of the sprite of the roaming friend
 
           // TODO: add a flip to the X of the sprite when we walk to the right, as all the friends are looking to the left by default.
@@ -34,6 +36,20 @@
           //     var testAreaBounds = new Bounds(new Vector3(4.9f, -3.67f, 0f), new Vector3(5f, 0f, 0f)); // Default to current position if not set up
           //     StartRoaming(testAreaBounds);
           // }
+
+          public void SetRoamingSettings(float newBobAmplitude, float newBobFrequency)
+          {
+              bobAmplitude = newBobAmplitude;
+              bobFrequency = newBobFrequency;
+          }
+
+          public void SetLayers(string roamingLayer, int roamingOrder, string thrownLayer, int thrownOrder)
+          {
+              friendSpriteRenderer.sortingLayerName = roamingLayer;
+              friendSpriteRenderer.sortingOrder = roamingOrder;
+              _thrownSortingLayer = thrownLayer;
+              _thrownSortingOrder = thrownOrder;
+          }
 
           public void Setup(FriendData data)
           {
@@ -61,6 +77,8 @@
           public void GetThrown(Vector3 portalPosition, Action onComplete = null)
           {
               friendSpriteRenderer.sprite = _thrownSprite;
+              friendSpriteRenderer.sortingLayerName = _thrownSortingLayer;
+              friendSpriteRenderer.sortingOrder = _thrownSortingOrder;
               StopAllCoroutines();
               StartCoroutine(FlyToPortalRoutine(portalPosition, onComplete));
           }
