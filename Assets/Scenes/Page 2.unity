@@ -2193,7 +2193,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.09116411, y: 5.6779404}
+  m_Offset: {x: 0.24629763, y: 5.6569853}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2203,7 +2203,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.5395746, y: 0.5740299}
+  m_Size: {x: 0.9265662, y: 0.6159401}
   m_EdgeRadius: 0
 --- !u!4 &411790061
 Transform:
@@ -3793,7 +3793,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: e17b2edd35419495c9f620e2838e6c2f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5956,6 +5956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerPage2
   speed: 2
   nextSceneName: 
+  nextSceneName: 
   frame1To6Scale: 1
   frame7Scale: 0.61109
   elevatorTrigger: {fileID: 2073216655}
@@ -7115,6 +7116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerPage2
   speed: 2
   nextSceneName: Page 3
+  nextSceneName: Page 3
   frame1To6Scale: 0.3016661
   frame7Scale: 1.149532
   elevatorTrigger: {fileID: 2073216655}
@@ -7123,7 +7125,7 @@ MonoBehaviour:
   elevatorTargetPlacement: {fileID: 1143424666}
   frame6To7Trigger: {fileID: 1895977004}
   frame7To6Trigger: {fileID: 431148427}
-  helmetPlacement: {x: -0.12814169, y: 0.91529554, z: 0}
+  helmetPlacement: {x: 0.23, y: 1.85, z: 0}
   availableHelmets:
   - {fileID: 197142837}
   - {fileID: 467144090}
@@ -7232,7 +7234,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.16657144, y: -0.7412849}
+  m_Offset: {x: -0.24737905, y: -2.2089248}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -7242,7 +7244,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.183412, y: 0.6701206}
+  m_Size: {x: 1.0328865, y: 0.5572243}
   m_EdgeRadius: 0
 --- !u!1 &1428920092
 GameObject:
@@ -7509,7 +7511,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 0.28
+  orthographic size: 0.31
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -7534,7 +7536,7 @@ Transform:
   m_GameObject: {fileID: 1471783292}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.05, y: -5.79, z: -10}
+  m_LocalPosition: {x: -0.697, y: -5.81, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9029,9 +9031,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849231170}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.24, y: 4.5, z: -5}
-  m_LocalScale: {x: 3.5154455, y: 0.5733917, z: 0.23850171}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.107, y: 4.425, z: -1}
+  m_LocalScale: {x: 0.9557724, y: 0.72316813, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
