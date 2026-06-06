@@ -68,32 +68,45 @@
               speechBubble.transform.localPosition = bubblePos;
           }
 
-          public void StartRoaming(Bounds areaBounds)
+          private void StartRoaming(Bounds areaBounds)
           {
               _areaBounds = areaBounds;
               StartCoroutine(RoamingRoutine());
           }
 
-          public void ShowSpeechBubble()
+          private void ShowSpeechBubble()
           {
               speechBubble.SetActive(true);
           }
 
-          public void HideSpeechBubble()
+          private void HideSpeechBubble()
           {
               speechBubble.SetActive(false);
           }
 
-          public void ShowSpeechBubbleForDuration(float duration)
+          // public void ShowSpeechBubbleForDuration(float duration)
+          // {
+          //     StartCoroutine(SpeechBubbleRoutine(duration));
+          // }
+
+          public void ShowSpeechBubbleThenRoam(Bounds areaBounds, float duration)
           {
-              StartCoroutine(SpeechBubbleRoutine(duration));
+              StartCoroutine(SpeechBubbleThenRoamRoutine(areaBounds, duration));
           }
 
-          private IEnumerator SpeechBubbleRoutine(float duration)
+          // private IEnumerator SpeechBubbleRoutine(float duration)
+          // {
+          //     ShowSpeechBubble();
+          //     yield return new WaitForSeconds(duration);
+          //     HideSpeechBubble();
+          // }
+
+          private IEnumerator SpeechBubbleThenRoamRoutine(Bounds areaBounds, float duration)
           {
               ShowSpeechBubble();
               yield return new WaitForSeconds(duration);
               HideSpeechBubble();
+              StartRoaming(areaBounds);
           }
 
           public void GetThrown(Vector3 portalPosition, Action onComplete = null)

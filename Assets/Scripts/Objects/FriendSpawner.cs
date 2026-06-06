@@ -102,8 +102,7 @@ namespace Objects
                             bounds.topRight.y - bounds.bottomLeft.y, 0f)
             );
 
-            controller.StartRoaming(worldBounds);
-            controller.ShowSpeechBubbleForDuration(speechBubbleDuration);
+            controller.ShowSpeechBubbleThenRoam(worldBounds, speechBubbleDuration);
             AdvanceToNextFriend();
         }
 
