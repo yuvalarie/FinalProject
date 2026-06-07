@@ -2661,7 +2661,7 @@ MonoBehaviour:
   hand: {fileID: 1349934409}
   handHiddenPosition: {fileID: 1247150379}
   handStartingPosition: {fileID: 121075411}
-  handEntryDuration: 2
+  handEntryDuration: 1.5
   handEntryCurve:
     serializedVersion: 2
     m_Curve:
@@ -3031,23 +3031,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1048797841132188679, guid: 86aeb97913c664a449e3bf946a790383, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.2
+      value: 0.28192002
       objectReference: {fileID: 0}
     - target: {fileID: 1048797841132188679, guid: 86aeb97913c664a449e3bf946a790383, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.2
+      value: 0.28192002
       objectReference: {fileID: 0}
     - target: {fileID: 1048797841132188679, guid: 86aeb97913c664a449e3bf946a790383, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.2
+      value: 0.28192002
       objectReference: {fileID: 0}
     - target: {fileID: 1048797841132188679, guid: 86aeb97913c664a449e3bf946a790383, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.05
+      value: -7.18
       objectReference: {fileID: 0}
     - target: {fileID: 1048797841132188679, guid: 86aeb97913c664a449e3bf946a790383, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.37
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1048797841132188679, guid: 86aeb97913c664a449e3bf946a790383, type: 3}
       propertyPath: m_LocalPosition.z
