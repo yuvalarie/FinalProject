@@ -105,12 +105,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerMiniGame2Hand
   speed: 5
   nextSceneName: 
+  endTriggerObject: {fileID: 0}
   handPivot: {fileID: 1860297148090103278}
   restingAngle: 0
   chooseAngle: 25
   discardAngle: -25
   gizmoRadius: 4.12
-  totalMovementDuration: 1.2
+  totalMovementDuration: 0.6
   movementCurve:
     serializedVersion: 2
     m_Curve:

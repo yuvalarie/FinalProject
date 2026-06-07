@@ -88,6 +88,7 @@ MonoBehaviour:
     bobFrequency: 2
   thrownSortingLayer: Default
   thrownSortingOrder: 12
+  speechBubbleDuration: 3
   hellPortal: {fileID: 0}
   excludedAreas: 
   skipBucketOrdering: 0

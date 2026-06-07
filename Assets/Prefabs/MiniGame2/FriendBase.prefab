@@ -141,7 +141,7 @@ MonoBehaviour:
   speechBubble: {fileID: 8761780810066378175}
   speechBubbleOffsetY: 0.5
   throwDuration: 2
-  throwRotationSpeed: 360
+  throwRotationSpeed: 1440
   movementDuration: 1.5
   bobAmplitude: 0.25
   bobFrequency: 2
