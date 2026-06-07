@@ -47,6 +47,7 @@ namespace Objects
 
         [Header("References")]
         [SerializeField] private HellPortal hellPortal;
+        [SerializeField] private MotherReactionController motherReactionController;
 
         [Header("Debug")]
         [SerializeField] private List<MiniGame2FrameArea> excludedAreas;
@@ -83,6 +84,7 @@ namespace Objects
         public void SpawnFriend()
         {
             if (_isDone) return;
+            motherReactionController.ShowAcceptedReaction();
             FriendData data = _orderedFriends[_currentFriendIndex];
             AreaBounds bounds = GetBoundsForArea(data.assignedArea);
 
@@ -113,6 +115,7 @@ namespace Objects
         public void DiscardFriend()
         { 
             if(_isDone) return;
+            motherReactionController.ShowRejectedReaction();
             FriendData data = _orderedFriends[_currentFriendIndex];
             AreaBounds bounds = GetBoundsForArea(data.assignedArea);
 
