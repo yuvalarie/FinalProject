@@ -31,7 +31,7 @@ namespace Player
             SceneLoader.Instance?.PreloadScene(nextSceneName);
         }
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             _inputActions.Game.MoveRight.performed += ctx => MoveInput.x = 1f;
             _inputActions.Game.MoveRight.canceled += ctx => MoveInput.x = 0f;
