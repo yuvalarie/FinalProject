@@ -10,19 +10,21 @@ namespace Npc
         [SerializeField] private SpriteRenderer reactionBubbleSpriteRenderer;
         [SerializeField] private List<Sprite> reactionSprites;
         [SerializeField] private float reactionDuration = 1f;
+        [SerializeField] private List<Sprite> acceptedReactionSprites;
+        [SerializeField] private List<Sprite> rejectedReactionSprites;
         private int _lastShownIndex = -1;
         private Coroutine _activeReaction;
         
         public void ShowAcceptedReaction()
         {
             // public wrapper in case we split the reactions later
-            ShowRandomReaction();
+            ShowRandomReaction(acceptedReactionSprites);
         }
         
         public void ShowRejectedReaction()
         { 
             // public wrapper in case we split the reactions later
-            ShowRandomReaction();
+            ShowRandomReaction(rejectedReactionSprites);
         }
 
         private void ShowRandomReaction(List<Sprite> sourceList = null)
