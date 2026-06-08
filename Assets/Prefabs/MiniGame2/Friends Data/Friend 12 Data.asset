@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Friend 12 Data
   m_EditorClassIdentifier: Assembly-CSharp::Objects.FriendData
   friendName: Marcus Reed
-  appProfileSprite: {fileID: 21300000, guid: cdc6087c59e23459eb08014b4932aa60, type: 3}
+  appProfileSprite: {fileID: 21300000, guid: 341d47d2923954fb3a8833dc2894de52, type: 3}
   roamingSprite: {fileID: 21300000, guid: 4611c9cdc43fa4fb093c863ca3bc50a4, type: 3}
   thrownSprite: {fileID: 21300000, guid: 72b4f2b2479a80345bf7fae62c201042, type: 3}
-  speechBubbleSprite: {fileID: 21300000, guid: 845ed5ebc01a24b18894c1ed9548954f, type: 3}
+  speechBubbleSprite: {fileID: 21300000, guid: 5eeb2ec558b6c489c9c09aacb01106e9, type: 3}
   assignedArea: 1
