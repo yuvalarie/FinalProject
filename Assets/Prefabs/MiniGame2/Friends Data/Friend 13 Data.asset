@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Friend 13 Data
   m_EditorClassIdentifier: Assembly-CSharp::Objects.FriendData
   friendName: Paula Voss
-  appProfileSprite: {fileID: 21300000, guid: 9cad3b46423e844dfaf658f4a79ea62f, type: 3}
-  roamingSprite: {fileID: 21300000, guid: 89050f2849f40434c9572cedab685d08, type: 3}
-  thrownSprite: {fileID: 21300000, guid: 11e131feb452e45d886edf5df844f2ab, type: 3}
-  speechBubbleSprite: {fileID: 21300000, guid: 0c8353db27b6b4a53acd6c3b2c6128cf, type: 3}
+  appProfileSprite: {fileID: 21300000, guid: fe6aa8a30de7c402b88423ee5fb5d26d, type: 3}
+  roamingSprite: {fileID: 21300000, guid: 2f5cac3503cc7424eaa899b0456acfc7, type: 3}
+  thrownSprite: {fileID: 21300000, guid: 56db829c9c1124d2f9204b2c700e3fa0, type: 3}
+  speechBubbleSprite: {fileID: 21300000, guid: 1d7aca8e6d02c4dbcb0a63ed18728f0c, type: 3}
   assignedArea: 0
