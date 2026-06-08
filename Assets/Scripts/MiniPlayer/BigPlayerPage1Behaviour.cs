@@ -1,6 +1,5 @@
 ﻿using System.Collections; // Required for Coroutines
 using Player;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +12,7 @@ namespace MiniPlayer
         [SerializeField] private PlayerControllerPage1 player;
         [SerializeField] private Animator phoneAnimator;
         [SerializeField] private Vector3 size;
+        [SerializeField] private Animator miniPlayerAnimator;
         
         [Tooltip("Set this to the exact length of the Answer animation in seconds.")]
         [SerializeField] private float animationDuration = 1.5f;
@@ -20,8 +20,8 @@ namespace MiniPlayer
         private SpriteRenderer _spriteRenderer;
         private bool _hasChangedSprite = false;
         private bool _canMove = false;
- 
-        private void Start()
+
+        protected override void Start()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
         }
@@ -31,6 +31,7 @@ namespace MiniPlayer
             if (_hasChangedSprite) return;
             if (page1Sprite == null) return;
             
+            miniPlayerAnimator.enabled = false;
             _spriteRenderer.sprite = page1Sprite;
             _spriteRenderer.sortingOrder -= 2;
             transform.localScale = size;
@@ -56,8 +57,8 @@ namespace MiniPlayer
             }
             base.HandleMovement();
         }
-        
-        private void OnTriggerEnter2D(Collider2D other)
+
+        protected override void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("End"))
             {
