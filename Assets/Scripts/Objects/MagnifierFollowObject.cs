@@ -75,10 +75,10 @@ namespace Objects
             Sequence transitionSequence = DOTween.Sequence();
 
             // 1. Move the top glass down to its exit point (easing makes it start slow and speed up)
-            transitionSequence.Append(transform.DOMove(topGlassExitPoint.position, animationDuration).SetEase(Ease.InQuad));
+            transitionSequence.Append(transform.DOMove(topGlassExitPoint.position, animationDuration).SetEase(Ease.InOutQuad));
 
             // 3. Move the bottom glass from its starting position into view (easing makes it smoothly settle into place)
-            transitionSequence.Join(magnifyingGlass2.DOMove(bottomGlassTargetPoint.position, animationDuration).SetEase(Ease.OutBack));
+            transitionSequence.Join(magnifyingGlass2.DOMove(bottomGlassTargetPoint.position, animationDuration).SetEase(Ease.InOutQuad));
             
             // 2. Swap the _isOn boolean the exact millisecond the top glass disappears
             transitionSequence.AppendCallback(() => 
@@ -94,10 +94,10 @@ namespace Objects
             Sequence transitionSequence = DOTween.Sequence();
 
             // 1. Move the top glass down to its exit point (easing makes it start slow and speed up)
-            transitionSequence.Append(transform.DOMove(_topGlassStartPosition, animationDuration).SetEase(Ease.InQuad));
+            transitionSequence.Append(transform.DOMove(_topGlassStartPosition, animationDuration).SetEase(Ease.InOutQuad));
 
             // 3. Move the bottom glass from its starting position into view (easing makes it smoothly settle into place)
-            transitionSequence.Join(magnifyingGlass2.DOMove(_bottomGlassStartPosition, animationDuration).SetEase(Ease.OutBack));
+            transitionSequence.Join(magnifyingGlass2.DOMove(_bottomGlassStartPosition, animationDuration).SetEase(Ease.InOutQuad));
             
             // 2. Swap the _isOn boolean the exact millisecond the top glass disappears
             transitionSequence.AppendCallback(() => 
