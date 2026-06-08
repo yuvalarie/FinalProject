@@ -8,24 +8,6 @@ using UnityEngine.Serialization;
 
 namespace Player
 {
-    /**
-     * --- this whole time dave can walk until frame 2 collider ----
-     * Helda Animation 1 : plays on start
-     * -> Triggers OnAnimation1Complete
-     * OnAnimation1Complete : switch to frame 2 sprite, start animation 2
-     * -> Triggers StartMagnifierSequence
-     * -> Triggers OnMagnifierSequenceComplete
-     * OnMagnifierSequenceComplete : show text bubble 1 after 0.5 seconds delay
-     * OnInteraction after text bubble 1 shown : show text bubble 2
-     * OnInteraction after text bubble 2 shown : magnifier back sequence
-     * -> Triggers OnMagnifierBackSequenceComplete
-     * OnMagnifierBackSequenceComplete : start exit animation
-     * --- dave can walk again past frame 2 collider ---
-     * OnExitAnimationComplete : switch to frame 4 sprite, frame 4 enter animation
-     * Frame 4 enter animation complete : show text bubble 3
-     * OnInteraction after text bubble 3 shown : text bubble 3 disappears, helda exit animation plays
-     * Enter frame 5 : letters appears -> on interaction: letter opens -> on interaction: letter dissapears
-     */
     public class PlayerControllerPage5 : PlayerControllerBase
     {
         [Header("Helda Settings")]
@@ -37,8 +19,7 @@ namespace Player
         [SerializeField] private Vector3 heldaFrame4Scale;
         [SerializeField] private SpriteRenderer heldaSpriteRenderer;
         [SerializeField] private GameObject heldaObject;
-        [SerializeField] private Animator heldaAnimator;
-        [SerializeField] private Animator legsAnimator;
+        [SerializeField] private HeldaAnimatorPage5 heldaMovement;
         
         [Header("Text Settings")]
         [SerializeField] private GameObject textBubble1;
@@ -77,8 +58,14 @@ namespace Player
         private bool textBubble2Shown;
         private bool textBubble4Shown;
         private bool textBubble5Shown;
+        private bool textBubble5Cleared; // Added to prevent re-triggering animation 5
         private bool letterShown;
         private bool letterOpened;
+        
+        // NEW STATE TRACKERS FOR THE LETTER LOGIC
+        private bool _isPlayerInLetterCollider;
+        private bool _wasInLetterCollider;
+        private bool _isAnimation5Complete;
         
         private SpriteRenderer _spriteRenderer;
         
@@ -106,10 +93,6 @@ namespace Player
             {
                 StartMagnifierSequence();
             }
-            if (textBubble1Shown && !textBubble2Shown)
-            {
-                StartCoroutine(StartTextCoroutine());
-            }
             if(textBubble1Shown && textBubble2Shown && !textBubble4Shown)
             {
                 StartCoroutine(StartTextBubble4Coroutine());
@@ -118,12 +101,17 @@ namespace Player
             {
                 magnifierObject.BackTransition();
             }
-            if(textBubble1Shown && textBubble2Shown && textBubble4Shown && textBubble5Shown && !letterShown)
+            
+            // Clear Bubble 5 and start final movement
+            if(textBubble1Shown && textBubble2Shown && textBubble4Shown && textBubble5Shown && !textBubble5Cleared)
             {
                 textBubble5.SetActive(false);
-                heldaAnimator.SetTrigger("Animation5");
+                textBubble5Cleared = true; // Lock this out so it only happens once
+                heldaMovement.PlayMovement5();
             }
-            if (letterShown && !letterOpened)
+            
+            // Open the letter ONLY if player is in the collider
+            if (letterShown && !letterOpened && _isPlayerInLetterCollider)
             {
                 closedLetterObject.SetActive(false);
                 openLetterObject.SetActive(true);
@@ -141,8 +129,6 @@ namespace Player
         }
         
         /* --- Frame 1 Sequence --- */
-        
-        // will be called by an animation event at the end of Helda's first animation
         public void OnAnimation1Complete()
         {
             if (heldaSpriteRenderer != null && heldaFrame2Sprite != null)
@@ -150,19 +136,16 @@ namespace Player
                 heldaSpriteRenderer.sprite = heldaFrame2Sprite;
                 heldaObject.transform.localScale = heldaFrame2Scale;
             }
-            heldaAnimator.SetTrigger("Animation2");
-            legsAnimator.SetTrigger("Animation2");
+            heldaMovement.PlayMovement2();
         }
         
         /* --- Frame 2 Sequence --- */
-        // will be called by an animation event at the end of Helda's second animation
         public void StartTextBubble1Sequence()
         {
             textBubble1.SetActive(true);
             textBubble1Shown = true;
         }
         
-        // called after text bubble 1 is shown and player interacts
         private void StartMagnifierSequence()
         {
             textBubble1.SetActive(false);
@@ -211,11 +194,10 @@ namespace Player
         
         private void StartExitAnimation()
         {
-            heldaAnimator.SetTrigger("Animation3");
-            legsAnimator.SetTrigger("Animation3");
+            textBubble4.SetActive(false);
+            heldaMovement.PlayMovement3();
         }
         
-        // will be called by an animation event at the end of Helda's exit animation
         public void ChangeCanMoveState()
         {
             _canMove = true;
@@ -223,15 +205,13 @@ namespace Player
         }
         
         /* --- Frame 4 Sequence --- */
-        // will be called by an animation event at the end of Helda's exit animation
         public void StartAnimation4()
         {
             heldaSpriteRenderer.sprite = heldaFrame4Sprite;
             heldaObject.transform.localScale = heldaFrame4Scale;
-            heldaAnimator.SetTrigger("Animation4");
+            heldaMovement.PlayMovement4();
         }
         
-        // will be called by an animation event at the end of Helda's fourth animation
         public void ShowTextBubble5()
         {
             if (textBubble5 != null)
@@ -241,50 +221,124 @@ namespace Player
             }
         }
         
-        protected override void OnTriggerEnter2D(Collider2D other)
+        /* --- Frame 5 Sequence (Letter) --- */
+        
+        // This will be called by HeldaMovementPage5 when her final jump finishes
+        public void OnAnimation5Complete()
         {
-            base.OnTriggerEnter2D(other);
-            if (other == frame2Collider)
-            {
-                _canMove = false;
-            }
-            if (other == frame1toframe2Trigger)
-            {
-                _spriteRenderer.sprite = frame2Sprite;
-                transform.localScale = frame2Scale;
-            }
-            if (other == frame2toframe1Trigger)
-            {
-                _spriteRenderer.sprite = frame1Sprite;
-                transform.localScale = frame1Scale;
-            }
-            if (other == frame2toframe4Trigger)
-            {
-                _spriteRenderer.sprite = frame4Sprite;
-                transform.localScale = frame4Scale;
-            }
-            if (other == frame4toframe2Trigger)
-            {
-                _spriteRenderer.sprite = frame2Sprite;
-                transform.localScale = frame2Scale;
-            }
-            if (other == frame4toframe6Trigger)
-            {
-                _spriteRenderer.sprite = frame6Sprite;
-                transform.localScale = frame6Scale;
-            }
-            if (other == frame6toframe4Trigger)
-            {
-                _spriteRenderer.sprite = frame4Sprite;
-                transform.localScale = frame4Scale;
-            }
-
-            if (other == letterTrigger && !letterShown)
+            _isAnimation5Complete = true;
+            
+            // If the player is ALREADY standing in the trigger zone, show the letter immediately
+            if (_wasInLetterCollider && !letterShown)
             {
                 closedLetterObject.SetActive(true);
                 letterShown = true;
             }
         }
+        
+        protected override void OnTriggerEnter2D(Collider2D other)
+        {
+            base.OnTriggerEnter2D(other);
 
+            if (other == frame2Collider)
+
+            {
+
+                _canMove = false;
+
+                Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+                if (rb != null)
+
+                {
+
+                    rb.linearVelocity = Vector2.zero;
+
+                }
+
+            }
+
+            if (other == frame1toframe2Trigger)
+
+            {
+
+                _spriteRenderer.sprite = frame2Sprite;
+
+                transform.localScale = frame2Scale;
+
+            }
+
+            if (other == frame2toframe1Trigger)
+
+            {
+
+                _spriteRenderer.sprite = frame1Sprite;
+
+                transform.localScale = frame1Scale;
+
+            }
+
+            if (other == frame2toframe4Trigger)
+
+            {
+
+                _spriteRenderer.sprite = frame4Sprite;
+
+                transform.localScale = frame4Scale;
+
+            }
+
+            if (other == frame4toframe2Trigger)
+
+            {
+
+                _spriteRenderer.sprite = frame2Sprite;
+
+                transform.localScale = frame2Scale;
+
+            }
+
+            if (other == frame4toframe6Trigger)
+
+            {
+
+                _spriteRenderer.sprite = frame6Sprite;
+
+                transform.localScale = frame6Scale;
+
+            }
+
+            if (other == frame6toframe4Trigger)
+
+            {
+
+                _spriteRenderer.sprite = frame4Sprite;
+
+                transform.localScale = frame4Scale;
+
+            }
+            
+            if (other == letterTrigger)
+            {
+                _isPlayerInLetterCollider = true;
+                _wasInLetterCollider = true;
+                
+                // Show the letter only if animation 5 is complete
+                if (_isAnimation5Complete && !letterShown)
+                {
+                    closedLetterObject.SetActive(true);
+                    letterShown = true;
+                }
+            }
+        }
+
+        // Add OnTriggerExit2D so we know when the player walks away!
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other == letterTrigger)
+            {
+                _isPlayerInLetterCollider = false;
+            }
+        }
     }
 }
