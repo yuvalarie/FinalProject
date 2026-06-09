@@ -174,5 +174,19 @@
               onComplete?.Invoke();
               Destroy(gameObject);
           }
+          
+          public void Leave(Vector3 leavePoint, Action onComplete = null)
+          {
+              HideSpeechBubble();
+              StopAllCoroutines();
+              StartCoroutine(LeaveRoutine(leavePoint, onComplete));
+          }
+
+          private IEnumerator LeaveRoutine(Vector3 leavePoint, Action onComplete)
+          {
+              yield return MoveRoutine(leavePoint);
+              onComplete?.Invoke();
+              Destroy(gameObject);
+          }
       }
   }

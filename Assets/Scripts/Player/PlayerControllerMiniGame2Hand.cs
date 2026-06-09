@@ -23,6 +23,7 @@ namespace Player
         [SerializeField] private FriendSpawner friendSpawner;
 
         private bool _isMoving;
+        private bool _swipeLocked = false;
 
         
         protected override void Start()
@@ -32,10 +33,12 @@ namespace Player
             if (handPivot != null)
                 handPivot.localRotation = Quaternion.Euler(0f, 0f, restingAngle);
         }
+        public void EnableSwiping() => _swipeLocked = false;
+        public void DisableSwiping() => _swipeLocked = true;
 
         protected override void HandleMovement()
         {
-            if (_isMoving) return;
+            if (_isMoving || _swipeLocked) return;
 
             if (MoveInput.x > 0.5f)
             {
