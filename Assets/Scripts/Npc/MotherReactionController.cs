@@ -90,6 +90,18 @@ namespace Npc
             _finishedAllReactionsAction = finishedAllReactionsAction;
         }
 
+        public void StartFinishedReactions()
+        {
+            StartCoroutine(StartFinishedReactionsRoutine());
+        }
+
+        private IEnumerator StartFinishedReactionsRoutine()
+        {
+            yield return new WaitUntil(() => _activeReaction == null); // wait until any active reaction is done before starting the finished reactions
+            TryAdvanceFinishedReaction();
+        }
+
+
         public void TryAdvanceFinishedReaction()
         {
             if (_finishedReactionCooldown != null || _finishedAllReactions) return; // still in cooldown, can't advance yet, ignore input

@@ -102,6 +102,7 @@ namespace Managers
             friendSpawner.AllFriendsSwiped -= OnSwipingComplete;
             motherController.SetFriendsLeaveAction(friendSpawner.TellFriendsToLeave);
             motherController.SetFinishedAllReactionsAction(StartHandExit);
+            motherController.StartFinishedReactions();
             walkController.EnableInteraction();
             
             // StartHandExit();
