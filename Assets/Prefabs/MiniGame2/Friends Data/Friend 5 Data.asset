@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Friend 5 Data
   m_EditorClassIdentifier: Assembly-CSharp::Objects.FriendData
   friendName: Mandy Bloom
-  appProfileSprite: {fileID: 21300000, guid: 5381f487b1b0a42e89ccb9ccaa7befd9, type: 3}
+  appProfileSprite: {fileID: 21300000, guid: d7881125eed664ce190cd047c24672b7, type: 3}
   roamingSprite: {fileID: 21300000, guid: e48bf6af01b7f4c019b9bc4a1466d111, type: 3}
   thrownSprite: {fileID: 21300000, guid: 08667cae322c76c4eb26e0d31183fd4a, type: 3}
   speechBubbleSprite: {fileID: 21300000, guid: 65cedfd7d3bca4a45a8e2fa94ffc9a0b, type: 3}
