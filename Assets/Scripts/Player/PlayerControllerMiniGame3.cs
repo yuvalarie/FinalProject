@@ -1,103 +1,169 @@
-﻿using System;
+﻿using System.Collections;
+using System.Collections.Generic;
+using Objects;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Player
 {
-    [Serializable] 
-    public class TuningSettings 
+    [System.Serializable]
+    public struct SimonTask
     {
-        [Tooltip("Current value of the dial (e.g., starting water temp).")]
-        public float currentValue = 20f;
-        
-        [Tooltip("The perfect target value the player needs to reach.")]
-        public float targetValue = 75f;
-        
-        [Tooltip("The safe zone around the target. +/- this number wins.")]
-        public float tolerance = 5f;
-
-        [Tooltip("How fast holding Left/Right changes the value.")]
-        public float turnSpeed = 25f;
+        public ToolType RequiredTool;
+        public AreaType TargetArea;
     }
 
-    
     public class PlayerControllerMiniGame3 : PlayerControllerBase
     {
-        [Header("Tuning Settings")]
-        [SerializeField] TuningSettings zone1Settings;
-        [SerializeField] TuningSettings zone2Settings;
+        [Header("Simon Game Settings")]
+        [SerializeField, Tooltip("How many steps in the final sequence to win?")] 
+        private int totalActionsToWin = 5;
 
-        private bool _isMiniGameComplete = false;
-        private int _currentZone = 1;
-        private float currentValue;
-        private float targetValue;
-        private float tolerance;
-        private float turnSpeed;
-        
-        protected override void Awake()
+        [Header("Current Status (Read Only)")]
+        [SerializeField] private ToolType currentHeldTool = ToolType.None;
+        [SerializeField] private AreaType currentStandingArea = AreaType.None;
+        [SerializeField] private ToolType currentStandingToolStation = ToolType.None;
+
+        private List<SimonTask> fullSequence = new List<SimonTask>();
+        private int currentRound = 1; // Tracks which round we are on (e.g., Round 3 means doing 3 steps)
+        private int playerStepIndex = 0; // Tracks which step the player is currently executing
+        private bool isScreenPlaying = false; // Prevents interaction while the screen is showing the pattern
+
+        protected override void Start()
         {
-            base.Awake();
-            LoadZoneSettings(1);
+            base.Start();
+            GenerateSequence();
+            StartCoroutine(PlaySequenceOnScreen());
         }
 
-        private void LoadZoneSettings(int i)
+        private void GenerateSequence()
         {
-            if (i == 1)
+            fullSequence.Clear();
+            for (int i = 0; i < totalActionsToWin; i++)
             {
-                currentValue = zone1Settings.currentValue;
-                targetValue = zone1Settings.targetValue;
-                tolerance = zone1Settings.tolerance;
-                turnSpeed = zone1Settings.turnSpeed;
+                SimonTask newTask = new SimonTask
+                {
+                    // Random.Range with integers is exclusive on the max value. 
+                    // Since we have 4 tools/areas, we range from 1 to 5 to get 1, 2, 3, or 4.
+                    RequiredTool = (ToolType)Random.Range(1, 5),
+                    TargetArea = (AreaType)Random.Range(1, 5)
+                };
+                fullSequence.Add(newTask);
             }
-            else
-            {
-                currentValue = zone2Settings.currentValue;
-                targetValue = zone2Settings.targetValue;
-                tolerance = zone2Settings.tolerance;
-                turnSpeed = zone2Settings.turnSpeed;
-            }
-        }
-        
-        protected override void HandleMovement()
-        {
-            if (_isMiniGameComplete) base.HandleMovement();
-            float adjustment = MoveInput.x * turnSpeed;
-            currentValue += adjustment * Time.deltaTime;
-            currentValue = Mathf.Clamp(currentValue, 0f, 100f);
         }
 
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
-            if (!context.performed || _isMiniGameComplete) return;
+            // Only fire on the button press, and ignore if the screen is currently animating
+            if (!context.performed || isScreenPlaying) return;
 
-            Debug.Log("Player pressed Interact to lock in the choice...");
-            CheckWinCondition();
+            // 1. If standing near a tool, pick it up
+            if (currentStandingToolStation != ToolType.None)
+            {
+                currentHeldTool = currentStandingToolStation;
+                Debug.Log($"Picked up: {currentHeldTool}");
+                // You can add player visual feedback here (e.g., showing the tool in their hand)
+                return;
+            }
+
+            // 2. If standing near an area AND holding a tool, apply it
+            if (currentStandingArea != AreaType.None && currentHeldTool != ToolType.None)
+            {
+                ValidatePlayerAction(currentHeldTool, currentStandingArea);
+            }
         }
 
-        private void CheckWinCondition()
+        private void ValidatePlayerAction(ToolType usedTool, AreaType appliedArea)
         {
-            if (Mathf.Abs(currentValue - targetValue) <= tolerance)
+            SimonTask expectedTask = fullSequence[playerStepIndex];
+
+            if (usedTool == expectedTask.RequiredTool && appliedArea == expectedTask.TargetArea)
             {
-                _isMiniGameComplete = true;
-                Debug.Log("SUCCESS: Locked in the perfect temperature! Mini-game complete.");
+                // -- SUCCESS --
+                Debug.Log("Correct move!");
+                playerStepIndex++;
+
+                // Did they finish all the steps required for this round?
+                if (playerStepIndex >= currentRound)
+                {
+                    if (currentRound >= totalActionsToWin)
+                    {
+                        Debug.Log("MINIGAME WON!");
+                        if (endTriggerObject != null) endTriggerObject.SetActive(true);
+                        // Trigger your win animations/scene transition here!
+                    }
+                    else
+                    {
+                        // Advance to the next round!
+                        currentRound++;
+                        playerStepIndex = 0;
+                        currentHeldTool = ToolType.None; // Reset tool for next round
+                        StartCoroutine(PlaySequenceOnScreen());
+                    }
+                }
             }
             else
             {
-                Debug.Log($"FAILED: Locked in at {currentValue:F1}, but needed to be near {targetValue}. Keep tuning!");
+                // -- FAILURE --
+                Debug.Log("WRONG MOVE! Restarting this round.");
+                
+                // TODO: ADD VISUAL/AUDIO FAILURE EFFECT HERE (e.g., buzzer sound, screen flashing red)
+                
+                playerStepIndex = 0; // Reset their progress for this round
+                currentHeldTool = ToolType.None; // Drop their tool
+                StartCoroutine(PlaySequenceOnScreen()); // Replay the same sequence to them
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        // --- Trigger Detection ---
+        private void OnTriggerStay2D(Collider2D other)
         {
-            if (other.CompareTag("Interaction"))
+            //base.OnTriggerEnter2D(other); // Keeps your End trigger logic intact
+
+            SimonInteractable interactable = other.GetComponent<SimonInteractable>();
+            //Debug.Log($"Found this interactable {interactable}");
+            if (interactable != null)
             {
-                _isMiniGameComplete = false;
-                currentValue = 20f; // Reset to starting value
-                Rb.linearVelocity = Vector2.zero; // Stop any movement
-                other.gameObject.SetActive(false);
-                _currentZone++;
-                LoadZoneSettings(_currentZone);
+                if (interactable.isToolStation) currentStandingToolStation = interactable.toolType;
+                if (interactable.isArea) currentStandingArea = interactable.areaType;
             }
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            SimonInteractable interactable = other.GetComponent<SimonInteractable>();
+            if (interactable != null)
+            {
+                if (interactable.isToolStation) currentStandingToolStation = ToolType.None;
+                if (interactable.isArea) currentStandingArea = AreaType.None;
+            }
+        }
+
+        // --- Screen Display Logic ---
+        private IEnumerator PlaySequenceOnScreen()
+        {
+            isScreenPlaying = true;
+            Debug.Log($"--- Displaying Sequence for Round {currentRound} ---");
+            
+            // Wait a moment so the player can breathe before the screen starts flashing
+            yield return new WaitForSeconds(1f);
+
+            for (int i = 0; i < currentRound; i++)
+            {
+                SimonTask taskToDisplay = fullSequence[i];
+                Debug.Log($"SCREEN SHOWS: Tool {taskToDisplay.RequiredTool} at Area {taskToDisplay.TargetArea}");
+                
+                // TODO: TRIGGER YOUR UI SCREEN CHANGES HERE 
+                // e.g., Update an Image component to show the tool sprite, and highlight an area on the mini-screen
+                
+                yield return new WaitForSeconds(1.5f); // How long the image stays on screen
+                
+                // TODO: Clear the screen for a brief moment between pictures
+                yield return new WaitForSeconds(0.5f); 
+            }
+
+            Debug.Log("Player's turn!");
+            isScreenPlaying = false; // Unlocks controls
         }
     }
 }

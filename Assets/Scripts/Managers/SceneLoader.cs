@@ -35,6 +35,7 @@ namespace Managers
         {
             // Avoid loading multiple scenes at once
             if (preloadedSceneOperation != null) return;
+            if (sceneName == null) return;
             
             StartCoroutine(PreloadRoutine(sceneName));
         }

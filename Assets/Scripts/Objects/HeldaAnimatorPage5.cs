@@ -59,7 +59,7 @@ namespace Objects
                 .SetEase(Ease.Linear));
             sequence3.OnComplete(() => 
             {
-                player.ChangeCanMoveState();
+                //player.ChangeCanMoveState();
                 player.StartAnimation4();
             });
         }
