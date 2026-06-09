@@ -642,7 +642,7 @@ GameObject:
   - component: {fileID: 399376799}
   - component: {fileID: 399376798}
   m_Layer: 0
-  m_Name: Asset 1008
+  m_Name: PhoneIcons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -655,7 +655,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 399376797}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -714,12 +714,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 399376797}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.029, y: -3.411, z: 0}
-  m_LocalScale: {x: 0.2399182, y: 0.2399182, z: 0.2399182}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.29593423, y: -15.134326, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1035559658}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &475834415
 GameObject:
@@ -1493,7 +1493,8 @@ Transform:
   m_LocalPosition: {x: 0.1, y: 0.22, z: 0}
   m_LocalScale: {x: 0.2399182, y: 0.2399182, z: 0.2399182}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 399376799}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1109942902
@@ -3382,6 +3383,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: fd17f85dd1a7446568340fd6b0b77082, type: 3}
     - target: {fileID: 1899112733900447661, guid: 654f6c994c5bc094d8241869bcb6bac0, type: 3}
+      propertyPath: phoneIconsRenderer
+      value: 
+      objectReference: {fileID: 399376798}
+    - target: {fileID: 1899112733900447661, guid: 654f6c994c5bc094d8241869bcb6bac0, type: 3}
       propertyPath: discardSpawnPosition
       value: 
       objectReference: {fileID: 666434988}
@@ -3501,4 +3506,3 @@ SceneRoots:
   - {fileID: 1856258375}
   - {fileID: 1760818662}
   - {fileID: 326367266}
-  - {fileID: 399376799}

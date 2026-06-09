@@ -26,6 +26,7 @@ namespace Objects
         [Header("Phone Display")]
         // The SpriteRenderer already in the scene on the phone - we just swap its sprite
         [SerializeField] private SpriteRenderer phoneDisplayRenderer;
+        [SerializeField] private SpriteRenderer phoneIconsRenderer; // needs to start as disabled
         [SerializeField] private Sprite startScreenSprite;
         [SerializeField] private Sprite finishedListSprite;
 
@@ -76,6 +77,7 @@ namespace Objects
         {
             // Guard: debug start index may have already exhausted the list
             if (_isDone) return;
+            phoneIconsRenderer.enabled = true;
             ShowCurrentFriendOnPhone();
         }
 
@@ -146,6 +148,7 @@ namespace Objects
         private void OnAllFriendsSwiped()
         {
             _isDone = true;
+            phoneIconsRenderer.enabled = false;
             phoneDisplayRenderer.sprite = finishedListSprite;
             AllFriendsSwiped?.Invoke();
         }
