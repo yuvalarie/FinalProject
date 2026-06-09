@@ -61,6 +61,7 @@ namespace Player
         private bool textBubble5Cleared; // Added to prevent re-triggering animation 5
         private bool letterShown;
         private bool letterOpened;
+        private bool letterCleared;
         
         // NEW STATE TRACKERS FOR THE LETTER LOGIC
         private bool _isPlayerInLetterCollider;
@@ -106,7 +107,7 @@ namespace Player
             if(textBubble1Shown && textBubble2Shown && textBubble4Shown && textBubble5Shown && !textBubble5Cleared)
             {
                 textBubble5.SetActive(false);
-                textBubble5Cleared = true; // Lock this out so it only happens once
+                textBubble5Cleared = true;
                 heldaMovement.PlayMovement5();
             }
             
@@ -120,6 +121,8 @@ namespace Player
             else if (letterShown && letterOpened)
             {
                 openLetterObject.SetActive(false);
+                letterCleared = true;
+                _canMove = true;
             }
         }
 
@@ -195,6 +198,7 @@ namespace Player
         private void StartExitAnimation()
         {
             textBubble4.SetActive(false);
+            _canMove = true;
             heldaMovement.PlayMovement3();
         }
         
@@ -243,86 +247,59 @@ namespace Player
             if (other == frame2Collider)
 
             {
-
                 _canMove = false;
 
                 Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
                 if (rb != null)
-
                 {
-
                     rb.linearVelocity = Vector2.zero;
-
                 }
 
             }
 
             if (other == frame1toframe2Trigger)
-
             {
-
                 _spriteRenderer.sprite = frame2Sprite;
-
                 transform.localScale = frame2Scale;
 
             }
-
             if (other == frame2toframe1Trigger)
-
             {
-
                 _spriteRenderer.sprite = frame1Sprite;
-
                 transform.localScale = frame1Scale;
-
             }
-
             if (other == frame2toframe4Trigger)
-
             {
-
                 _spriteRenderer.sprite = frame4Sprite;
-
                 transform.localScale = frame4Scale;
-
             }
-
             if (other == frame4toframe2Trigger)
-
             {
-
                 _spriteRenderer.sprite = frame2Sprite;
-
                 transform.localScale = frame2Scale;
-
             }
-
             if (other == frame4toframe6Trigger)
-
             {
-
                 _spriteRenderer.sprite = frame6Sprite;
-
                 transform.localScale = frame6Scale;
-
             }
-
             if (other == frame6toframe4Trigger)
-
             {
-
                 _spriteRenderer.sprite = frame4Sprite;
-
                 transform.localScale = frame4Scale;
-
             }
             
             if (other == letterTrigger)
             {
                 _isPlayerInLetterCollider = true;
                 _wasInLetterCollider = true;
-                
+                _canMove = false;
+                Rigidbody2D rb = GetComponent<Rigidbody2D>();
+                if (rb != null)
+                {
+                    rb.linearVelocity = Vector2.zero;
+                }
                 // Show the letter only if animation 5 is complete
                 if (_isAnimation5Complete && !letterShown)
                 {
