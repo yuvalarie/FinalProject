@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639160131744601322
+  lastModified: 639160253579606790
   FileSizes: []
   Exists: 1
 --- !u!114 &-4827016301418027124
@@ -121,7 +121,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 2100893941630395751}
   cacheVersion: 131859
-  cacheTime: 639160131744601322
+  cacheTime: 639160253579606790
   SerializableEventsDict:
   - key: event:/Page1/LetterTubes
     index: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639147990014132890
+  lastModified: 639151549211189403
   FileSizes: []
   Exists: 1
 --- !u!114 &2100893941630395751
@@ -162,7 +162,7 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639159456934194642
+  lastModified: 639159871485791275
   FileSizes:
   - Name: 
     Value: 1288
@@ -235,7 +235,7 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639159456934191304
+  lastModified: 639159871485751392
   FileSizes: []
   Exists: 1
 --- !u!114 &7184409384577903666
@@ -281,6 +281,6 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/Ambiance.bank
   Name: Ambiance
   StudioPath: bank:/Ambiance
-  lastModified: 639159456934185298
+  lastModified: 639159871485681456
   FileSizes: []
   Exists: 1

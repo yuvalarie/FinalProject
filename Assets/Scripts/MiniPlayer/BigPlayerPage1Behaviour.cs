@@ -12,6 +12,7 @@ namespace MiniPlayer
         [SerializeField] private PlayerControllerPage1 player;
         [SerializeField] private Animator phoneAnimator;
         [SerializeField] private Vector3 size;
+        [SerializeField] private Vector3 position;
         [SerializeField] private Animator miniPlayerAnimator;
         
         [Tooltip("Set this to the exact length of the Answer animation in seconds.")]
@@ -35,6 +36,7 @@ namespace MiniPlayer
             _spriteRenderer.sprite = page1Sprite;
             _spriteRenderer.sortingOrder -= 2;
             transform.localScale = size;
+            transform.localPosition = position;
             
             phoneAnimator.SetTrigger(Answer);
             _hasChangedSprite = true;
