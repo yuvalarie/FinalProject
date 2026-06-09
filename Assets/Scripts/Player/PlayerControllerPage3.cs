@@ -114,7 +114,7 @@ namespace Player
         private IEnumerator Sequence6Coroutine()
         {
             letterAnimator.SetTrigger("Open");
-            yield return new WaitForSeconds(1.2f); //change to match animation timing
+            yield return new WaitForSeconds(3.5f); //change to match animation timing
             letterObject.SetActive(true);
             _interactionCount++;
         }

@@ -14,10 +14,10 @@ namespace Player
         [Header("Size Settings")]
         [Tooltip("The scale factor for the player's size in frame 1-6.")]
         [SerializeField] private float frame1To6Scale = 1f;
-        [Tooltip("The scale factor for the player's size in frame 6.")]
+        [SerializeField] private Sprite frame1Sprite;
+        [Tooltip("The scale factor for the player's size in frame 6.")] 
         [SerializeField] private float frame6Scale = 1.5f;
-        [Tooltip("The scale factor for the player's size in frame 7.")]
-        [SerializeField] private float frame7Scale = 1.5f;
+        [SerializeField] private Sprite frame6Sprite;
         
         [Header("Elevator Settings")]
         [SerializeField] private Collider2D elevatorTrigger;
@@ -46,11 +46,14 @@ namespace Player
         [SerializeField] private Collider2D leftDoorCollider;
         [SerializeField] private Collider2D rightDoorCollider;
         [SerializeField] private SpriteRenderer rightDoorSpriteRenderer;
+        [SerializeField] private Collider2D helmetArea;
 
         [Header("Last frame interaction settings")] 
         [SerializeField] private Collider2D lastFrameTrigger;
         [SerializeField] private GameObject textBubble1;
         [SerializeField] private GameObject textBubble2;
+
+        private bool _atHelmetArea;
 
         private SpriteRenderer _spriteRenderer;
         private float _elevatorOffsetY;
@@ -70,6 +73,7 @@ namespace Player
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
             if (!context.performed) return;
+            if (!_atHelmetArea) return;
             if (availableHelmets.Count == 0) return;
             int topHelmetIndex = availableHelmets.Count - 1;
             GameObject helmetObject = availableHelmets[topHelmetIndex];
@@ -87,13 +91,17 @@ namespace Player
                 rightDoorAnimator.SetTrigger(Open);
                 rightDoorCollider.enabled = false;
                 leftDoorCollider.enabled = false;
-                rightDoorSpriteRenderer.sortingOrder = _sortingOrderAtStart + 1;
+                rightDoorSpriteRenderer.sortingOrder = 10;
             }
         }
 
         protected override void OnTriggerEnter2D(Collider2D other)
         {
             base.OnTriggerEnter2D(other);
+            if (other == helmetArea)
+            {
+                _atHelmetArea = true;
+            }
             if (other == elevatorTrigger)
             {
                 var newPosition = new Vector3(elevatorPlacement.position.x, elevatorPlacement.position.y, transform.position.z);
@@ -102,21 +110,12 @@ namespace Player
             if (other == frame5To6Trigger)
             {
                 transform.localScale = new Vector3(frame6Scale, frame6Scale, 1f);
+                _spriteRenderer.sprite = frame6Sprite;
             }
             else if (other == frame6To5Trigger)
             {
                 transform.localScale = new Vector3(frame1To6Scale, frame1To6Scale, 1f);
-            }
-            if (other == frame6To7Trigger)
-            {
-                transform.localScale = new Vector3(frame7Scale, frame7Scale, 1f);
-                _spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
-                
-            }
-            else if (other == frame7To6Trigger)
-            {
-                transform.localScale = new Vector3(frame6Scale, frame6Scale, 1f);
-                _spriteRenderer.maskInteraction = SpriteMaskInteraction.None;
+                _spriteRenderer.sprite = frame1Sprite;
             }
             
             if (other == lastFrameTrigger && !_hasActivatedLastFrameSequence)
@@ -165,6 +164,14 @@ namespace Player
                         );
                     }
                 }
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other == helmetArea)
+            {
+                _atHelmetArea = false;
             }
         }
 
