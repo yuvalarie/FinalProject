@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Friend 3 Data
   m_EditorClassIdentifier: Assembly-CSharp::Objects.FriendData
   friendName: Conner Vale
-  appProfileSprite: {fileID: 21300000, guid: afc08253a179e474597f416318758255, type: 3}
+  appProfileSprite: {fileID: 21300000, guid: 624366e6323e94cc89e8069d4a73fc3c, type: 3}
   roamingSprite: {fileID: 21300000, guid: 4ecfe84292d7a426396015ecb699a335, type: 3}
   thrownSprite: {fileID: 21300000, guid: 673765ab72764234ab64fb69fbcb46c7, type: 3}
   speechBubbleSprite: {fileID: 21300000, guid: 514a8239580384b8b9a8e55c662b867c, type: 3}
