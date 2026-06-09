@@ -61,13 +61,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 612ca23aeb8e47049a948808628f3580, type: 2}
   friendBasePrefab: {fileID: 7047629883841461451, guid: 9821806754062094b8c639dd310c9160, type: 3}
   phoneDisplayRenderer: {fileID: 0}
-  startScreenSprite: {fileID: 21300000, guid: 010a656da6b22094aa9b3a9108fad7d3, type: 3}
-  finishedListSprite: {fileID: 21300000, guid: 720b338c44c83884fb69d1e95928cc87, type: 3}
+  phoneIconsRenderer: {fileID: 0}
+  startScreenSprite: {fileID: 21300000, guid: f3523f26617654036aa784c53bf6d158, type: 3}
+  finishedListSprite: {fileID: 21300000, guid: fd17f85dd1a7446568340fd6b0b77082, type: 3}
   discardSpawnPosition: {fileID: 0}
   areaBounds:
   - area: 0
     bottomLeft: {x: 2.45, y: 0.06}
     topRight: {x: 4.75, y: 0.06}
+    leavePoint: {x: 7, y: 0.06}
     roamingSortingLayer: Default
     roamingSortingOrder: 2
     bobAmplitude: 0.2
@@ -75,6 +77,7 @@ MonoBehaviour:
   - area: 1
     bottomLeft: {x: -7.3, y: -3.24}
     topRight: {x: -2.7, y: -3.24}
+    leavePoint: {x: -10, y: -3.24}
     roamingSortingLayer: Default
     roamingSortingOrder: 2
     bobAmplitude: 0.25
@@ -82,6 +85,7 @@ MonoBehaviour:
   - area: 2
     bottomLeft: {x: 2.46, y: -3.81}
     topRight: {x: 7.56, y: -3.81}
+    leavePoint: {x: 10, y: -3.81}
     roamingSortingLayer: Default
     roamingSortingOrder: 4
     bobAmplitude: 0.25
@@ -90,6 +94,7 @@ MonoBehaviour:
   thrownSortingOrder: 12
   speechBubbleDuration: 3
   hellPortal: {fileID: 0}
+  motherReactionController: {fileID: 0}
   excludedAreas: 
   skipBucketOrdering: 0
   useDebugStartIndex: 0

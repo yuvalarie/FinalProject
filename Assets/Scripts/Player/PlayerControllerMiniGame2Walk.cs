@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,6 +7,13 @@ namespace Player
     public class PlayerControllerMiniGame2Walk : PlayerControllerBase
     {
         private bool _movementLocked = false;
+        private bool _interactionLocked = true;
+        private Action _interactionAction;
+        
+        public void SetInteractionAction(Action action)
+        {
+            _interactionAction = action;
+        }
         protected override void HandleMovement()
         {
             if (_movementLocked) return;
@@ -15,7 +23,9 @@ namespace Player
 
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
+            if (_interactionLocked || !context.performed) return;
             // for now, not used in this part
+            _interactionAction?.Invoke();
         }
         
         public void EnableMovement()
@@ -27,6 +37,16 @@ namespace Player
         {
             Rb.linearVelocity = Vector2.zero;
             _movementLocked = true;
+        }
+        
+        public void EnableInteraction()
+        {
+            _interactionLocked = false;
+        }
+        
+        public void DisableInteraction()
+        {
+            _interactionLocked = true;
         }
     }
 }
