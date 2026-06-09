@@ -1,4 +1,5 @@
 using System.Collections;
+using Npc;
 using Objects;
 using Player;
 using UnityEngine;
@@ -27,6 +28,7 @@ namespace Managers
 
         [Header("References")]
         [SerializeField] private FriendSpawner friendSpawner;
+        [SerializeField] private MotherReactionController motherController;
 
         [Header("Debug")]
         [SerializeField] private bool skipWalkIn;
@@ -35,7 +37,9 @@ namespace Managers
         private void Start()
         {
             hand.position = handHiddenPosition.position;
-            handController.enabled = false;
+            handController.DisableSwiping();
+            walkController.DisableInteraction();
+            walkController.SetInteractionAction(motherController.TryAdvanceFinishedReaction);
             DebugStart();
         }
 
@@ -58,6 +62,7 @@ namespace Managers
             if (skipHandEntry)
             {
                 OnHandEntryComplete();
+                hand.position = handStartingPosition.position;
                 return;
             }
             StartCoroutine(HandEntryRoutine());
@@ -83,7 +88,8 @@ namespace Managers
 
         private void OnHandEntryComplete()
         {
-            handController.enabled = true;
+            // handController.enabled = true;
+            handController.EnableSwiping();
             friendSpawner.AllFriendsSwiped += OnSwipingComplete;
             friendSpawner.StartSpawning();
         }
@@ -92,8 +98,13 @@ namespace Managers
         // Future: trigger mother reactions and friend exodus here before the hand leaves.
         private void OnSwipingComplete()
         {
+            // Debug.Log("[MiniGame2SceneController] OnSwipingComplete fired");
             friendSpawner.AllFriendsSwiped -= OnSwipingComplete;
-            StartHandExit();
+            motherController.SetFriendsLeaveAction(friendSpawner.TellFriendsToLeave);
+            motherController.SetFinishedAllReactionsAction(StartHandExit);
+            walkController.EnableInteraction();
+            
+            // StartHandExit();
         }
 
         private void StartHandExit()
@@ -121,7 +132,8 @@ namespace Managers
 
         private void OnHandExitComplete()
         {
-            handController.enabled = false;
+            // handController.enabled = false;
+            handController.DisableSwiping();
             walkController.EnableMovement();
         }
 

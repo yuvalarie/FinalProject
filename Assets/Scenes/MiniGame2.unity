@@ -1630,7 +1630,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 2557056506850974003}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6c106665d94fd04b8011cdc7dec5467, type: 3}
   m_Name: 
@@ -2088,131 +2088,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1866407607
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1866407609}
-  - component: {fileID: 1866407608}
-  - component: {fileID: 1866407610}
-  m_Layer: 14
-  m_Name: MiniGameSceneController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!61 &1866407608
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1866407607}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 14.7}
-  m_EdgeRadius: 0
---- !u!4 &1866407609
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1866407607}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.66, y: 2.46, z: 0}
-  m_LocalScale: {x: 0.2399182, y: 0.2399182, z: 0.2399182}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1866407610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1866407607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf83b7a6d14816347b580e918bdc6d27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Managers.MiniGame2SceneController
-  walkController: {fileID: 1196887134}
-  handController: {fileID: 1349934410}
-  hand: {fileID: 1349934409}
-  handHiddenPosition: {fileID: 1247150379}
-  handStartingPosition: {fileID: 121075411}
-  handEntryDuration: 1.5
-  handEntryCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  stopTrigger: {fileID: 1866407608}
-  friendSpawner: {fileID: 796226062}
-  skipWalkIn: 0
-  skipHandEntry: 0
 --- !u!1 &2087155270
 GameObject:
   m_ObjectHideFlags: 0
@@ -2303,6 +2178,91 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1792913617293391844
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 860931570673427970, guid: 91c875b784ab43b4eb2decb5d5b6d2e4, type: 3}
+      propertyPath: hand
+      value: 
+      objectReference: {fileID: 1349934409}
+    - target: {fileID: 860931570673427970, guid: 91c875b784ab43b4eb2decb5d5b6d2e4, type: 3}
+      propertyPath: friendSpawner
+      value: 
+      objectReference: {fileID: 796226062}
+    - target: {fileID: 860931570673427970, guid: 91c875b784ab43b4eb2decb5d5b6d2e4, type: 3}
+      propertyPath: handController
+      value: 
+      objectReference: {fileID: 1349934410}
+    - target: {fileID: 860931570673427970, guid: 91c875b784ab43b4eb2decb5d5b6d2e4, type: 3}
+      propertyPath: walkController
+      value: 
+      objectReference: {fileID: 1196887134}
+    - target: {fileID: 860931570673427970, guid: 91c875b784ab43b4eb2decb5d5b6d2e4, type: 3}
+      propertyPath: motherController
+      value: 
+      objectReference: {fileID: 943110236}
+    - target: {fileID: 860931570673427970, guid: 91c875b784ab43b4eb2decb5d5b6d2e4, type: 3}
+      propertyPath: handHiddenPosition
+      value: 
+      objectReference: {fileID: 1247150379}
+    - target: {fileID: 860931570673427970, guid: 91c875b784ab43b4eb2decb5d5b6d2e4, type: 3}
+      propertyPath: handStartingPosition
+      value: 
+      objectReference: {fileID: 121075411}
+    - target: {fileID: 8182251840970407920, guid: 91c875b784ab43b4eb2decb5d5b6d2e4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182251840970407920, guid: 91c875b784ab43b4eb2decb5d5b6d2e4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182251840970407920, guid: 91c875b784ab43b4eb2decb5d5b6d2e4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182251840970407920, guid: 91c875b784ab43b4eb2decb5d5b6d2e4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182251840970407920, guid: 91c875b784ab43b4eb2decb5d5b6d2e4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182251840970407920, guid: 91c875b784ab43b4eb2decb5d5b6d2e4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182251840970407920, guid: 91c875b784ab43b4eb2decb5d5b6d2e4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182251840970407920, guid: 91c875b784ab43b4eb2decb5d5b6d2e4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182251840970407920, guid: 91c875b784ab43b4eb2decb5d5b6d2e4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182251840970407920, guid: 91c875b784ab43b4eb2decb5d5b6d2e4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8941530018217114010, guid: 91c875b784ab43b4eb2decb5d5b6d2e4, type: 3}
+      propertyPath: m_Name
+      value: MiniGameSceneController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 91c875b784ab43b4eb2decb5d5b6d2e4, type: 3}
 --- !u!1001 &2557056506850974003
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2356,6 +2316,10 @@ PrefabInstance:
       value: DaveHand
       objectReference: {fileID: 0}
     - target: {fileID: 8200303444842394907, guid: c3cf3e8dc25e05e41aced19691efca4c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200303444842394907, guid: c3cf3e8dc25e05e41aced19691efca4c, type: 3}
       propertyPath: friendSpawner
       value: 
       objectReference: {fileID: 796226062}
@@ -2372,6 +2336,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6472086462334387705, guid: 2c82b5637459261408b6ec4e11de4702, type: 3}
+      propertyPath: reactionIndexWhereFriendsLeave
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472086462334387705, guid: 2c82b5637459261408b6ec4e11de4702, type: 3}
+      propertyPath: finishedReactionCooldownDuration
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7683066052407930125, guid: 2c82b5637459261408b6ec4e11de4702, type: 3}
       propertyPath: m_Name
       value: Helda
@@ -2562,14 +2534,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5822067558026649916}
     - target: {fileID: 1899112733900447661, guid: 654f6c994c5bc094d8241869bcb6bac0, type: 3}
-      propertyPath: startScreenSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: f3523f26617654036aa784c53bf6d158, type: 3}
-    - target: {fileID: 1899112733900447661, guid: 654f6c994c5bc094d8241869bcb6bac0, type: 3}
-      propertyPath: finishedListSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: fd17f85dd1a7446568340fd6b0b77082, type: 3}
-    - target: {fileID: 1899112733900447661, guid: 654f6c994c5bc094d8241869bcb6bac0, type: 3}
       propertyPath: phoneIconsRenderer
       value: 
       objectReference: {fileID: 399376798}
@@ -2666,7 +2630,7 @@ SceneRoots:
   - {fileID: 20144020}
   - {fileID: 257786077}
   - {fileID: 6354662973385674502}
-  - {fileID: 1866407609}
+  - {fileID: 1792913617293391844}
   - {fileID: 877933852}
   - {fileID: 1647269343}
   - {fileID: 1035559658}

@@ -11,6 +11,7 @@ namespace Objects
         public MiniGame2FrameArea area;
         public Vector2 bottomLeft;
         public Vector2 topRight;
+        public Vector2 leavePoint;
         public string roamingSortingLayer;
         public int roamingSortingOrder;
         public float bobAmplitude;
@@ -58,6 +59,7 @@ namespace Objects
         [SerializeField] private bool logOrderedList;
 
         public event Action AllFriendsSwiped;
+        private Action _friendsLeaveAction;
 
         private List<FriendData> _orderedFriends;
         private int _currentFriendIndex = 0;
@@ -99,6 +101,8 @@ namespace Objects
             controller.Setup(data);
             controller.SetLayers(bounds.roamingSortingLayer, bounds.roamingSortingOrder, thrownSortingLayer, thrownSortingOrder);
             controller.SetRoamingSettings(bounds.bobAmplitude, bounds.bobFrequency);
+            Vector3 leavePos = new Vector3(bounds.leavePoint.x, bounds.leavePoint.y, 0f);
+            _friendsLeaveAction += () => controller.Leave(leavePos);
 
             // Convert the Vector2 bounds into a Unity Bounds for the roaming logic
             Bounds worldBounds = new Bounds(
@@ -110,6 +114,11 @@ namespace Objects
 
             controller.ShowSpeechBubbleThenRoam(worldBounds, speechBubbleDuration);
             AdvanceToNextFriend();
+        }
+        
+        public void TellFriendsToLeave()
+        {
+            _friendsLeaveAction?.Invoke();
         }
 
         // Called by MiniGame2HandController on left swipe
@@ -320,6 +329,8 @@ namespace Objects
 
                 Gizmos.color = Color.cyan;
                 Gizmos.DrawWireCube(center, size);
+                Gizmos.color = Color.green;
+                Gizmos.DrawSphere(new Vector3(area.leavePoint.x, area.leavePoint.y, 0f), 0.1f);
 
 #if UNITY_EDITOR
                 GUIStyle style = new GUIStyle

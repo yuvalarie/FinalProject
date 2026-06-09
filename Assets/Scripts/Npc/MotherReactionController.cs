@@ -29,6 +29,8 @@ namespace Npc
         private int _lastShownIndex = -1;
         private Coroutine _activeReaction;
         private bool _finishedAllReactions = false;
+        private Action _finishedAllReactionsAction;
+        private bool _friendsHaveLeft = false;
         
         public void ShowAcceptedReaction()
         {
@@ -82,6 +84,11 @@ namespace Npc
         {
             _friendsLeaveAction = friendsLeaveAction;
         }
+        
+        public void SetFinishedAllReactionsAction(Action finishedAllReactionsAction)
+        {
+            _finishedAllReactionsAction = finishedAllReactionsAction;
+        }
 
         public void TryAdvanceFinishedReaction()
         {
@@ -90,10 +97,12 @@ namespace Npc
             {
                 _finishedAllReactions = true;
                 reactionBubbleSpriteRenderer.enabled = false;
-                if (reactionIndexWhereFriendsLeave >= _currentFinishedReactionIndex)
+                if (!_friendsHaveLeft)
                 {
+                    _friendsHaveLeft = true;
                     _friendsLeaveAction?.Invoke();
                 }
+                _finishedAllReactionsAction?.Invoke();
             }
             else
             {
@@ -106,6 +115,11 @@ namespace Npc
             reactionBubbleSpriteRenderer.enabled = false;
             yield return null;
             reactionBubbleSpriteRenderer.sprite = finishedReactionSprites[_currentFinishedReactionIndex];
+            if (!_friendsHaveLeft && _currentFinishedReactionIndex == reactionIndexWhereFriendsLeave)
+            {
+                _friendsHaveLeft = true;
+                _friendsLeaveAction?.Invoke();
+            }
             _currentFinishedReactionIndex++;
             yield return null;
             reactionBubbleSpriteRenderer.enabled = true;
