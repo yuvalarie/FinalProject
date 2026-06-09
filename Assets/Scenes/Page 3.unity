@@ -2149,6 +2149,13 @@ MonoBehaviour:
   textBubble4: {fileID: 1230491706}
   textBubble5: {fileID: 231284109}
   textBubble6: {fileID: 1568038426}
+  start: {fileID: 1216042501}
+  sprite1: {fileID: 2128026466}
+  sprite2: {fileID: 1059563467}
+  sprite3: {fileID: 1133185595}
+  sprite4: {fileID: 1943667404}
+  sprite5: {fileID: 1554227799}
+  sprite6: {fileID: 117392868}
   hellDoor: {fileID: 2035115535}
   letterAnimator: {fileID: 1856725120}
   letterObject: {fileID: 1552387255}
