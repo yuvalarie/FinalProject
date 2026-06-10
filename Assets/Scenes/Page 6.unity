@@ -6548,7 +6548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerPage5
   speed: 3
-  nextSceneName: 
+  nextSceneName: MiniGame2
   endTriggerObject: {fileID: 0}
   heldaFrame1Sprite: {fileID: 21300000, guid: 4af10856e14fd4fc0a508f78279f15a2, type: 3}
   heldaFrame1Scale: {x: 0.2399182, y: 0.2399182, z: 0.2399182}
