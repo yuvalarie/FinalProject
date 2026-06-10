@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using Managers;
 using Objects;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -44,21 +46,41 @@ namespace Player
         [SerializeField] private GameObject fourthStateSprite;
         [SerializeField] private GameObject fifthStateSprite;
         [SerializeField] private GameObject sixthStateSprite;
+
+        [Header("End Sequence")] 
+        [SerializeField] private Animator heldaAnimator;
+        [SerializeField] private Animator eyeAnimator;
+        [SerializeField] private GameObject textBubble;
         
         private GrabbableObject _heldGrabbable;
         private int _numOfPlacedObjects = 0;
         
         private SpriteRenderer _spriteRenderer;
+        private SpriteRenderer _rightHandSprite;
+        private SpriteRenderer _leftHandSprite;
         private bool _isFacingRight = false;
+        
+        private bool _hasEndSequenceStarted = false;
         
         private static readonly int GrabAnimation = Animator.StringToHash("Grab");
         private static readonly int DropAnimation = Animator.StringToHash("Drop");
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             _spriteRenderer = GetComponent<SpriteRenderer>();
+            
+            // Get the SpriteRenderers for the hands
+            _rightHandSprite = rightHand.GetComponent<SpriteRenderer>();
+            _leftHandSprite = leftHand.GetComponent<SpriteRenderer>();
+            
+            // Keep both GameObjects active so the Animators run in the background perfectly
+            rightHand.SetActive(true);
             leftHand.SetActive(true);
-            rightHand.SetActive(false);
+            
+            // Only show the left hand initially (since we start facing left)
+            if (_rightHandSprite != null) _rightHandSprite.enabled = false;
+            if (_leftHandSprite != null) _leftHandSprite.enabled = true;
         }
 
         protected override void OnInteraction(InputAction.CallbackContext context)
@@ -96,23 +118,17 @@ namespace Player
                 _spriteRenderer.flipX = _isFacingRight;
             }
             
-            rightHand.SetActive(_isFacingRight);
-            leftHand.SetActive(!_isFacingRight);
+            // Toggle sprite visibility instead of turning off the GameObjects!
+            if (_rightHandSprite != null) _rightHandSprite.enabled = _isFacingRight;
+            if (_leftHandSprite != null) _leftHandSprite.enabled = !_isFacingRight;
             
             if (_heldGrabbable != null)
             {
                 Transform newHand = GetActiveHand();
                 _heldGrabbable.transform.SetParent(newHand);
                 _heldGrabbable.transform.localPosition = Vector3.zero;
-                
-                rightHandAnimator?.SetTrigger(_isFacingRight ? GrabAnimation : DropAnimation);
-                leftHandAnimator?.SetTrigger(_isFacingRight ? DropAnimation : GrabAnimation);
             }
-            else
-            {
-                rightHandAnimator?.SetTrigger(DropAnimation);
-                leftHandAnimator?.SetTrigger(DropAnimation);
-            }
+            // Notice: ALL animation triggers have been removed from here!
         }
         
         private Transform GetActiveHand()
@@ -134,10 +150,8 @@ namespace Player
 
         private void UpdateTableStatus()
         {
-            // Force float division by casting the numerator to (float)
             float percentage = ((float)_numOfPlacedObjects / totalObjectsToPlace) * 100f;
-
-            Debug.Log($"Updating table status: {_numOfPlacedObjects}/{totalObjectsToPlace} objects placed, percentage: {percentage}%");
+            Debug.Log($"placed {_numOfPlacedObjects} objects");
 
             switch (percentage)
             {
@@ -160,14 +174,28 @@ namespace Player
                     break;
                 case >= 100:
                     sixthStateSprite.SetActive(false);
+                    if (!_hasEndSequenceStarted)
+                    {
+                        StartCoroutine(StartEndGameSequence());
+                        _hasEndSequenceStarted = true;
+                    }
                     break;
             }
         }
 
+        private IEnumerator StartEndGameSequence()
+        {
+            heldaAnimator.SetTrigger("Enter");
+            yield return new WaitForSeconds(2f);
+            eyeAnimator.SetTrigger("EyesRoll");
+            yield return new WaitForSeconds(1.5f);
+            textBubble.SetActive(true);
+            yield return new WaitForSeconds(3f);
+            SceneLoader.Instance.ActivatePreloadedScene();
+        }
+
         private void TryPickUp()
         {
-            Debug.Log("Attempting to pick up item...");
-
             Vector2 grabOrigin = GetGrabOrigin();
             Collider2D[] hits = Physics2D.OverlapCircleAll(grabOrigin, pickupRadius, grabbableLayer);
             
@@ -196,8 +224,11 @@ namespace Player
                     closestItem.currentState = GrabbableObject.ObjectState.Placed;
                     return;
                 }
-                GetActiveAnimator()?.SetTrigger(GrabAnimation);
-                Debug.Log($"SUCCESS: Picking up '{closestItem.gameObject.name}'!");
+                
+                // Trigger Grab on BOTH hands at the exact same time so they sync perfectly!
+                rightHandAnimator?.SetTrigger(GrabAnimation);
+                leftHandAnimator?.SetTrigger(GrabAnimation);
+                
                 _heldGrabbable = closestItem;
                 
                 _heldGrabbable.currentState = GrabbableObject.ObjectState.Held;
@@ -209,20 +240,14 @@ namespace Player
                 _heldGrabbable.transform.localPosition = Vector3.zero;
                 _heldGrabbable.transform.localRotation = Quaternion.identity;
             }
-            else
-            {
-                Debug.Log("FAILED: Nothing found on the Grabbable layer within the grab radius.");
-            }
         }
 
         private void DropItem()
         {
-            Debug.Log("Attempting to drop item...");
             Vector2 grabOrigin = GetGrabOrigin();
             DropZone validZone = null;
 
             Collider2D[] dropZones = Physics2D.OverlapCircleAll(grabOrigin, dropRadius, dropZoneLayer);
-            bool foundCorrectZone = false;
 
             foreach (Collider2D zone in dropZones)
             {
@@ -248,8 +273,6 @@ namespace Player
 
             if (validZone != null)
             {
-                Debug.Log($"SUCCESS: Dropping '{_heldGrabbable.gameObject.name}' in its correct zone!");
-                
                 validZone.isOccupied = true;
                 _heldGrabbable.transform.SetParent(validZone.transform);
                 _heldGrabbable.transform.localPosition = Vector3.zero;
@@ -263,12 +286,13 @@ namespace Player
             }
             else
             {
-                Debug.Log("FAILED: Returning item to its original location.");
                 _heldGrabbable.ResetPosition();
                 _heldGrabbable.currentState = GrabbableObject.ObjectState.Start;
                 _heldGrabbable.SwitchState();
                 _heldGrabbable = null;
             }
+            
+            // Trigger Drop on BOTH hands at the same time
             rightHandAnimator?.SetTrigger(DropAnimation);
             leftHandAnimator?.SetTrigger(DropAnimation);
         }

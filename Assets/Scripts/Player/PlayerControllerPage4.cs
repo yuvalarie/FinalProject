@@ -57,9 +57,11 @@ namespace Player
         [Header("Frame8")]
         [SerializeField] private Collider2D frame8EnterCollider;
         [SerializeField] private Animator saltAnimator;
+        [SerializeField] private Vector3 frame8Size;
         
         [Header("Frame9")]
         [SerializeField] private Collider2D frame9EnterCollider;
+        [SerializeField] private Collider2D frame9ExitCollider;
         [SerializeField] private Vector3 frame9Size;
         
         private SpriteRenderer _spriteRenderer;
@@ -95,10 +97,12 @@ namespace Player
             else if (other == frame2EnterCollider)
             {
                 Frame2Sequence();
+                frame2EnterCollider.enabled = false;
             }
             else if (other == frame3EnterCollider)
             {
                 Frame3Sequence();
+                frame3EnterCollider.enabled = false;
             }
             else if (other == frame3ExitCollider)
             {
@@ -107,6 +111,7 @@ namespace Player
             else if (other == frame4EnterCollider)
             {
                 Frame4Sequence();
+                frame4EnterCollider.enabled = false;
             }
             else if (other == frame4ExitCollider)
             {
@@ -115,10 +120,12 @@ namespace Player
             else if (other == frame5EnterCollider)
             {
                 Frame5Sequence();
+                frame5EnterCollider.enabled = false;
             }
             else if (other == frame6EnterCollider)
             {
                 Frame6Sequence();
+                frame6EnterCollider.enabled = false;
             }
             else if (other == frame6ExitCollider)
             {
@@ -127,6 +134,7 @@ namespace Player
             else if (other == frame7EnterCollider)
             {
                 Frame7Sequence();
+                frame7EnterCollider.enabled = false;
             }
             else if (other == frame7EnterRightCollider)
             {
@@ -148,10 +156,15 @@ namespace Player
             else if (other == frame8EnterCollider)
             {
                 Frame8Sequence();
+                frame8EnterCollider.enabled = false;
             }
             else if (other == frame9EnterCollider)
             {
                 Frame9Sequence();
+            }
+            else if (other == frame9ExitCollider)
+            {
+                transform.localScale = frame8Size;
             }
         }
         
