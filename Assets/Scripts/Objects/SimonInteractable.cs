@@ -2,8 +2,8 @@
 
 namespace Objects
 {
-    public enum ToolType { None, Wrench, Hammer, Screwdriver, Brush }
-    public enum AreaType { None, TopLeft, TopRight, BottomLeft, BottomRight }
+    public enum ToolType { None, Purple, Orange, Green, Yellow }
+    public enum AreaType { None, Top, BottomCenter, BottomLeft, BottomRight }
 
     public class SimonInteractable : MonoBehaviour
     {

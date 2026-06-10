@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Objects;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace Player
 {
@@ -12,12 +13,42 @@ namespace Player
         public ToolType RequiredTool;
         public AreaType TargetArea;
     }
+    
+    [System.Serializable]
+    public struct ToolSpriteMapping
+    {
+        public ToolType Tool;
+        public Sprite Sprite;
+    }
+
+    [System.Serializable]
+    public struct AreaSpriteMapping
+    {
+        public AreaType Area;
+        public Sprite Sprite;
+    }
 
     public class PlayerControllerMiniGame3 : PlayerControllerBase
     {
         [Header("Simon Game Settings")]
         [SerializeField, Tooltip("How many steps in the final sequence to win?")] 
         private int totalActionsToWin = 5;
+        
+        [Header("Hold Settings")]
+        [SerializeField, Tooltip("Transform where the tool will sit when held by the player")] 
+        private Transform holdSlot;
+        
+        [Header("UI Screen Settings")]
+        [SerializeField, Tooltip("The UI Image component showing the Tool")] 
+        private GameObject screenToolImage;
+        [SerializeField, Tooltip("The UI Image component showing the Area highlight")] 
+        private GameObject screenAreaImage;
+        [SerializeField, Tooltip("How long should the next task be shown")] private float showTaskDuration;
+        
+        [SerializeField, Tooltip("Map each tool to its sprite here")] 
+        private List<ToolSpriteMapping> toolSpritesList;
+        [SerializeField, Tooltip("Map each area to its sprite here")] 
+        private List<AreaSpriteMapping> areaSpritesList;
 
         [Header("Current Status (Read Only)")]
         [SerializeField] private ToolType currentHeldTool = ToolType.None;
@@ -29,9 +60,21 @@ namespace Player
         private int playerStepIndex = 0; // Tracks which step the player is currently executing
         private bool isScreenPlaying = false; // Prevents interaction while the screen is showing the pattern
 
+        private SpriteRenderer _screenToolImageSpriteRenderer;
+        private SpriteRenderer _screenAreaImageSpriteRenderer;
+        
+        private SimonInteractable _currentStandingToolInteractable;
+        private GameObject _heldToolObject;
+        private Vector3 _heldToolOriginalPosition;
+        private Transform _heldToolOriginalParent;
+        
         protected override void Start()
         {
             base.Start();
+            if (screenToolImage != null)
+                _screenToolImageSpriteRenderer = screenToolImage.GetComponent<SpriteRenderer>();
+            if (screenAreaImage != null)
+                _screenAreaImageSpriteRenderer = screenAreaImage.GetComponent<SpriteRenderer>();
             GenerateSequence();
             StartCoroutine(PlaySequenceOnScreen());
         }
@@ -43,8 +86,6 @@ namespace Player
             {
                 SimonTask newTask = new SimonTask
                 {
-                    // Random.Range with integers is exclusive on the max value. 
-                    // Since we have 4 tools/areas, we range from 1 to 5 to get 1, 2, 3, or 4.
                     RequiredTool = (ToolType)Random.Range(1, 5),
                     TargetArea = (AreaType)Random.Range(1, 5)
                 };
@@ -54,47 +95,68 @@ namespace Player
 
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
-            // Only fire on the button press, and ignore if the screen is currently animating
             if (!context.performed || isScreenPlaying) return;
 
-            // 1. If standing near a tool, pick it up
-            if (currentStandingToolStation != ToolType.None)
-            {
-                currentHeldTool = currentStandingToolStation;
-                Debug.Log($"Picked up: {currentHeldTool}");
-                // You can add player visual feedback here (e.g., showing the tool in their hand)
-                return;
-            }
-
-            // 2. If standing near an area AND holding a tool, apply it
             if (currentStandingArea != AreaType.None && currentHeldTool != ToolType.None)
             {
                 ValidatePlayerAction(currentHeldTool, currentStandingArea);
+                return;
             }
+            
+            if (currentStandingToolStation != ToolType.None && currentHeldTool == ToolType.None)
+            {
+                currentHeldTool = currentStandingToolStation;
+                
+                if (_currentStandingToolInteractable != null)
+                {
+                    _heldToolObject = _currentStandingToolInteractable.gameObject;
+                    _heldToolOriginalPosition = _heldToolObject.transform.position;
+                    _heldToolOriginalParent = _heldToolObject.transform.parent;
+
+                    if (holdSlot != null)
+                    {
+                        _heldToolObject.transform.SetParent(holdSlot);
+                        _heldToolObject.transform.localPosition = Vector3.zero;
+                    }
+                }
+                
+                Debug.Log($"Picked up: {currentHeldTool}");
+                return;
+            }
+        }
+        
+        private void ReturnHeldTool()
+        {
+            if (_heldToolObject != null)
+            {
+                _heldToolObject.transform.SetParent(_heldToolOriginalParent);
+                _heldToolObject.transform.position = _heldToolOriginalPosition;
+                _heldToolObject = null;
+            }
+            currentHeldTool = ToolType.None;
         }
 
         private void ValidatePlayerAction(ToolType usedTool, AreaType appliedArea)
         {
             SimonTask expectedTask = fullSequence[playerStepIndex];
 
+            ReturnHeldTool();
+            
             if (usedTool == expectedTask.RequiredTool && appliedArea == expectedTask.TargetArea)
             {
                 // -- SUCCESS --
                 Debug.Log("Correct move!");
                 playerStepIndex++;
 
-                // Did they finish all the steps required for this round?
                 if (playerStepIndex >= currentRound)
                 {
                     if (currentRound >= totalActionsToWin)
                     {
                         Debug.Log("MINIGAME WON!");
                         //if (endTriggerObject != null) endTriggerObject.SetActive(true);
-                        // Trigger your win animations/scene transition here!
                     }
                     else
                     {
-                        // Advance to the next round!
                         currentRound++;
                         playerStepIndex = 0;
                         currentHeldTool = ToolType.None; // Reset tool for next round
@@ -115,16 +177,16 @@ namespace Player
             }
         }
 
-        // --- Trigger Detection ---
         private void OnTriggerStay2D(Collider2D other)
         {
-            //base.OnTriggerEnter2D(other); // Keeps your End trigger logic intact
-
             SimonInteractable interactable = other.GetComponent<SimonInteractable>();
-            //Debug.Log($"Found this interactable {interactable}");
             if (interactable != null)
             {
-                if (interactable.isToolStation) currentStandingToolStation = interactable.toolType;
+                if (interactable.isToolStation)
+                {
+                    currentStandingToolStation = interactable.toolType;
+                    _currentStandingToolInteractable = interactable;
+                }
                 if (interactable.isArea) currentStandingArea = interactable.areaType;
             }
         }
@@ -134,9 +196,34 @@ namespace Player
             SimonInteractable interactable = other.GetComponent<SimonInteractable>();
             if (interactable != null)
             {
-                if (interactable.isToolStation) currentStandingToolStation = ToolType.None;
-                if (interactable.isArea) currentStandingArea = AreaType.None;
+                // Only clear the references if we are exiting the specific tool we are standing at
+                if (interactable.isToolStation && currentStandingToolStation == interactable.toolType)
+                {
+                    currentStandingToolStation = ToolType.None;
+                    if (_currentStandingToolInteractable == interactable) 
+                        _currentStandingToolInteractable = null;
+                }
+                if (interactable.isArea && currentStandingArea == interactable.areaType) 
+                    currentStandingArea = AreaType.None;
             }
+        }
+        
+        private Sprite GetSpriteForTool(ToolType tool)
+        {
+            foreach (var mapping in toolSpritesList)
+            {
+                if (mapping.Tool == tool) return mapping.Sprite;
+            }
+            return null; // Return nothing if it's missing
+        }
+        
+        private Sprite GetSpriteForArea(AreaType area)
+        {
+            foreach (var mapping in areaSpritesList)
+            {
+                if (mapping.Area == area) return mapping.Sprite;
+            }
+            return null; // Return nothing if it's missing
         }
 
         // --- Screen Display Logic ---
@@ -145,25 +232,32 @@ namespace Player
             isScreenPlaying = true;
             Debug.Log($"--- Displaying Sequence for Round {currentRound} ---");
             
-            // Wait a moment so the player can breathe before the screen starts flashing
             yield return new WaitForSeconds(1f);
 
             for (int i = 0; i < currentRound; i++)
             {
                 SimonTask taskToDisplay = fullSequence[i];
                 Debug.Log($"SCREEN SHOWS: Tool {taskToDisplay.RequiredTool} at Area {taskToDisplay.TargetArea}");
+
+                if (_screenToolImageSpriteRenderer != null && _screenAreaImageSpriteRenderer != null)
+                {
+                    _screenToolImageSpriteRenderer.sprite = GetSpriteForTool(taskToDisplay.RequiredTool);
+                    _screenAreaImageSpriteRenderer.sprite = GetSpriteForArea(taskToDisplay.TargetArea);
+                    
+                    screenToolImage.gameObject.SetActive(true);
+                    screenAreaImage.gameObject.SetActive(true);
+                }
                 
-                // TODO: TRIGGER YOUR UI SCREEN CHANGES HERE 
-                // e.g., Update an Image component to show the tool sprite, and highlight an area on the mini-screen
+                yield return new WaitForSeconds(showTaskDuration);
                 
-                yield return new WaitForSeconds(1.5f); // How long the image stays on screen
+                if (screenToolImage != null) screenToolImage.gameObject.SetActive(false);
+                if (screenAreaImage != null) screenAreaImage.gameObject.SetActive(false);
                 
-                // TODO: Clear the screen for a brief moment between pictures
                 yield return new WaitForSeconds(0.5f); 
             }
 
             Debug.Log("Player's turn!");
-            isScreenPlaying = false; // Unlocks controls
+            isScreenPlaying = false;
         }
     }
 }
