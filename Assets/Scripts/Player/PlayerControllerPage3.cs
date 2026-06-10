@@ -9,6 +9,7 @@ namespace Player
 {
     public class PlayerControllerPage3 : PlayerControllerBase
     {
+        [SerializeField] private GameObject endTriggerObject;
         
         [Header("Text Settings")]
         [SerializeField] private GameObject textBubble1;

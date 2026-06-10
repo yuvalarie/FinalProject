@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 
 namespace Player
 {
-    public class PlayerControllerPage5 : PlayerControllerBase
+    public class PlayerControllerPage6 : PlayerControllerBase
     {
         [Header("Helda Settings")]
         [SerializeField] private Sprite heldaFrame1Sprite;
@@ -19,7 +19,7 @@ namespace Player
         [SerializeField] private Vector3 heldaFrame4Scale;
         [SerializeField] private SpriteRenderer heldaSpriteRenderer;
         [SerializeField] private GameObject heldaObject;
-        [SerializeField] private HeldaAnimatorPage5 heldaMovement;
+        [SerializeField] private HeldaAnimatorPage6 heldaMovement;
         
         [Header("Text Settings")]
         [SerializeField] private GameObject textBubble1;
@@ -63,7 +63,6 @@ namespace Player
         private bool letterOpened;
         private bool letterCleared;
         
-        // NEW STATE TRACKERS FOR THE LETTER LOGIC
         private bool _isPlayerInLetterCollider;
         private bool _wasInLetterCollider;
         private bool _isAnimation5Complete;
@@ -75,7 +74,7 @@ namespace Player
         
         protected override void Start()
         {
-            //base.Start();
+            base.Start();
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _canMove = true;
         }

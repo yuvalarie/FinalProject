@@ -84,7 +84,7 @@ namespace Objects
             transitionSequence.AppendCallback(() => 
             {
                 _isOn = false;
-                PlayerControllerPage5.TriggerSequenceComplete();
+                PlayerControllerPage6.TriggerSequenceComplete();
             });
         }
         
@@ -103,7 +103,7 @@ namespace Objects
             transitionSequence.AppendCallback(() => 
             {
                 _isOn = true;
-                PlayerControllerPage5.TriggerBackSequenceComplete();
+                PlayerControllerPage6.TriggerBackSequenceComplete();
             });
 
         }

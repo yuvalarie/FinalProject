@@ -78,17 +78,16 @@ namespace Managers
             //yield return StartCoroutine(Fade(1f));
 
             // 2. Instantly flip the switch. Because it's preloaded, the swap is immediate.
-            preloadedSceneOperation.allowSceneActivation = true;
+            AsyncOperation currentTransitionOp = preloadedSceneOperation;
+            preloadedSceneOperation = null;
+            currentTransitionOp.allowSceneActivation = true;
 
             // Wait a tiny fraction of a second for Unity to process the activation
-            while (!preloadedSceneOperation.isDone)
+            while (!currentTransitionOp.isDone)
             {
                 yield return null;
             }
-
-            // Clear the reference so we can preload the next one later
-            preloadedSceneOperation = null;
-
+            
             // 3. Uncover the new scene
             //yield return StartCoroutine(Fade(0f));
 

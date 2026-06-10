@@ -5606,7 +5606,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.37820816, y: 0.16809225}
+  m_Offset: {x: -1.5612803, y: 0.16809225}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5616,7 +5616,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.24358368, y: 3.7315035}
+  m_Size: {x: 2.6097279, y: 3.7315035}
   m_EdgeRadius: 0
 --- !u!4 &1131139333
 Transform:
@@ -6292,7 +6292,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerPage2
   speed: 2
   nextSceneName: 
-  endTriggerObject: {fileID: 0}
   frame1To6Scale: 1
   frame1Sprite: {fileID: 0}
   frame6Scale: 1.5
@@ -7549,7 +7548,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerPage2
   speed: 2
   nextSceneName: Page 3
-  endTriggerObject: {fileID: 1131139331}
   frame1To6Scale: 0.3016661
   frame1Sprite: {fileID: 21300000, guid: 05700983a8b9d41279eb9680e569b83b, type: 3}
   frame6Scale: 0.2399655
