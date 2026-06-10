@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Managers;
 using NUnit.Framework.Constraints;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -27,6 +28,7 @@ namespace Player
         private bool textBubble1Shown = false;
         private bool textBubble2Shown = false;
         private bool hasLetterShown = false;
+        private bool hasLetterClosed = false;
         private SpriteRenderer _spriteRenderer;
 
         protected override void Start()
@@ -38,6 +40,7 @@ namespace Player
 
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
+            if (!context.performed) return;
             if (!textBubble1Shown) return;
             if (textBubble1Shown && !textBubble2Shown && !hasLetterShown)
             {
@@ -46,15 +49,17 @@ namespace Player
                 textBubble2Shown = true;
             }
 
-            if (textBubble1Shown && textBubble2Shown && !hasLetterShown)
+            else if (textBubble1Shown && textBubble2Shown && !hasLetterShown)
             {
                 textBubble2.SetActive(false);
                 letter.SetActive(true);
+                hasLetterShown = true;
             }
             
-            if (textBubble1Shown && textBubble2Shown && hasLetterShown)
+            else if (textBubble1Shown && textBubble2Shown && hasLetterShown)
             {
                 letter.SetActive(false);
+                hasLetterClosed = true;
             }
         }
 
@@ -65,22 +70,26 @@ namespace Player
 
         private IEnumerator SceneSequence()
         {
+            yield return new WaitForSeconds(3f);
             frame2.SetActive(true);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(1f);
             frame3.SetActive(true);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(1f);
             frame4.SetActive(true);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(1f);
             frame4Part2.SetActive(true);
             canMove = true;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(1f);
             textBubble1.SetActive(true);
             textBubble1Shown = true;
         }
 
         protected override void OnTriggerEnter2D(Collider2D other)
         {
-            base.OnTriggerEnter2D(other);
+            if (other.CompareTag("End") && hasLetterClosed)
+            {
+                SceneLoader.Instance?.ActivatePreloadedScene();
+            }
             if (other == frame5Collider)
             {
                 _spriteRenderer.sprite = frame5Sprite;

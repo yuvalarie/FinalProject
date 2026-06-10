@@ -190,7 +190,7 @@ namespace Player
             eyeAnimator.SetTrigger("EyesRoll");
             yield return new WaitForSeconds(1.5f);
             textBubble.SetActive(true);
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(5f);
             SceneLoader.Instance.ActivatePreloadedScene();
         }
 
