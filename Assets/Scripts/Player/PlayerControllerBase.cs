@@ -11,8 +11,6 @@ namespace Player
         
         [SerializeField, Tooltip("next scene name")] protected string nextSceneName;
         
-        [SerializeField] protected GameObject endTriggerObject;
-
         protected Vector2 MoveInput;
 
         private InputSystem_Actions _inputActions;

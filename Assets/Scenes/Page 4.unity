@@ -7213,7 +7213,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.62383735, y: -0.27908516}
+  m_Offset: {x: 0.5776315, y: -0.25268173}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -7223,7 +7223,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.55754876, y: 0.9283333}
+  m_Size: {x: 0.6499605, y: 0.98114014}
   m_EdgeRadius: 0
 --- !u!4 &1026151187
 Transform:
@@ -10496,7 +10496,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerPage4
   speed: 2
   nextSceneName: MiniGame1-WithArt
-  endTriggerObject: {fileID: 0}
   frame1ExitCollider: {fileID: 425316647}
   frame2EnterCollider: {fileID: 1812060611}
   frame2StartPosition: {fileID: 1323273216}

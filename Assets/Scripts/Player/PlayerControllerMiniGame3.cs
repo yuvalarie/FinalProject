@@ -89,7 +89,7 @@ namespace Player
                     if (currentRound >= totalActionsToWin)
                     {
                         Debug.Log("MINIGAME WON!");
-                        if (endTriggerObject != null) endTriggerObject.SetActive(true);
+                        //if (endTriggerObject != null) endTriggerObject.SetActive(true);
                         // Trigger your win animations/scene transition here!
                     }
                     else

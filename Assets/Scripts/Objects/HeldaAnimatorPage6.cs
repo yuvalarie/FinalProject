@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Objects
 {
-    public class HeldaAnimatorPage5 : MonoBehaviour
+    public class HeldaAnimatorPage6 : MonoBehaviour
     {
-        [SerializeField] private PlayerControllerPage5 player;
+        [SerializeField] private PlayerControllerPage6 player;
 
         [Header("Movement Targets")]
         [SerializeField] private Transform target1;
