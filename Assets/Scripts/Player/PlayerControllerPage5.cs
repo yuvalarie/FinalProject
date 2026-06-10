@@ -58,7 +58,7 @@ namespace Player
         private bool textBubble2Shown;
         private bool textBubble4Shown;
         private bool textBubble5Shown;
-        private bool textBubble5Cleared; // Added to prevent re-triggering animation 5
+        private bool textBubble5Cleared;
         private bool letterShown;
         private bool letterOpened;
         private bool letterCleared;
@@ -172,9 +172,9 @@ namespace Player
             if (textBubble3 != null && textBubble2 != null)
             {
                 textBubble2.SetActive(true);
-                textBubble2Shown = true;
                 yield return new WaitForSeconds(0.1f);
                 textBubble3.SetActive(true);
+                textBubble2Shown = true;
             }
         }
         
@@ -199,6 +199,7 @@ namespace Player
         {
             textBubble4.SetActive(false);
             _canMove = true;
+            frame2Collider.enabled = false;
             heldaMovement.PlayMovement3();
         }
         
