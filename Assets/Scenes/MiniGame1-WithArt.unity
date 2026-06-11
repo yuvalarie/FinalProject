@@ -9606,7 +9606,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerMiniGame1
   speed: 5
   nextSceneName: Page 6
-  endTriggerObject: {fileID: 0}
   rightHand: {fileID: 2090835416}
   rightHandAnimator: {fileID: 2090835419}
   leftHand: {fileID: 1936283614}
@@ -22491,7 +22490,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 14
-  m_Sprite: {fileID: 21300000, guid: eaebe2987dfe044f7a830e4504cef408, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fb1f4508e0c084b54a95c0dd6b9c10a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

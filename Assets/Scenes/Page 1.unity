@@ -1274,7 +1274,7 @@ MonoBehaviour:
   - {fileID: 1726949971}
   - {fileID: 1083152587}
   - {fileID: 779410870}
-  moveSpeed: 2
+  moveSpeed: 0.1
   waitTimeAtPoint: 1
   randomPatrol: 1
   wanderRadius: 3
@@ -4447,7 +4447,7 @@ MonoBehaviour:
   - {fileID: 1851552486}
   - {fileID: 1063866872}
   - {fileID: 817215585}
-  moveSpeed: 2
+  moveSpeed: 0.3
   waitTimeAtPoint: 1
   randomPatrol: 0
   wanderRadius: 3
@@ -5429,7 +5429,7 @@ Transform:
   m_GameObject: {fileID: 1065997981}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.72, y: -11.79, z: 0}
+  m_LocalPosition: {x: -8.72, y: -12.34, z: 0}
   m_LocalScale: {x: 0.2399655, y: 0.2399655, z: 0.2399655}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5859,7 +5859,7 @@ MonoBehaviour:
   - {fileID: 32121637}
   - {fileID: 1954095798}
   - {fileID: 1762845008}
-  moveSpeed: 2
+  moveSpeed: 0.5
   waitTimeAtPoint: 1
   randomPatrol: 0
   wanderRadius: 3
@@ -6207,7 +6207,7 @@ MonoBehaviour:
   - {fileID: 1323751781}
   - {fileID: 664551766}
   - {fileID: 148342482}
-  moveSpeed: 2
+  moveSpeed: 0.5
   waitTimeAtPoint: 1
   randomPatrol: 0
   wanderRadius: 3
@@ -8163,7 +8163,7 @@ Transform:
   m_GameObject: {fileID: 1695536472}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.48, y: -13.47, z: 0}
+  m_LocalPosition: {x: -2.07, y: -13.85, z: 0}
   m_LocalScale: {x: 0.2399655, y: 0.2399655, z: 0.2399655}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8186,7 +8186,7 @@ MonoBehaviour:
   - {fileID: 1554102464}
   - {fileID: 426951726}
   - {fileID: 765931079}
-  moveSpeed: 2
+  moveSpeed: 0.2
   waitTimeAtPoint: 1
   randomPatrol: 0
   wanderRadius: 3
