@@ -19,7 +19,7 @@
 
           [Header("Throw Settings")]
           [SerializeField] private float throwDuration = 0.6f;
-          [SerializeField] private float throwRotationSpeed = 360f;
+          [SerializeField, Tooltip("Degrees per second")] private float throwRotationSpeed = 360f;
 
           [Header("Roaming Settings")]
           [SerializeField] private float movementDuration = 1.5f;
