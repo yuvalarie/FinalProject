@@ -9,6 +9,7 @@ namespace Player
 {
     public class PlayerControllerPage3 : PlayerControllerBase
     {
+        [SerializeField] private GameObject endTriggerObject;
         
         [Header("Text Settings")]
         [SerializeField] private GameObject textBubble1;
@@ -17,6 +18,15 @@ namespace Player
         [SerializeField] private GameObject textBubble4;
         [SerializeField] private GameObject textBubble5;
         [SerializeField] private GameObject textBubble6;
+
+        [Header("Sprite Settings")] 
+        [SerializeField] private GameObject start;
+        [SerializeField] private GameObject sprite1;
+        [SerializeField] private GameObject sprite2;
+        [SerializeField] private GameObject sprite3;
+        [SerializeField] private GameObject sprite4;
+        [SerializeField] private GameObject sprite5;
+        [SerializeField] private GameObject sprite6;
         
         [Header("Sequence Settings")]
         [SerializeField] private GameObject hellDoor;
@@ -54,6 +64,8 @@ namespace Player
         private IEnumerator Sequence1Coroutine()
         {
             textBubble1.SetActive(true);
+            start.SetActive(false);
+            sprite1.SetActive(true);
             yield return new WaitForSeconds(0.1f);
             _interactionCount++;
         }
@@ -63,6 +75,8 @@ namespace Player
             textBubble1.SetActive(false);
             yield return new WaitForSeconds(0.1f);
             textBubble2.SetActive(true);
+            sprite1.SetActive(false);
+            sprite2.SetActive(true);
             _interactionCount++;
         }
         
@@ -71,6 +85,8 @@ namespace Player
             textBubble2.SetActive(false);
             yield return new WaitForSeconds(0.1f);
             textBubble3.SetActive(true);
+            sprite2.SetActive(false);
+            sprite3.SetActive(true);
             hellDoor.SetActive(true);
             _interactionCount++;
         }
@@ -81,6 +97,8 @@ namespace Player
             textBubble3.SetActive(false);
             yield return new WaitForSeconds(0.1f);
             textBubble4.SetActive(true);
+            sprite3.SetActive(false);
+            sprite4.SetActive(true);
             _interactionCount++;
         }
         
@@ -89,13 +107,15 @@ namespace Player
             textBubble4.SetActive(false);
             yield return new WaitForSeconds(0.1f);
             textBubble5.SetActive(true);
+            sprite4.SetActive(false);
+            sprite5.SetActive(true);
             _interactionCount++;
         }
         
         private IEnumerator Sequence6Coroutine()
         {
             letterAnimator.SetTrigger("Open");
-            yield return new WaitForSeconds(1.2f); //change to match animation timing
+            yield return new WaitForSeconds(3.5f); //change to match animation timing
             letterObject.SetActive(true);
             _interactionCount++;
         }
@@ -107,6 +127,8 @@ namespace Player
             letterObject.SetActive(false);
             yield return new WaitForSeconds(0.1f);
             textBubble6.SetActive(true);
+            sprite5.SetActive(false);
+            sprite6.SetActive(true);
             endTriggerObject.SetActive(true);
             _interactionCount++;
         }

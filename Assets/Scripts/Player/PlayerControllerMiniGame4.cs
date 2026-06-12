@@ -37,14 +37,14 @@ namespace Player
             //     return;
             // }
             
-            foreach (RoamingNpcController npc in RoamingNpcController.AllNpcs)
-            {
-                if (npc.CanSeeTarget())
-                {
-                    Debug.Log($"FAILED: You were spotted by {npc.gameObject.name}! Cannot grab anything.");
-                    return; 
-                }
-            }
+            // foreach (RoamingNpcController npc in RoamingNpcController.AllNpcs)
+            // {
+            //     if (npc.CanSeeTarget())
+            //     {
+            //         Debug.Log($"FAILED: You were spotted by {npc.gameObject.name}! Cannot grab anything.");
+            //         return; 
+            //     }
+            // }
 
             RaycastHit2D hit = Physics2D.CircleCast(transform.position, grabRadius, Vector2.zero, 0f, grabbableLayer);
 
@@ -69,7 +69,7 @@ namespace Player
                 
                 _heldItem.transform.position = holdSlot.position;
                 _heldItem.transform.SetParent(holdSlot);
-                _heldItem.Roaming = false;
+                //_heldItem.Roaming = false;
             }
             else
             {
@@ -109,7 +109,7 @@ namespace Player
                 if (itemRb != null)                {
                     itemRb.bodyType = RigidbodyType2D.Dynamic; // Back to Dynamic for 2D
                 }
-                _heldItem.Roaming = true;
+                //_heldItem.Roaming = true;
                 
                 _heldItem = null;
             }
