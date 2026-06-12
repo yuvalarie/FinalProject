@@ -82,12 +82,52 @@ namespace Player
         private void GenerateSequence()
         {
             fullSequence.Clear();
+            // for (int i = 0; i < totalActionsToWin; i++)
+            // {
+            //     SimonTask newTask = new SimonTask
+            //     {
+            //         RequiredTool = (ToolType)Random.Range(1, 5),
+            //         TargetArea = (AreaType)Random.Range(1, 5)
+            //     };
+            //     fullSequence.Add(newTask);
+            // }
+            List<int> toolBag = new List<int>();
+            List<int> areaBag = new List<int>();
+
+            int lastToolUsed = -1;
+            int lastAreaUsed = -1;
+
             for (int i = 0; i < totalActionsToWin; i++)
             {
+                if (toolBag.Count == 0) toolBag.AddRange(new int[] { 1, 2, 3, 4 });
+                if (areaBag.Count == 0) areaBag.AddRange(new int[] { 1, 2, 3, 4 });
+
+                int randomToolIndex = Random.Range(0, toolBag.Count);
+                
+                if (toolBag.Count == 4 && toolBag[randomToolIndex] == lastToolUsed)
+                {
+                    randomToolIndex = (randomToolIndex + 1) % 4; 
+                }
+                
+                int selectedToolInt = toolBag[randomToolIndex];
+                toolBag.RemoveAt(randomToolIndex);
+                lastToolUsed = selectedToolInt;
+
+                int randomAreaIndex = Random.Range(0, areaBag.Count);
+                
+                if (areaBag.Count == 4 && areaBag[randomAreaIndex] == lastAreaUsed)
+                {
+                    randomAreaIndex = (randomAreaIndex + 1) % 4;
+                }
+                
+                int selectedAreaInt = areaBag[randomAreaIndex];
+                areaBag.RemoveAt(randomAreaIndex);
+                lastAreaUsed = selectedAreaInt;
+
                 SimonTask newTask = new SimonTask
                 {
-                    RequiredTool = (ToolType)Random.Range(1, 5),
-                    TargetArea = (AreaType)Random.Range(1, 5)
+                    RequiredTool = (ToolType)selectedToolInt,
+                    TargetArea = (AreaType)selectedAreaInt
                 };
                 fullSequence.Add(newTask);
             }
