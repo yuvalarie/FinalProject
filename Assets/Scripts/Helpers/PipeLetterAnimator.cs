@@ -45,7 +45,7 @@ namespace Objects
 
         private void Start()
         {
-            _letterSoundReference = FMODEvents.Instance.lettersInTubesSFX;
+            _letterSoundReference = FMODEvents.Instance.GetEventReferenceByName(AudioEventNames.LettersInTubes);
             if (letters.Length != 3)
             {
                 Debug.LogWarning("Please assign exactly 3 letters in the Inspector!");

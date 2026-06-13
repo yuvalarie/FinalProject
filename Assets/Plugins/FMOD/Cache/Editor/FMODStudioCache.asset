@@ -42,8 +42,32 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639169746852373837
+  lastModified: 639169871779891369
   FileSizes: []
+  Exists: 1
+--- !u!114 &-5283527117259070212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/LetterTubes/VoiceVolume
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: VoiceVolume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2072297786
+    data2: 2592252407
+  Type: 0
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &-4827016301418027124
 MonoBehaviour:
@@ -143,13 +167,14 @@ MonoBehaviour:
   - {fileID: -7940175471234626215}
   - {fileID: 7184409384577903666}
   - {fileID: -3586977081745768817}
+  - {fileID: 4918605599195733508}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6021412136081375270}
   StringsBanks:
   - {fileID: 2100893941630395751}
   cacheVersion: 131859
-  cacheTime: 639169746852373837
+  cacheTime: 639169871779891369
   SerializableEventsDict:
   - key: event:/Page1/LetterTubes
     index: 0
@@ -159,6 +184,8 @@ MonoBehaviour:
     index: 2
   - key: event:/Page1/PhoneRing
     index: 3
+  - key: event:/Page2/FactoryDoorOpen
+    index: 4
 --- !u!114 &349460952768386623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,11 +219,38 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639169745243656282
+  lastModified: 639169871779652286
   FileSizes:
   - Name: 
-    Value: 1328
+    Value: 1430
   Exists: 1
+--- !u!114 &4918605599195733508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Page2/FactoryDoorOpen
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Page2/FactoryDoorOpen
+  Guid:
+    Data1: 879733722
+    Data2: 1283265410
+    Data3: 384094129
+    Data4: 561719223
+  Banks:
+  - {fileID: -6261359641286254155}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &5241025778277414641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,13 +270,14 @@ MonoBehaviour:
     Data3: -79245930
     Data4: -736908648
   Banks:
-  - {fileID: -6261359641286254155}
+  - {fileID: 7964420797718566781}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
   - {fileID: 5551544906156998181}
   - {fileID: -3419971701234787611}
+  - {fileID: -5283527117259070212}
   MinDistance: 1
   MaxDistance: 8
   Length: 1200
@@ -265,7 +320,7 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639169745243637577
+  lastModified: 639169871779642146
   FileSizes: []
   Exists: 1
 --- !u!114 &7184409384577903666
@@ -311,6 +366,6 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/Ambiance.bank
   Name: Ambiance
   StudioPath: bank:/Ambiance
-  lastModified: 639159401038673338
+  lastModified: 639169871779560549
   FileSizes: []
   Exists: 1

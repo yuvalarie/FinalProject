@@ -11,7 +11,7 @@ namespace Objects
 
         private void Start()
         {
-            _phoneRingReference = FMODEvents.Instance.phoneRingSFX;
+            _phoneRingReference = FMODEvents.Instance.GetEventReferenceByName(AudioEventNames.PhoneRing);
         }
         
         public void PlayRingPhoneAudio()
