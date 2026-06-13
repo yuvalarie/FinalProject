@@ -119,6 +119,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &12654712
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4069500513674704604, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: m_Name
+      value: FMODEvents
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444035843161751185, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.43039
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444035843161751185, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.10092
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444035843161751185, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444035843161751185, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444035843161751185, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444035843161751185, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444035843161751185, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444035843161751185, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444035843161751185, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444035843161751185, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b594158561ed215468477153f2c5a490, type: 3}
 --- !u!1 &22980024
 GameObject:
   m_ObjectHideFlags: 0
@@ -4078,6 +4135,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &788818005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 788818006}
+  m_Layer: 0
+  m_Name: -------------- Audio --------------
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &788818006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788818005}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.24, y: -7.79, z: 0}
+  m_LocalScale: {x: 0.2399655, y: 0.2399655, z: 0.2399655}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &792781558
 GameObject:
   m_ObjectHideFlags: 0
@@ -4187,6 +4275,7 @@ GameObject:
   - component: {fileID: 831481754}
   - component: {fileID: 831481755}
   - component: {fileID: 831481756}
+  - component: {fileID: 831481757}
   m_Layer: 0
   m_Name: Letter 2
   m_TagString: Untagged
@@ -4289,6 +4378,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &831481757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831481753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adfbcd021ad0d464c8323dacc6328402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.LetterInTube
+  minRandomDelay: 0
+  maxRandomDelay: 0.5
 --- !u!1 &835235929
 GameObject:
   m_ObjectHideFlags: 0
@@ -4703,9 +4806,9 @@ GameObject:
   m_Component:
   - component: {fileID: 929162303}
   - component: {fileID: 929162302}
-  - component: {fileID: 929162301}
   - component: {fileID: 929162304}
   - component: {fileID: 929162305}
+  - component: {fileID: 929162306}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4713,14 +4816,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &929162301
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 929162300}
-  m_Enabled: 1
 --- !u!20 &929162302
 Camera:
   m_ObjectHideFlags: 0
@@ -4844,6 +4939,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Camera.CameraSizeAdjustment
   targetAspect: 1.7777778
+--- !u!114 &929162306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929162300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 1428508820}
 --- !u!1 &955300950
 GameObject:
   m_ObjectHideFlags: 0
@@ -6225,6 +6334,7 @@ GameObject:
   - component: {fileID: 1195039439}
   - component: {fileID: 1195039440}
   - component: {fileID: 1195039441}
+  - component: {fileID: 1195039442}
   m_Layer: 0
   m_Name: Letter 5
   m_TagString: Untagged
@@ -6327,6 +6437,77 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1195039442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195039438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adfbcd021ad0d464c8323dacc6328402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.LetterInTube
+  minRandomDelay: 0
+  maxRandomDelay: 0.5
+--- !u!1001 &1199668378
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5730181177150766635, guid: 3e8754883e4452c44baa7c57bca95271, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.43039
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730181177150766635, guid: 3e8754883e4452c44baa7c57bca95271, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.10092
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730181177150766635, guid: 3e8754883e4452c44baa7c57bca95271, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730181177150766635, guid: 3e8754883e4452c44baa7c57bca95271, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730181177150766635, guid: 3e8754883e4452c44baa7c57bca95271, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730181177150766635, guid: 3e8754883e4452c44baa7c57bca95271, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730181177150766635, guid: 3e8754883e4452c44baa7c57bca95271, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730181177150766635, guid: 3e8754883e4452c44baa7c57bca95271, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730181177150766635, guid: 3e8754883e4452c44baa7c57bca95271, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730181177150766635, guid: 3e8754883e4452c44baa7c57bca95271, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6030717069895283399, guid: 3e8754883e4452c44baa7c57bca95271, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3e8754883e4452c44baa7c57bca95271, type: 3}
 --- !u!1 &1209306135
 GameObject:
   m_ObjectHideFlags: 0
@@ -7518,6 +7699,7 @@ GameObject:
   - component: {fileID: 1411514507}
   - component: {fileID: 1411514508}
   - component: {fileID: 1411514509}
+  - component: {fileID: 1411514510}
   m_Layer: 0
   m_Name: Letter 3
   m_TagString: Untagged
@@ -7620,6 +7802,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1411514510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411514506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adfbcd021ad0d464c8323dacc6328402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.LetterInTube
+  minRandomDelay: 0
+  maxRandomDelay: 0.5
 --- !u!1 &1428508820
 GameObject:
   m_ObjectHideFlags: 0
@@ -8482,6 +8678,7 @@ GameObject:
   - component: {fileID: 1568986164}
   - component: {fileID: 1568986165}
   - component: {fileID: 1568986166}
+  - component: {fileID: 1568986167}
   m_Layer: 0
   m_Name: Letter 6
   m_TagString: Untagged
@@ -8584,6 +8781,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1568986167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568986163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adfbcd021ad0d464c8323dacc6328402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.LetterInTube
+  minRandomDelay: 0
+  maxRandomDelay: 0.5
 --- !u!1 &1573426895
 GameObject:
   m_ObjectHideFlags: 0
@@ -9463,6 +9674,7 @@ GameObject:
   - component: {fileID: 1818309939}
   - component: {fileID: 1818309940}
   - component: {fileID: 1818309941}
+  - component: {fileID: 1818309942}
   m_Layer: 0
   m_Name: Letter 4
   m_TagString: Untagged
@@ -9565,6 +9777,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1818309942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818309938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adfbcd021ad0d464c8323dacc6328402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.LetterInTube
+  minRandomDelay: 0
+  maxRandomDelay: 0.5
 --- !u!1 &1834646704
 GameObject:
   m_ObjectHideFlags: 0
@@ -10723,3 +10949,6 @@ SceneRoots:
   - {fileID: 184390796}
   - {fileID: 1810591369}
   - {fileID: 910788991}
+  - {fileID: 788818006}
+  - {fileID: 12654712}
+  - {fileID: 1199668378}

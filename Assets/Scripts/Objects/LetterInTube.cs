@@ -40,6 +40,7 @@ namespace Objects
 
         public void StopAudio()
         {
+            // does nothing for now
             // _letterSoundInstance.stop(STOP_MODE.IMMEDIATE); 
             // _letterSoundInstance.setTimelinePosition(0);
         }
