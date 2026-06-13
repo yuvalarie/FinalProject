@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4069500513674704604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4444035843161751185}
+  - component: {fileID: 4531969585048773637}
+  m_Layer: 0
+  m_Name: FMODEvents
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4444035843161751185
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4069500513674704604}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4531969585048773637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4069500513674704604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae884dcdf9296f4d8dc2299d48186c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Managers.FMODEvents
+  page1OfficeAmbiance:
+    Guid:
+      Data1: -807748182
+      Data2: 1226925487
+      Data3: -577922937
+      Data4: -502671367
+    Path: event:/Page1/AmbOffice
+  windAmbiance:
+    Guid:
+      Data1: 797408416
+      Data2: 1145181333
+      Data3: 447413635
+      Data4: -1162816259
+    Path: event:/AmbWind
+  lettersInTubesSFX:
+    Guid:
+      Data1: -275646086
+      Data2: 1197934441
+      Data3: -79245930
+      Data4: -736908648
+    Path: event:/Page1/LetterTubes
+  phoneRingSFX:
+    Guid:
+      Data1: 1588193980
+      Data2: 1257385387
+      Data3: 1519597196
+      Data4: -121376965
+    Path: event:/Page1/PhoneRing

@@ -8,7 +8,7 @@ using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 namespace Audio
 {
-    public class AudioManager : MonoSingleton<AudioManager>
+    public class AudioManager : PersistentMonoSingleton<AudioManager>
     {
         [Header("Volumes")]
         [SerializeField, Range(0f, 1f)] private float masterVolume = 1f;
@@ -44,6 +44,7 @@ namespace Audio
         
         public void PlayOneShot(EventReference eventReference, Vector3 worldPosition, params (string name, float value)[] parameters)
         {
+            Debug.Log($"Playing one-shot event: {eventReference.Path} at position {worldPosition}");
             var eventInstance = RuntimeManager.CreateInstance(eventReference);
             foreach (var (name, value) in parameters)
             {

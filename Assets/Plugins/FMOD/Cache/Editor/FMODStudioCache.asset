@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639160131744601322
+  lastModified: 639169746852373837
   FileSizes: []
   Exists: 1
 --- !u!114 &-4827016301418027124
@@ -69,6 +69,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-3586977081745768817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Page1/PhoneRing
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Page1/PhoneRing
+  Guid:
+    Data1: 1588193980
+    Data2: 1257385387
+    Data3: 1519597196
+    Data4: -121376965
+  Banks:
+  - {fileID: -6261359641286254155}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1600
 --- !u!114 &-3419971701234787611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,13 +142,14 @@ MonoBehaviour:
   - {fileID: 5241025778277414641}
   - {fileID: -7940175471234626215}
   - {fileID: 7184409384577903666}
+  - {fileID: -3586977081745768817}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6021412136081375270}
   StringsBanks:
   - {fileID: 2100893941630395751}
   cacheVersion: 131859
-  cacheTime: 639160131744601322
+  cacheTime: 639169746852373837
   SerializableEventsDict:
   - key: event:/Page1/LetterTubes
     index: 0
@@ -129,6 +157,8 @@ MonoBehaviour:
     index: 1
   - key: event:/AmbWind
     index: 2
+  - key: event:/Page1/PhoneRing
+    index: 3
 --- !u!114 &349460952768386623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +174,7 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639147990014132890
+  lastModified: 639159347302450016
   FileSizes: []
   Exists: 1
 --- !u!114 &2100893941630395751
@@ -162,10 +192,10 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639159456934194642
+  lastModified: 639169745243656282
   FileSizes:
   - Name: 
-    Value: 1288
+    Value: 1328
   Exists: 1
 --- !u!114 &5241025778277414641
 MonoBehaviour:
@@ -235,7 +265,7 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639159456934191304
+  lastModified: 639169745243637577
   FileSizes: []
   Exists: 1
 --- !u!114 &7184409384577903666
@@ -281,6 +311,6 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/Ambiance.bank
   Name: Ambiance
   StudioPath: bank:/Ambiance
-  lastModified: 639159456934185298
+  lastModified: 639159401038673338
   FileSizes: []
   Exists: 1
