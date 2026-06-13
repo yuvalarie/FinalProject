@@ -12,5 +12,6 @@ namespace Audio
         
         [Header("SFX")]
         public EventReference lettersInTubesSFX;
+        public EventReference phoneRingSFX;
     }
 }
