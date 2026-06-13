@@ -6,8 +6,8 @@ namespace Audio
     public abstract class AudioCallerBase : MonoBehaviour
     {
         protected string AudioEventName;
-        
-        protected abstract void SetAudioEventName();
+
+        private protected abstract void SetAudioEventName();
 
         protected void OnEnable()
         {

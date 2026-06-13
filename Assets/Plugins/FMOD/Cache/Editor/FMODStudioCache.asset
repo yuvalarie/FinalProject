@@ -42,8 +42,32 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639169824805710886
+  lastModified: 639169856107327458
   FileSizes: []
+  Exists: 1
+--- !u!114 &-5283527117259070212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/LetterTubes/VoiceVolume
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: VoiceVolume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2072297786
+    data2: 2592252407
+  Type: 0
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &-4827016301418027124
 MonoBehaviour:
@@ -150,7 +174,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 2100893941630395751}
   cacheVersion: 131859
-  cacheTime: 639169824805710886
+  cacheTime: 639169856107327458
   SerializableEventsDict:
   - key: event:/Page1/LetterTubes
     index: 0
@@ -195,10 +219,10 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639169824802660187
+  lastModified: 639169854679628540
   FileSizes:
   - Name: 
-    Value: 1388
+    Value: 1430
   Exists: 1
 --- !u!114 &4918605599195733508
 MonoBehaviour:
@@ -253,6 +277,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: 5551544906156998181}
   - {fileID: -3419971701234787611}
+  - {fileID: -5283527117259070212}
   MinDistance: 1
   MaxDistance: 8
   Length: 1200
@@ -295,7 +320,7 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639169824802650189
+  lastModified: 639169854679618487
   FileSizes: []
   Exists: 1
 --- !u!114 &7184409384577903666

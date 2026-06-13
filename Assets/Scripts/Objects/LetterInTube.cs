@@ -32,10 +32,12 @@ namespace Objects
         {
             var pitchValue = Random.Range(-1f, 1f);
             var volumeValue = Random.Range(-1f, 1f);
+            // voice volume will be 1 if random is greater than 0.5, otherwise 0, to create a more distinct on/off effect for the voice
+            var voiceVolumeValue = Random.value > 0.7f ? 1f : 0f;
             // _letterSoundInstance.setParameterByName("LetterTubePitch", pitchValue);
             // _letterSoundInstance.setParameterByName("LetterTubeVolume", volumeValue);
             // _letterSoundInstance.start();
-            AudioManager.Instance.PlayOneShot(_letterSoundReference, transform.position, ("LetterTubePitch", pitchValue), ("LetterTubeVolume", volumeValue));
+            AudioManager.Instance.PlayOneShot(_letterSoundReference, transform.position, ("LetterTubePitch", pitchValue), ("LetterTubeVolume", volumeValue), ("VoiceVolume", voiceVolumeValue));
         }
 
         public void StopAudio()
