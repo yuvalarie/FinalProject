@@ -521,6 +521,7 @@ GameObject:
   - component: {fileID: 194628954}
   - component: {fileID: 194628953}
   - component: {fileID: 194628952}
+  - component: {fileID: 194628955}
   m_Layer: 0
   m_Name: 'Phone '
   m_TagString: Untagged
@@ -623,6 +624,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &194628955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194628951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec054fb2564d6dd4c9c594338fb730c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.PhoneRinging
 --- !u!1 &195938380
 GameObject:
   m_ObjectHideFlags: 0
@@ -2133,8 +2146,8 @@ MonoBehaviour:
   topPipeEnd: {fileID: 1261076698}
   bottomPipeStart: {fileID: 998149548}
   bottomPipeEnd: {fileID: 1850351093}
-  minDuration: 2
-  maxDuration: 4
+  minDuration: 1
+  maxDuration: 2
   minDelay: 0.5
   maxDelay: 1.5
   minSeparationTime: 0.5

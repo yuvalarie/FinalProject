@@ -14,7 +14,7 @@ namespace Objects
             _phoneRingReference = FMODEvents.Instance.phoneRingSFX;
         }
         
-        public void RingPhone()
+        public void PlayRingPhoneAudio()
         {
             AudioManager.Instance.PlayOneShot(_phoneRingReference, transform.position);
         }

@@ -1,5 +1,8 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using Audio;
+using UnityEngine;
 using DG.Tweening;
+using FMODUnity;
 
 namespace Objects 
 {
@@ -36,9 +39,13 @@ namespace Objects
         [Header("Looping")]
         [SerializeField] private bool loopContinuously = true;
         [SerializeField] private float pauseBetweenLoops = 1f;
+        
+        // Audio
+        private EventReference _letterSoundReference;
 
         private void Start()
         {
+            _letterSoundReference = FMODEvents.Instance.lettersInTubesSFX;
             if (letters.Length != 3)
             {
                 Debug.LogWarning("Please assign exactly 3 letters in the Inspector!");
@@ -107,12 +114,27 @@ namespace Objects
                 currentLetter.DOMove(endPoint.position, duration)
                     .SetDelay(delay)
                     .SetEase(Ease.Linear);
+
+                StartCoroutine(PlayLetterAudioDelayed(delay, duration));
             }
 
             if (loopContinuously)
             {
                 Invoke(nameof(SendLettersThroughPipes), longestTotalTime + pauseBetweenLoops);
             }
+        }
+
+        private void PlayLetterAudio(float duration)
+        {
+            float t = (duration - minDuration) / (maxDuration - minDuration);
+            float pitchAndVolume = Mathf.Clamp(1f - 2f * t, -1f, 1f);
+            AudioManager.Instance.PlayOneShot(_letterSoundReference, transform.position, ("LetterTubePitch", pitchAndVolume), ("LetterTubeVolume", pitchAndVolume));
+        }
+
+        private IEnumerator PlayLetterAudioDelayed(float delay, float duration)
+        {
+            yield return new WaitForSeconds(delay);
+            PlayLetterAudio(duration);
         }
     }
 }
