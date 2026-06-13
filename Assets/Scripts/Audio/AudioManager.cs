@@ -8,7 +8,7 @@ using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 namespace Audio
 {
-    public class AudioManager : MonoSingleton<AudioManager>
+    public class AudioManager : PersistentMonoSingleton<AudioManager>
     {
         [Header("Volumes")]
         [SerializeField, Range(0f, 1f)] private float masterVolume = 1f;

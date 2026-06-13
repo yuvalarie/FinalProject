@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Audio
 {
-    public class FMODEvents : MonoSingleton<FMODEvents>
+    public class FMODEvents : PersistentMonoSingleton<FMODEvents>
     {
         [Header("Ambiance")]
         public EventReference page1OfficeAmbiance;
