@@ -22,7 +22,7 @@ namespace Objects
         private void Start()
         {
             _animator = GetComponent<Animator>();
-            _letterSoundReference = FMODEvents.Instance.lettersInTubesSFX;
+            _letterSoundReference = FMODEvents.Instance.GetEventReferenceByName(AudioEventNames.LettersInTubes);
             //_letterSoundInstance = AudioManager.Instance.CreateInstance(reference);
             //RuntimeManager.AttachInstanceToGameObject(_letterSoundInstance, gameObject, true);
             StartAnimationWithRandomDelay();

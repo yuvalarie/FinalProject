@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4069500513674704604}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -44,31 +44,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae884dcdf9296f4d8dc2299d48186c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Managers.FMODEvents
-  page1OfficeAmbiance:
-    Guid:
-      Data1: -807748182
-      Data2: 1226925487
-      Data3: -577922937
-      Data4: -502671367
-    Path: event:/Page1/AmbOffice
-  windAmbiance:
-    Guid:
-      Data1: 797408416
-      Data2: 1145181333
-      Data3: 447413635
-      Data4: -1162816259
-    Path: event:/AmbWind
-  lettersInTubesSFX:
-    Guid:
-      Data1: -275646086
-      Data2: 1197934441
-      Data3: -79245930
-      Data4: -736908648
-    Path: event:/Page1/LetterTubes
-  phoneRingSFX:
-    Guid:
-      Data1: 1588193980
-      Data2: 1257385387
-      Data3: 1519597196
-      Data4: -121376965
-    Path: event:/Page1/PhoneRing
+  sceneAudioReferences:
+  - sceneName: Page 1
+    musicEvents: []
+    sfxEvents:
+    - name: Letters In Tubes short
+      eventReference:
+        Guid:
+          Data1: -275646086
+          Data2: 1197934441
+          Data3: -79245930
+          Data4: -736908648
+        Path: event:/Page1/LetterTubes
+    - name: Phone Ringing
+      eventReference:
+        Guid:
+          Data1: 1588193980
+          Data2: 1257385387
+          Data3: 1519597196
+          Data4: -121376965
+        Path: event:/Page1/PhoneRing
+    ambianceEvents:
+    - name: Wind Ambiance
+      eventReference:
+        Guid:
+          Data1: 797408416
+          Data2: 1145181333
+          Data3: 447413635
+          Data4: -1162816259
+        Path: event:/AmbWind
+    - name: Page 1 Office Ambiance
+      eventReference:
+        Guid:
+          Data1: 797408416
+          Data2: 1145181333
+          Data3: 447413635
+          Data4: -1162816259
+        Path: event:/AmbWind
+  - sceneName: Page 2
+    musicEvents: []
+    sfxEvents:
+    - name: Factory Door Open
+      eventReference:
+        Guid:
+          Data1: 879733722
+          Data2: 1283265410
+          Data3: 384094129
+          Data4: 561719223
+        Path: event:/Page2/FactoryDoorOpen
+    ambianceEvents: []
