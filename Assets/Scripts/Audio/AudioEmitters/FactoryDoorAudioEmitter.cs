@@ -1,6 +1,8 @@
+using Audio.AudioEmitters;
+
 namespace Audio
 {
-    public class FactoryDoorAudioCaller : AudioCallerBase
+    public class FactoryDoorAudioEmitter : AudioEmitterBase
     {
         protected override void SetAudioEventName()
         {

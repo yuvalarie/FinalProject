@@ -3,9 +3,9 @@ using FMODUnity;
 using UnityEngine;
 using STOP_MODE = FMOD.Studio.STOP_MODE;
 
-namespace Audio
+namespace Audio.AudioEmitters
 {
-    public abstract class AudioCallerBase : MonoBehaviour
+    public abstract class AudioEmitterBase : MonoBehaviour
     {
         protected string AudioEventName;
         protected EventInstance AudioInstance;
