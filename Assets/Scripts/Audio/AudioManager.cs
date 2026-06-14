@@ -44,7 +44,7 @@ namespace Audio
         
         public void PlayOneShot(EventReference eventReference, Vector3 worldPosition, params (string name, float value)[] parameters)
         {
-            Debug.Log($"Playing one-shot event: {eventReference.Path} at position {worldPosition}");
+            //Debug.Log($"Playing one-shot event: {eventReference.Path} at position {worldPosition}");
             var eventInstance = RuntimeManager.CreateInstance(eventReference);
             foreach (var (name, value) in parameters)
             {

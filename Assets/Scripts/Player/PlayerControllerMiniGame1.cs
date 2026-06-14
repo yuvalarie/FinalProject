@@ -60,7 +60,9 @@ namespace Player
         private SpriteRenderer _leftHandSprite;
         private bool _isFacingRight = false;
         
-        private bool _hasEndSequenceStarted = false;
+        private bool _isEndSequenceActive = false;
+        private int _endSequenceStep = 0;
+        private bool _isSequenceWaiting = false;
         
         private static readonly int GrabAnimation = Animator.StringToHash("Grab");
         private static readonly int DropAnimation = Animator.StringToHash("Drop");
@@ -70,15 +72,12 @@ namespace Player
             base.Start();
             _spriteRenderer = GetComponent<SpriteRenderer>();
             
-            // Get the SpriteRenderers for the hands
             _rightHandSprite = rightHand.GetComponent<SpriteRenderer>();
             _leftHandSprite = leftHand.GetComponent<SpriteRenderer>();
             
-            // Keep both GameObjects active so the Animators run in the background perfectly
             rightHand.SetActive(true);
             leftHand.SetActive(true);
             
-            // Only show the left hand initially (since we start facing left)
             if (_rightHandSprite != null) _rightHandSprite.enabled = false;
             if (_leftHandSprite != null) _leftHandSprite.enabled = true;
         }
@@ -86,6 +85,12 @@ namespace Player
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
             if (!context.performed) return;
+            
+            if (_isEndSequenceActive)
+            {
+                AdvanceEndSequence();
+                return; 
+            }
 
             if (_heldGrabbable == null) TryPickUp();
             else DropItem();
@@ -118,7 +123,6 @@ namespace Player
                 _spriteRenderer.flipX = _isFacingRight;
             }
             
-            // Toggle sprite visibility instead of turning off the GameObjects!
             if (_rightHandSprite != null) _rightHandSprite.enabled = _isFacingRight;
             if (_leftHandSprite != null) _leftHandSprite.enabled = !_isFacingRight;
             
@@ -128,7 +132,6 @@ namespace Player
                 _heldGrabbable.transform.SetParent(newHand);
                 _heldGrabbable.transform.localPosition = Vector3.zero;
             }
-            // Notice: ALL animation triggers have been removed from here!
         }
         
         private Transform GetActiveHand()
@@ -174,24 +177,44 @@ namespace Player
                     break;
                 case >= 100:
                     sixthStateSprite.SetActive(false);
-                    if (!_hasEndSequenceStarted)
+                    if (!_isEndSequenceActive)
                     {
-                        StartCoroutine(StartEndGameSequence());
-                        _hasEndSequenceStarted = true;
+                        _isEndSequenceActive = true;
+                        AdvanceEndSequence();
                     }
                     break;
             }
         }
 
-        private IEnumerator StartEndGameSequence()
+        private void AdvanceEndSequence()
         {
-            heldaAnimator.SetTrigger("Enter");
-            yield return new WaitForSeconds(2f);
+            if (_isSequenceWaiting) return;
+
+            if (_endSequenceStep == 0)
+            {
+                heldaAnimator.SetTrigger("Enter");
+                _endSequenceStep++;
+            }
+            else if (_endSequenceStep == 1)
+            {
+                StartCoroutine(EyesAndBubbleRoutine());
+            }
+            else if (_endSequenceStep == 2)
+            {
+                SceneLoader.Instance.ActivatePreloadedScene();
+            }
+        }
+        
+        private IEnumerator EyesAndBubbleRoutine()
+        {
+            _isSequenceWaiting = true;
+            
             eyeAnimator.SetTrigger("EyesRoll");
             yield return new WaitForSeconds(1.5f);
             textBubble.SetActive(true);
-            yield return new WaitForSeconds(5f);
-            SceneLoader.Instance.ActivatePreloadedScene();
+            
+            _endSequenceStep++;
+            _isSequenceWaiting = false;
         }
 
         private void TryPickUp()
@@ -222,6 +245,8 @@ namespace Player
                 if (closestItem.isInstantPlacement)
                 {
                     closestItem.currentState = GrabbableObject.ObjectState.Placed;
+                    closestItem.SwitchState();
+                    _numOfPlacedObjects++;
                     return;
                 }
                 

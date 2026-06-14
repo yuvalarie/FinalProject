@@ -30,11 +30,16 @@ namespace Player
         
         [Header("Sequence Settings")]
         [SerializeField] private GameObject hellDoor;
-        [SerializeField] private Animator letterAnimator;
+        [SerializeField] private Animator letterAnimator1;
+        [SerializeField] private Animator letterAnimator2;
         [SerializeField] private GameObject letterObject;
         [SerializeField] private GameObject smallLetterObject;
         
         private int _interactionCount = 0;
+        private bool _hasLetterSent;
+        private bool _hasLetterOpened;
+        private bool _hasLetterChanged;
+        
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
             if (!context.performed) return;
@@ -57,6 +62,9 @@ namespace Player
                     break;
                 case 6:
                     StartCoroutine(Sequence7Coroutine());
+                    break;
+                case 7:
+                    StartCoroutine(Sequence8Coroutine());
                     break;
             }
         }
@@ -114,13 +122,34 @@ namespace Player
         
         private IEnumerator Sequence6Coroutine()
         {
-            letterAnimator.SetTrigger("Open");
+            if (!_hasLetterSent)
+            {
+                letterAnimator1.SetTrigger("Send");
+                _hasLetterSent = true;
+            }
             yield return new WaitForSeconds(3.5f); //change to match animation timing
             letterObject.SetActive(true);
+            if (!_hasLetterOpened)
+            {
+                letterAnimator2.SetTrigger("Open");
+                _hasLetterOpened = true;
+            }
+            yield return new WaitForSeconds(2.5f); //change to match animation timing
             _interactionCount++;
         }
         
         private IEnumerator Sequence7Coroutine()
+        {
+            if (!_hasLetterChanged)
+            {
+                letterAnimator2.SetTrigger("Change");
+                _hasLetterChanged = true;
+            }
+            yield return new WaitForSeconds(0.2f); //change to match animation timing
+            _interactionCount++;
+        }
+        
+        private IEnumerator Sequence8Coroutine()
         {
             smallLetterObject.SetActive(false);
             textBubble5.SetActive(false);
@@ -137,7 +166,7 @@ namespace Player
         protected override void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Start") && _interactionCount == 0) StartCoroutine(Sequence1Coroutine());
-            if (other.CompareTag("End") && _interactionCount >= 7)
+            if (other.CompareTag("End") && _interactionCount >= 8)
             {
                 SceneLoader.Instance?.ActivatePreloadedScene();
             }

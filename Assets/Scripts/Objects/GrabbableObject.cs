@@ -24,7 +24,6 @@ namespace Objects
 
         private Transform _originalParent;
         
-        // Use LOCAL tracking to perfectly remember size, rotation, and spot
         private Vector3 _originalLocalPosition;
         private Quaternion _originalLocalRotation;
         private Vector3 _originalLocalScale;
@@ -39,7 +38,6 @@ namespace Objects
         {
             _originalParent = transform.parent;
             
-            // Lock in exactly how it looks in the Inspector on frame 1
             _originalLocalPosition = transform.localPosition;
             _originalLocalRotation = transform.localRotation;
             _originalLocalScale = transform.localScale;
@@ -85,11 +83,11 @@ namespace Objects
                         }
                         else
                         {
-                            targetSpriteRenderer = validDropSpots[0].GetComponent<SpriteRenderer>();
+                            if (validDropSpots.Length > 0) targetSpriteRenderer = validDropSpots[0].GetComponent<SpriteRenderer>();
                         }
                         var spriteRenderer = placedSprite.GetComponent<SpriteRenderer>();
                         if (spriteRenderer != null && targetSpriteRenderer != null) spriteRenderer.sortingOrder = targetSpriteRenderer.sortingOrder + 1;
-            
+                        if (isInstantPlacement) spriteRenderer.sortingOrder = 3;
                     }
                     break;
             }
