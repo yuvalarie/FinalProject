@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Audio.AudioEmitters;
 using Managers;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -30,6 +31,7 @@ namespace Player
         
         [Header("Sequence Settings")]
         [SerializeField] private GameObject hellDoor;
+        [SerializeField] private AudioEmitterBase hellDoorAudioEmitter;
         [SerializeField] private Animator letterAnimator1;
         [SerializeField] private Animator letterAnimator2;
         [SerializeField] private GameObject letterObject;
@@ -96,12 +98,14 @@ namespace Player
             sprite2.SetActive(false);
             sprite3.SetActive(true);
             hellDoor.SetActive(true);
+            hellDoorAudioEmitter.StartAudio();
             _interactionCount++;
         }
         
         private IEnumerator Sequence4Coroutine()
         {
             hellDoor.SetActive(false);
+            hellDoorAudioEmitter.StopAudio();
             textBubble3.SetActive(false);
             yield return new WaitForSeconds(0.1f);
             textBubble4.SetActive(true);
