@@ -13,6 +13,10 @@ namespace Player
         
         [Header("Frame1")]
         [SerializeField] private Collider2D frame1ExitCollider;
+        [SerializeField] private GameObject sleepingHelda1;
+        [SerializeField] private GameObject sleepingHelda2;
+        [SerializeField] private GameObject standingHelda;
+        [SerializeField] private GameObject textBubble1;
 
         [Header("Frame2")]
         [SerializeField] private Collider2D frame2EnterCollider;
@@ -44,6 +48,7 @@ namespace Player
         [SerializeField] private Animator bigMirrorAnimator;
         [SerializeField] private Collider2D frame6ExitCollider;
         [SerializeField] private Transform frame6ExitPosition;
+        [SerializeField] private GameObject textBubble2;
         
         [Header("Frame7")]
         [SerializeField] private Transform frame7StartPosition;
@@ -58,6 +63,9 @@ namespace Player
         [SerializeField] private Collider2D frame8EnterCollider;
         [SerializeField] private Animator saltAnimator;
         [SerializeField] private Vector3 frame8Size;
+        [SerializeField] private GameObject textBubble3;
+        [SerializeField] private GameObject textBubble4;
+        [SerializeField] private GameObject textBubble5;
         
         [Header("Frame9")]
         [SerializeField] private Collider2D frame9EnterCollider;
@@ -93,9 +101,13 @@ namespace Player
             if (other == frame1ExitCollider)
             {
                 transform.position = frame2StartPosition.position;
+                sleepingHelda1.SetActive(false);
+                sleepingHelda2.SetActive(false);
+                standingHelda.SetActive(true);
             }
             else if (other == frame2EnterCollider)
             {
+                textBubble1.SetActive(true);
                 Frame2Sequence();
                 frame2EnterCollider.enabled = false;
             }
@@ -225,6 +237,28 @@ namespace Player
         private void Frame9Sequence()
         {
             transform.localScale = frame9Size;
+        }
+
+        public void SetActiveTextBubble2()
+        {
+            textBubble2.SetActive(true);
+        }
+        
+        public void SetActiveTextBubble3()
+        {
+            textBubble3.SetActive(true);
+        }
+        
+        public void SetActiveTextBubble4()
+        {
+            textBubble4.SetActive(true);
+        }
+        
+        public void SetActiveTextBubble5()
+        {
+            textBubble5.SetActive(true);
+            textBubble3.SetActive(false);
+            textBubble4.SetActive(false);
         }
     }
 }
