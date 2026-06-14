@@ -69,7 +69,7 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639170575361339303
+  lastModified: 639170738837019195
   FileSizes: []
   Exists: 1
 --- !u!114 &-5283527117259070212
@@ -92,30 +92,6 @@ MonoBehaviour:
   ID:
     data1: 2072297786
     data2: 2592252407
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
---- !u!114 &-4827016301418027124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/AmbWind/distanceFromFrame
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
-  Name: distanceFromFrame
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 451489253
-    data2: 1235270495
   Type: 0
   IsGlobal: 0
   Labels: []
@@ -171,6 +147,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-2462844617774273757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/General/LetterOpen
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/General/LetterOpen
+  Guid:
+    Data1: -917425744
+    Data2: 1084233488
+    Data3: 736725387
+    Data4: -1039036232
+  Banks:
+  - {fileID: -6261359641286254155}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2455
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,17 +195,18 @@ MonoBehaviour:
   EditorEvents:
   - {fileID: 5241025778277414641}
   - {fileID: -7940175471234626215}
-  - {fileID: 7184409384577903666}
   - {fileID: -3586977081745768817}
   - {fileID: 4918605599195733508}
   - {fileID: -7303390152941199215}
+  - {fileID: 8565853382055022597}
+  - {fileID: -2462844617774273757}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6021412136081375270}
   StringsBanks:
   - {fileID: 2100893941630395751}
   cacheVersion: 131859
-  cacheTime: 639170575361339303
+  cacheTime: 639170738837019195
   SerializableEventsDict:
   - key: event:/Page1/LetterTubes
     index: 0
@@ -249,10 +253,10 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639170575361283697
+  lastModified: 639170738835166359
   FileSizes:
   - Name: 
-    Value: 1472
+    Value: 1530
   Exists: 1
 --- !u!114 &4918605599195733508
 MonoBehaviour:
@@ -350,10 +354,10 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639170515139184279
+  lastModified: 639170738835156348
   FileSizes: []
   Exists: 1
---- !u!114 &7184409384577903666
+--- !u!114 &7293549701330038866
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -362,25 +366,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/AmbWind
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/AmbWind
-  Guid:
-    Data1: 797408416
-    Data2: 1145181333
-    Data3: 447413635
-    Data4: -1162816259
-  Banks:
-  - {fileID: 7964420797718566781}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: -4827016301418027124}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 55258
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/AmbWind/distanceFromFrame
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: distanceFromFrame
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 451489253
+    data2: 1235270495
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &7964420797718566781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,6 +396,34 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/Ambiance.bank
   Name: Ambiance
   StudioPath: bank:/Ambiance
-  lastModified: 639169871779560549
+  lastModified: 639170737929362875
   FileSizes: []
   Exists: 1
+--- !u!114 &8565853382055022597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Page1/AmbWind
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Page1/AmbWind
+  Guid:
+    Data1: 797408416
+    Data2: 1145181333
+    Data3: 447413635
+    Data4: -1162816259
+  Banks:
+  - {fileID: 7964420797718566781}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 7293549701330038866}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 55258
