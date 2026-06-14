@@ -1,4 +1,5 @@
 using System;
+using Audio.AudioEmitters;
 using Npc;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace Objects
         [Header("Art References")] 
         [SerializeField] private Animator animator;
         private static readonly int PlayTrigger = Animator.StringToHash("Play");
+        [SerializeField] private HellPortalAudioEmitter audioEmitter;
 
         // Counts how many friends are currently flying toward the portal.
         // Portal stays open until all in-flight friends have arrived (shared-pointer pattern).
@@ -19,6 +21,11 @@ namespace Objects
             gameObject.SetActive(true);
             // animator.SetTrigger(PlayTrigger);
             _inFlightCount++;
+            if (_inFlightCount == 1)
+            {
+                // Only play the sound when the first friend is sucked in, to avoid overlapping sounds.
+                audioEmitter.ResumeAudio();
+            }
             friend.GetThrown(transform.position, OnFriendArrived);
         }
 
@@ -38,6 +45,7 @@ namespace Objects
         {
             // This method can be called after the animation finishes to hide the portal.
             // You can use an animation event at the end of the animation to call this method.
+            audioEmitter.PauseAudio();
             gameObject.SetActive(false);
             // we might want to set a dispersing animation here instead of just hiding it, but for now this is fine.
         }

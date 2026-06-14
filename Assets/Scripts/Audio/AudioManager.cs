@@ -20,8 +20,8 @@ namespace Audio
         [SerializeField, Range(0f, 1f)] private float ambianceVolume = 1f;
         private Bus _ambianceBus;
         
-        private List<EventInstance> _activeEvents = new List<EventInstance>();
-        private List<StudioEventEmitter> _activeEmitters = new List<StudioEventEmitter>();
+        private readonly List<EventInstance> _activeEvents = new List<EventInstance>();
+        private readonly List<StudioEventEmitter> _activeEmitters = new List<StudioEventEmitter>();
         // private List<EventInstance> _ambianceEvents = new List<EventInstance>();
 
 

@@ -27,6 +27,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 55258
+--- !u!114 &-7303390152941199215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Page3/HellPortal
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Page3/HellPortal
+  Guid:
+    Data1: -1893679437
+    Data2: 1324616524
+    Data3: -760152186
+    Data4: -455709455
+  Banks:
+  - {fileID: -6261359641286254155}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 36748
 --- !u!114 &-6261359641286254155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,7 +69,7 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639169871779891369
+  lastModified: 639170575361339303
   FileSizes: []
   Exists: 1
 --- !u!114 &-5283527117259070212
@@ -168,13 +195,14 @@ MonoBehaviour:
   - {fileID: 7184409384577903666}
   - {fileID: -3586977081745768817}
   - {fileID: 4918605599195733508}
+  - {fileID: -7303390152941199215}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6021412136081375270}
   StringsBanks:
   - {fileID: 2100893941630395751}
   cacheVersion: 131859
-  cacheTime: 639169871779891369
+  cacheTime: 639170575361339303
   SerializableEventsDict:
   - key: event:/Page1/LetterTubes
     index: 0
@@ -186,6 +214,8 @@ MonoBehaviour:
     index: 3
   - key: event:/Page2/FactoryDoorOpen
     index: 4
+  - key: event:/Page3/HellPortal
+    index: 5
 --- !u!114 &349460952768386623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,10 +249,10 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639169871779652286
+  lastModified: 639170575361283697
   FileSizes:
   - Name: 
-    Value: 1430
+    Value: 1472
   Exists: 1
 --- !u!114 &4918605599195733508
 MonoBehaviour:
@@ -320,7 +350,7 @@ MonoBehaviour:
   Path: Assets/Audio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639169871779642146
+  lastModified: 639170515139184279
   FileSizes: []
   Exists: 1
 --- !u!114 &7184409384577903666
