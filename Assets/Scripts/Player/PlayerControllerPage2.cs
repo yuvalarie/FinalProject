@@ -55,7 +55,7 @@ namespace Player
         [Header("Vending machine interaction settings")] 
         [SerializeField] private Collider2D paiVendingCollider;
         [SerializeField] private Collider2D drinkVendingCollider;
-        [SerializeField] private Prefab paiObject;
+        //[SerializeField] private Prefab paiObject;
         [SerializeField] private GameObject drinkObject;
 
         [Header("Last frame interaction settings")] 
