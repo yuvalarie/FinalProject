@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Managers;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -40,8 +42,9 @@ namespace Player
         private Collider2D frame7To6Trigger;
         
         [Header("Helmet interaction settings")]
-        [SerializeField, Tooltip("The placement for the helmet.")]
-        private Vector3 helmetPlacement;
+        [SerializeField, Tooltip("The placement for the helmet.")] private Vector3 helmetPlacement;
+        [SerializeField, Tooltip("Big Helmet Offset")] private float offSetY;
+        [SerializeField, Tooltip("Big Helmet Offset")] private float offSetX;
         [SerializeField] private List<GameObject> availableHelmets;
         [SerializeField, Tooltip("How much higher each additional helmet should sit (e.g., Y = 0.2)")]
         private Vector3 helmetStackOffset = new Vector3(0f, 0.5f, 0f);
@@ -53,10 +56,17 @@ namespace Player
         [SerializeField] private Collider2D helmetArea;
 
         [Header("Vending machine interaction settings")] 
-        [SerializeField] private Collider2D paiVendingCollider;
+        [SerializeField] private float animationDuration;
         [SerializeField] private Collider2D drinkVendingCollider;
-        //[SerializeField] private Prefab paiObject;
         [SerializeField] private GameObject drinkObject;
+        [SerializeField] private Transform drinkStartPosition;
+        [SerializeField] private Transform drinkEndPosition;
+        [SerializeField] private GameObject drinkParent;
+        [SerializeField] private Collider2D pieVendingCollider;
+        [SerializeField] private GameObject pieObject;
+        [SerializeField] private Transform pieStartPosition;
+        [SerializeField] private Transform pieEndPosition;
+        [SerializeField] private GameObject pieParent;
 
         [Header("Last frame interaction settings")] 
         [SerializeField] private Collider2D lastFrameTrigger;
@@ -64,6 +74,8 @@ namespace Player
         [SerializeField] private GameObject textBubble2;
 
         private bool _atHelmetArea;
+        private bool _atPieArea;
+        private bool _atDrinkArea;
 
         private SpriteRenderer _spriteRenderer;
         private float _elevatorOffsetY;
@@ -71,8 +83,8 @@ namespace Player
         private bool _hasActivatedLastFrameSequence = false;
         private Vector3 _elevatorStartPosition;
         private int _sortingOrderAtStart;
-        private List<GameObject> _equippedHelmets;
-
+        private List<GameObject> _equippedHelmets = new List<GameObject>();
+        
         protected override void Start()
         {
             base.Start();
@@ -84,7 +96,54 @@ namespace Player
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
             if (!context.performed) return;
-            if (!_atHelmetArea) return;
+            if (_atHelmetArea) HelmetInteraction();
+            if (_atDrinkArea) DrinkInteraction();
+            if (_atPieArea) PieInteraction();
+        }
+
+        private void PieInteraction()
+        {
+            GameObject newPie = Instantiate(pieObject, pieStartPosition.position, Quaternion.identity, pieParent.transform);
+            newPie.SetActive(true);
+            SpriteRenderer pieSprite = newPie.GetComponent<SpriteRenderer>();
+            if (pieSprite != null)
+            {
+                pieSprite.enabled = false;
+            }
+            newPie.transform.DOMove(pieEndPosition.position, animationDuration)
+                .SetEase(Ease.OutBounce)
+                .OnComplete(() => 
+                {
+                    if (pieSprite != null)
+                    {
+                        pieSprite.enabled = true;
+                    }
+                });
+        }
+
+        private void DrinkInteraction()
+        {
+            GameObject newDrink = Instantiate(drinkObject, drinkStartPosition.position, Quaternion.identity, drinkParent.transform);
+            newDrink.SetActive(true);
+            SpriteRenderer drinkSprite = newDrink.GetComponent<SpriteRenderer>();
+            if (drinkSprite != null)
+            {
+                drinkSprite.enabled = false;
+            }
+
+            newDrink.transform.DOMove(drinkEndPosition.position, animationDuration)
+                .SetEase(Ease.OutBounce)
+                .OnComplete(() =>
+                {
+                    if (drinkSprite != null)
+                    {
+                        drinkSprite.enabled = true;
+                    }
+                });
+        }
+
+        private void HelmetInteraction()
+        {
             if (availableHelmets.Count == 0) return;
             int topHelmetIndex = availableHelmets.Count - 1;
             GameObject helmetObject = availableHelmets[topHelmetIndex];
@@ -114,6 +173,16 @@ namespace Player
             {
                 _atHelmetArea = true;
             }
+
+            if (other == pieVendingCollider)
+            {
+                _atPieArea = true;
+            }
+
+            if (other == drinkVendingCollider)
+            {
+                _atDrinkArea = true;
+            }
             if (other == elevatorTrigger)
             {
                 var newPosition = new Vector3(elevatorPlacement.position.x, elevatorPlacement.position.y, transform.position.z);
@@ -128,6 +197,7 @@ namespace Player
                     var spriteRenderer = helmet.GetComponent<SpriteRenderer>();
                     if (spriteRenderer != null) spriteRenderer.sprite = frame6HelmetSprite;
                     helmet.transform.localScale = frame6HelmetSize;
+                    helmet.transform.localPosition = new Vector3(helmet.transform.localPosition.x + offSetX, helmet.transform.localPosition.y + offSetY, helmet.transform.localPosition.z);
                 }
             }
             else if (other == frame6To5Trigger)
@@ -139,6 +209,7 @@ namespace Player
                     var spriteRenderer = helmet.GetComponent<SpriteRenderer>();
                     if (spriteRenderer != null) spriteRenderer.sprite = frame1HelmetSprite;
                     helmet.transform.localScale = frame1HelmetSize;
+                    helmet.transform.localPosition = new Vector3(helmet.transform.localPosition.x - offSetX, helmet.transform.localPosition.y - offSetY, helmet.transform.localPosition.z);
                 }
             }
             
@@ -163,19 +234,12 @@ namespace Player
                 
                 if (MoveInput.y != 0f)
                 {
-                    // if (MoveInput.y < 0 && !isAwayFromBottom) return;
-                    // if (MoveInput.y > 0 && !isAwayFromTop) return;
                     float desiredY = transform.position.y + _elevatorOffsetY;
                     float minY = _elevatorStartPosition.y;
                     float maxY = elevatorTargetPlacement.position.y;
                     float clampedY = Mathf.Clamp(desiredY, minY, maxY);
-                    // if (Mathf.Abs(desiredY - clampedY) > 0.001f)
-                    // {
-                    //     _elevatorOffsetY = clampedY - transform.position.y;
-                    // }
                     elevatorTarget.position = new Vector3(
                         elevatorTarget.position.x, 
-                        //transform.position.y + _elevatorOffsetY, 
                         clampedY,
                         elevatorTarget.position.z
                     );
@@ -196,6 +260,16 @@ namespace Player
             if (other == helmetArea)
             {
                 _atHelmetArea = false;
+            }
+
+            if (other == pieVendingCollider)
+            {
+                _atPieArea = false;
+            }
+
+            if (other == drinkVendingCollider)
+            {
+                _atDrinkArea = false;
             }
         }
 
