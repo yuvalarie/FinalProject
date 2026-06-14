@@ -15,9 +15,13 @@ namespace Player
         [Tooltip("The scale factor for the player's size in frame 1-6.")]
         [SerializeField] private float frame1To6Scale = 1f;
         [SerializeField] private Sprite frame1Sprite;
+        [SerializeField] private Vector3 frame1HelmetSize;
+        [SerializeField] private Sprite frame1HelmetSprite;
         [Tooltip("The scale factor for the player's size in frame 6.")] 
         [SerializeField] private float frame6Scale = 1.5f;
         [SerializeField] private Sprite frame6Sprite;
+        [SerializeField] private Vector3 frame6HelmetSize;
+        [SerializeField] private Sprite frame6HelmetSprite;
         
         [Header("Elevator Settings")]
         [SerializeField] private Collider2D elevatorTrigger;
@@ -48,6 +52,12 @@ namespace Player
         [SerializeField] private SpriteRenderer rightDoorSpriteRenderer;
         [SerializeField] private Collider2D helmetArea;
 
+        [Header("Vending machine interaction settings")] 
+        [SerializeField] private Collider2D paiVendingCollider;
+        [SerializeField] private Collider2D drinkVendingCollider;
+        [SerializeField] private Prefab paiObject;
+        [SerializeField] private GameObject drinkObject;
+
         [Header("Last frame interaction settings")] 
         [SerializeField] private Collider2D lastFrameTrigger;
         [SerializeField] private GameObject textBubble1;
@@ -61,6 +71,7 @@ namespace Player
         private bool _hasActivatedLastFrameSequence = false;
         private Vector3 _elevatorStartPosition;
         private int _sortingOrderAtStart;
+        private List<GameObject> _equippedHelmets;
 
         protected override void Start()
         {
@@ -85,6 +96,7 @@ namespace Player
                 spriteRenderer.sortingOrder = _sortingOrderAtStart + 1 + _equippedHelmetCount;;
             }
             _equippedHelmetCount++;
+            _equippedHelmets.Add(helmetObject);
             if (_equippedHelmetCount == 1)
             {
                 leftDoorAnimator.SetTrigger(Open);
@@ -111,11 +123,23 @@ namespace Player
             {
                 transform.localScale = new Vector3(frame6Scale, frame6Scale, 1f);
                 _spriteRenderer.sprite = frame6Sprite;
+                foreach (var helmet in _equippedHelmets)
+                {
+                    var spriteRenderer = helmet.GetComponent<SpriteRenderer>();
+                    if (spriteRenderer != null) spriteRenderer.sprite = frame6HelmetSprite;
+                    helmet.transform.localScale = frame6HelmetSize;
+                }
             }
             else if (other == frame6To5Trigger)
             {
                 transform.localScale = new Vector3(frame1To6Scale, frame1To6Scale, 1f);
                 _spriteRenderer.sprite = frame1Sprite;
+                foreach (var helmet in _equippedHelmets)
+                {
+                    var spriteRenderer = helmet.GetComponent<SpriteRenderer>();
+                    if (spriteRenderer != null) spriteRenderer.sprite = frame1HelmetSprite;
+                    helmet.transform.localScale = frame1HelmetSize;
+                }
             }
             
             if (other == lastFrameTrigger && !_hasActivatedLastFrameSequence)
