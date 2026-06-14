@@ -2533,7 +2533,8 @@ MonoBehaviour:
   sprite5: {fileID: 1554227799}
   sprite6: {fileID: 117392868}
   hellDoor: {fileID: 2035115535}
-  letterAnimator: {fileID: 1856725120}
+  letterAnimator1: {fileID: 1856725120}
+  letterAnimator2: {fileID: 1552387258}
   letterObject: {fileID: 1552387255}
   smallLetterObject: {fileID: 1856725117}
 --- !u!1 &1542509161
@@ -2636,6 +2637,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1552387257}
   - component: {fileID: 1552387256}
+  - component: {fileID: 1552387258}
   m_Layer: 0
   m_Name: letter
   m_TagString: Untagged
@@ -2690,7 +2692,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 4360f85d0294043e2a66cac8342d9c6a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28781536277eb4fcd85d1c8a89fd9ec3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2716,6 +2718,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1552387258
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552387255}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 960515c2a6b39554f8100f68148f006b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1554227799
 GameObject:
   m_ObjectHideFlags: 0
