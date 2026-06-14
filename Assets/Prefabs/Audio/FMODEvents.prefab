@@ -45,6 +45,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Managers.FMODEvents
   sceneAudioReferences:
+  - sceneName: General
+    musicEvents: []
+    sfxEvents:
+    - name: Hell Portal
+      eventReference:
+        Guid:
+          Data1: -1893679437
+          Data2: 1324616524
+          Data3: -760152186
+          Data4: -455709455
+        Path: event:/Page3/HellPortal
+    ambianceEvents: []
   - sceneName: Page 1
     musicEvents: []
     sfxEvents:
