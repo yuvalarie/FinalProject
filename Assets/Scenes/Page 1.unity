@@ -4681,7 +4681,7 @@ MonoBehaviour:
       Data2: 1145181333
       Data3: 447413635
       Data4: -1162816259
-    Path: event:/AmbWind
+    Path: event:/Page1/AmbWind
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 0
