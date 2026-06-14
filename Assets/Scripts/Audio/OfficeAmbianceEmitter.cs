@@ -6,7 +6,7 @@ namespace Audio
     {
         private void Start()
         {
-            Emitter = AudioManager.Instance.InitializeEventEmitter(FMODEvents.Instance.page1OfficeAmbiance, gameObject);
+            Emitter = AudioManager.Instance.InitializeEventEmitter(FMODEvents.Instance.GetEventReferenceByName(AudioEventNames.OfficeAmbiance), gameObject);
             Emitter.Play();
         }
     }

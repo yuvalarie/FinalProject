@@ -4,7 +4,7 @@ namespace Audio
     {
             private void Start()
             {
-                Emitter = AudioManager.Instance.InitializeEventEmitter(FMODEvents.Instance.windAmbiance, gameObject);
+                Emitter = AudioManager.Instance.InitializeEventEmitter(FMODEvents.Instance.GetEventReferenceByName(AudioEventNames.WindAmbiance), gameObject);
                 Emitter.Play();
             }
     }

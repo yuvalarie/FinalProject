@@ -26,7 +26,8 @@ namespace Managers
                 {
                     var singletonObject = new GameObject(typeof(T).Name);
                     _instance = singletonObject.AddComponent<T>();
-                    DontDestroyOnLoad(singletonObject); // Don't destroy the object when loading a new scene
+                    // all it did was if we created a new instance, then it won't destroy on load. if you want a singleton that goes between scenes, use PersistentMonoSingleton instead 
+                    // DontDestroyOnLoad(singletonObject); // Don't destroy the object when loading a new scene
                 }
 
                 return _instance;
