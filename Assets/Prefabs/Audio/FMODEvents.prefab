@@ -56,6 +56,14 @@ MonoBehaviour:
           Data3: -760152186
           Data4: -455709455
         Path: event:/Page3/HellPortal
+    - name: Open Letter
+      eventReference:
+        Guid:
+          Data1: -917425744
+          Data2: 1084233488
+          Data3: 736725387
+          Data4: -1039036232
+        Path: event:/General/LetterOpen
     ambianceEvents: []
   - sceneName: Page 1
     musicEvents: []
@@ -84,7 +92,7 @@ MonoBehaviour:
           Data2: 1145181333
           Data3: 447413635
           Data4: -1162816259
-        Path: event:/AmbWind
+        Path: event:/Page1/AmbWind
     - name: Page 1 Office Ambiance
       eventReference:
         Guid:
@@ -92,7 +100,7 @@ MonoBehaviour:
           Data2: 1145181333
           Data3: 447413635
           Data4: -1162816259
-        Path: event:/AmbWind
+        Path: event:/Page1/AmbWind
   - sceneName: Page 2
     musicEvents: []
     sfxEvents:

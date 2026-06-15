@@ -57,7 +57,7 @@ namespace Audio
         {
             if (_eventReferences.ContainsKey(eventReferenceWithName.name))
             {
-                Debug.LogWarning($"Duplicate event reference name '{eventReferenceWithName.name}' found. Overwriting previous entry.");
+                // Debug.LogWarning($"Duplicate event reference name '{eventReferenceWithName.name}' found. Overwriting previous entry.");
             }
             _eventReferences[eventReferenceWithName.name] = eventReferenceWithName.eventReference;
         }

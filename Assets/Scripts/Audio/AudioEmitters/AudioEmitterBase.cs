@@ -65,7 +65,7 @@ namespace Audio.AudioEmitters
             }
         }
         
-        private void  InitializeAudioInstance()
+        public virtual void  InitializeAudioInstance()
         {
             var eventReference = FMODEvents.Instance.GetEventReferenceByName(AudioEventName);
             AudioInstance = AudioManager.Instance.CreateInstance(eventReference);
