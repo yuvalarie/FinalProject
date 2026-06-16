@@ -11024,7 +11024,7 @@ Animator:
   m_GameObject: {fileID: 1774060938}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 89038525538c922419a920b4e60e8099, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -11048,8 +11048,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a756c0cf0af241d49dd5848d05bc6595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerPage4
+  artSettings: {fileID: 11400000, guid: a765e5079059a074d97955dd08cc2b58, type: 2}
   speed: 2
   nextSceneName: MiniGame1-WithArt
+  initialSize: 0
   frame1ExitCollider: {fileID: 425316647}
   sleepingHelda1: {fileID: 492237848}
   sleepingHelda2: {fileID: 328118181}
@@ -11086,13 +11088,13 @@ MonoBehaviour:
   frame7ExitLeftCollider: {fileID: 751404110}
   frame8EnterCollider: {fileID: 297835966}
   saltAnimator: {fileID: 1846566650}
-  frame8Size: {x: 0.2448354, y: 0.2448354, z: 0.2448354}
+  frame8Size: 0
   textBubble3: {fileID: 1036130386}
   textBubble4: {fileID: 1898369055}
   textBubble5: {fileID: 1338666363}
   frame9EnterCollider: {fileID: 5523343}
   frame9ExitCollider: {fileID: 393214954}
-  frame9Size: {x: 0.1185248, y: 0.1185248, z: 0.1185248}
+  frame9Size: 0
 --- !u!50 &1774060944
 Rigidbody2D:
   serializedVersion: 5

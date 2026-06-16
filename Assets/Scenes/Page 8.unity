@@ -3774,8 +3774,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e3d6b3fdcec4dee8ef0cd2bab0c4a1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerPage8
+  artSettings: {fileID: 11400000, guid: 12799628ee406544a8ce728334835542, type: 2}
   speed: 3
   nextSceneName: 
+  initialSize: 0
   frame2: {fileID: 1719804109}
   frame3: {fileID: 799537165}
   frame4: {fileID: 1247189182}
@@ -3784,11 +3786,9 @@ MonoBehaviour:
   textBubble2: {fileID: 717007727}
   letter: {fileID: 62777272}
   frame5Collider: {fileID: 1813522729}
-  frame5Sprite: {fileID: 21300000, guid: 38a917d15a04b4417b4604d0f69e2937, type: 3}
-  frame5Size: {x: 0.2400895, y: 0.2400895, z: 0.2400895}
+  frame5Size: 1
   frame1Collider: {fileID: 599987669}
-  frame1Sprite: {fileID: 21300000, guid: ea614a61c68c24afabe49217b7ba6989, type: 3}
-  frame1Size: {x: 0.2400895, y: 0.2400895, z: 0.2400895}
+  frame1Size: 0
 --- !u!61 &1767873369
 BoxCollider2D:
   m_ObjectHideFlags: 0

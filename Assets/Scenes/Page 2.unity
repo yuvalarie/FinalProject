@@ -7573,14 +7573,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe84bd08b82d42aabec935d6561cf62b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerPage2
+  artSettings: {fileID: 0}
   speed: 2
   nextSceneName: 
-  frame1To6Scale: 1
-  frame1Sprite: {fileID: 0}
+  initialSize: 4
+  frame1Size: 0
   frame1HelmetSize: {x: 0, y: 0, z: 0}
   frame1HelmetSprite: {fileID: 0}
-  frame6Scale: 1.5
-  frame6Sprite: {fileID: 0}
+  frame6Size: 0
   frame6HelmetSize: {x: 0, y: 0, z: 0}
   frame6HelmetSprite: {fileID: 0}
   elevatorTrigger: {fileID: 2073216655}
@@ -8924,14 +8924,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe84bd08b82d42aabec935d6561cf62b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerPage2
+  artSettings: {fileID: 11400000, guid: ffb788780e69d864186fb647b331dfda, type: 2}
   speed: 2
   nextSceneName: Page 3
-  frame1To6Scale: 0.3016661
-  frame1Sprite: {fileID: 21300000, guid: 05700983a8b9d41279eb9680e569b83b, type: 3}
+  initialSize: 0
+  frame1Size: 0
   frame1HelmetSize: {x: 0.2399655, y: 0.2399655, z: 0.2399655}
   frame1HelmetSprite: {fileID: 21300000, guid: 18155a6eabc9647baae8d6d900b2441e, type: 3}
-  frame6Scale: 0.2399655
-  frame6Sprite: {fileID: 21300000, guid: 812e69919f851404fb49a15dd7ea1a41, type: 3}
+  frame6Size: 1
   frame6HelmetSize: {x: 0.9129, y: 0.9129, z: 0.9129}
   frame6HelmetSprite: {fileID: 21300000, guid: e6f892465e1ea4d71b24a622048a35f7, type: 3}
   elevatorTrigger: {fileID: 2073216655}

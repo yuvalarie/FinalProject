@@ -6907,8 +6907,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a704c7861a4021a9b5181354a21625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerPage5
+  artSettings: {fileID: 11400000, guid: a4a8f18babddc504b91ccfd533e2255f, type: 2}
   speed: 3
   nextSceneName: MiniGame2
+  initialSize: 1
   heldaFrame1Sprite: {fileID: 21300000, guid: 4af10856e14fd4fc0a508f78279f15a2, type: 3}
   heldaFrame1Scale: {x: 0.2399182, y: 0.2399182, z: 0.2399182}
   heldaFrame2Sprite: {fileID: 21300000, guid: ff1fd15c653a34212852e8c0b4661f47, type: 3}
@@ -6927,14 +6929,10 @@ MonoBehaviour:
   openLetterObject: {fileID: 1265505097}
   magnifierObject: {fileID: 1068269352}
   frame2Collider: {fileID: 964742402}
-  frame1Sprite: {fileID: 21300000, guid: 84b212b51c2eb4d7abe96d9e0141fd92, type: 3}
-  frame2Sprite: {fileID: 21300000, guid: 10b5e5535ebea4ccabdd02b69ac66c7d, type: 3}
-  frame4Sprite: {fileID: 21300000, guid: 10b5e5535ebea4ccabdd02b69ac66c7d, type: 3}
-  frame6Sprite: {fileID: 21300000, guid: 05700983a8b9d41279eb9680e569b83b, type: 3}
-  frame1Scale: {x: 0.2399182, y: 0.2399182, z: 0.2399182}
-  frame2Scale: {x: 0.2399182, y: 0.2399182, z: 0.2399182}
-  frame4Scale: {x: 0.2399182, y: 0.2399182, z: 0.2399182}
-  frame6Scale: {x: 0.2399182, y: 0.2399182, z: 0.2399182}
+  frame1Size: 1
+  frame2Size: 3
+  frame4Size: 3
+  frame6Size: 0
   frame1toframe2Trigger: {fileID: 1445415240}
   frame2toframe1Trigger: {fileID: 1760313206}
   frame2toframe4Trigger: {fileID: 1806899932}

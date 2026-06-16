@@ -12,16 +12,18 @@ namespace Player
     public class PlayerControllerPage2 : PlayerControllerBase
     {
         private static readonly int Open = Animator.StringToHash("Open");
-        
+
         [Header("Size Settings")]
         [Tooltip("The scale factor for the player's size in frame 1-6.")]
-        [SerializeField] private float frame1To6Scale = 1f;
-        [SerializeField] private Sprite frame1Sprite;
+        // [SerializeField] private float frame1To6Scale = 1f;
+        // [SerializeField] private Sprite frame1Sprite;
+        [SerializeField] private SizeSettings frame1Size;
         [SerializeField] private Vector3 frame1HelmetSize;
         [SerializeField] private Sprite frame1HelmetSprite;
         [Tooltip("The scale factor for the player's size in frame 6.")] 
-        [SerializeField] private float frame6Scale = 1.5f;
-        [SerializeField] private Sprite frame6Sprite;
+        // [SerializeField] private float frame6Scale = 1.5f;
+        // [SerializeField] private Sprite frame6Sprite;
+        [SerializeField] private SizeSettings frame6Size;
         [SerializeField] private Vector3 frame6HelmetSize;
         [SerializeField] private Sprite frame6HelmetSprite;
         
@@ -175,8 +177,10 @@ namespace Player
             }
             if (other == frame5To6Trigger)
             {
-                transform.localScale = new Vector3(frame6Scale, frame6Scale, 1f);
-                _spriteRenderer.sprite = frame6Sprite;
+                // transform.localScale = new Vector3(frame6Scale, frame6Scale, 1f);
+                // _spriteRenderer.sprite = frame6Sprite;
+                currentSize = frame6Size;
+                SetSize();
                 foreach (var helmet in _equippedHelmets)
                 {
                     var spriteRenderer = helmet.GetComponent<SpriteRenderer>();
@@ -187,8 +191,10 @@ namespace Player
             }
             else if (other == frame6To5Trigger)
             {
-                transform.localScale = new Vector3(frame1To6Scale, frame1To6Scale, 1f);
-                _spriteRenderer.sprite = frame1Sprite;
+                // transform.localScale = new Vector3(frame1To6Scale, frame1To6Scale, 1f);
+                // _spriteRenderer.sprite = frame1Sprite;
+                currentSize = frame1Size;
+                SetSize();
                 foreach (var helmet in _equippedHelmets)
                 {
                     var spriteRenderer = helmet.GetComponent<SpriteRenderer>();

@@ -62,7 +62,8 @@ namespace Player
         [Header("Frame8")]
         [SerializeField] private Collider2D frame8EnterCollider;
         [SerializeField] private Animator saltAnimator;
-        [SerializeField] private Vector3 frame8Size;
+        //[SerializeField] private Vector3 frame8Size;
+        [SerializeField] private SizeSettings frame8Size;
         [SerializeField] private GameObject textBubble3;
         [SerializeField] private GameObject textBubble4;
         [SerializeField] private GameObject textBubble5;
@@ -70,7 +71,8 @@ namespace Player
         [Header("Frame9")]
         [SerializeField] private Collider2D frame9EnterCollider;
         [SerializeField] private Collider2D frame9ExitCollider;
-        [SerializeField] private Vector3 frame9Size;
+        //[SerializeField] private Vector3 frame9Size;
+        [SerializeField] private SizeSettings frame9Size;
         
         private SpriteRenderer _spriteRenderer;
         private Animator _animator;
@@ -176,7 +178,9 @@ namespace Player
             }
             else if (other == frame9ExitCollider)
             {
-                transform.localScale = frame8Size;
+                //transform.localScale = frame8Size;
+                currentSize = frame8Size;
+                SetSize();
             }
         }
         
@@ -236,7 +240,9 @@ namespace Player
         
         private void Frame9Sequence()
         {
-            transform.localScale = frame9Size;
+            //transform.localScale = frame9Size;
+            currentSize = frame9Size;
+            SetSize();
         }
 
         public void SetActiveTextBubble2()

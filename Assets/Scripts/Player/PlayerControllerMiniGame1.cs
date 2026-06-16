@@ -154,7 +154,7 @@ namespace Player
         private void UpdateTableStatus()
         {
             float percentage = ((float)_numOfPlacedObjects / totalObjectsToPlace) * 100f;
-            Debug.Log($"placed {_numOfPlacedObjects} objects");
+            //Debug.Log($"placed {_numOfPlacedObjects} objects");
 
             switch (percentage)
             {

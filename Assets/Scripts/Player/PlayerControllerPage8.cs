@@ -18,11 +18,13 @@ namespace Player
         [SerializeField] private GameObject textBubble2;
         [SerializeField] private GameObject letter;
         [SerializeField] private Collider2D frame5Collider;
-        [SerializeField] private Sprite frame5Sprite;
-        [SerializeField] private Vector3 frame5Size;
+        // [SerializeField] private Sprite frame5Sprite;
+        // [SerializeField] private Vector3 frame5Size;
+        [SerializeField] private SizeSettings frame5Size;
         [SerializeField] private Collider2D frame1Collider;
-        [SerializeField] private Sprite frame1Sprite;
-        [SerializeField] private Vector3 frame1Size;
+        // [SerializeField] private Sprite frame1Sprite;
+        // [SerializeField] private Vector3 frame1Size;
+        [SerializeField] private SizeSettings frame1Size;
 
         private bool canMove = false;
         private bool textBubble1Shown = false;
@@ -92,13 +94,17 @@ namespace Player
             }
             if (other == frame5Collider)
             {
-                _spriteRenderer.sprite = frame5Sprite;
-                transform.localScale = frame5Size;
+                // _spriteRenderer.sprite = frame5Sprite;
+                // transform.localScale = frame5Size;
+                currentSize = frame5Size;
+                SetSize();
             }
             if (other == frame1Collider)
             {
-                _spriteRenderer.sprite = frame1Sprite;
-                transform.localScale = frame1Size;
+                // _spriteRenderer.sprite = frame1Sprite;
+                // transform.localScale = frame1Size;
+                currentSize = frame1Size;
+                SetSize();
             }
         }
     }
