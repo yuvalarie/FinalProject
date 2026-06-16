@@ -33,16 +33,20 @@ namespace Player
         [Header("Interaction Settings")]
         [SerializeField] private MagnifierFollowObject magnifierObject;
         [SerializeField] private Collider2D frame2Collider;
-        
+
         [Header("Sprite Settings")]
-        [SerializeField] private Sprite frame1Sprite;
-        [SerializeField] private Sprite frame2Sprite;
-        [SerializeField] private Sprite frame4Sprite;
-        [SerializeField] private Sprite frame6Sprite;
-        [SerializeField] private Vector3 frame1Scale;
-        [SerializeField] private Vector3 frame2Scale;
-        [SerializeField] private Vector3 frame4Scale;
-        [SerializeField] private Vector3 frame6Scale;
+        // [SerializeField] private Sprite frame1Sprite;
+        // [SerializeField] private Sprite frame2Sprite;
+        // [SerializeField] private Sprite frame4Sprite;
+        // [SerializeField] private Sprite frame6Sprite;
+        // [SerializeField] private Vector3 frame1Scale;
+        // [SerializeField] private Vector3 frame2Scale;
+        // [SerializeField] private Vector3 frame4Scale;
+        // [SerializeField] private Vector3 frame6Scale;
+        [SerializeField] private SizeSettings frame1Size;
+        [SerializeField] private SizeSettings frame2Size;
+        [SerializeField] private SizeSettings frame4Size;
+        [SerializeField] private SizeSettings frame6Size;
         
         [Header("Trigger Settings")]
         [SerializeField] private Collider2D frame1toframe2Trigger;
@@ -260,34 +264,45 @@ namespace Player
 
             if (other == frame1toframe2Trigger)
             {
-                _spriteRenderer.sprite = frame2Sprite;
-                transform.localScale = frame2Scale;
-
+                // _spriteRenderer.sprite = frame2Sprite;
+                // transform.localScale = frame2Scale;
+                currentSize = frame2Size;
+                SetSize();
             }
             if (other == frame2toframe1Trigger)
             {
-                _spriteRenderer.sprite = frame1Sprite;
-                transform.localScale = frame1Scale;
+                // _spriteRenderer.sprite = frame1Sprite;
+                // transform.localScale = frame1Scale;
+                currentSize = frame1Size;
+                SetSize();
             }
             if (other == frame2toframe4Trigger)
             {
-                _spriteRenderer.sprite = frame4Sprite;
-                transform.localScale = frame4Scale;
+                // _spriteRenderer.sprite = frame4Sprite;
+                // transform.localScale = frame4Scale;
+                currentSize = frame4Size;
+                SetSize();
             }
             if (other == frame4toframe2Trigger)
             {
-                _spriteRenderer.sprite = frame2Sprite;
-                transform.localScale = frame2Scale;
+                // _spriteRenderer.sprite = frame2Sprite;
+                // transform.localScale = frame2Scale;
+                currentSize = frame2Size;
+                SetSize();
             }
             if (other == frame4toframe6Trigger)
             {
-                _spriteRenderer.sprite = frame6Sprite;
-                transform.localScale = frame6Scale;
+                // _spriteRenderer.sprite = frame6Sprite;
+                // transform.localScale = frame6Scale;
+                currentSize = frame6Size;
+                SetSize();
             }
             if (other == frame6toframe4Trigger)
             {
-                _spriteRenderer.sprite = frame4Sprite;
-                transform.localScale = frame4Scale;
+                // _spriteRenderer.sprite = frame4Sprite;
+                // transform.localScale = frame4Scale;
+                currentSize = frame4Size;
+                SetSize();
             }
             
             if (other == letterTrigger)
@@ -300,7 +315,6 @@ namespace Player
                 {
                     rb.linearVelocity = Vector2.zero;
                 }
-                // Show the letter only if animation 5 is complete
                 if (_isAnimation5Complete && !letterShown)
                 {
                     closedLetterObject.SetActive(true);
@@ -309,7 +323,6 @@ namespace Player
             }
         }
 
-        // Add OnTriggerExit2D so we know when the player walks away!
         private void OnTriggerExit2D(Collider2D other)
         {
             if (other == letterTrigger)

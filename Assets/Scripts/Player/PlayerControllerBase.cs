@@ -7,14 +7,21 @@ namespace Player
 {
     public abstract class PlayerControllerBase : MonoBehaviour
     {
+        [SerializeField, Tooltip("Drag the PlayerArtSettings ScriptableObject here.")] protected PlayerArtController artSettings;
+        
         [SerializeField, Tooltip("Movement speed of the player.")] protected float speed = 5f;
         
         [SerializeField, Tooltip("next scene name")] protected string nextSceneName;
-        
-        protected Vector2 MoveInput;
 
+        [SerializeField, Tooltip("initial size")] protected SizeSettings initialSize = SizeSettings.None;
+        
         private InputSystem_Actions _inputActions;
         protected Rigidbody2D Rb;
+        protected Vector2 MoveInput;
+
+        protected Animator Animator;
+        protected SpriteRenderer SpriteRenderer;
+        protected SizeSettings currentSize;
         
         protected virtual void Awake()
         {
@@ -22,11 +29,15 @@ namespace Player
             _inputActions.Game.Enable();
             
             Rb = GetComponent<Rigidbody2D>();
+            Animator = GetComponent<Animator>();
+            SpriteRenderer = GetComponent<SpriteRenderer>();
         }
         
         protected virtual void Start()
         {
             SceneLoader.Instance?.PreloadScene(nextSceneName);
+            currentSize = initialSize;
+            SetSize();
         }
 
         protected virtual void OnEnable()
@@ -73,6 +84,55 @@ namespace Player
             {
                 SceneLoader.Instance?.ActivatePreloadedScene();
             }
+        }
+
+        protected void SetSize()
+        {
+            switch (currentSize)
+            {
+                case SizeSettings.Small:
+                    SetSmall();
+                    break;
+                case SizeSettings.Medium:
+                    SetMedium();
+                    break;
+                case SizeSettings.Large:
+                    SetLarge();
+                    break;
+                case SizeSettings.ExtraLarge:
+                    SetExtraLarge();
+                    break;
+                case SizeSettings.None:
+                    return;
+            }
+        }
+
+        protected void SetSmall()
+        {
+            if (Animator != null) Animator.runtimeAnimatorController = artSettings.smallAnimatorController;
+            SpriteRenderer.sprite = artSettings.smallSprite;
+            transform.localScale = new Vector3(artSettings.smallSize, artSettings.smallSize);
+        }
+        
+        protected void SetMedium()
+        {
+            if (Animator != null) Animator.runtimeAnimatorController = artSettings.mediumLargeAnimatorController;
+            SpriteRenderer.sprite = artSettings.mediumLargeSprite;
+            transform.localScale = new Vector3(artSettings.mediumSize, artSettings.mediumSize);
+        }
+        
+        protected void SetLarge()
+        {
+            if (Animator != null) Animator.runtimeAnimatorController = artSettings.mediumLargeAnimatorController;
+            SpriteRenderer.sprite = artSettings.mediumLargeSprite;
+            transform.localScale = new Vector3(artSettings.largeSize, artSettings.largeSize);
+        }
+        
+        protected void SetExtraLarge()
+        {
+            if (Animator != null) Animator.runtimeAnimatorController = artSettings.extraLargeAnimatorController;
+            SpriteRenderer.sprite = artSettings.extraLargeSprite;
+            transform.localScale = new Vector3(artSettings.extraLargeSize, artSettings.extraLargeSize);
         }
     }
 }
