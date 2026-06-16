@@ -3313,7 +3313,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.21323335, y: 0.14381742}
+  m_Offset: {x: -0.19637048, y: 0.14381742}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3323,7 +3323,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.0049851, y: 3.0613785}
+  m_Size: {x: 1.0387108, y: 3.0613785}
   m_EdgeRadius: 0
 --- !u!4 &510427731
 Transform:
@@ -5670,7 +5670,7 @@ Transform:
   m_GameObject: {fileID: 944482603}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.24, y: -7.79, z: 0}
+  m_LocalPosition: {x: 3.7600005, y: -8.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6372,7 +6372,7 @@ Transform:
   m_GameObject: {fileID: 1102568942}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.49, y: -7.67, z: 0}
+  m_LocalPosition: {x: 4.78, y: -8.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7602,6 +7602,7 @@ MonoBehaviour:
   rightDoorCollider: {fileID: 0}
   rightDoorSpriteRenderer: {fileID: 0}
   helmetArea: {fileID: 0}
+  dropScatterRadius: 0.5
   animationDuration: 0
   drinkVendingCollider: {fileID: 0}
   drinkObject: {fileID: 0}
@@ -8957,6 +8958,7 @@ MonoBehaviour:
   rightDoorCollider: {fileID: 55584314}
   rightDoorSpriteRenderer: {fileID: 55584310}
   helmetArea: {fileID: 1834646705}
+  dropScatterRadius: 0.1
   animationDuration: 0.5
   drinkVendingCollider: {fileID: 735236633}
   drinkObject: {fileID: 1810591367}
@@ -11685,7 +11687,7 @@ Transform:
   m_GameObject: {fileID: 2026481740}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.44, y: -7.13, z: -10}
+  m_LocalPosition: {x: 3.44, y: -7.69, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11806,7 +11808,7 @@ Transform:
   m_GameObject: {fileID: 2072739578}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.6, y: -7.13, z: -10}
+  m_LocalPosition: {x: 4.6, y: -7.86, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
