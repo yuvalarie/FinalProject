@@ -70,7 +70,7 @@ namespace Player
 
         private IEnumerator SceneSequence()
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(5f);
             frame2.SetActive(true);
             yield return new WaitForSeconds(1f);
             frame3.SetActive(true);

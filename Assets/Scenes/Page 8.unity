@@ -2861,6 +2861,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1417039557}
   - component: {fileID: 1417039556}
+  - component: {fileID: 1417039558}
   m_Layer: 0
   m_Name: HeldaCube1
   m_TagString: Untagged
@@ -2935,12 +2936,34 @@ Transform:
   m_GameObject: {fileID: 1417039555}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.99, y: -11.31, z: 0}
+  m_LocalPosition: {x: -9.23, y: -11.31, z: 0}
   m_LocalScale: {x: 0.2400895, y: 0.2400895, z: 0.2400895}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1417039558
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417039555}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bed6d91904e60de42a24642574b59f75, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1489206980
 GameObject:
   m_ObjectHideFlags: 0
