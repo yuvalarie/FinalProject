@@ -64,6 +64,7 @@ namespace Objects
         private List<FriendData> _orderedFriends;
         private int _currentFriendIndex = 0;
         private bool _isDone = false;
+        private bool _hasStartedSpawning = false;
 
         private void Start()
         {
@@ -74,11 +75,15 @@ namespace Objects
             DebugBuildFriendList();
         }
 
+        #region Public API
+
+        
         // Called by MiniGame2SceneController when the hand finishes entering the scene
         public void StartSpawning()
         {
             // Guard: debug start index may have already exhausted the list
-            if (_isDone) return;
+            if (_isDone || _hasStartedSpawning) return;
+            _hasStartedSpawning = true;
             phoneIconsRenderer.enabled = true;
             ShowCurrentFriendOnPhone();
         }
@@ -87,7 +92,7 @@ namespace Objects
         // Spawns the friend into their assigned comic panel and shows the next friend on the phone
         public void SpawnFriend()
         {
-            if (_isDone) return;
+            if (_isDone || !_hasStartedSpawning) return;
             motherReactionController.ShowAcceptedReaction();
             FriendData data = _orderedFriends[_currentFriendIndex];
             AreaBounds bounds = GetBoundsForArea(data.assignedArea);
@@ -125,7 +130,7 @@ namespace Objects
         // Spawns the friend at the discard position and sends them to the hell portal
         public void DiscardFriend()
         { 
-            if(_isDone) return;
+            if(_isDone || !_hasStartedSpawning) return;
             motherReactionController.ShowRejectedReaction();
             FriendData data = _orderedFriends[_currentFriendIndex];
             AreaBounds bounds = GetBoundsForArea(data.assignedArea);
@@ -138,6 +143,8 @@ namespace Objects
             hellPortal.SuckIn(controller);
             AdvanceToNextFriend();
         }
+        
+        #endregion
 
         private void AdvanceToNextFriend()
         {
@@ -306,7 +313,7 @@ namespace Objects
             foreach (var b in areaBounds)
                 if (b.area == area) return b;
 
-            Debug.LogWarning($"No bounds found for area {area}, defaulting to first entry.");
+            // Debug.LogWarning($"No bounds found for area {area}, defaulting to first entry.");
             return areaBounds[0];
         }
 

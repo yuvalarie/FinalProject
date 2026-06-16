@@ -2759,6 +2759,7 @@ GameObject:
   - component: {fileID: 1552387257}
   - component: {fileID: 1552387256}
   - component: {fileID: 1552387258}
+  - component: {fileID: 1552387259}
   m_Layer: 0
   m_Name: letter
   m_TagString: Untagged
@@ -2861,6 +2862,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1552387259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552387255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33ad958d769eb3b46a6ad9503f4e68e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.LetterOpenAudioEmitter
 --- !u!1 &1554227799
 GameObject:
   m_ObjectHideFlags: 0
@@ -3401,6 +3414,7 @@ GameObject:
   - component: {fileID: 1856725119}
   - component: {fileID: 1856725118}
   - component: {fileID: 1856725120}
+  - component: {fileID: 1856725121}
   m_Layer: 0
   m_Name: Asset 799
   m_TagString: Untagged
@@ -3503,6 +3517,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1856725121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856725117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33ad958d769eb3b46a6ad9503f4e68e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.LetterOpenAudioEmitter
 --- !u!1 &1870986606
 GameObject:
   m_ObjectHideFlags: 0
