@@ -56,6 +56,8 @@ namespace Player
         [SerializeField] private Collider2D helmetArea;
 
         [Header("Vending machine interaction settings")] 
+        [SerializeField, Tooltip("How far from the exact center the items will scatter.")] 
+        private float dropScatterRadius = 0.5f;
         [SerializeField] private float animationDuration;
         [SerializeField] private Collider2D drinkVendingCollider;
         [SerializeField] private GameObject drinkObject;
@@ -103,43 +105,26 @@ namespace Player
 
         private void PieInteraction()
         {
-            GameObject newPie = Instantiate(pieObject, pieStartPosition.position, Quaternion.identity, pieParent.transform);
+            GameObject newPie = Instantiate(pieObject, pieStartPosition.position, Quaternion.identity,
+                pieParent.transform);
             newPie.SetActive(true);
-            SpriteRenderer pieSprite = newPie.GetComponent<SpriteRenderer>();
-            if (pieSprite != null)
-            {
-                pieSprite.enabled = false;
-            }
-            newPie.transform.DOMove(pieEndPosition.position, animationDuration)
-                .SetEase(Ease.OutBounce)
-                .OnComplete(() => 
-                {
-                    if (pieSprite != null)
-                    {
-                        pieSprite.enabled = true;
-                    }
-                });
+            Vector2 randomOffset = UnityEngine.Random.insideUnitCircle * dropScatterRadius;
+            Vector3 scatteredTargetPosition = pieEndPosition.position + new Vector3(randomOffset.x, randomOffset.y, 0f);
+
+            newPie.transform.DOMove(scatteredTargetPosition, animationDuration)
+                .SetEase(Ease.OutBounce);
         }
 
         private void DrinkInteraction()
         {
             GameObject newDrink = Instantiate(drinkObject, drinkStartPosition.position, Quaternion.identity, drinkParent.transform);
             newDrink.SetActive(true);
-            SpriteRenderer drinkSprite = newDrink.GetComponent<SpriteRenderer>();
-            if (drinkSprite != null)
-            {
-                drinkSprite.enabled = false;
-            }
+            
+            Vector2 randomOffset = UnityEngine.Random.insideUnitCircle * dropScatterRadius;
+            Vector3 scatteredTargetPosition = drinkEndPosition.position + new Vector3(randomOffset.x, randomOffset.y, 0f);
 
-            newDrink.transform.DOMove(drinkEndPosition.position, animationDuration)
-                .SetEase(Ease.OutBounce)
-                .OnComplete(() =>
-                {
-                    if (drinkSprite != null)
-                    {
-                        drinkSprite.enabled = true;
-                    }
-                });
+            newDrink.transform.DOMove(scatteredTargetPosition, animationDuration)
+                .SetEase(Ease.OutBounce);
         }
 
         private void HelmetInteraction()
