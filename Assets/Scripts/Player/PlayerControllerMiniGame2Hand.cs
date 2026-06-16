@@ -35,6 +35,7 @@ namespace Player
         }
         public void EnableSwiping() => _swipeLocked = false;
         public void DisableSwiping() => _swipeLocked = true;
+        
 
         protected override void HandleMovement()
         {
@@ -56,6 +57,8 @@ namespace Player
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
             // Not used in this mini-game
+            if (_swipeLocked) return;
+            friendSpawner.StartSpawning();
         }
 
         private IEnumerator SwipeRoutine(float targetAngle, System.Action onReached)

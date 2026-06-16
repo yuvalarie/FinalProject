@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4106785423472453416}
   - component: {fileID: 970125236793113}
   - component: {fileID: 3119800864227760829}
+  - component: {fileID: 6371047549021564853}
   m_Layer: 0
   m_Name: HellPortal
   m_TagString: Untagged
@@ -127,3 +128,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Objects.HellPortal
   animator: {fileID: 970125236793113}
+  audioEmitter: {fileID: 6371047549021564853}
+--- !u!114 &6371047549021564853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3255992728666714242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d0c93b5a470f7c4bb9c2179ed81f69f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.HellPortalAudioEmitter

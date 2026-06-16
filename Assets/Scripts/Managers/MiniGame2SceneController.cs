@@ -91,7 +91,7 @@ namespace Managers
             // handController.enabled = true;
             handController.EnableSwiping();
             friendSpawner.AllFriendsSwiped += OnSwipingComplete;
-            friendSpawner.StartSpawning();
+            // friendSpawner.StartSpawning();
         }
 
         // Placeholder for end-of-swiping sequence.
