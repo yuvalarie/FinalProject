@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Managers;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -35,9 +36,15 @@ namespace Player
         
         protected virtual void Start()
         {
-            SceneLoader.Instance?.PreloadScene(nextSceneName);
             currentSize = initialSize;
             SetSize();
+            StartCoroutine(DelayedSceneLoading());
+        }
+
+        private IEnumerator DelayedSceneLoading()
+        {
+            yield return null;
+            SceneLoader.Instance?.PreloadScene(nextSceneName);
         }
 
         protected virtual void OnEnable()
