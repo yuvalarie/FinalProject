@@ -95,6 +95,7 @@ namespace Player
 
         protected void SetSize()
         {
+            if (artSettings == null) return;
             switch (currentSize)
             {
                 case SizeSettings.Small:
