@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Prototypes/PosterCreationProto.unity
     guid: 8803b4e452e9652458beb35b44f12ca6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Prototypes/PosterDisplay.unity
     guid: 77f5647460617b44b89bdeeb5de030cd
   - enabled: 1
