@@ -10,6 +10,7 @@ TagManager:
   - Start
   - Interaction
   - Helda
+  - Answer
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Npc
   - Frame
   - Helda
-  - 
+  - Answers
   - 
   - 
   - 
