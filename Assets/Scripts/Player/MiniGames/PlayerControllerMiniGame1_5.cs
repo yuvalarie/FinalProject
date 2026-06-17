@@ -44,6 +44,8 @@ namespace Player.MiniGames
 
         [SerializeField, Tooltip("How long to wait before showing the next question.")] 
         private float waitBeforeNextStage = 2f;
+        [SerializeField] private float waitBetweenQandA;
+        [SerializeField] private float waitBetweenAnswers;
 
         private int _currentStageIndex = 0;
         private bool _isAnimating = false;
@@ -56,10 +58,10 @@ namespace Player.MiniGames
             base.Start();
             _startPosition = transform.position;
 
-            for (int i = 0; i < quizStages.Length; i++)
-            {
-                quizStages[i].stageParent.SetActive(false);
-            }
+            // for (int i = 0; i < quizStages.Length; i++)
+            // {
+            //     quizStages[i].stageParent.SetActive(false);
+            // }
             text1.SetActive(true);
             _interactionCount = 1;
         }
@@ -96,7 +98,7 @@ namespace Player.MiniGames
                     {
                         text4.SetActive(false);
                         _disableText = true;
-                        quizStages[0].stageParent.SetActive(true);
+                        StartCoroutine(SetStageActive());
                         ResetHandPosition();
                     }
                     else
@@ -170,9 +172,8 @@ namespace Player.MiniGames
 
             if (_currentStageIndex < quizStages.Length)
             {
-                quizStages[_currentStageIndex].stageParent.SetActive(true);
                 ResetHandPosition();
-                _isAnimating = false;
+                StartCoroutine(SetStageActive());
             }
             else
             {
@@ -181,6 +182,20 @@ namespace Player.MiniGames
                 ResetHandPosition();
                 _isAnimating = false;
             }
+        }
+
+        private IEnumerator SetStageActive()
+        {
+            QuizStage currentStage = quizStages[_currentStageIndex];
+            currentStage.stageParent.SetActive(true);
+            currentStage.questionObject.gameObject.SetActive(true);
+            yield return new WaitForSeconds(waitBetweenQandA);
+            foreach (var ans in currentStage.answerObjects)
+            {
+                ans.gameObject.SetActive(true);
+                yield return new WaitForSeconds(waitBetweenAnswers);
+            }
+            _isAnimating = false;
         }
 
         private void ResetHandPosition()
