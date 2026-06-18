@@ -25,8 +25,9 @@ namespace Audio
         // private List<EventInstance> _ambianceEvents = new List<EventInstance>();
 
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _masterBus = RuntimeManager.GetBus("bus:/");
             _musicBus = RuntimeManager.GetBus("bus:/Music");
             _sfxBus = RuntimeManager.GetBus("bus:/SFX");
@@ -42,13 +43,13 @@ namespace Audio
             _ambianceBus.setVolume(ambianceVolume);
         }
         
-        public void PlayOneShot(EventReference eventReference, Vector3 worldPosition, params (string name, float value)[] parameters)
+        public void PlayOneShot(EventReference eventReference, Vector3 worldPosition, params (string paramName, float value)[] parameters)
         {
             //Debug.Log($"Playing one-shot event: {eventReference.Path} at position {worldPosition}");
             var eventInstance = RuntimeManager.CreateInstance(eventReference);
-            foreach (var (name, value) in parameters)
+            foreach (var (paramName, value) in parameters)
             {
-                eventInstance.setParameterByName(name, value);
+                eventInstance.setParameterByName(paramName, value);
             }
             eventInstance.set3DAttributes(worldPosition.To3DAttributes());
             eventInstance.start();

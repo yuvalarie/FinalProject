@@ -64,6 +64,14 @@ MonoBehaviour:
           Data3: 736725387
           Data4: -1039036232
         Path: event:/General/LetterOpen
+    - name: Character Voice
+      eventReference:
+        Guid:
+          Data1: 215087615
+          Data2: 1140249366
+          Data3: 692680596
+          Data4: 231685488
+        Path: event:/General/MaleTalking
     ambianceEvents: []
   - sceneName: Page 1
     musicEvents: []
