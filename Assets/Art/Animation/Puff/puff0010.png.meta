@@ -1,0 +1,975 @@
+fileFormatVersion: 2
+guid: 95f17ce46dcf04c9282a89dde1abcb71
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4765240410949793869
+    second: puff0010_0
+  - first:
+      213: -8415895351756861209
+    second: puff0010_1
+  - first:
+      213: -5440507867814235334
+    second: puff0010_2
+  - first:
+      213: 4800634052858340067
+    second: puff0010_3
+  - first:
+      213: 8949773158042811004
+    second: puff0010_4
+  - first:
+      213: 5984678666926692921
+    second: puff0010_5
+  - first:
+      213: 1786951884187135286
+    second: puff0010_6
+  - first:
+      213: -7163911090363964604
+    second: puff0010_7
+  - first:
+      213: -2109126418226329147
+    second: puff0010_8
+  - first:
+      213: -2968317798467379294
+    second: puff0010_9
+  - first:
+      213: 5928768986344037670
+    second: puff0010_10
+  - first:
+      213: 2280354192514548805
+    second: puff0010_11
+  - first:
+      213: -4892354190760707907
+    second: puff0010_12
+  - first:
+      213: 8842742311345572353
+    second: puff0010_13
+  - first:
+      213: 6215597914718532026
+    second: puff0010_14
+  - first:
+      213: 8699452521090009374
+    second: puff0010_15
+  - first:
+      213: -7263634946567654582
+    second: puff0010_16
+  - first:
+      213: -9104148311723048566
+    second: puff0010_17
+  - first:
+      213: 4642953083605175942
+    second: puff0010_18
+  - first:
+      213: -688880129447302692
+    second: puff0010_19
+  - first:
+      213: 2307041945513496149
+    second: puff0010_20
+  - first:
+      213: 6465885503445683144
+    second: puff0010_21
+  - first:
+      213: -256422756404002486
+    second: puff0010_22
+  - first:
+      213: -6851657750465827315
+    second: puff0010_23
+  - first:
+      213: -662472478832897205
+    second: puff0010_24
+  - first:
+      213: -4512392127209055571
+    second: puff0010_25
+  - first:
+      213: -6399423655158574787
+    second: puff0010_26
+  - first:
+      213: 1617036884741047078
+    second: puff0010_27
+  - first:
+      213: 6168458226136859457
+    second: puff0010_28
+  - first:
+      213: -1960884907636605552
+    second: puff0010_29
+  - first:
+      213: -2322266104993972073
+    second: puff0010_30
+  - first:
+      213: 5166134547427234627
+    second: puff0010_31
+  - first:
+      213: 3148153040510074368
+    second: puff0010_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 108
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: puff0010_0
+      rect:
+        serializedVersion: 2
+        x: 3680
+        y: 2875
+        width: 22
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d48bffb08e8812240800000000000000
+      internalID: 4765240410949793869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_1
+      rect:
+        serializedVersion: 2
+        x: 4038
+        y: 2876
+        width: 106
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e0dba354cbb43b80800000000000000
+      internalID: -8415895351756861209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_2
+      rect:
+        serializedVersion: 2
+        x: 3647
+        y: 2781
+        width: 147
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a33f6355bee6f74b0800000000000000
+      internalID: -5440507867814235334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_3
+      rect:
+        serializedVersion: 2
+        x: 4246
+        y: 2680
+        width: 123
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e2e3497c374f9240800000000000000
+      internalID: 4800634052858340067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_4
+      rect:
+        serializedVersion: 2
+        x: 3465
+        y: 2698
+        width: 39
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7ab771f44bf33c70800000000000000
+      internalID: 8949773158042811004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_5
+      rect:
+        serializedVersion: 2
+        x: 4556
+        y: 2608
+        width: 60
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93a16051a89dd0350800000000000000
+      internalID: 5984678666926692921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_6
+      rect:
+        serializedVersion: 2
+        x: 4721
+        y: 2599
+        width: 24
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63d60bf55478cc810800000000000000
+      internalID: 1786951884187135286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_7
+      rect:
+        serializedVersion: 2
+        x: 3179
+        y: 2448
+        width: 52
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 443ef50c1dca49c90800000000000000
+      internalID: -7163911090363964604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_8
+      rect:
+        serializedVersion: 2
+        x: 3274
+        y: 2454
+        width: 75
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c94a3f72b0eab2e0800000000000000
+      internalID: -2109126418226329147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_9
+      rect:
+        serializedVersion: 2
+        x: 4767
+        y: 2407
+        width: 86
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2afd1e960ba6ec6d0800000000000000
+      internalID: -2968317798467379294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_10
+      rect:
+        serializedVersion: 2
+        x: 4853
+        y: 2452
+        width: 32
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62d936a2bf7374250800000000000000
+      internalID: 5928768986344037670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_11
+      rect:
+        serializedVersion: 2
+        x: 3134
+        y: 2265
+        width: 54
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54407e66e0275af10800000000000000
+      internalID: 2280354192514548805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_12
+      rect:
+        serializedVersion: 2
+        x: 4878
+        y: 2200
+        width: 60
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db87058c8cdda1cb0800000000000000
+      internalID: -4892354190760707907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_13
+      rect:
+        serializedVersion: 2
+        x: 3113
+        y: 1787
+        width: 85
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10ac114084bb7ba70800000000000000
+      internalID: 8842742311345572353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_14
+      rect:
+        serializedVersion: 2
+        x: 4930
+        y: 1963
+        width: 63
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab1f47d2f5d324650800000000000000
+      internalID: 6215597914718532026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_15
+      rect:
+        serializedVersion: 2
+        x: 4949
+        y: 1767
+        width: 52
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1942fbe9f9aab870800000000000000
+      internalID: 8699452521090009374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_16
+      rect:
+        serializedVersion: 2
+        x: 3219
+        y: 1653
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a43b8bf1082623b90800000000000000
+      internalID: -7263634946567654582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_17
+      rect:
+        serializedVersion: 2
+        x: 3239
+        y: 1681
+        width: 78
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a818649a85197a180800000000000000
+      internalID: -9104148311723048566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_18
+      rect:
+        serializedVersion: 2
+        x: 3310
+        y: 1516
+        width: 83
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68e4719ea351f6040800000000000000
+      internalID: 4642953083605175942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_19
+      rect:
+        serializedVersion: 2
+        x: 4802
+        y: 1539
+        width: 94
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd9e77f0c2b9076f0800000000000000
+      internalID: -688880129447302692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_20
+      rect:
+        serializedVersion: 2
+        x: 4861
+        y: 1530
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55e024c1d62440020800000000000000
+      internalID: 2307041945513496149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_21
+      rect:
+        serializedVersion: 2
+        x: 4900
+        y: 1538
+        width: 32
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cb4a3f8b907bb950800000000000000
+      internalID: 6465885503445683144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_22
+      rect:
+        serializedVersion: 2
+        x: 3427
+        y: 1379
+        width: 127
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4186349cd0017cf0800000000000000
+      internalID: -256422756404002486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_23
+      rect:
+        serializedVersion: 2
+        x: 4658
+        y: 1323
+        width: 61
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0eaeecd3950ae0a0800000000000000
+      internalID: -6851657750465827315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_24
+      rect:
+        serializedVersion: 2
+        x: 4742
+        y: 1348
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4351b95acc6ec6f0800000000000000
+      internalID: -662472478832897205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_25
+      rect:
+        serializedVersion: 2
+        x: 4713
+        y: 1314
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daa5f6a9443c061c0800000000000000
+      internalID: -4512392127209055571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_26
+      rect:
+        serializedVersion: 2
+        x: 3644
+        y: 1189
+        width: 57
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d319a0b571ea037a0800000000000000
+      internalID: -6399423655158574787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_27
+      rect:
+        serializedVersion: 2
+        x: 3799
+        y: 1085
+        width: 104
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 623c1bfaa7ed07610800000000000000
+      internalID: 1617036884741047078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_28
+      rect:
+        serializedVersion: 2
+        x: 4290
+        y: 1113
+        width: 106
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14349b42314ca9550800000000000000
+      internalID: 6168458226136859457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_29
+      rect:
+        serializedVersion: 2
+        x: 3928
+        y: 1085
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09d35e2d09989c4e0800000000000000
+      internalID: -1960884907636605552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_30
+      rect:
+        serializedVersion: 2
+        x: 4254
+        y: 1068
+        width: 46
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79087e90847a5cfd0800000000000000
+      internalID: -2322266104993972073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_31
+      rect:
+        serializedVersion: 2
+        x: 3887
+        y: 1031
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3431641effbc1b740800000000000000
+      internalID: 5166134547427234627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: puff0010_32
+      rect:
+        serializedVersion: 2
+        x: 4182
+        y: 1054
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00e3b2eb28c70bb20800000000000000
+      internalID: 3148153040510074368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      puff0010_0: 4765240410949793869
+      puff0010_1: -8415895351756861209
+      puff0010_10: 5928768986344037670
+      puff0010_11: 2280354192514548805
+      puff0010_12: -4892354190760707907
+      puff0010_13: 8842742311345572353
+      puff0010_14: 6215597914718532026
+      puff0010_15: 8699452521090009374
+      puff0010_16: -7263634946567654582
+      puff0010_17: -9104148311723048566
+      puff0010_18: 4642953083605175942
+      puff0010_19: -688880129447302692
+      puff0010_2: -5440507867814235334
+      puff0010_20: 2307041945513496149
+      puff0010_21: 6465885503445683144
+      puff0010_22: -256422756404002486
+      puff0010_23: -6851657750465827315
+      puff0010_24: -662472478832897205
+      puff0010_25: -4512392127209055571
+      puff0010_26: -6399423655158574787
+      puff0010_27: 1617036884741047078
+      puff0010_28: 6168458226136859457
+      puff0010_29: -1960884907636605552
+      puff0010_3: 4800634052858340067
+      puff0010_30: -2322266104993972073
+      puff0010_31: 5166134547427234627
+      puff0010_32: 3148153040510074368
+      puff0010_4: 8949773158042811004
+      puff0010_5: 5984678666926692921
+      puff0010_6: 1786951884187135286
+      puff0010_7: -7163911090363964604
+      puff0010_8: -2109126418226329147
+      puff0010_9: -2968317798467379294
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

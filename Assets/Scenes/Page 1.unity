@@ -5295,8 +5295,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc7da1fd90b46b6974f11bfdb58f9cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MiniPlayer.BigPlayerPage1Behaviour
+  artSettings: {fileID: 0}
   speed: 5
   nextSceneName: 
+  initialSize: 4
   page1Sprite: {fileID: 21300000, guid: 10b5e5535ebea4ccabdd02b69ac66c7d, type: 3}
   player: {fileID: 1428508827}
   phoneAnimator: {fileID: 194628952}
@@ -6228,7 +6230,7 @@ Transform:
   m_GameObject: {fileID: 1264908557}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1, y: -3.2769604, z: 0}
+  m_LocalPosition: {x: -1.12, y: -3.02, z: 0}
   m_LocalScale: {x: 0.2399655, y: 0.2399655, z: 0.2399655}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7104,8 +7106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49440fe0a0c14da0aeaa6c6374700b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerPage1
+  artSettings: {fileID: 0}
   speed: 2
   nextSceneName: Page 2
+  initialSize: 4
   transitionCooldown: 0.7
   startPosition: {x: 0, y: -11.9281, z: 0}
 --- !u!1 &1429939310

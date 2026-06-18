@@ -2579,8 +2579,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f5823222340496dbe29f839453b8a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerPage3
+  artSettings: {fileID: 0}
   speed: 3
   nextSceneName: Page 4
+  initialSize: 4
   endTriggerObject: {fileID: 1328185591}
   textBubble1: {fileID: 466720709}
   textBubble2: {fileID: 417304388}
