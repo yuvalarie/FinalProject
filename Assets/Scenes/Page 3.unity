@@ -534,6 +534,8 @@ GameObject:
   m_Component:
   - component: {fileID: 231284111}
   - component: {fileID: 231284110}
+  - component: {fileID: 231284113}
+  - component: {fileID: 231284112}
   m_Layer: 0
   m_Name: text 5
   m_TagString: Untagged
@@ -614,6 +616,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &231284112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231284109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ebb8ebcd8139634bb4236fa75751c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.SpeechBubble
+  text: You've got one last CHANCE.
+  playOnEnable: 1
+--- !u!114 &231284113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231284109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee142843f91588442a14d51cb4cf9a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.VoiceEmitter
+  characterType: 1
+  charsPerSecond: 15
 --- !u!1 &417304388
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,6 +654,8 @@ GameObject:
   m_Component:
   - component: {fileID: 417304390}
   - component: {fileID: 417304389}
+  - component: {fileID: 417304392}
+  - component: {fileID: 417304391}
   m_Layer: 0
   m_Name: text 2
   m_TagString: Untagged
@@ -704,6 +736,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &417304391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417304388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ebb8ebcd8139634bb4236fa75751c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.SpeechBubble
+  text: You'r one mistake away from a one way trip to
+  playOnEnable: 1
+--- !u!114 &417304392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417304388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee142843f91588442a14d51cb4cf9a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.VoiceEmitter
+  characterType: 1
+  charsPerSecond: 15
 --- !u!1 &466720709
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,6 +774,8 @@ GameObject:
   m_Component:
   - component: {fileID: 466720711}
   - component: {fileID: 466720710}
+  - component: {fileID: 466720714}
+  - component: {fileID: 466720713}
   m_Layer: 0
   m_Name: text 1
   m_TagString: Untagged
@@ -794,6 +856,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &466720713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466720709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ebb8ebcd8139634bb4236fa75751c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.SpeechBubble
+  text: Dave, there is no better way to say this, but
+  playOnEnable: 1
+--- !u!114 &466720714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466720709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee142843f91588442a14d51cb4cf9a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.VoiceEmitter
+  characterType: 1
+  charsPerSecond: 15
 --- !u!1 &607246524
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,6 +894,8 @@ GameObject:
   m_Component:
   - component: {fileID: 607246526}
   - component: {fileID: 607246525}
+  - component: {fileID: 607246528}
+  - component: {fileID: 607246527}
   m_Layer: 0
   m_Name: text 3
   m_TagString: Untagged
@@ -884,6 +976,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &607246527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607246524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ebb8ebcd8139634bb4236fa75751c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.SpeechBubble
+  text: Hell.
+  playOnEnable: 1
+--- !u!114 &607246528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607246524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee142843f91588442a14d51cb4cf9a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.VoiceEmitter
+  characterType: 1
+  charsPerSecond: 15
 --- !u!1 &670257980
 GameObject:
   m_ObjectHideFlags: 0
@@ -2243,6 +2363,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1230491708}
   - component: {fileID: 1230491707}
+  - component: {fileID: 1230491710}
+  - component: {fileID: 1230491709}
   m_Layer: 0
   m_Name: text 4
   m_TagString: Untagged
@@ -2323,6 +2445,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1230491709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230491706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ebb8ebcd8139634bb4236fa75751c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.SpeechBubble
+  text: So unless that sounds appealing...
+  playOnEnable: 1
+--- !u!114 &1230491710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230491706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee142843f91588442a14d51cb4cf9a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.VoiceEmitter
+  characterType: 1
+  charsPerSecond: 15
 --- !u!1 &1328185591
 GameObject:
   m_ObjectHideFlags: 0
@@ -2976,6 +3126,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1568038428}
   - component: {fileID: 1568038427}
+  - component: {fileID: 1568038430}
+  - component: {fileID: 1568038429}
   m_Layer: 0
   m_Name: text 6
   m_TagString: Untagged
@@ -3056,6 +3208,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1568038429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568038426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ebb8ebcd8139634bb4236fa75751c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.SpeechBubble
+  text: What in Heaven's name are you still doing here?
+  playOnEnable: 1
+--- !u!114 &1568038430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568038426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee142843f91588442a14d51cb4cf9a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.VoiceEmitter
+  characterType: 1
+  charsPerSecond: 15
 --- !u!1 &1573426895
 GameObject:
   m_ObjectHideFlags: 0

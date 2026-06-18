@@ -32,7 +32,7 @@ namespace Audio.Voice
         [Header("Voice Configuration")]
         [SerializeField] private CharacterType characterType;
         [SerializeField, Tooltip("How many characters to treat as read per second")]
-        private float charsPerSecond = 10f;
+        private float charsPerSecond = 15f;
 
         private const float AUDIO_LENGTH = 0.5f;
 
@@ -55,7 +55,7 @@ namespace Audio.Voice
             _speakCoroutine = StartCoroutine(SpeakRoutine(profile, duration));
         }
 
-        public void Stop()
+        public void StopSpeaking()
         {
             if (_speakCoroutine != null)
             {
@@ -105,7 +105,7 @@ namespace Audio.Voice
 
         private void OnDestroy()
         {
-            Stop();
+            StopSpeaking();
         }
     }
 }

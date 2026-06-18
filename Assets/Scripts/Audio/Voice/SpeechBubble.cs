@@ -22,6 +22,11 @@ namespace Audio.Voice
                 Speak();
         }
 
+        private void OnDisable()
+        {
+            _voiceEmitter.StopSpeaking();
+        }
+
         public void Speak()
         {
             _voiceEmitter.Speak(text);
