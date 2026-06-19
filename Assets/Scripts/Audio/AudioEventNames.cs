@@ -14,6 +14,7 @@ namespace Audio
         public const string HellPortal = "Hell Portal";
         public const string LetterOpen = "Open Letter";
         public const string CharacterVoice = "Character Voice";
+        public const string HittingTube = "Hitting Tube";
         
         // Ambiance Events
         public const string OfficeAmbiance = "Page 1 Office Ambiance";
