@@ -72,6 +72,14 @@ MonoBehaviour:
           Data3: 692680596
           Data4: 231685488
         Path: event:/General/MaleTalking
+    - name: Poof
+      eventReference:
+        Guid:
+          Data1: 1565596440
+          Data2: 1154203998
+          Data3: 497819554
+          Data4: -1056469425
+        Path: event:/General/Poof
     ambianceEvents: []
   - sceneName: Page 1
     musicEvents: []
@@ -132,4 +140,8 @@ MonoBehaviour:
           Data3: 301731761
           Data4: -267605559
         Path: event:/Page3/HittingTube
+    ambianceEvents: []
+  - sceneName: Page 4
+    musicEvents: []
+    sfxEvents: []
     ambianceEvents: []
