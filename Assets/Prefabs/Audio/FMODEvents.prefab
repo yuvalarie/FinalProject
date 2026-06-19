@@ -121,3 +121,15 @@ MonoBehaviour:
           Data4: 561719223
         Path: event:/Page2/FactoryDoorOpen
     ambianceEvents: []
+  - sceneName: Page 3
+    musicEvents: []
+    sfxEvents:
+    - name: Hitting Tube
+      eventReference:
+        Guid:
+          Data1: 29268081
+          Data2: 1268230833
+          Data3: 301731761
+          Data4: -267605559
+        Path: event:/Page3/HittingTube
+    ambianceEvents: []
