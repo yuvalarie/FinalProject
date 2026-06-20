@@ -7,6 +7,16 @@ namespace Audio.AudioEmitters
     {
         [Header("SFX Configuration")]
         [SerializeField, AudioEventName] private string eventName;
+        [SerializeField] private bool playOnEnable = false;
+        
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            if (playOnEnable)
+            {
+                PlayAudioOnce();
+            }
+        }
 
         protected override void SetAudioEventName()
         {
