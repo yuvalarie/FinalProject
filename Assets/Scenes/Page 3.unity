@@ -3023,9 +3023,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1552387255}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33ad958d769eb3b46a6ad9503f4e68e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.LetterOpenAudioEmitter
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: LetterOpen
+  playOnEnable: 0
 --- !u!1 &1554227799
 GameObject:
   m_ObjectHideFlags: 0
@@ -4014,9 +4016,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2035115535}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d0c93b5a470f7c4bb9c2179ed81f69f, type: 3}
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.HellPortalAudioEmitter
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: HellPortal
+  playOnEnable: 0
 --- !u!1 &2103865343
 GameObject:
   m_ObjectHideFlags: 0
