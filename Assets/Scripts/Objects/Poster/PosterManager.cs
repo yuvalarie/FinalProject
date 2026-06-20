@@ -7,7 +7,6 @@ namespace Objects.Poster
     {
         [SerializeField] private PosterData posterData;
         [SerializeField] private Transform posterContainer;
-        // [SerializeField] private PosterObjectLibrary posterObjectLibrary;
 
         private void Start()
         {
@@ -27,16 +26,16 @@ namespace Objects.Poster
             posterData.ClearData();
             foreach (Transform child in posterContainer)
             {
-                var sticker = child.GetComponent<PosterSticker>();
-                if (sticker == null) continue;
-                int orderInLayer = child.GetComponent<SpriteRenderer>()?.sortingOrder ?? 0;
+                var spriteRenderer = child.GetComponent<SpriteRenderer>();
+                if (spriteRenderer == null) continue;
+                int orderInLayer = spriteRenderer.sortingOrder;
                 var entry = new StickerEntry
                 {
-                    id = sticker.StickerID,
                     localPos = child.localPosition,
                     localRot = child.localRotation,
                     localScale = child.localScale,
-                    sortingOrder = orderInLayer
+                    sortingOrder = orderInLayer,
+                    sprite = spriteRenderer.sprite
                 };
                 posterData.placedStickers.Add(entry);
             }

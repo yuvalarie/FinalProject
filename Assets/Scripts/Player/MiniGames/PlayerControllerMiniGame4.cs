@@ -1,11 +1,13 @@
-﻿using System.Net;
-using Npc;
+using System;
+using System.Collections;
+using Managers;
+using Objects.Poster;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Player
 {
-    public class PlayerControllerMiniGame4 : PlayerControllerBase
+    public class PlayerControllerMiniGame4 : PlayerControllerBase 
     {
         [SerializeField, Tooltip("Transform where the held object will sit.")]
         private Transform holdSlot;
@@ -19,57 +21,116 @@ namespace Player
         [SerializeField, Tooltip("The layer used for valid drop zones.")]
         private LayerMask dropZoneLayer;
         
-        private RoamingNpcController _heldItem;
+        [SerializeField] private int startingStickerOrderInLayer = 0;
+
+        [Header("Print Settings")]
+        [SerializeField] private Collider2D printCollider;
+        [SerializeField] private Animator paperAnimator;
+        [SerializeField] private float animationDuration;
+        [SerializeField] private SpriteRenderer printSpriteRenderer;
+        [SerializeField] private Sprite printOnSprite;
+        [SerializeField] private PosterManager posterManager;
         
+        private GameObject _heldItem;
+        private StickerObject _heldSticker;
+        private int _stickerOrder;
+        private int _playerSortingOrder;
+        private bool _atPrintZone;
+
+        private bool _category1;
+        private bool _category2;
+        private bool _category3;
+        private bool _category4;
+
+        protected override void Start()
+        {
+            base.Start();
+            _stickerOrder = startingStickerOrderInLayer;
+            _playerSortingOrder = SpriteRenderer.sortingOrder;
+        }
+
+        private void Update()
+        {
+            if(_category1 && _category2 && _category3 && _category4) printSpriteRenderer.sprite = printOnSprite;
+        }
+
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
+            if(!context.performed) return;
+            if (_atPrintZone)
+            {
+                if (!(_category1 && _category2 && _category3 && _category4)) return;
+                StartCoroutine(PrintCoroutine());
+            }
             if (_heldItem == null) TryPickUp();
             else DropItem();
         }
-        
+
+        private IEnumerator PrintCoroutine()
+        {
+            posterManager.SavePoster();
+            paperAnimator.SetTrigger("Print");
+            yield return new WaitForSeconds(animationDuration);
+            SceneLoader.Instance.ActivatePreloadedScene();
+        }
+
+        private void SetCategory(Category category)
+        {
+            switch (category)
+            {
+                case Category.Category1:
+                    _category1 = true;
+                    break;
+                case Category.Category2:
+                    _category2 = true;
+                    break;
+                case Category.Category3:
+                    _category3 = true;
+                    break;
+                case Category.Category4:
+                    _category4 = true;
+                    break;
+            }
+        }
+
         private void TryPickUp()
         {
             Debug.Log("Attempting to pick up item...");
 
-            // if (IsTrans)
-            // {
-            //     Debug.Log("can't interact while transparent");
-            //     return;
-            // }
-            
-            // foreach (RoamingNpcController npc in RoamingNpcController.AllNpcs)
-            // {
-            //     if (npc.CanSeeTarget())
-            //     {
-            //         Debug.Log($"FAILED: You were spotted by {npc.gameObject.name}! Cannot grab anything.");
-            //         return; 
-            //     }
-            // }
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, grabRadius, grabbableLayer);
 
-            RaycastHit2D hit = Physics2D.CircleCast(transform.position, grabRadius, Vector2.zero, 0f, grabbableLayer);
-
-            if (hit.collider != null)
+            if (hits.Length > 0)
             {
-                Debug.Log($"SUCCESS: Found '{hit.collider.name}' on the Grabbable layer!");
-                _heldItem = hit.collider.GetComponent<RoamingNpcController>();
-                if (_heldItem == null) return;
+                Collider2D closestCollider = null;
+                float closestDistance = Mathf.Infinity;
+
+                foreach (Collider2D hit in hits)
+                {
+                    float distance = Vector2.Distance(transform.position, hit.transform.position);
+                    
+                    if (distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        closestCollider = hit;
+                    }
+                }
+
+                if (closestCollider == null) return;
                 
-                Rigidbody2D itemRb = _heldItem.GetComponent<Rigidbody2D>();
-                if (itemRb != null)                {
-                    itemRb.bodyType = RigidbodyType2D.Kinematic; // Kinematic for 2D
+                _heldSticker = closestCollider.GetComponent<StickerObject>();
+                if (_heldSticker == null)
+                {
+                    Debug.LogWarning($"Wait, '{closestCollider.name}' isn't a PosterSticker! Are you sure it's on the right layer?");
+                    return;
                 }
-                else                {
-                    Debug.LogWarning($"Wait, '{hit.collider.name}' doesn't have a Rigidbody2D attached!");
-                }
-                // Collider2D npcCollider = _heldItem.GetComponent<Collider2D>();
-                // if (npcCollider != null)
-                // {
-                //     npcCollider.enabled = false;
-                // }
+                
+                _heldSticker.OnPickedUp();
+                
+                _heldItem = _heldSticker.gameObject;
                 
                 _heldItem.transform.position = holdSlot.position;
                 _heldItem.transform.SetParent(holdSlot);
-                //_heldItem.Roaming = false;
+                _heldSticker.SetSortingOrder(_playerSortingOrder + 1);
             }
             else
             {
@@ -80,48 +141,61 @@ namespace Player
         private void DropItem()
         {
             Debug.Log("Attempting to drop item...");
-            
-            // if (IsTrans)
-            // {
-            //     Debug.Log("can't interact while transparent");
-            //     return;
-            // }
-
             Collider2D dropZone = Physics2D.OverlapCircle(transform.position, grabRadius, dropZoneLayer);
 
             if (dropZone != null)
             {
-                Debug.Log($"SUCCESS: Dropping '{_heldItem.name}' in zone '{dropZone.name}'");
-
-                _heldItem.transform.SetParent(null);
-        
-                // Optional: If you want it to drop exactly where the player is standing
-                // instead of floating in the HoldSlot position, uncomment this:
-                // _heldItem.transform.position = transform.position; 
-                // Collider2D npcCollider = _heldItem.GetComponent<Collider2D>();
-                // if (npcCollider != null)
-                // {
-                //     npcCollider.enabled = true;
-                // }
-                _heldItem.ClearWaypoints();
-                
-                Rigidbody2D itemRb = _heldItem.GetComponent<Rigidbody2D>();
-                if (itemRb != null)                {
-                    itemRb.bodyType = RigidbodyType2D.Dynamic; // Back to Dynamic for 2D
+                var zone = dropZone.gameObject;
+                if (zone.CompareTag($"Original"))
+                {
+                    _heldSticker.OnDropped();
+                    return;
                 }
-                //_heldItem.Roaming = true;
+                
+                Bounds paperBounds = dropZone.bounds;
+                Bounds stickerBounds = _heldSticker.StickerBounds;
+                
+                bool isFullyInside = 
+                    stickerBounds.min.x >= paperBounds.min.x &&
+                    stickerBounds.max.x <= paperBounds.max.x &&
+                    stickerBounds.min.y >= paperBounds.min.y &&
+                    stickerBounds.max.y <= paperBounds.max.y;
+                
+                if (!isFullyInside)
+                {
+                    Debug.Log("FAILED: The sticker is sticking out of the paper! Move it inward.");
+                    return;
+                }
+
+                _heldItem.transform.SetParent(dropZone.transform);
+                
+                _heldSticker.SetPickedUp();
+                _heldSticker.SetSortingOrder(_stickerOrder);
+                _stickerOrder++;
+                
+                SetCategory(_heldSticker.GetCategory);
                 
                 _heldItem = null;
+                _heldSticker = null;
             }
             else
             {
                 Debug.Log("FAILED: Cannot drop here. You must be in a drop zone!");
             }
         }
-        
+
+        protected override void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other == printCollider) _atPrintZone = true;
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other == printCollider) _atPrintZone = false;
+        }
+
         private void OnDrawGizmos()
         {
-            // Draws a yellow circle around the player in the Scene view to show exactly where they can grab
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, grabRadius);
         }

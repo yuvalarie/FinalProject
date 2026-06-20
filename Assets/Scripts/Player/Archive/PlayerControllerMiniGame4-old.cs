@@ -1,10 +1,11 @@
-using Objects.Poster;
+﻿using System.Net;
+using Npc;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Player
 {
-    public class PlayerControllerMiniGame5PartOne : PlayerControllerBase 
+    public class PlayerControllerMiniGame4_old : PlayerControllerBase
     {
         [SerializeField, Tooltip("Transform where the held object will sit.")]
         private Transform holdSlot;
@@ -17,20 +18,11 @@ namespace Player
         
         [SerializeField, Tooltip("The layer used for valid drop zones.")]
         private LayerMask dropZoneLayer;
-        [SerializeField] private int startingStickerOrderInLayer = 0;
         
-        private GameObject _heldItem;
-        private PosterSticker _heldSticker;
-        private int _stickerOrder;
-
-        private void Start()
-        {
-            _stickerOrder = startingStickerOrderInLayer;
-        }
+        private RoamingNpcController _heldItem;
         
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
-            if(!context.performed) return;
             if (_heldItem == null) TryPickUp();
             else DropItem();
         }
@@ -44,33 +36,40 @@ namespace Player
             //     Debug.Log("can't interact while transparent");
             //     return;
             // }
+            
+            // foreach (RoamingNpcController npc in RoamingNpcController.AllNpcs)
+            // {
+            //     if (npc.CanSeeTarget())
+            //     {
+            //         Debug.Log($"FAILED: You were spotted by {npc.gameObject.name}! Cannot grab anything.");
+            //         return; 
+            //     }
+            // }
 
             RaycastHit2D hit = Physics2D.CircleCast(transform.position, grabRadius, Vector2.zero, 0f, grabbableLayer);
 
             if (hit.collider != null)
             {
-                var sticker = hit.collider.GetComponent<PosterSticker>();
-                if (sticker == null)
-                {
-                    Debug.LogWarning($"Wait, '{hit.collider.name}' isn't a PosterSticker! Are you sure it's on the right layer?");
-                    return;
-                }
                 Debug.Log($"SUCCESS: Found '{hit.collider.name}' on the Grabbable layer!");
-                _heldItem = hit.collider.gameObject;
-                _heldSticker = sticker;
+                _heldItem = hit.collider.GetComponent<RoamingNpcController>();
+                if (_heldItem == null) return;
                 
                 Rigidbody2D itemRb = _heldItem.GetComponent<Rigidbody2D>();
-                if (itemRb != null) 
-                {
+                if (itemRb != null)                {
                     itemRb.bodyType = RigidbodyType2D.Kinematic; // Kinematic for 2D
                 }
-                else
-                {
+                else                {
                     Debug.LogWarning($"Wait, '{hit.collider.name}' doesn't have a Rigidbody2D attached!");
                 }
-
+                // Collider2D npcCollider = _heldItem.GetComponent<Collider2D>();
+                // if (npcCollider != null)
+                // {
+                //     npcCollider.enabled = false;
+                // }
+                
                 _heldItem.transform.position = holdSlot.position;
                 _heldItem.transform.SetParent(holdSlot);
+                //_heldItem.Roaming = false;
             }
             else
             {
@@ -94,15 +93,25 @@ namespace Player
             {
                 Debug.Log($"SUCCESS: Dropping '{_heldItem.name}' in zone '{dropZone.name}'");
 
-                _heldItem.transform.SetParent(dropZone.transform);
+                _heldItem.transform.SetParent(null);
         
                 // Optional: If you want it to drop exactly where the player is standing
                 // instead of floating in the HoldSlot position, uncomment this:
-                _heldItem.transform.position = transform.position; 
-                _heldSticker.DroppedOnPoster(_stickerOrder);
-                _stickerOrder++; // Increment the order for the next sticker to ensure they stack correctly
+                // _heldItem.transform.position = transform.position; 
+                // Collider2D npcCollider = _heldItem.GetComponent<Collider2D>();
+                // if (npcCollider != null)
+                // {
+                //     npcCollider.enabled = true;
+                // }
+                _heldItem.ClearWaypoints();
+                
+                Rigidbody2D itemRb = _heldItem.GetComponent<Rigidbody2D>();
+                if (itemRb != null)                {
+                    itemRb.bodyType = RigidbodyType2D.Dynamic; // Back to Dynamic for 2D
+                }
+                //_heldItem.Roaming = true;
+                
                 _heldItem = null;
-                _heldSticker = null;
             }
             else
             {
