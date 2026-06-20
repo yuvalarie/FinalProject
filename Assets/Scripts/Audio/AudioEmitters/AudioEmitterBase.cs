@@ -19,7 +19,7 @@ namespace Audio.AudioEmitters
             SetAudioEventName();
         }
 
-        public virtual void PlayAudio()
+        public virtual void PlayAudioOnce()
         {
             if (string.IsNullOrEmpty(AudioEventName))
             {
