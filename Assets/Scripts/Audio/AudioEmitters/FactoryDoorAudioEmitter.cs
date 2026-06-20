@@ -1,6 +1,4 @@
-using Audio.AudioEmitters;
-
-namespace Audio
+namespace Audio.AudioEmitters
 {
     public class FactoryDoorAudioEmitter : AudioEmitterBase
     {

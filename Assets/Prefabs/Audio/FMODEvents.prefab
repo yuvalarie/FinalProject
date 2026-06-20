@@ -72,14 +72,14 @@ MonoBehaviour:
           Data3: 692680596
           Data4: 231685488
         Path: event:/General/MaleTalking
-    - name: Poof
+    - name: Puff
       eventReference:
         Guid:
           Data1: 1565596440
           Data2: 1154203998
           Data3: 497819554
           Data4: -1056469425
-        Path: event:/General/Poof
+        Path: event:/General/Puff
     ambianceEvents: []
   - sceneName: Page 1
     musicEvents: []
@@ -128,7 +128,31 @@ MonoBehaviour:
           Data3: 384094129
           Data4: 561719223
         Path: event:/Page2/FactoryDoorOpen
-    ambianceEvents: []
+    - name: Vending Machine Pie
+      eventReference:
+        Guid:
+          Data1: -1589511823
+          Data2: 1326745967
+          Data3: -1675416424
+          Data4: -2090751834
+        Path: event:/Page2/VendingMachinePie
+    - name: Vending Machine Drink
+      eventReference:
+        Guid:
+          Data1: 938963977
+          Data2: 1315932313
+          Data3: 830467213
+          Data4: 106006598
+        Path: event:/Page2/VendingMachineCup
+    ambianceEvents:
+    - name: Factory Ambiance
+      eventReference:
+        Guid:
+          Data1: 263428736
+          Data2: 1082957400
+          Data3: 1998826636
+          Data4: 2093788321
+        Path: event:/Page2/AmbFactory
   - sceneName: Page 3
     musicEvents: []
     sfxEvents:

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4106785423472453416}
   - component: {fileID: 970125236793113}
   - component: {fileID: 3119800864227760829}
-  - component: {fileID: 6371047549021564853}
+  - component: {fileID: 5839181175118470931}
   m_Layer: 0
   m_Name: HellPortal
   m_TagString: Untagged
@@ -128,8 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Objects.HellPortal
   animator: {fileID: 970125236793113}
-  audioEmitter: {fileID: 6371047549021564853}
---- !u!114 &6371047549021564853
+  audioEmitter: {fileID: 5839181175118470931}
+--- !u!114 &5839181175118470931
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,6 +138,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3255992728666714242}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d0c93b5a470f7c4bb9c2179ed81f69f, type: 3}
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.HellPortalAudioEmitter
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: HellPortal
+  playOnEnable: 0

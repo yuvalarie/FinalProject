@@ -10,7 +10,7 @@ namespace Objects
         [Header("Art References")] 
         [SerializeField] private Animator animator;
         private static readonly int PlayTrigger = Animator.StringToHash("Play");
-        [SerializeField] private HellPortalAudioEmitter audioEmitter;
+        [SerializeField] private AudioEmitterBase audioEmitter;
 
         // Counts how many friends are currently flying toward the portal.
         // Portal stays open until all in-flight friends have arrived (shared-pointer pattern).
