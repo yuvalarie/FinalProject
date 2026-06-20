@@ -1,5 +1,6 @@
 using System.Reflection;
 using UnityEngine;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 namespace Audio.AudioEmitters
 {
@@ -7,6 +8,16 @@ namespace Audio.AudioEmitters
     {
         [Header("SFX Configuration")]
         [SerializeField, AudioEventName] private string eventName;
+        [SerializeField] private bool playOnEnable = false;
+        
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            if (playOnEnable)
+            {
+                PlayAudioOnce();
+            }
+        }
 
         protected override void SetAudioEventName()
         {
@@ -18,5 +29,12 @@ namespace Audio.AudioEmitters
             }
             AudioEventName = (string)field.GetValue(null);
         }
+
+        public override void PlayAudioOnce() => base.PlayAudioOnce();
+        public override void StartAudio() => base.StartAudio();
+        public override void StopAudio(STOP_MODE stopMode = STOP_MODE.IMMEDIATE) => base.StopAudio(stopMode);
+        public override void ResumeAudio() => base.ResumeAudio();
+        public override void PauseAudio() => base.PauseAudio();
+        public override void InitializeAudioInstance() => base.InitializeAudioInstance();
     }
 }

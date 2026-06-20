@@ -15,9 +15,13 @@ namespace Audio
         public const string LetterOpen = "Open Letter";
         public const string CharacterVoice = "Character Voice";
         public const string HittingTube = "Hitting Tube";
+        public const string VendingMachinePie = "Vending Machine Pie";
+        public const string VendingMachineDrink = "Vending Machine Drink";
+        public const string Puff = "Puff";
         
         // Ambiance Events
         public const string OfficeAmbiance = "Page 1 Office Ambiance";
         public const string WindAmbiance = "Wind Ambiance";
+        public const string FactoryAmbiance = "Factory Ambiance";
     }
 }

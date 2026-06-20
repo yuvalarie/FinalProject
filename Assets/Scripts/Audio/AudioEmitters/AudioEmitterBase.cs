@@ -14,7 +14,7 @@ namespace Audio.AudioEmitters
 
         protected abstract void SetAudioEventName();
 
-        protected void OnEnable()
+        protected virtual void OnEnable()
         {
             SetAudioEventName();
         }
