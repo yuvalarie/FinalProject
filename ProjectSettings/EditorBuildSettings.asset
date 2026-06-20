@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/archive/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 0
     path: Assets/Scenes/Prototypes/PosterCreationProto.unity
@@ -41,6 +41,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Page 8.unity
     guid: 1d0c9cb4bcad341c99209ab8e8a7856b
+  - enabled: 1
+    path: Assets/Scenes/MiniGame4.unity
+    guid: 6d4cd7ab0bda64e53a06ba7c2e7d8033
+  - enabled: 1
+    path: Assets/Scenes/Page 13.unity
+    guid: 77122d3aed52445169eba58292629824
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
