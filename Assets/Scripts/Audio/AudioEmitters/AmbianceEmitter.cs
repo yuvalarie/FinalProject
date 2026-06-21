@@ -7,12 +7,11 @@ namespace Audio.AudioEmitters
     {
         [Header("Ambiance Configuration")]
         [SerializeField, AudioEventName] private string eventName;
-        [SerializeField] private bool playOnEnable = false;
+        [SerializeField] private bool playOnStart = false;
 
-        protected override void OnEnable()
+        private void Start()
         {
-            base.OnEnable();
-            if (playOnEnable)
+            if (playOnStart)
             {
                 StartAudio();
             }
