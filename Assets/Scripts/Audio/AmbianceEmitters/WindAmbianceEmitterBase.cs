@@ -1,6 +1,6 @@
 namespace Audio
 {
-    public class WindAmbianceEmitter : AmbianceEmitter
+    public class WindAmbianceEmitterBase : AmbianceEmitterBase
     {
             private void Start()
             {
