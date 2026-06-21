@@ -5468,6 +5468,7 @@ GameObject:
   m_Component:
   - component: {fileID: 910788991}
   - component: {fileID: 910788990}
+  - component: {fileID: 910788992}
   m_Layer: 0
   m_Name: LemonPie
   m_TagString: Untagged
@@ -5548,6 +5549,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &910788992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910788989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: VendingMachinePie
+  playOnEnable: 0
 --- !u!1 &929162300
 GameObject:
   m_ObjectHideFlags: 0
@@ -7337,6 +7352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: FactoryDoorOpen
+  playOnEnable: 0
 --- !u!1 &1195039438
 GameObject:
   m_ObjectHideFlags: 0
@@ -10788,6 +10804,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1810591369}
   - component: {fileID: 1810591368}
+  - component: {fileID: 1810591370}
   m_Layer: 0
   m_Name: Coffee
   m_TagString: Untagged
@@ -10868,6 +10885,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1810591370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810591367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: VendingMachineDrink
+  playOnEnable: 0
 --- !u!1 &1818309938
 GameObject:
   m_ObjectHideFlags: 0
