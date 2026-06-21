@@ -12,7 +12,7 @@ namespace Audio.AudioEmitters
         protected EventInstance AudioInstance;
         private bool _isAudioInstanceInitialized;
 
-        protected abstract void SetAudioEventName();
+        public abstract void SetAudioEventName();
 
         protected virtual void OnEnable()
         {
@@ -69,7 +69,7 @@ namespace Audio.AudioEmitters
         {
             var eventReference = FMODEvents.Instance.GetEventReferenceByName(AudioEventName);
             AudioInstance = AudioManager.Instance.CreateInstance(eventReference);
-            AudioInstance.set3DAttributes(transform.position.To3DAttributes());
+            // AudioInstance.set3DAttributes(transform.position.To3DAttributes());
             _isAudioInstanceInitialized = true;
         }
         

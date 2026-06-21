@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Audio.AudioEmitters;
 using DG.Tweening;
 using Managers;
 using Unity.VisualScripting;
@@ -12,6 +13,7 @@ namespace Player
     public class PlayerControllerPage2 : PlayerControllerBase
     {
         private static readonly int Open = Animator.StringToHash("Open");
+        private static readonly float AudioDelay = 0.5f;
 
         [Header("Size Settings")]
         [Tooltip("The scale factor for the player's size in frame 1-6.")]
@@ -107,6 +109,26 @@ namespace Player
 
         private void PieInteraction()
         {
+            // GameObject newPie = Instantiate(pieObject, pieStartPosition.position, Quaternion.identity,
+            //     pieParent.transform);
+            // newPie.SetActive(true);
+            // Vector2 randomOffset = UnityEngine.Random.insideUnitCircle * dropScatterRadius;
+            // Vector3 scatteredTargetPosition = pieEndPosition.position + new Vector3(randomOffset.x, randomOffset.y, 0f);
+            //
+            // newPie.transform.DOMove(scatteredTargetPosition, animationDuration)
+            //     .SetEase(Ease.OutBounce);
+            StartCoroutine(PieRoutine());
+        }
+
+        private IEnumerator PieRoutine()
+        {
+            var audioEmitter = pieObject.GetComponent<AudioEmitterBase>();
+            if (audioEmitter)
+            {
+                audioEmitter.SetAudioEventName();
+                audioEmitter.PlayAudioOnce();
+                yield return new WaitForSeconds(AudioDelay);
+            }
             GameObject newPie = Instantiate(pieObject, pieStartPosition.position, Quaternion.identity,
                 pieParent.transform);
             newPie.SetActive(true);
@@ -119,6 +141,26 @@ namespace Player
 
         private void DrinkInteraction()
         {
+            // GameObject newDrink = Instantiate(drinkObject, drinkStartPosition.position, Quaternion.identity, drinkParent.transform);
+            // newDrink.SetActive(true);
+            //
+            // Vector2 randomOffset = UnityEngine.Random.insideUnitCircle * dropScatterRadius;
+            // Vector3 scatteredTargetPosition = drinkEndPosition.position + new Vector3(randomOffset.x, randomOffset.y, 0f);
+            //
+            // newDrink.transform.DOMove(scatteredTargetPosition, animationDuration)
+            //     .SetEase(Ease.OutBounce);
+            StartCoroutine(DrinkRoutine());
+        }
+        
+        private IEnumerator DrinkRoutine()
+        {
+            var audioEmitter = drinkObject.GetComponent<AudioEmitterBase>();
+            if (audioEmitter)
+            {
+                audioEmitter.SetAudioEventName();
+                audioEmitter.PlayAudioOnce();
+                yield return new WaitForSeconds(AudioDelay);
+            }
             GameObject newDrink = Instantiate(drinkObject, drinkStartPosition.position, Quaternion.identity, drinkParent.transform);
             newDrink.SetActive(true);
             

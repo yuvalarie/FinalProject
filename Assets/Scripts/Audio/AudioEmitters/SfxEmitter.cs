@@ -19,7 +19,7 @@ namespace Audio.AudioEmitters
             }
         }
 
-        protected override void SetAudioEventName()
+        public override void SetAudioEventName()
         {
             var field = typeof(AudioEventNames).GetField(eventName, BindingFlags.Public | BindingFlags.Static);
             if (field == null)
