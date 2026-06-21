@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Friend 11 Data
   m_EditorClassIdentifier: Assembly-CSharp::Objects.FriendData
   friendName: Margaret Wells
+  friendId: 11
   appProfileSprite: {fileID: 21300000, guid: bb5ed16e55c614de8ab5084828e5dcdb, type: 3}
   roamingSprite: {fileID: 21300000, guid: 3c42f683a51c44578a9e714b4927b907, type: 3}
   thrownSprite: {fileID: 21300000, guid: 12d4bae4221ada041a00ec36cf34ea5a, type: 3}

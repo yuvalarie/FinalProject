@@ -2882,14 +2882,6 @@ PrefabInstance:
       propertyPath: motherReactionController
       value: 
       objectReference: {fileID: 943110236}
-    - target: {fileID: 1899112733900447661, guid: 654f6c994c5bc094d8241869bcb6bac0, type: 3}
-      propertyPath: areaBounds.Array.data[0].roamingSortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1899112733900447661, guid: 654f6c994c5bc094d8241869bcb6bac0, type: 3}
-      propertyPath: areaBounds.Array.data[2].roamingSortingOrder
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 4998785088079839209, guid: 654f6c994c5bc094d8241869bcb6bac0, type: 3}
       propertyPath: m_Name
       value: FriendSpawner

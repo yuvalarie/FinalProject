@@ -24,6 +24,8 @@ namespace Objects
         [SerializeField] private List<FriendData> friends;
         [SerializeField] private GameObject friendBasePrefab;
 
+        [SerializeField] private ChosenFriendsData chosenFriendsData;
+
         [Header("Phone Display")]
         // The SpriteRenderer already in the scene on the phone - we just swap its sprite
         [SerializeField] private SpriteRenderer phoneDisplayRenderer;
@@ -96,6 +98,7 @@ namespace Objects
             motherReactionController.ShowAcceptedReaction();
             FriendData data = _orderedFriends[_currentFriendIndex];
             AreaBounds bounds = GetBoundsForArea(data.assignedArea);
+            chosenFriendsData.friends.Add(data.friendId);
 
             // Pick a random spawn position within the assigned frame
             float spawnX = UnityEngine.Random.Range(bounds.bottomLeft.x, bounds.topRight.x);

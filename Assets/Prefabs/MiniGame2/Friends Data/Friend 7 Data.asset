@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Friend 7 Data
   m_EditorClassIdentifier: Assembly-CSharp::Objects.FriendData
   friendName: Brenard Whitaker
+  friendId: 7
   appProfileSprite: {fileID: 21300000, guid: c0642a265fd874c64b03fb94c5c3ba05, type: 3}
   roamingSprite: {fileID: 21300000, guid: 6b51837ef22464f7297e8b5c764526df, type: 3}
   thrownSprite: {fileID: 21300000, guid: 688c54596f5d4744e8bd6c256d87aff6, type: 3}

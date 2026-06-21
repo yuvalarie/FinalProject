@@ -7,6 +7,7 @@ namespace Objects
     {
         [Header("Identity")]
         public string friendName;
+        public int friendId;
         
         [Header("Sprites")]
         public Sprite appProfileSprite; // The sprite shown in the app.
