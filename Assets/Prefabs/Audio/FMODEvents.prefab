@@ -169,3 +169,15 @@ MonoBehaviour:
     musicEvents: []
     sfxEvents: []
     ambianceEvents: []
+  - sceneName: Page 6
+    musicEvents: []
+    sfxEvents:
+    - name: Thought Bubble
+      eventReference:
+        Guid:
+          Data1: 113029681
+          Data2: 1149775623
+          Data3: -1520273758
+          Data4: -1661057562
+        Path: event:/Page6/ThoughtBubble
+    ambianceEvents: []

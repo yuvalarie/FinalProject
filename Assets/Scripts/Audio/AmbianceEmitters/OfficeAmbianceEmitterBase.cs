@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Audio
 {
-    public class OfficeAmbianceEmitter : AmbianceEmitter
+    public class OfficeAmbianceEmitterBase : AmbianceEmitterBase
     {
         private void Start()
         {

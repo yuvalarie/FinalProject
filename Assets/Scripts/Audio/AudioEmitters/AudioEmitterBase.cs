@@ -1,6 +1,5 @@
 using FMOD.Studio;
 using FMODUnity;
-using Unity.VisualScripting;
 using UnityEngine;
 using STOP_MODE = FMOD.Studio.STOP_MODE;
 
@@ -12,14 +11,16 @@ namespace Audio.AudioEmitters
         protected EventInstance AudioInstance;
         private bool _isAudioInstanceInitialized;
 
-        protected abstract void SetAudioEventName();
+        public abstract void SetAudioEventName();
 
         protected virtual void OnEnable()
         {
             SetAudioEventName();
         }
 
-        public virtual void PlayAudioOnce()
+        public void PlayAudioOnce() => PlayAudioOnce(System.Array.Empty<(string, float)>());
+
+        public void PlayAudioOnce(params (string paramName, float value)[] parameters)
         {
             if (string.IsNullOrEmpty(AudioEventName))
             {
@@ -27,19 +28,25 @@ namespace Audio.AudioEmitters
                 return;
             }
             var eventReference = FMODEvents.Instance.GetEventReferenceByName(AudioEventName);
-            AudioManager.Instance.PlayOneShot(eventReference, transform.position);
+            AudioManager.Instance.PlayOneShot(eventReference, transform.position, parameters);
         }
 
-        public virtual void StartAudio()
+        public void StartAudio() => StartAudio(System.Array.Empty<(string, float)>());
+
+        public void StartAudio(params (string paramName, float value)[] parameters)
         {
             if(!_isAudioInstanceInitialized)
             {
                 InitializeAudioInstance();
             }
+            foreach (var (paramName, value) in parameters)
+            {
+                AudioInstance.setParameterByName(paramName, value);
+            }
             AudioInstance.start();
         }
         
-        public virtual void StopAudio(STOP_MODE stopMode = STOP_MODE.IMMEDIATE)
+        public void StopAudio(STOP_MODE stopMode = STOP_MODE.IMMEDIATE)
         {
             if(_isAudioInstanceInitialized)
             {
@@ -47,7 +54,7 @@ namespace Audio.AudioEmitters
             }
         }
 
-        public virtual void ResumeAudio()
+        public void ResumeAudio()
         {
             if(!_isAudioInstanceInitialized)
             {
@@ -57,7 +64,7 @@ namespace Audio.AudioEmitters
             AudioInstance.setPaused(false);
         }
         
-        public virtual void PauseAudio()
+        public void PauseAudio()
         {
             if(_isAudioInstanceInitialized)
             {
@@ -65,11 +72,19 @@ namespace Audio.AudioEmitters
             }
         }
         
-        public virtual void  InitializeAudioInstance()
+        public void SetParameter(string paramName, float value)
+        {
+            if (_isAudioInstanceInitialized)
+            {
+                AudioInstance.setParameterByName(paramName, value);
+            }
+        }
+
+        public void InitializeAudioInstance()
         {
             var eventReference = FMODEvents.Instance.GetEventReferenceByName(AudioEventName);
             AudioInstance = AudioManager.Instance.CreateInstance(eventReference);
-            AudioInstance.set3DAttributes(transform.position.To3DAttributes());
+            // AudioInstance.set3DAttributes(transform.position.To3DAttributes());
             _isAudioInstanceInitialized = true;
         }
         

@@ -2,7 +2,7 @@ namespace Audio.AudioEmitters
 {
     public class LetterOpenAudioEmitter : AudioEmitterBase
     {
-        protected override void SetAudioEventName()
+        public override void SetAudioEventName()
         {
             AudioEventName = AudioEventNames.LetterOpen;
         }

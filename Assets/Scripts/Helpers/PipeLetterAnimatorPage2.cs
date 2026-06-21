@@ -140,8 +140,8 @@ namespace Objects
         private void PlayLetterAudio(float duration)
         {
             float t = (duration - minDuration) / (maxDuration - minDuration);
-            float pitchAndVolume = Mathf.Clamp(1f - 2f * t, -1f, 1f);
-            AudioManager.Instance.PlayOneShot(_letterSoundReference, transform.position, ("LetterTubePitch", pitchAndVolume), ("LetterTubeVolume", pitchAndVolume));
+            float volume = Mathf.Clamp(1f - 2f * t, -1f, 1f);
+            AudioManager.Instance.PlayOneShot(_letterSoundReference, transform.position, ("LetterTubeVolume", volume));
         }
 
         private IEnumerator PlayLetterAudioDelayed(float delay, float duration)

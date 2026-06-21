@@ -18,6 +18,7 @@ namespace Audio
         public const string VendingMachinePie = "Vending Machine Pie";
         public const string VendingMachineDrink = "Vending Machine Drink";
         public const string Puff = "Puff";
+        public const string ThoughtBubble = "Thought Bubble";
         
         // Ambiance Events
         public const string OfficeAmbiance = "Page 1 Office Ambiance";

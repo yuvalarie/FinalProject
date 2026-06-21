@@ -11,7 +11,7 @@ namespace Audio
     //     Office
     // }
     [RequireComponent(typeof(StudioEventEmitter))]
-    public abstract class AmbianceEmitter : MonoBehaviour
+    public abstract class AmbianceEmitterBase : MonoBehaviour
     {
         protected StudioEventEmitter Emitter;
 

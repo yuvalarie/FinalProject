@@ -3,18 +3,17 @@ using UnityEngine;
 
 namespace Audio.AudioEmitters
 {
-    public class SfxEmitter : AudioEmitterBase
+    public class AmbianceEmitter : AudioEmitterBase
     {
-        [Header("SFX Configuration")]
+        [Header("Ambiance Configuration")]
         [SerializeField, AudioEventName] private string eventName;
-        [SerializeField] private bool playOnEnable = false;
-        
-        protected override void OnEnable()
+        [SerializeField] private bool playOnStart = false;
+
+        private void Start()
         {
-            base.OnEnable();
-            if (playOnEnable)
+            if (playOnStart)
             {
-                PlayAudioOnce();
+                StartAudio();
             }
         }
 
