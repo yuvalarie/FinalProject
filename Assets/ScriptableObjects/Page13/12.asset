@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5b1631329d4c069b44afd29ac56a00, type: 3}
+  m_Name: 12
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.Poster.FriendsDataPage13
+  id: 12
+  frame2Object: {fileID: 8087847873805804961, guid: d69957587a163e441b380716da6bb503, type: 3}
+  frame4Object: {fileID: 3853513288021130554, guid: 9d5c4b04b8415914485b781c6baf9491, type: 3}
