@@ -19,6 +19,8 @@ namespace Audio
         private Bus _sfxBus;
         [SerializeField, Range(0f, 1f)] private float ambianceVolume = 1f;
         private Bus _ambianceBus;
+        [SerializeField, Range(0f, 1f)] private float voiceVolume = 1f;
+        private Bus _voiceBus;
         
         private readonly List<EventInstance> _activeEvents = new List<EventInstance>();
         private readonly List<StudioEventEmitter> _activeEmitters = new List<StudioEventEmitter>();
@@ -32,15 +34,18 @@ namespace Audio
             _musicBus = RuntimeManager.GetBus("bus:/Music");
             _sfxBus = RuntimeManager.GetBus("bus:/SFX");
             _ambianceBus = RuntimeManager.GetBus("bus:/Ambiance");
+            _voiceBus = RuntimeManager.GetBus("bus:/Voice");
         }
 
         private void Update()
         { 
             // might want to change this to only update when the volume sliders are changed, but for now it should be fine
+            //TODO: change to work with in-game sliders when implemented.
             _masterBus.setVolume(masterVolume);
             _musicBus.setVolume(musicVolume);
             _sfxBus.setVolume(sfxVolume);
             _ambianceBus.setVolume(ambianceVolume);
+            _voiceBus.setVolume(voiceVolume);
         }
         
         public void PlayOneShot(EventReference eventReference, Vector3 worldPosition, params (string paramName, float value)[] parameters)
