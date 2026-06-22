@@ -144,6 +144,14 @@ MonoBehaviour:
           Data3: 830467213
           Data4: 106006598
         Path: event:/Page2/VendingMachineCup
+    - name: Elevator Ding
+      eventReference:
+        Guid:
+          Data1: -1212989543
+          Data2: 1342093169
+          Data3: 2128849839
+          Data4: -1845986229
+        Path: event:/Page2/ElevatorDing
     ambianceEvents:
     - name: Factory Ambiance
       eventReference:

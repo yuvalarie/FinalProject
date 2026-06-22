@@ -92,6 +92,7 @@ namespace Audio.AudioEmitters
         {
             if(_isAudioInstanceInitialized)
             {
+                AudioInstance.stop(STOP_MODE.IMMEDIATE);
                 AudioInstance.release();
                 _isAudioInstanceInitialized = false;
             }
