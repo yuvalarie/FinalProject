@@ -8986,6 +8986,7 @@ GameObject:
   - component: {fileID: 1428508825}
   - component: {fileID: 1428508824}
   - component: {fileID: 1428508826}
+  - component: {fileID: 1428508827}
   m_Layer: 10
   m_Name: DaveTheAngel
   m_TagString: Angel
@@ -9096,7 +9097,7 @@ MonoBehaviour:
   frame6To5Trigger: {fileID: 572965323}
   frame6To7Trigger: {fileID: 1895977004}
   frame7To6Trigger: {fileID: 431148427}
-  helmetPlacement: {x: -0.974, y: 2.247, z: 0}
+  helmetPlacement: {x: -0.75, y: 1.33, z: 0}
   offSetY: 3.2
   offSetX: -3
   availableHelmets:
@@ -9237,6 +9238,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.0328865, y: 0.5572243}
   m_EdgeRadius: 0
+--- !u!95 &1428508827
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428508820}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fb175b7e1c81843c5acb63525e1b1bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1428920092
 GameObject:
   m_ObjectHideFlags: 0
