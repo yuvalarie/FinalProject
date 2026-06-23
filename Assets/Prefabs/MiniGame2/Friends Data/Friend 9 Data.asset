@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.FriendData
   friendName: Ji-eun Lee
   friendId: 9
-  appProfileSprite: {fileID: 21300000, guid: 54f357c8e0c8a4a3eb25e269fc79dbf6, type: 3}
+  appProfileSprite: {fileID: 21300000, guid: da649b2f80cae4022b1cccc1befc59c5, type: 3}
   roamingSprite: {fileID: 21300000, guid: a9a6ee90696248e4491e73dc46ada445, type: 3}
   thrownSprite: {fileID: 21300000, guid: d42aeb57e3bca4a8f9ae5f1f8d4ff8a4, type: 3}
   speechBubbleSprite: {fileID: 21300000, guid: 87e5177db41434386bd00b4409138ec5, type: 3}
