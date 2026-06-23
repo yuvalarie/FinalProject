@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57934373981b4365951f14ba2f2430f1, type: 3}
   m_Name: ChosenFriendsData
   m_EditorClassIdentifier: Assembly-CSharp::Objects.ChosenFriendsData
+  friends: 010000000200000003000000040000000500000006000000

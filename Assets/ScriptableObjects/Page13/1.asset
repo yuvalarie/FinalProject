@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: Assembly-CSharp::Objects.Poster.FriendsDataPage13
   id: 1
-  frame2Object: {fileID: 7800431677194063289, guid: 2418166c50a20c04e9fe48add29c6f96, type: 3}
-  frame4Object: {fileID: 2279075126145610100, guid: 165aad2e4f61d834e8f80f1ab2d05190, type: 3}
+  frame2Object: {fileID: 2279075126145610100, guid: 165aad2e4f61d834e8f80f1ab2d05190, type: 3}
+  frame4Object: {fileID: 7800431677194063289, guid: 2418166c50a20c04e9fe48add29c6f96, type: 3}
