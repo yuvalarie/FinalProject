@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: page4
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerArtController
   smallSprite: {fileID: 21300000, guid: 925fcdb241bcf46eaa318f13c1bf8443, type: 3}
-  smallSize: 0.2448354
-  smallAnimatorController: {fileID: 0}
-  mediumLargeSprite: {fileID: 21300000, guid: 812e69919f851404fb49a15dd7ea1a41, type: 3}
-  mediumSize: 0.2399655
-  largeSize: 0.2399655
-  mediumLargeAnimatorController: {fileID: 0}
+  smallSize: 0.36
+  smallAnimatorController: {fileID: 9100000, guid: 0546f0d0233064651a1183010d98e056, type: 2}
+  mediumLargeSprite: {fileID: 21300000, guid: 925fcdb241bcf46eaa318f13c1bf8443, type: 3}
+  mediumSize: 0.18
+  largeSize: 0.18
+  mediumLargeAnimatorController: {fileID: 9100000, guid: 0546f0d0233064651a1183010d98e056, type: 2}
   extraLargeSprite: {fileID: 0}
   extraLargeSize: 0
   extraLargeAnimatorController: {fileID: 0}

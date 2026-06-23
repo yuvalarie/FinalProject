@@ -11167,7 +11167,7 @@ MonoBehaviour:
   frame7ExitLeftCollider: {fileID: 751404110}
   frame8EnterCollider: {fileID: 297835966}
   saltAnimator: {fileID: 1846566650}
-  frame8Size: 0
+  frame8Size: 1
   textBubble3: {fileID: 1036130386}
   textBubble4: {fileID: 1898369055}
   textBubble5: {fileID: 1338666363}

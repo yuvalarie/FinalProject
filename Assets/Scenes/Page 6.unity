@@ -4666,7 +4666,7 @@ Transform:
   m_GameObject: {fileID: 1114643385}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.1, y: -9.52, z: 0}
+  m_LocalPosition: {x: 3.32, y: -9.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6896,6 +6896,7 @@ GameObject:
   - component: {fileID: 1661256523}
   - component: {fileID: 1661256525}
   - component: {fileID: 1661256524}
+  - component: {fileID: 1661256526}
   m_Layer: 10
   m_Name: Angel 2 (1)
   m_TagString: Angel
@@ -6991,7 +6992,7 @@ MonoBehaviour:
   artSettings: {fileID: 11400000, guid: a4a8f18babddc504b91ccfd533e2255f, type: 2}
   speed: 3
   nextSceneName: MiniGame1.5
-  initialSize: 1
+  initialSize: 0
   heldaFrame1Sprite: {fileID: 21300000, guid: 4af10856e14fd4fc0a508f78279f15a2, type: 3}
   heldaFrame1Scale: {x: 0.2399182, y: 0.2399182, z: 0.2399182}
   heldaFrame2Sprite: {fileID: 21300000, guid: ff1fd15c653a34212852e8c0b4661f47, type: 3}
@@ -7010,10 +7011,10 @@ MonoBehaviour:
   openLetterObject: {fileID: 1265505097}
   magnifierObject: {fileID: 1068269352}
   frame2Collider: {fileID: 964742402}
-  frame1Size: 1
-  frame2Size: 3
-  frame4Size: 3
-  frame6Size: 0
+  frame1Size: 0
+  frame2Size: 1
+  frame4Size: 0
+  frame6Size: 3
   frame1toframe2Trigger: {fileID: 1445415240}
   frame2toframe1Trigger: {fileID: 1760313206}
   frame2toframe4Trigger: {fileID: 1806899932}
@@ -7094,6 +7095,28 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &1661256526
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661256520}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1678833467
 GameObject:
   m_ObjectHideFlags: 0
@@ -7638,7 +7661,7 @@ Transform:
   m_GameObject: {fileID: 1806899931}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.65, y: -9.52, z: 0}
+  m_LocalPosition: {x: 4.12, y: -9.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
