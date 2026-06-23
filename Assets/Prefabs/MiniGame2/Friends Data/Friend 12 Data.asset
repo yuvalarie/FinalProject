@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.FriendData
   friendName: Marcus Reed
   friendId: 12
-  appProfileSprite: {fileID: 21300000, guid: 7a1d578f278044403a444d1aa3d542d8, type: 3}
+  appProfileSprite: {fileID: 21300000, guid: 787d6ba7f00894b82b1aee121853dcc2, type: 3}
   roamingSprite: {fileID: 21300000, guid: 4611c9cdc43fa4fb093c863ca3bc50a4, type: 3}
   thrownSprite: {fileID: 21300000, guid: 72b4f2b2479a80345bf7fae62c201042, type: 3}
   speechBubbleSprite: {fileID: 21300000, guid: 5eeb2ec558b6c489c9c09aacb01106e9, type: 3}

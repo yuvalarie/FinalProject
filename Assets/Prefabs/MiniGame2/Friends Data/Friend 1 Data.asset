@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.FriendData
   friendName: Chad Stone
   friendId: 1
-  appProfileSprite: {fileID: 21300000, guid: 8cb92215245a04c2c919ab7cebc1d95a, type: 3}
+  appProfileSprite: {fileID: 21300000, guid: 2a6ff92095f174d21be88c24b5bcc779, type: 3}
   roamingSprite: {fileID: 21300000, guid: 272691d06122744faa83c9e0e722783d, type: 3}
   thrownSprite: {fileID: 21300000, guid: 9e21a9e38ff9325468d51b7d37d5e5dd, type: 3}
   speechBubbleSprite: {fileID: 21300000, guid: 062732a4af90448e3a73edfe054ef767, type: 3}

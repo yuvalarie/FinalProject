@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Friend 14 Data
   m_EditorClassIdentifier: Assembly-CSharp::Objects.FriendData
   friendName: Kent Doyle
-  appProfileSprite: {fileID: 21300000, guid: 727cba9d3a8af48e18201aefd7a66b44, type: 3}
+  friendId: 0
+  appProfileSprite: {fileID: 21300000, guid: 63bb7e681dd974d849d04c6f8fda047c, type: 3}
   roamingSprite: {fileID: 21300000, guid: 0a0ce429fb82140d78161025939a6b37, type: 3}
   thrownSprite: {fileID: 21300000, guid: e871dcd18b6ec1145853e346145172cd, type: 3}
   speechBubbleSprite: {fileID: 21300000, guid: ddf65657cb7ef4d45b4891d84f92b540, type: 3}

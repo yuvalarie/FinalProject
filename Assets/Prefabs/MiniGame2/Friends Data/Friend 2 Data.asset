@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.FriendData
   friendName: Melissa Green
   friendId: 2
-  appProfileSprite: {fileID: 21300000, guid: 113b46daae1aa4c0a884af35215b9070, type: 3}
+  appProfileSprite: {fileID: 21300000, guid: 582f40b8585d44306a634e7811a1f96f, type: 3}
   roamingSprite: {fileID: 21300000, guid: 236320bcd7f414ff0b7317c18c19256d, type: 3}
   thrownSprite: {fileID: 21300000, guid: 0273d42634c912d4ca2516d9392245b2, type: 3}
   speechBubbleSprite: {fileID: 21300000, guid: 60085a3dfee854742b309e0fd2ff7ee8, type: 3}
