@@ -15,6 +15,11 @@ namespace Objects
 
         private float _frame2Duration;
         private float _frame4Duration;
+        
+        private float _scatterRadius = 0.3f; 
+        private float _durationVariance = 0.5f;
+        private int _minJumps = 3;
+        private int _maxJumps = 6;
 
         public void Initialize(Page13FriendsManager manager, GameObject f2Obj, GameObject f4Obj, float frame2, float frame4, bool startInFrame4)
         {
@@ -38,18 +43,29 @@ namespace Objects
             _frame2Obj.transform.localPosition = Vector3.zero;
             _frame4Obj.transform.localPosition = Vector3.zero;
         }
+        
+        private Vector3 GetScatteredPosition(Transform exactTarget)
+        {
+            Vector2 randomOffset = Random.insideUnitCircle * _scatterRadius;
+            return exactTarget.position + new Vector3(randomOffset.x, randomOffset.y, 0f);
+        }
 
-        // --- FRAME 2 LOGIC ---
+        private int GetRandomJumps() => Random.Range(_minJumps, _maxJumps + 1);
+        
+        private float GetRandomDuration(float baseDuration) => baseDuration + Random.Range(-_durationVariance, _durationVariance);
+
+       // --- FRAME 2 LOGIC ---
         public void MoveToSpotInLine(Transform targetSpot)
         {
             transform.DOKill();
-            transform.DOJump(targetSpot.position, jumpPower: 0.1f, numJumps: 5, duration: _frame2Duration)
+            transform.DOJump(GetScatteredPosition(targetSpot), jumpPower: 0.1f, numJumps: GetRandomJumps(), duration: GetRandomDuration(_frame2Duration))
                 .SetEase(Ease.Linear);
         }
 
         public void MoveToExitAndContinue(Transform exitSpot)
         {
-            transform.DOJump(exitSpot.position, jumpPower: 0.1f, numJumps: 5, duration: _frame2Duration)
+            transform.DOKill();
+            transform.DOJump(GetScatteredPosition(exitSpot), jumpPower: 0.1f, numJumps: GetRandomJumps(), duration: GetRandomDuration(_frame2Duration))
                 .SetEase(Ease.Linear)
                 .OnComplete(() => StartCoroutine(Frame3HandRoutine()));
         }
@@ -64,29 +80,29 @@ namespace Objects
             _manager.FriendReadyForFrame4(this);
         }
 
-        // --- FRAME 2 LOGIC ---
+        // --- FRAME 4 LOGIC ---
         public void EnterFrame4Line(Transform spawnPoint, Transform targetSpot)
         {
             _frame2Obj.SetActive(false);
             _frame4Obj.SetActive(true);
 
-            transform.position = spawnPoint.position;
+            transform.position = GetScatteredPosition(spawnPoint);
             transform.DOKill();
-            transform.DOJump(targetSpot.position, jumpPower: 0.1f, numJumps: 5, duration: _frame4Duration)
+            transform.DOJump(GetScatteredPosition(targetSpot), jumpPower: 0.1f, numJumps: GetRandomJumps(), duration: GetRandomDuration(_frame4Duration))
                 .SetEase(Ease.Linear);
         }
         
         public void MoveToSpotInFrame4(Transform targetSpot)
         {
             transform.DOKill();
-            transform.DOJump(targetSpot.position, jumpPower: 0.1f, numJumps: 5, duration: _frame4Duration)
+            transform.DOJump(GetScatteredPosition(targetSpot), jumpPower: 0.1f, numJumps: GetRandomJumps(), duration: GetRandomDuration(_frame4Duration))
                 .SetEase(Ease.Linear);
         }
 
         public void MoveToExitFrame4(Transform exitSpot)
         {
             transform.DOKill();
-            transform.DOJump(exitSpot.position, jumpPower: 0.1f, numJumps: 5, duration: _frame4Duration)
+            transform.DOJump(GetScatteredPosition(exitSpot), jumpPower: 0.1f, numJumps: GetRandomJumps(), duration: GetRandomDuration(_frame4Duration))
                 .SetEase(Ease.Linear)
                 .OnComplete(() => Destroy(gameObject));
         }
