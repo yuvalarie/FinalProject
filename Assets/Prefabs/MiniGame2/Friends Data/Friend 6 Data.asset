@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.FriendData
   friendName: Diana Foster
   friendId: 6
-  appProfileSprite: {fileID: 21300000, guid: 8ed12ecbc22144467b6932b45b7f0b78, type: 3}
+  appProfileSprite: {fileID: 21300000, guid: 0d2d83012c69f42a79fd54f8be838fc3, type: 3}
   roamingSprite: {fileID: 21300000, guid: 073e745e642ce4facabc2caef3849bc2, type: 3}
   thrownSprite: {fileID: 21300000, guid: 2c48e29a70ca442ef8e88c86419d1913, type: 3}
   speechBubbleSprite: {fileID: 21300000, guid: e83612bcb4f2c4df58d5ec0de84a9fa9, type: 3}
