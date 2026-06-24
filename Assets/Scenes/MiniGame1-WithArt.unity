@@ -10055,7 +10055,7 @@ MonoBehaviour:
   speed: 5
   nextSceneName: Page 6
   initialSize: 4
-  graphicsRoot: {fileID: 0}
+  graphicsRoot: {fileID: 755708802}
   smallCollider: {fileID: 0}
   mediumLargeCollider: {fileID: 0}
   extraLargeCollider: {fileID: 0}
