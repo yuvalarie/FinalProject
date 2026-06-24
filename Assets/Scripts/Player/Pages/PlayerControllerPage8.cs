@@ -96,14 +96,14 @@ namespace Player
             {
                 // _spriteRenderer.sprite = frame5Sprite;
                 // transform.localScale = frame5Size;
-                currentSize = frame5Size;
+                CurrentSize = frame5Size;
                 SetSize();
             }
             if (other == frame1Collider)
             {
                 // _spriteRenderer.sprite = frame1Sprite;
                 // transform.localScale = frame1Size;
-                currentSize = frame1Size;
+                CurrentSize = frame1Size;
                 SetSize();
             }
         }

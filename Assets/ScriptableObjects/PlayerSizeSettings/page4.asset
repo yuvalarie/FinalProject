@@ -15,10 +15,13 @@ MonoBehaviour:
   smallSprite: {fileID: 21300000, guid: 925fcdb241bcf46eaa318f13c1bf8443, type: 3}
   smallSize: 0.36
   smallAnimatorController: {fileID: 9100000, guid: 0546f0d0233064651a1183010d98e056, type: 2}
+  smallOffset: {x: 0, y: 0}
   mediumLargeSprite: {fileID: 21300000, guid: 925fcdb241bcf46eaa318f13c1bf8443, type: 3}
   mediumSize: 0.18
   largeSize: 0.18
   mediumLargeAnimatorController: {fileID: 9100000, guid: 0546f0d0233064651a1183010d98e056, type: 2}
+  mediumLargeOffset: {x: 6.8532, y: 0.5}
   extraLargeSprite: {fileID: 0}
   extraLargeSize: 0
   extraLargeAnimatorController: {fileID: 0}
+  extraLargeOffset: {x: 0, y: 0}

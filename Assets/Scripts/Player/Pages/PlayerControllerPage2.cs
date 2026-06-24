@@ -221,7 +221,7 @@ namespace Player
             {
                 // transform.localScale = new Vector3(frame6Scale, frame6Scale, 1f);
                 // _spriteRenderer.sprite = frame6Sprite;
-                currentSize = frame6Size;
+                CurrentSize = frame6Size;
                 SetSize();
                 foreach (var helmet in _equippedHelmets)
                 {
@@ -235,7 +235,7 @@ namespace Player
             {
                 // transform.localScale = new Vector3(frame1To6Scale, frame1To6Scale, 1f);
                 // _spriteRenderer.sprite = frame1Sprite;
-                currentSize = frame1Size;
+                CurrentSize = frame1Size;
                 SetSize();
                 foreach (var helmet in _equippedHelmets)
                 {

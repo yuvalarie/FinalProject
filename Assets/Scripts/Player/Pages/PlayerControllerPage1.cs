@@ -12,13 +12,11 @@ namespace Player
         [Tooltip("How many seconds after teleporting before the player can teleport again.")]
         [SerializeField] private float transitionCooldown = 0.2f;
         [SerializeField] private Vector3 startPosition;
-        private SpriteRenderer _spriteRenderer;
         private bool _canMove;
         
         protected override void Start()
         {
             base.Start();
-            _spriteRenderer = GetComponent<SpriteRenderer>();
         }
         
         protected override void HandleMovement()
@@ -43,8 +41,10 @@ namespace Player
                 var rowTransition = other.GetComponent<RowTransition>();
                 if (rowTransition == null) return;
                 if (rowTransition.destinationSpawn != null) transform.position = rowTransition.destinationSpawn.position;
-                _spriteRenderer.sortingOrder = rowTransition.sortingOrder;
-                transform.localScale = new Vector3(rowTransition.targetScale, rowTransition.targetScale, 1f);
+                SpriteRenderer.sortingOrder = rowTransition.sortingOrder;
+                //transform.localScale = new Vector3(rowTransition.targetScale, rowTransition.targetScale, 1f);
+                CurrentSize = rowTransition.targetSize;
+                SetSize();
                 speed = rowTransition.targetSpeed;
             }
         }
