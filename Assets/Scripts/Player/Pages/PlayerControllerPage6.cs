@@ -266,42 +266,42 @@ namespace Player
             {
                 // _spriteRenderer.sprite = frame2Sprite;
                 // transform.localScale = frame2Scale;
-                currentSize = frame2Size;
+                CurrentSize = frame2Size;
                 SetSize();
             }
             if (other == frame2toframe1Trigger)
             {
                 // _spriteRenderer.sprite = frame1Sprite;
                 // transform.localScale = frame1Scale;
-                currentSize = frame1Size;
+                CurrentSize = frame1Size;
                 SetSize();
             }
             if (other == frame2toframe4Trigger)
             {
                 // _spriteRenderer.sprite = frame4Sprite;
                 // transform.localScale = frame4Scale;
-                currentSize = frame4Size;
+                CurrentSize = frame4Size;
                 SetSize();
             }
             if (other == frame4toframe2Trigger)
             {
                 // _spriteRenderer.sprite = frame2Sprite;
                 // transform.localScale = frame2Scale;
-                currentSize = frame2Size;
+                CurrentSize = frame2Size;
                 SetSize();
             }
             if (other == frame4toframe6Trigger)
             {
                 // _spriteRenderer.sprite = frame6Sprite;
                 // transform.localScale = frame6Scale;
-                currentSize = frame6Size;
+                CurrentSize = frame6Size;
                 SetSize();
             }
             if (other == frame6toframe4Trigger)
             {
                 // _spriteRenderer.sprite = frame4Sprite;
                 // transform.localScale = frame4Scale;
-                currentSize = frame4Size;
+                CurrentSize = frame4Size;
                 SetSize();
             }
             

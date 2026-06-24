@@ -15,6 +15,11 @@ namespace Player
         [SerializeField, Tooltip("next scene name")] protected string nextSceneName;
 
         [SerializeField, Tooltip("initial size")] protected SizeSettings initialSize = SizeSettings.None;
+        [SerializeField] protected Transform graphicsRoot;
+
+        [SerializeField] private Collider2D smallCollider;
+        [SerializeField] private Collider2D mediumLargeCollider;
+        [SerializeField] private Collider2D extraLargeCollider;
         
         private InputSystem_Actions _inputActions;
         protected Rigidbody2D Rb;
@@ -22,7 +27,7 @@ namespace Player
 
         protected Animator Animator;
         protected SpriteRenderer SpriteRenderer;
-        protected SizeSettings currentSize;
+        protected SizeSettings CurrentSize;
         
         protected virtual void Awake()
         {
@@ -30,13 +35,14 @@ namespace Player
             _inputActions.Game.Enable();
             
             Rb = GetComponent<Rigidbody2D>();
-            Animator = GetComponent<Animator>();
-            SpriteRenderer = GetComponent<SpriteRenderer>();
+            if (graphicsRoot == null) return;
+            Animator = graphicsRoot.GetComponent<Animator>();
+            SpriteRenderer = graphicsRoot.GetComponent<SpriteRenderer>();
         }
         
         protected virtual void Start()
         {
-            currentSize = initialSize;
+            CurrentSize = initialSize;
             SetSize();
             StartCoroutine(DelayedSceneLoading());
         }
@@ -96,7 +102,7 @@ namespace Player
         protected void SetSize()
         {
             if (artSettings == null) return;
-            switch (currentSize)
+            switch (CurrentSize)
             {
                 case SizeSettings.Small:
                     SetSmall();
@@ -114,12 +120,21 @@ namespace Player
                     return;
             }
         }
+        
+        private void ApplyVisualOffset(Vector2 offset)
+        {
+            graphicsRoot.localPosition = offset;
+        }
 
         protected void SetSmall()
         {
             if (Animator != null) Animator.runtimeAnimatorController = artSettings.smallAnimatorController;
             SpriteRenderer.sprite = artSettings.smallSprite;
             transform.localScale = new Vector3(artSettings.smallSize, artSettings.smallSize);
+            ApplyVisualOffset(artSettings.smallOffset);
+            if(smallCollider != null) smallCollider.enabled = true;
+            if(mediumLargeCollider != null) mediumLargeCollider.enabled = false;
+            if(extraLargeCollider != null) extraLargeCollider.enabled = false;
         }
         
         protected void SetMedium()
@@ -127,6 +142,10 @@ namespace Player
             if (Animator != null) Animator.runtimeAnimatorController = artSettings.mediumLargeAnimatorController;
             SpriteRenderer.sprite = artSettings.mediumLargeSprite;
             transform.localScale = new Vector3(artSettings.mediumSize, artSettings.mediumSize);
+            ApplyVisualOffset(artSettings.mediumLargeOffset);
+            if(smallCollider != null) smallCollider.enabled = false;
+            if(mediumLargeCollider != null) mediumLargeCollider.enabled = true;
+            if(extraLargeCollider != null) extraLargeCollider.enabled = false;
         }
         
         protected void SetLarge()
@@ -141,6 +160,10 @@ namespace Player
             if (Animator != null) Animator.runtimeAnimatorController = artSettings.extraLargeAnimatorController;
             SpriteRenderer.sprite = artSettings.extraLargeSprite;
             transform.localScale = new Vector3(artSettings.extraLargeSize, artSettings.extraLargeSize);
+            ApplyVisualOffset(artSettings.extraLargeOffset);
+            if(smallCollider != null) smallCollider.enabled = false;
+            if(mediumLargeCollider != null) mediumLargeCollider.enabled = false;
+            if(extraLargeCollider != null) extraLargeCollider.enabled = true;
         }
     }
 }

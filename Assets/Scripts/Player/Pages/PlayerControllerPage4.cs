@@ -179,7 +179,7 @@ namespace Player
             else if (other == frame9ExitCollider)
             {
                 //transform.localScale = frame8Size;
-                currentSize = frame8Size;
+                CurrentSize = frame8Size;
                 SetSize();
             }
         }
@@ -241,7 +241,7 @@ namespace Player
         private void Frame9Sequence()
         {
             //transform.localScale = frame9Size;
-            currentSize = frame9Size;
+            CurrentSize = frame9Size;
             SetSize();
         }
 
