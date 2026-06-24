@@ -35,6 +35,7 @@ namespace Player
             _inputActions.Game.Enable();
             
             Rb = GetComponent<Rigidbody2D>();
+            if (graphicsRoot == null) return;
             Animator = graphicsRoot.GetComponent<Animator>();
             SpriteRenderer = graphicsRoot.GetComponent<SpriteRenderer>();
         }
