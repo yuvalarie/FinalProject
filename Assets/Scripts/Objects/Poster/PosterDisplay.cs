@@ -10,10 +10,10 @@ namespace Objects.Poster
         
         void Start()
         {
-            LoadPoster();
+            //LoadPoster();
         }
 
-        private void LoadPoster()
+        public void LoadPoster()
         {
             // Clear existing stickers
             foreach (Transform child in transform)
@@ -31,7 +31,7 @@ namespace Objects.Poster
                 }
 
                 var stickerObj = new GameObject("Sticker");
-                stickerObj.transform.SetParent(transform);
+                stickerObj.transform.SetParent(transform, false);
                 stickerObj.transform.localPosition = entry.localPos;
                 stickerObj.transform.localRotation = entry.localRot;
                 stickerObj.transform.localScale = entry.localScale;

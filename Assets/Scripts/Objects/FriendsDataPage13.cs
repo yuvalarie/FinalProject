@@ -8,5 +8,6 @@ namespace Objects.Poster
         public int id;
         public GameObject frame2Object;
         public GameObject frame4Object;
+        public GameObject hand;
     }
 }
