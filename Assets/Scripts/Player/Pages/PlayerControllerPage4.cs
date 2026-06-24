@@ -74,23 +74,12 @@ namespace Player
         //[SerializeField] private Vector3 frame9Size;
         [SerializeField] private SizeSettings frame9Size;
         
-        private SpriteRenderer _spriteRenderer;
-        private Animator _animator;
         private Vector3 _shadowOriginalPosition;
-
-        protected override void Awake()
-        {
-            base.Awake();
-            _animator = GetComponent<Animator>();
-            _animator.SetTrigger(Play);
-        }
 
         protected override void Start()
         {
             base.Start();
-            _spriteRenderer = GetComponent<SpriteRenderer>();
             if (shadowObject != null) _shadowOriginalPosition = shadowObject.transform.position;
-            SceneLoader.Instance.PreloadScene(nextSceneName);
         }
 
         protected override void OnInteraction(InputAction.CallbackContext context)
@@ -153,18 +142,18 @@ namespace Player
             else if (other == frame7EnterRightCollider)
             {
                 shadowObject.transform.SetParent(gameObject.transform);
-                _spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
+                SpriteRenderer.color = new Color(1f, 1f, 1f, 0f);
             }
             else if (other == frame7ExitCollider)
             {
                 shadowObject.transform.SetParent(null);
-                _spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+                SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
             }
             else if (other == frame7ExitLeftCollider)
             {
                 shadowObject.transform.SetParent(null);
                 shadowObject.transform.position = _shadowOriginalPosition;
-                _spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+                SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
                 transform.position = frame6ExitPosition.position;
             }
             else if (other == frame8EnterCollider)
@@ -228,7 +217,7 @@ namespace Player
         
         private void Frame7Sequence()
         {
-            _spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
+            SpriteRenderer.color = new Color(1f, 1f, 1f, 0f);
             shadowObject.transform.SetParent(gameObject.transform);
             shadowAnimator.SetTrigger(Play);
         }

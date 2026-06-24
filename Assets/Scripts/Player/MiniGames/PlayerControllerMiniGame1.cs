@@ -10,6 +10,8 @@ namespace Player
 {
     public class PlayerControllerMiniGame1 : PlayerControllerBase
     {
+        [SerializeField] private GameObject blackScreen;
+        [SerializeField] private float blackScreenDuration;
         [Header("Hand Settings")]
         [SerializeField, Tooltip("The child GameObject for the Right Hand.")]
         private GameObject rightHand;
@@ -51,6 +53,8 @@ namespace Player
         [SerializeField] private Animator heldaAnimator;
         [SerializeField] private Animator eyeAnimator;
         [SerializeField] private GameObject textBubble;
+        [SerializeField] private GameObject endColliders;
+        [SerializeField] private GameObject sideColliders;
         
         private GrabbableObject _heldGrabbable;
         private int _numOfPlacedObjects = 0;
@@ -80,6 +84,13 @@ namespace Player
             
             if (_rightHandSprite != null) _rightHandSprite.enabled = false;
             if (_leftHandSprite != null) _leftHandSprite.enabled = true;
+            StartCoroutine(TurnOffBlackScreenCoroutine());
+        }
+
+        private IEnumerator TurnOffBlackScreenCoroutine()
+        {
+            yield return new WaitForSeconds(blackScreenDuration);
+            if(blackScreen != null) blackScreen.SetActive(false);
         }
 
         protected override void OnInteraction(InputAction.CallbackContext context)
@@ -199,10 +210,6 @@ namespace Player
             {
                 StartCoroutine(EyesAndBubbleRoutine());
             }
-            else if (_endSequenceStep == 2)
-            {
-                SceneLoader.Instance.ActivatePreloadedScene();
-            }
         }
         
         private IEnumerator EyesAndBubbleRoutine()
@@ -210,11 +217,13 @@ namespace Player
             _isSequenceWaiting = true;
             
             eyeAnimator.SetTrigger("EyesRoll");
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(7f);
             textBubble.SetActive(true);
             
             _endSequenceStep++;
             _isSequenceWaiting = false;
+            endColliders.SetActive(true);
+            sideColliders.SetActive(false);
         }
 
         private void TryPickUp()

@@ -35,14 +35,7 @@ namespace Player
         [SerializeField] private Collider2D frame2Collider;
 
         [Header("Sprite Settings")]
-        // [SerializeField] private Sprite frame1Sprite;
-        // [SerializeField] private Sprite frame2Sprite;
-        // [SerializeField] private Sprite frame4Sprite;
-        // [SerializeField] private Sprite frame6Sprite;
-        // [SerializeField] private Vector3 frame1Scale;
-        // [SerializeField] private Vector3 frame2Scale;
-        // [SerializeField] private Vector3 frame4Scale;
-        // [SerializeField] private Vector3 frame6Scale;
+
         [SerializeField] private SizeSettings frame1Size;
         [SerializeField] private SizeSettings frame2Size;
         [SerializeField] private SizeSettings frame4Size;
