@@ -11,6 +11,7 @@ namespace Objects
         private Page13FriendsManager _manager;
         private GameObject _frame2Obj;
         private GameObject _frame4Obj;
+        private GameObject _handObj;
         private FriendsDataPage13 _data;
 
         private float _frame2Duration;
@@ -21,11 +22,12 @@ namespace Objects
         private int _minJumps = 3;
         private int _maxJumps = 6;
 
-        public void Initialize(Page13FriendsManager manager, GameObject f2Obj, GameObject f4Obj, float frame2, float frame4, bool startInFrame4)
+        public void Initialize(Page13FriendsManager manager, GameObject f2Obj, GameObject f4Obj, float frame2, float frame4, bool startInFrame4)//, GameObject hand)
         {
             _manager = manager;
             _frame2Obj = f2Obj;
             _frame4Obj = f4Obj;
+            //_handObj = hand;
             
             _frame2Duration = frame2;
             _frame4Duration = frame4;
