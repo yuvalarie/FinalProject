@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Managers;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -49,7 +50,7 @@ namespace Player
 
         private IEnumerator DelayedSceneLoading()
         {
-            yield return null;
+            yield return new WaitForNextFrameUnit();
             SceneLoader.Instance?.PreloadScene(nextSceneName);
         }
 
