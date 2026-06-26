@@ -1,0 +1,481 @@
+fileFormatVersion: 2
+guid: dbb013318fa4e4655853c1e29ca32797
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7714673689076593750
+    second: Blood0009_0
+  - first:
+      213: -883557838431470529
+    second: Blood0009_1
+  - first:
+      213: -5127191914391278257
+    second: Blood0009_2
+  - first:
+      213: 6712086989948538127
+    second: Blood0009_3
+  - first:
+      213: -4462865937387265457
+    second: Blood0009_4
+  - first:
+      213: 1936945177860427268
+    second: Blood0009_5
+  - first:
+      213: 7972005595365459693
+    second: Blood0009_6
+  - first:
+      213: -1883653355710223944
+    second: Blood0009_7
+  - first:
+      213: -6250196467935798609
+    second: Blood0009_8
+  - first:
+      213: -3590281802178238871
+    second: Blood0009_9
+  - first:
+      213: 1366523446702745218
+    second: Blood0009_10
+  - first:
+      213: -6461494167338899904
+    second: Blood0009_11
+  - first:
+      213: -1570106428436645247
+    second: Blood0009_12
+  - first:
+      213: -8322748031542425742
+    second: Blood0009_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 108
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Blood0009_0
+      rect:
+        serializedVersion: 2
+        x: 5190
+        y: 4131
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aab89846729ffe490800000000000000
+      internalID: -7714673689076593750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood0009_1
+      rect:
+        serializedVersion: 2
+        x: 5771
+        y: 4089
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3cb7c5c3d8fcb3f0800000000000000
+      internalID: -883557838431470529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood0009_2
+      rect:
+        serializedVersion: 2
+        x: 3040
+        y: 3942
+        width: 24
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4de37f6e1e88d8b0800000000000000
+      internalID: -5127191914391278257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood0009_3
+      rect:
+        serializedVersion: 2
+        x: 2461
+        y: 3829
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0d47612e8f162d50800000000000000
+      internalID: 6712086989948538127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood0009_4
+      rect:
+        serializedVersion: 2
+        x: 2735
+        y: 3039
+        width: 131
+        height: 564
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4267d14317b012c0800000000000000
+      internalID: -4462865937387265457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood0009_5
+      rect:
+        serializedVersion: 2
+        x: 5232
+        y: 3541
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40ec6cb706961ea10800000000000000
+      internalID: 1936945177860427268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood0009_6
+      rect:
+        serializedVersion: 2
+        x: 5474
+        y: 3066
+        width: 104
+        height: 595
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de64f2bf9d042ae60800000000000000
+      internalID: 7972005595365459693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood0009_7
+      rect:
+        serializedVersion: 2
+        x: 5681
+        y: 3538
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b96be4c04bebd5e0800000000000000
+      internalID: -1883653355710223944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood0009_8
+      rect:
+        serializedVersion: 2
+        x: 2554
+        y: 3406
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faa19486d67d249a0800000000000000
+      internalID: -6250196467935798609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood0009_9
+      rect:
+        serializedVersion: 2
+        x: 3058
+        y: 3287
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 966ed9919b1cc2ec0800000000000000
+      internalID: -3590281802178238871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood0009_10
+      rect:
+        serializedVersion: 2
+        x: 5324
+        y: 1844
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 286a5f9a5ddd6f210800000000000000
+      internalID: 1366523446702745218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood0009_11
+      rect:
+        serializedVersion: 2
+        x: 4767
+        y: 1808
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 046a18d0a492456a0800000000000000
+      internalID: -6461494167338899904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood0009_12
+      rect:
+        serializedVersion: 2
+        x: 3720
+        y: 1188
+        width: 85
+        height: 554
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18af979a58cd53ae0800000000000000
+      internalID: -1570106428436645247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood0009_13
+      rect:
+        serializedVersion: 2
+        x: 5003
+        y: 1201
+        width: 84
+        height: 489
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27705d8d2c8af7c80800000000000000
+      internalID: -8322748031542425742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Blood0009_0: -7714673689076593750
+      Blood0009_1: -883557838431470529
+      Blood0009_10: 1366523446702745218
+      Blood0009_11: -6461494167338899904
+      Blood0009_12: -1570106428436645247
+      Blood0009_13: -8322748031542425742
+      Blood0009_2: -5127191914391278257
+      Blood0009_3: 6712086989948538127
+      Blood0009_4: -4462865937387265457
+      Blood0009_5: 1936945177860427268
+      Blood0009_6: 7972005595365459693
+      Blood0009_7: -1883653355710223944
+      Blood0009_8: -6250196467935798609
+      Blood0009_9: -3590281802178238871
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
