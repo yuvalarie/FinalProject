@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Managers;
@@ -6,6 +7,7 @@ using Objects;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace Player
 {
@@ -78,6 +80,7 @@ namespace Player
         
         private SimonInteractable _currentStandingToolInteractable;
         private GameObject _heldToolObject;
+        private SpriteRenderer _heldToolSpriteRenderer;
         private Vector3 _heldToolOriginalPosition;
         private Transform _heldToolOriginalParent;
         private Vector3 _playerStartPosition;
@@ -89,6 +92,21 @@ namespace Player
             _playerStartPosition = transform.position;
             GenerateSequence();
             StartCoroutine(PlaySequenceOnScreen());
+        }
+
+        private void Update()
+        {
+            if (_heldToolSpriteRenderer != null)
+            {
+                if (MoveInput.x > 0.5)
+                {
+                    _heldToolSpriteRenderer.flipX = true;
+                }
+                if (MoveInput.x < 0.5)
+                {
+                    _heldToolSpriteRenderer.flipX = false;
+                }
+            }
         }
 
         private void GenerateSequence()
@@ -165,6 +183,9 @@ namespace Player
                     _heldToolObject = _currentStandingToolInteractable.gameObject;
                     _heldToolOriginalPosition = _heldToolObject.transform.position;
                     _heldToolOriginalParent = _heldToolObject.transform.parent;
+                    _heldToolSpriteRenderer = _heldToolObject.GetComponent<SpriteRenderer>();
+                    if (_heldToolSpriteRenderer == null)
+                        _heldToolSpriteRenderer.GetComponentInChildren<SpriteRenderer>();
 
                     if (holdSlot != null)
                     {
@@ -186,6 +207,7 @@ namespace Player
                 _heldToolObject.transform.SetParent(_heldToolOriginalParent);
                 _heldToolObject.transform.position = _heldToolOriginalPosition;
                 _heldToolObject.transform.rotation = Quaternion.identity;
+                _heldToolSpriteRenderer = null;
                 _heldToolObject = null;
             }
             currentHeldTool = ToolType.None;
