@@ -24,7 +24,7 @@ namespace Audio.AudioEmitters
         {
             if (string.IsNullOrEmpty(AudioEventName))
             {
-                Debug.LogError($"Audio event name is not set for {gameObject.name}");
+                // Debug.LogError($"Audio event name is not set for {gameObject.name}");
                 return;
             }
             var eventReference = FMODEvents.Instance.GetEventReferenceByName(AudioEventName);
