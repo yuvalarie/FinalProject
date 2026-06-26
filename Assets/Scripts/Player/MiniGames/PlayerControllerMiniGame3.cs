@@ -24,6 +24,8 @@ namespace Player
         public ToolType Tool;
         public AreaType Area;
         public GameObject Sprite;
+        public Vector3 position;
+        public bool flip;
     }
 
     public class PlayerControllerMiniGame3 : PlayerControllerBase
@@ -35,6 +37,9 @@ namespace Player
         [Header("Hold Settings")]
         [SerializeField, Tooltip("Transform where the tool will sit when held by the player")] 
         private Transform holdSlot;
+        // ADDED: A list to define which tools are drawn facing the opposite direction by default
+        [SerializeField, Tooltip("Add tools here if they face the opposite way by default and need inverted flipping logic")] 
+        private List<ToolType> invertedFacingToolsList;
         
         [Header("UI Screen Settings")]
         [SerializeField, Tooltip("How long should the next task be shown")] private float showTaskDuration;
@@ -53,14 +58,11 @@ namespace Player
         private List<GameObject> failureObjectsList;
         [SerializeField, Tooltip("How long the failure object stays visible")] 
         private float failureObjectDisplayDuration = 1f;
+        [SerializeField] private Animator bloodAnimator;
         
         [Header("Success Feedback Settings")]
         [SerializeField, Tooltip("Duration of the tool vibration when correct")] 
         private float toolVibrateDuration = 0.2f;
-        [SerializeField, Tooltip("Strength of the tool vibration (Z-axis rotation)")] 
-        private float toolVibrateStrength = 30f;
-        [SerializeField, Tooltip("How many times it vibrates back and forth")] 
-        private int toolVibrateVibrato = 10;
         
         [SerializeField, Tooltip("Map each tool+area combination to its specific sprite here")] 
         private List<CombinationSpriteMapping> combinationSpritesList;
@@ -74,17 +76,22 @@ namespace Player
         [SerializeField] private GameObject endReaction;
 
         private List<SimonTask> fullSequence = new List<SimonTask>();
-        private int currentRound = 1; // Tracks which round we are on (e.g., Round 3 means doing 3 steps)
-        private int playerStepIndex = 0; // Tracks which step the player is currently executing
-        private bool isScreenPlaying = false; // Prevents interaction while the screen is showing the pattern
+        private int currentRound = 1; 
+        private int playerStepIndex = 0; 
+        private bool isScreenPlaying = false; 
         
         private SimonInteractable _currentStandingToolInteractable;
         private GameObject _heldToolObject;
         private SpriteRenderer _heldToolSpriteRenderer;
-        private Vector3 _heldToolOriginalPosition;
+        private Animator _heldToolAnimator;
+        private Vector3 _heldToolOriginalLocalPosition;
+        private Quaternion _heldToolOriginalLocalRotation;
         private Transform _heldToolOriginalParent;
         private Vector3 _playerStartPosition;
-        private bool isEnd;
+        private bool _isEnd;
+        private bool _flipx;
+        
+        private List<AreaType> _activeOverlappingAreas = new List<AreaType>();
         
         protected override void Start()
         {
@@ -96,15 +103,20 @@ namespace Player
 
         private void Update()
         {
-            if (_heldToolSpriteRenderer != null)
+            // FIXED: Cleaned up the input math and added support for inverted tools
+            if (_heldToolSpriteRenderer != null && Mathf.Abs(MoveInput.x) > 0.1f)
             {
-                if (MoveInput.x > 0.5)
+                bool isMovingLeft = MoveInput.x < 0;
+                bool invertFlip = invertedFacingToolsList.Contains(currentHeldTool);
+
+                // If the tool is backwards by default, flip it the opposite way!
+                if (invertFlip)
                 {
-                    _heldToolSpriteRenderer.flipX = true;
+                    _heldToolSpriteRenderer.flipX = !isMovingLeft;
                 }
-                if (MoveInput.x < 0.5)
+                else
                 {
-                    _heldToolSpriteRenderer.flipX = false;
+                    _heldToolSpriteRenderer.flipX = isMovingLeft;
                 }
             }
         }
@@ -112,15 +124,6 @@ namespace Player
         private void GenerateSequence()
         {
             fullSequence.Clear();
-            // for (int i = 0; i < totalActionsToWin; i++)
-            // {
-            //     SimonTask newTask = new SimonTask
-            //     {
-            //         RequiredTool = (ToolType)Random.Range(1, 5),
-            //         TargetArea = (AreaType)Random.Range(1, 5)
-            //     };
-            //     fullSequence.Add(newTask);
-            // }
             List<int> toolBag = new List<int>();
             List<int> areaBag = new List<int>();
 
@@ -166,7 +169,7 @@ namespace Player
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
             if (!context.performed || isScreenPlaying) return;
-            if(isEnd) SceneLoader.Instance.ActivatePreloadedScene();
+            if(_isEnd) SceneLoader.Instance.ActivatePreloadedScene();
 
             if (currentStandingArea != AreaType.None && currentHeldTool != ToolType.None)
             {
@@ -181,11 +184,15 @@ namespace Player
                 if (_currentStandingToolInteractable != null)
                 {
                     _heldToolObject = _currentStandingToolInteractable.gameObject;
-                    _heldToolOriginalPosition = _heldToolObject.transform.position;
+                    _heldToolOriginalLocalPosition = _heldToolObject.transform.localPosition;
+                    _heldToolOriginalLocalRotation = _heldToolObject.transform.localRotation;
                     _heldToolOriginalParent = _heldToolObject.transform.parent;
                     _heldToolSpriteRenderer = _heldToolObject.GetComponent<SpriteRenderer>();
                     if (_heldToolSpriteRenderer == null)
-                        _heldToolSpriteRenderer.GetComponentInChildren<SpriteRenderer>();
+                        _heldToolSpriteRenderer = _heldToolObject.GetComponentInChildren<SpriteRenderer>();
+                    _heldToolAnimator = _heldToolObject.GetComponent<Animator>();
+                    if (_heldToolAnimator == null)
+                        _heldToolAnimator = _heldToolObject.GetComponentInChildren<Animator>();
 
                     if (holdSlot != null)
                     {
@@ -205,9 +212,12 @@ namespace Player
             {
                 _heldToolObject.transform.DOComplete();
                 _heldToolObject.transform.SetParent(_heldToolOriginalParent);
-                _heldToolObject.transform.position = _heldToolOriginalPosition;
+                _heldToolObject.transform.localPosition = _heldToolOriginalLocalPosition;
+                _heldToolObject.transform.localRotation = _heldToolOriginalLocalRotation;
                 _heldToolObject.transform.rotation = Quaternion.identity;
+                _heldToolSpriteRenderer.flipX = false;
                 _heldToolSpriteRenderer = null;
+                _heldToolAnimator = null;
                 _heldToolObject = null;
             }
             currentHeldTool = ToolType.None;
@@ -219,26 +229,42 @@ namespace Player
             
             if (usedTool == expectedTask.RequiredTool && appliedArea == expectedTask.TargetArea)
             {
-                // -- SUCCESS --
                 Debug.Log("Correct move!");
                 StartCoroutine(HandleSuccessRoutine());
             }
             else
             {
-                // -- FAILURE --
                 Debug.Log("WRONG MOVE! Restarting this round.");
                 StartCoroutine(HandleFailureRoutine());
             }
         }
 
+        private Vector3 FindPosition(ToolType tool, AreaType area)
+        {
+            foreach (var mapping in combinationSpritesList)
+            {
+                if (mapping.Tool == tool && mapping.Area == area)
+                {
+                    _flipx = mapping.flip;
+                    return mapping.position;
+                }
+            }
+
+            return Vector3.zero;
+        }
+
         private IEnumerator HandleSuccessRoutine()
         {
             isScreenPlaying = true;
-            if (_heldToolObject != null)
-            {
-                _heldToolObject.transform.DOPunchRotation(new Vector3(0, 0, toolVibrateStrength), toolVibrateDuration, toolVibrateVibrato, 1f);
-                yield return new WaitForSeconds(toolVibrateDuration);
-            }
+            _heldToolObject.transform.SetParent(null);
+            transform.position = _playerStartPosition;
+            _heldToolObject.transform.position = FindPosition(currentHeldTool, currentStandingArea);
+            
+            if (_heldToolSpriteRenderer != null)
+                _heldToolSpriteRenderer.flipX = _flipx;
+                
+            if(_heldToolAnimator != null) _heldToolAnimator.SetTrigger("Play");
+            yield return new WaitForSeconds(toolVibrateDuration);
             ReturnHeldTool();
             
             playerStepIndex++;
@@ -254,14 +280,12 @@ namespace Player
                 {
                     currentRound++;
                     playerStepIndex = 0;
-                    transform.position = _playerStartPosition;
                     StartCoroutine(PlaySequenceOnScreen());
                 }
             }
             else
             {
                 isScreenPlaying = false;
-                transform.position = _playerStartPosition;
             }
         }
 
@@ -270,12 +294,13 @@ namespace Player
             yield return new WaitForSeconds(0.5f);
             endReaction.SetActive(true);
             yield return new WaitForSeconds(0.5f);
-            isEnd = true;
+            _isEnd = true;
         }
 
         private IEnumerator HandleFailureRoutine()
         {
             isScreenPlaying = true;
+            if(bloodAnimator != null) bloodAnimator.SetTrigger("Play");
             
             if (mouthTransform != null)
             {
@@ -306,7 +331,8 @@ namespace Player
             StartCoroutine(PlaySequenceOnScreen()); 
         }
 
-        private void OnTriggerStay2D(Collider2D other)
+        // FIXED: Switched from OnTriggerStay2D to OnTriggerEnter2D to prevent collider fighting
+        private void OnTriggerEnter2D(Collider2D other)
         {
             SimonInteractable interactable = other.GetComponent<SimonInteractable>();
             if (interactable != null)
@@ -316,7 +342,14 @@ namespace Player
                     currentStandingToolStation = interactable.toolType;
                     _currentStandingToolInteractable = interactable;
                 }
-                if (interactable.isArea) currentStandingArea = interactable.areaType;
+                if (interactable.isArea)
+                {
+                    if (!_activeOverlappingAreas.Contains(interactable.areaType))
+                    {
+                        _activeOverlappingAreas.Add(interactable.areaType);
+                    }
+                    UpdateCurrentArea();
+                }
             }
         }
 
@@ -325,15 +358,31 @@ namespace Player
             SimonInteractable interactable = other.GetComponent<SimonInteractable>();
             if (interactable != null)
             {
-                // Only clear the references if we are exiting the specific tool we are standing at
                 if (interactable.isToolStation && currentStandingToolStation == interactable.toolType)
                 {
                     currentStandingToolStation = ToolType.None;
                     if (_currentStandingToolInteractable == interactable) 
                         _currentStandingToolInteractable = null;
                 }
-                if (interactable.isArea && currentStandingArea == interactable.areaType) 
-                    currentStandingArea = AreaType.None;
+                if (interactable.isArea)
+                {
+                    _activeOverlappingAreas.Remove(interactable.areaType);
+                    UpdateCurrentArea();
+                }
+            }
+        }
+        
+        // ADDED: Helper method to always pick the most recent area you walked into
+        private void UpdateCurrentArea()
+        {
+            if (_activeOverlappingAreas.Count > 0)
+            {
+                // Assign the last item added to the list (the one you walked into most recently)
+                currentStandingArea = _activeOverlappingAreas[_activeOverlappingAreas.Count - 1];
+            }
+            else
+            {
+                currentStandingArea = AreaType.None;
             }
         }
         
@@ -347,7 +396,6 @@ namespace Player
             return null;
         }
 
-        // --- Screen Display Logic ---
         private IEnumerator PlaySequenceOnScreen()
         {
             isScreenPlaying = true;
