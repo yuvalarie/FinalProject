@@ -64,15 +64,7 @@ namespace Audio
         
         public EventReference GetEventReferenceByName(string eventName)
         {
-            if (_eventReferences.TryGetValue(eventName, out var eventReference))
-            {
-                return eventReference;
-            }
-            else
-            {
-                Debug.LogWarning($"Event reference with name '{eventName}' not found.");
-                return default;
-            }
+            return _eventReferences[eventName];
         }
     }
 }
