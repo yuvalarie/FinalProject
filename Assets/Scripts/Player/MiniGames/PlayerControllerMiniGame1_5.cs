@@ -2,6 +2,7 @@
 using System.Collections;
 using DG.Tweening;
 using Managers;
+using Objects;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -23,14 +24,12 @@ namespace Player.MiniGames
     public class PlayerControllerMiniGame1_5  : PlayerControllerBase
     {
         [Header("Chat Settings")] 
+        [SerializeField] private float waitForText1;
         [SerializeField] private GameObject text1;
         [SerializeField] private GameObject text2;
         [SerializeField] private GameObject text3;
         [SerializeField] private GameObject text4;
-        [SerializeField] private GameObject text5;
-        [SerializeField] private GameObject text6;
-        [SerializeField] private GameObject text7;
-        [SerializeField] private GameObject text8;
+        [SerializeField] private GameObject appLogo;
         
         [Header("Quiz Settings")]
         [SerializeField] private QuizStage[] quizStages;
@@ -52,18 +51,23 @@ namespace Player.MiniGames
         private int _interactionCount = 0;
         private bool _disableText;
         private Vector3 _startPosition;
+        
+        private QuizAnswerObject _currentlyHoveredAnswer;
 
         protected override void Start()
         {
             base.Start();
             _startPosition = transform.position;
+            StartCoroutine(OpeningCoroutine());
+        }
 
-            // for (int i = 0; i < quizStages.Length; i++)
-            // {
-            //     quizStages[i].stageParent.SetActive(false);
-            // }
+        private IEnumerator OpeningCoroutine()
+        {
+            _isAnimating = true;
+            yield return new WaitForSeconds(waitForText1);
             text1.SetActive(true);
             _interactionCount = 1;
+            _isAnimating = false;
         }
 
         protected override void HandleMovement()
@@ -79,9 +83,17 @@ namespace Player.MiniGames
             switch (_interactionCount)
             {
                 case 1:
-                    text1.SetActive(false);
-                    text2.SetActive(true);
-                    _interactionCount++;
+                    if (!_disableText)
+                    {
+                        text1.SetActive(false);
+                        _disableText = true;
+                        StartCoroutine(SetStageActive());
+                        ResetHandPosition();
+                    }
+                    else
+                    {
+                        QuizInteraction();
+                    }
                     break;
                 case 2:
                     text2.SetActive(false);
@@ -94,35 +106,11 @@ namespace Player.MiniGames
                     _interactionCount++;
                     break;
                 case 4:
-                    if (!_disableText)
-                    {
-                        text4.SetActive(false);
-                        _disableText = true;
-                        StartCoroutine(SetStageActive());
-                        ResetHandPosition();
-                    }
-                    else
-                    {
-                        QuizInteraction();
-                    }
+                    text4.SetActive(false);
+                    appLogo.SetActive(true);
+                    _interactionCount++;
                     break;
                 case 5:
-                    text5.SetActive(false);
-                    text6.SetActive(true);
-                    _interactionCount++;
-                    break;
-                case 6:
-                    text6.SetActive(false);
-                    text7.SetActive(true);
-                    _interactionCount++;
-                    break;
-                case 7:
-                    text7.SetActive(false);
-                    text8.SetActive(true);
-                    _interactionCount++;
-                    break;
-                case 8:
-                    text8.SetActive(false);
                     SceneLoader.Instance?.ActivatePreloadedScene();
                     break;
             }
@@ -140,6 +128,7 @@ namespace Player.MiniGames
 
                 if (hit.CompareTag("Answer"))
                 {
+                    _currentlyHoveredAnswer.SwitchToChosen();
                     StartCoroutine(AnswerSelectionRoutine(selectedItem, currentStage));
                 }
             }
@@ -163,7 +152,7 @@ namespace Player.MiniGames
             }
 
             yield return new WaitForSeconds(waitBeforeNextStage);
-
+            _currentlyHoveredAnswer = null;
             selectedItem.gameObject.SetActive(false);
             yield return new WaitForSeconds(0.5f);
 
@@ -177,8 +166,8 @@ namespace Player.MiniGames
             }
             else
             {
-                _interactionCount = 5; 
-                text5.SetActive(true);
+                _interactionCount = 2; 
+                text2.SetActive(true);
                 ResetHandPosition();
                 _isAnimating = false;
             }
@@ -205,6 +194,36 @@ namespace Player.MiniGames
             foreach (var trail in trails)
             {
                 trail.Clear();
+            }
+        }
+
+        protected override void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Answer"))
+            {
+                QuizAnswerObject answer = collision.GetComponent<QuizAnswerObject>();
+                if (answer != null)
+                {
+                    if (answer != _currentlyHoveredAnswer && _currentlyHoveredAnswer != null)
+                    {
+                        _currentlyHoveredAnswer.SwitchToOriginal();
+                    }
+                    _currentlyHoveredAnswer = answer;
+                    _currentlyHoveredAnswer.SwitchToHover();
+                }
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Answer"))
+            {
+                QuizAnswerObject answer = collision.GetComponent<QuizAnswerObject>();
+                if (_currentlyHoveredAnswer == answer)
+                {
+                    _currentlyHoveredAnswer.SwitchToOriginal();
+                    _currentlyHoveredAnswer = null;
+                }
             }
         }
 
