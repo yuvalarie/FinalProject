@@ -37,7 +37,6 @@ namespace Player
         [Header("Hold Settings")]
         [SerializeField, Tooltip("Transform where the tool will sit when held by the player")] 
         private Transform holdSlot;
-        // ADDED: A list to define which tools are drawn facing the opposite direction by default
         [SerializeField, Tooltip("Add tools here if they face the opposite way by default and need inverted flipping logic")] 
         private List<ToolType> invertedFacingToolsList;
         
@@ -91,7 +90,8 @@ namespace Player
         private bool _isEnd;
         private bool _flipx;
         
-        private List<AreaType> _activeOverlappingAreas = new List<AreaType>();
+        // FIXED 1: We now track the actual interactable scripts instead of just the AreaType Enum
+        private List<SimonInteractable> _activeOverlappingAreas = new List<SimonInteractable>();
         
         protected override void Start()
         {
@@ -103,13 +103,14 @@ namespace Player
 
         private void Update()
         {
-            // FIXED: Cleaned up the input math and added support for inverted tools
+            // FIXED 2: Constantly update which area is the absolute closest to the player
+            UpdateCurrentArea();
+
             if (_heldToolSpriteRenderer != null && Mathf.Abs(MoveInput.x) > 0.1f)
             {
                 bool isMovingLeft = MoveInput.x < 0;
                 bool invertFlip = invertedFacingToolsList.Contains(currentHeldTool);
 
-                // If the tool is backwards by default, flip it the opposite way!
                 if (invertFlip)
                 {
                     _heldToolSpriteRenderer.flipX = !isMovingLeft;
@@ -214,8 +215,10 @@ namespace Player
                 _heldToolObject.transform.SetParent(_heldToolOriginalParent);
                 _heldToolObject.transform.localPosition = _heldToolOriginalLocalPosition;
                 _heldToolObject.transform.localRotation = _heldToolOriginalLocalRotation;
-                _heldToolObject.transform.rotation = Quaternion.identity;
-                _heldToolSpriteRenderer.flipX = false;
+                
+                if (_heldToolSpriteRenderer != null)
+                    _heldToolSpriteRenderer.flipX = false;
+                    
                 _heldToolSpriteRenderer = null;
                 _heldToolAnimator = null;
                 _heldToolObject = null;
@@ -238,6 +241,14 @@ namespace Player
                 StartCoroutine(HandleFailureRoutine());
             }
         }
+        
+        private void ClearInteractionStates()
+        {
+            currentStandingArea = AreaType.None;
+            currentStandingToolStation = ToolType.None;
+            _currentStandingToolInteractable = null;
+            _activeOverlappingAreas.Clear();
+        }
 
         private Vector3 FindPosition(ToolType tool, AreaType area)
         {
@@ -249,7 +260,6 @@ namespace Player
                     return mapping.position;
                 }
             }
-
             return Vector3.zero;
         }
 
@@ -258,6 +268,7 @@ namespace Player
             isScreenPlaying = true;
             _heldToolObject.transform.SetParent(null);
             transform.position = _playerStartPosition;
+            ClearInteractionStates();
             _heldToolObject.transform.position = FindPosition(currentHeldTool, currentStandingArea);
             
             if (_heldToolSpriteRenderer != null)
@@ -328,10 +339,10 @@ namespace Player
             playerStepIndex = 0; 
             ReturnHeldTool();
             transform.position = _playerStartPosition;
+            ClearInteractionStates();
             StartCoroutine(PlaySequenceOnScreen()); 
         }
 
-        // FIXED: Switched from OnTriggerStay2D to OnTriggerEnter2D to prevent collider fighting
         private void OnTriggerEnter2D(Collider2D other)
         {
             SimonInteractable interactable = other.GetComponent<SimonInteractable>();
@@ -344,11 +355,11 @@ namespace Player
                 }
                 if (interactable.isArea)
                 {
-                    if (!_activeOverlappingAreas.Contains(interactable.areaType))
+                    // FIXED 3: Storing the interactable component, not just the Enum!
+                    if (!_activeOverlappingAreas.Contains(interactable))
                     {
-                        _activeOverlappingAreas.Add(interactable.areaType);
+                        _activeOverlappingAreas.Add(interactable);
                     }
-                    UpdateCurrentArea();
                 }
             }
         }
@@ -366,23 +377,47 @@ namespace Player
                 }
                 if (interactable.isArea)
                 {
-                    _activeOverlappingAreas.Remove(interactable.areaType);
-                    UpdateCurrentArea();
+                    _activeOverlappingAreas.Remove(interactable);
                 }
             }
         }
         
-        // ADDED: Helper method to always pick the most recent area you walked into
+        // FIXED 4: Distance checking logic that perfectly solves the overlap bug!
         private void UpdateCurrentArea()
         {
-            if (_activeOverlappingAreas.Count > 0)
-            {
-                // Assign the last item added to the list (the one you walked into most recently)
-                currentStandingArea = _activeOverlappingAreas[_activeOverlappingAreas.Count - 1];
-            }
-            else
+            // Clean up any empty refs just in case an object gets destroyed or turned off
+            _activeOverlappingAreas.RemoveAll(item => item == null || !item.gameObject.activeInHierarchy);
+
+            if (_activeOverlappingAreas.Count == 0)
             {
                 currentStandingArea = AreaType.None;
+                return;
+            }
+
+            if (_activeOverlappingAreas.Count == 1)
+            {
+                currentStandingArea = _activeOverlappingAreas[0].areaType;
+                return;
+            }
+
+            // If we are touching MULTIPLE areas, measure the distance and pick the closest one!
+            SimonInteractable closestArea = null;
+            float closestDistance = float.MaxValue;
+
+            foreach (var area in _activeOverlappingAreas)
+            {
+                // Measures distance from player center to the area's center point
+                float dist = Vector2.Distance(transform.position, area.transform.position);
+                if (dist < closestDistance)
+                {
+                    closestDistance = dist;
+                    closestArea = area;
+                }
+            }
+
+            if (closestArea != null)
+            {
+                currentStandingArea = closestArea.areaType;
             }
         }
         
