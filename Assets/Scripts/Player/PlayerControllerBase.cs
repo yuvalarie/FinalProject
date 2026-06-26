@@ -25,6 +25,7 @@ namespace Player
         private InputSystem_Actions _inputActions;
         protected Rigidbody2D Rb;
         protected Vector2 MoveInput;
+        protected Vector2 targetVelocity;
 
         protected Animator Animator;
         protected SpriteRenderer SpriteRenderer;
@@ -81,7 +82,7 @@ namespace Player
         
         protected virtual void HandleMovement()
         {
-            Vector3 targetVelocity = new Vector2(MoveInput.x * speed, MoveInput.y * speed);
+            targetVelocity = new Vector2(MoveInput.x * speed, MoveInput.y * speed);
             Rb.linearVelocity = targetVelocity;
         }
 

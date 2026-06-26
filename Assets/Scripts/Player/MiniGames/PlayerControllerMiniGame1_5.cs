@@ -45,6 +45,13 @@ namespace Player.MiniGames
         private float waitBeforeNextStage = 2f;
         [SerializeField] private float waitBetweenQandA;
         [SerializeField] private float waitBetweenAnswers;
+        
+        [Header("Movement Settings")]
+        [SerializeField] private bool rotateTowardsMovement = true;
+        [SerializeField] private float rotationSpeed = 15f;
+        [SerializeField] private float rotationOffset = 0f;
+
+        private Vector2 _lastVelocity;
 
         private int _currentStageIndex = 0;
         private bool _isAnimating = false;
@@ -74,6 +81,26 @@ namespace Player.MiniGames
         {
             if (_isAnimating) return; 
             base.HandleMovement();
+            RotateTowardsMovement(targetVelocity);
+        }
+        
+        private void RotateTowardsMovement(Vector2 velocity)
+        {
+            if (!rotateTowardsMovement)
+                return;
+
+            if (velocity.sqrMagnitude < 0.001f)
+                return;
+
+            float angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
+
+            Quaternion targetRotation =
+                Quaternion.Euler(0f, 0f, angle + rotationOffset);
+
+            transform.rotation = Quaternion.Lerp(
+                transform.rotation,
+                targetRotation,
+                rotationSpeed * Time.fixedDeltaTime);
         }
 
         protected override void OnInteraction(InputAction.CallbackContext context)
