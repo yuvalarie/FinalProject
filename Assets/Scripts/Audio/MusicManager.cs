@@ -18,7 +18,7 @@ namespace Audio
 
         private void Start()
         {
-            PlayOpeningMusic();
+            HandleSceneMusic(SceneManager.GetActiveScene().name);
         }
 
         private void OnEnable()
@@ -33,8 +33,15 @@ namespace Audio
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            if (scene.name == mainGameSceneName)
+            HandleSceneMusic(scene.name);
+        }
+
+        private void HandleSceneMusic(string sceneName)
+        {
+            if (sceneName == mainGameSceneName)
                 TransitionToMainGame();
+            else
+                PlayOpeningMusic();
         }
 
         private void PlayOpeningMusic()
