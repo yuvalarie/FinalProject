@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Audio.AudioEmitters
@@ -27,18 +28,15 @@ namespace Audio.AudioEmitters
             {
                 if (col.gameObject == gameObject) continue;
                 if (col.gameObject.GetComponent<CollisionRelay>() == null)
-                    col.gameObject.AddComponent<CollisionRelay>().Emitter = this;
+                    col.gameObject.AddComponent<CollisionRelay>().OnCollision = PlayAudioOnce;
             }
         }
     }
 
     internal class CollisionRelay : MonoBehaviour
     {
-        public CollisionSfxEmitter Emitter;
+        public Action OnCollision;
 
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            Emitter?.PlayAudioOnce();
-        }
+        private void OnCollisionEnter2D(Collision2D _) => OnCollision?.Invoke();
     }
 }

@@ -120,11 +120,11 @@ MonoBehaviour:
     - name: Page 1 Office Ambiance
       eventReference:
         Guid:
-          Data1: 797408416
-          Data2: 1145181333
-          Data3: 447413635
-          Data4: -1162816259
-        Path: event:/Page1/AmbWind
+          Data1: -807748182
+          Data2: 1226925487
+          Data3: -577922937
+          Data4: -502671367
+        Path: event:/Page1/AmbOffice
   - sceneName: Page 2
     musicEvents: []
     sfxEvents:
