@@ -36,6 +36,7 @@ namespace Player
         [SerializeField] private Transform elevatorPlacement;
         [SerializeField] private Transform elevatorTargetPlacement;
         [SerializeField] private float elevatorMoveDuration;
+        [SerializeField] private AudioEmitterBase elevatorAudioEmitter;
         
         [Header("Trigger Settings")]
         [SerializeField, Tooltip("The trigger that initiates the transition from frame 5 to 6.")]
@@ -256,7 +257,7 @@ namespace Player
         private IEnumerator ElevatorRoutine()
         {
             _isElevatorMoving = true;
-
+            
             bool isAtBottom = Vector3.Distance(elevatorTarget.position, _elevatorStartPosition) < 0.5f;
             
             float targetElevatorY = isAtBottom ? elevatorTargetPlacement.position.y : _elevatorStartPosition.y;
@@ -271,7 +272,7 @@ namespace Player
 
             Transform originalParent = transform.parent;
             transform.SetParent(elevatorTarget);
-
+            elevatorAudioEmitter.PlayAudioOnce();
             yield return elevatorTarget.DOMoveY(targetElevatorY, elevatorMoveDuration)
                 .SetEase(Ease.InOutSine)
                 .WaitForCompletion();

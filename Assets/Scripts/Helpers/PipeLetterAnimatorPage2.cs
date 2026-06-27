@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Audio;
+using Audio.AudioEmitters;
 using UnityEngine;
 using DG.Tweening;
 using FMODUnity;
@@ -41,11 +42,13 @@ namespace Objects
         [SerializeField] private float pauseBetweenLoops = 1f;
         
         // Audio
-        private EventReference _letterSoundReference;
+        // private EventReference _letterSoundReference;
+        [Header("Audio")]
+        [SerializeField] private AudioEmitterBase letterAudioEmitter;
 
         private void Start()
         {
-            _letterSoundReference = FMODEvents.Instance.GetEventReferenceByName(AudioEventNames.LettersInTubes);
+            // _letterSoundReference = FMODEvents.Instance.GetEventReferenceByName(AudioEventNames.LettersInTubes);
             
             if (letters.Length != 5)
             {
@@ -141,7 +144,8 @@ namespace Objects
         {
             float t = (duration - minDuration) / (maxDuration - minDuration);
             float volume = Mathf.Clamp(1f - 2f * t, -1f, 1f);
-            AudioManager.Instance.PlayOneShot(_letterSoundReference, transform.position, ("LetterTubeVolume", volume));
+            // AudioManager.Instance.PlayOneShot(_letterSoundReference, transform.position, ("LetterTubeVolume", volume));
+            letterAudioEmitter.PlayAudioOnce(("LetterTubeVolume", volume));
         }
 
         private IEnumerator PlayLetterAudioDelayed(float delay, float duration)

@@ -80,6 +80,14 @@ MonoBehaviour:
           Data3: 497819554
           Data4: -1056469425
         Path: event:/General/Puff
+    - name: Short Letter Change
+      eventReference:
+        Guid:
+          Data1: -1599327309
+          Data2: 1327580210
+          Data3: 2112626578
+          Data4: -1168902055
+        Path: event:/General/LetterChangeShort
     ambianceEvents: []
   - sceneName: Page 1
     musicEvents: []
@@ -144,14 +152,14 @@ MonoBehaviour:
           Data3: 830467213
           Data4: 106006598
         Path: event:/Page2/VendingMachineCup
-    - name: Elevator Ding
+    - name: Elevator Moving
       eventReference:
         Guid:
-          Data1: -1212989543
-          Data2: 1342093169
-          Data3: 2128849839
-          Data4: -1845986229
-        Path: event:/Page2/ElevatorDing
+          Data1: -503313159
+          Data2: 1128113980
+          Data3: 227006620
+          Data4: -1075859922
+        Path: event:/Page2/ElevatorMovement
     ambianceEvents:
     - name: Factory Ambiance
       eventReference:
@@ -175,7 +183,15 @@ MonoBehaviour:
     ambianceEvents: []
   - sceneName: Page 4
     musicEvents: []
-    sfxEvents: []
+    sfxEvents:
+    - name: Salt Shake
+      eventReference:
+        Guid:
+          Data1: 619927990
+          Data2: 1205788178
+          Data3: 1383664822
+          Data4: 864526522
+        Path: event:/Page4/SaltShaker
     ambianceEvents: []
   - sceneName: Page 6
     musicEvents: []
