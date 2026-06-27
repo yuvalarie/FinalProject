@@ -9,6 +9,8 @@ namespace Audio
     {
         // SFX Events
         public const string LettersInTubes = "Letters In Tubes short";
+        public const string LettersPoppingOutOfTube = "Letters Popping Out Of Tube";
+        public const string LetterHittingTray = "Letter Hitting Tray";
         public const string PhoneRing = "Phone Ringing";
         public const string PhonePickup = "Phone Pickup";
         public const string FactoryDoorOpen = "Factory Door Open";
@@ -24,6 +26,10 @@ namespace Audio
         public const string ElevatorMoving = "Elevator Moving";
         public const string SaltShaker = "Salt Shake";
         
+        // Music Events
+        public const string MusicOpening = "Music Opening";
+        public const string MusicGame = "Music Game";
+
         // Ambiance Events
         public const string OfficeAmbiance = "Page 1 Office Ambiance";
         public const string WindAmbiance = "Wind Ambiance";

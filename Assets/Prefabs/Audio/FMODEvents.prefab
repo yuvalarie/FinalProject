@@ -46,7 +46,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Managers.FMODEvents
   sceneAudioReferences:
   - sceneName: General
-    musicEvents: []
+    musicEvents:
+    - name: Music Opening
+      eventReference:
+        Guid:
+          Data1: 205500917
+          Data2: 1093412636
+          Data3: 636395190
+          Data4: -1138425158
+        Path: event:/General/OpeningMusic
+    - name: Music Game
+      eventReference:
+        Guid:
+          Data1: 1258926123
+          Data2: 1180949331
+          Data3: 288883867
+          Data4: 1973021013
+        Path: event:/General/MainMusic
     sfxEvents:
     - name: Hell Portal
       eventReference:
@@ -108,6 +124,14 @@ MonoBehaviour:
           Data3: 1519597196
           Data4: -121376965
         Path: event:/Page1/PhoneRing
+    - name: Phone Pickup
+      eventReference:
+        Guid:
+          Data1: 1219263329
+          Data2: 1103939381
+          Data3: 131724685
+          Data4: 1809942790
+        Path: event:/Page1/PhonePickUp
     ambianceEvents:
     - name: Wind Ambiance
       eventReference:
@@ -160,6 +184,22 @@ MonoBehaviour:
           Data3: 227006620
           Data4: -1075859922
         Path: event:/Page2/ElevatorMovement
+    - name: Letters Popping Out Of Tube
+      eventReference:
+        Guid:
+          Data1: 1211288495
+          Data2: 1208190294
+          Data3: -1915935597
+          Data4: 30097353
+        Path: event:/Page2/LetterPoppingOutOfTube
+    - name: Letter Hitting Tray
+      eventReference:
+        Guid:
+          Data1: 1615583925
+          Data2: 1297001758
+          Data3: -945193344
+          Data4: -2080786899
+        Path: event:/Page2/LetterHittingTray
     ambianceEvents:
     - name: Factory Ambiance
       eventReference:
