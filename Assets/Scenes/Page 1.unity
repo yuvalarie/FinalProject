@@ -634,7 +634,9 @@ GameObject:
   - component: {fileID: 194628954}
   - component: {fileID: 194628953}
   - component: {fileID: 194628952}
+  - component: {fileID: 194628957}
   - component: {fileID: 194628955}
+  - component: {fileID: 194628956}
   m_Layer: 0
   m_Name: 'Phone '
   m_TagString: Untagged
@@ -751,6 +753,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: PhoneRing
   playOnEnable: 0
+--- !u!114 &194628956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194628951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PhonePickup
+  playOnEnable: 0
+--- !u!114 &194628957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194628951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 491f50fd82614b049a5464a619abfd79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.PhoneAudioController
+  ringEmitter: {fileID: 194628955}
+  pickupEmitter: {fileID: 194628956}
 --- !u!1 &206243321
 GameObject:
   m_ObjectHideFlags: 0
@@ -11045,6 +11075,34 @@ PrefabInstance:
     - target: {fileID: 4444035843161751185, guid: b594158561ed215468477153f2c5a490, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[1].sfxEvents.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[1].sfxEvents.Array.data[2].name
+      value: Phone Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[1].sfxEvents.Array.data[2].eventReference.Path
+      value: event:/Page1/PhonePickUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[1].sfxEvents.Array.data[2].eventReference.Guid.Data1
+      value: 1219263329
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[1].sfxEvents.Array.data[2].eventReference.Guid.Data2
+      value: 1103939381
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[1].sfxEvents.Array.data[2].eventReference.Guid.Data3
+      value: 131724685
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[1].sfxEvents.Array.data[2].eventReference.Guid.Data4
+      value: 1809942790
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
