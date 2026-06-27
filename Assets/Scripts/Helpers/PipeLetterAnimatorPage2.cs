@@ -43,8 +43,8 @@ namespace Objects
         
         // Audio
         // private EventReference _letterSoundReference;
-        [Header("Audio")]
-        [SerializeField] private AudioEmitterBase letterAudioEmitter;
+        // [Header("Audio")]
+        // [SerializeField] private AudioEmitterBase letterAudioEmitter;
 
         private void Start()
         {
@@ -131,7 +131,7 @@ namespace Objects
                     .SetDelay(delay)
                     .SetEase(Ease.Linear);
 
-                StartCoroutine(PlayLetterAudioDelayed(delay, duration));
+                // StartCoroutine(PlayLetterAudioDelayed(delay, duration));
             }
 
             if (loopContinuously)
@@ -140,18 +140,18 @@ namespace Objects
             }
         }
 
-        private void PlayLetterAudio(float duration)
-        {
-            float t = (duration - minDuration) / (maxDuration - minDuration);
-            float volume = Mathf.Clamp(1f - 2f * t, -1f, 1f);
-            // AudioManager.Instance.PlayOneShot(_letterSoundReference, transform.position, ("LetterTubeVolume", volume));
-            letterAudioEmitter.PlayAudioOnce(("LetterTubeVolume", volume));
-        }
-
-        private IEnumerator PlayLetterAudioDelayed(float delay, float duration)
-        {
-            yield return new WaitForSeconds(delay);
-            PlayLetterAudio(duration);
-        }
+        // private void PlayLetterAudio(float duration)
+        // {
+        //     float t = (duration - minDuration) / (maxDuration - minDuration);
+        //     float volume = Mathf.Clamp(1f - 2f * t, -1f, 1f);
+        //     // AudioManager.Instance.PlayOneShot(_letterSoundReference, transform.position, ("LetterTubeVolume", volume));
+        //     letterAudioEmitter.PlayAudioOnce(("LetterTubeVolume", volume));
+        // }
+        //
+        // private IEnumerator PlayLetterAudioDelayed(float delay, float duration)
+        // {
+        //     yield return new WaitForSeconds(delay);
+        //     PlayLetterAudio(duration);
+        // }
     }
 }

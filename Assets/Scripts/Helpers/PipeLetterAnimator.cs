@@ -41,8 +41,8 @@ namespace Objects
         [SerializeField] private bool loopContinuously = true;
         [SerializeField] private float pauseBetweenLoops = 1f;
         
-        [Header("Audio")]
-        [SerializeField] private AudioEmitterBase letterAudioEmitter;
+        // [Header("Audio")]
+        // [SerializeField] private AudioEmitterBase letterAudioEmitter;
         private void Start()
         {
             // _letterSoundReference = FMODEvents.Instance.GetEventReferenceByName(AudioEventNames.LettersInTubes);
@@ -115,7 +115,7 @@ namespace Objects
                     .SetDelay(delay)
                     .SetEase(Ease.Linear);
 
-                StartCoroutine(PlayLetterAudioDelayed(delay + minDelay, duration));
+                // StartCoroutine(PlayLetterAudioDelayed(delay + minDelay, duration));
             }
 
             if (loopContinuously)
@@ -124,21 +124,21 @@ namespace Objects
             }
         }
 
-        private void PlayLetterAudio(float duration)
-        {
-            float t = (duration - minDuration) / (maxDuration - minDuration);
-            float volume = Mathf.Clamp(1f - 2f * t, -1f, 1f);
-            letterAudioEmitter.PlayAudioOnce( ("LetterTubeVolume", volume));
-        }
-
-        private IEnumerator PlayLetterAudioDelayed(float delay, float duration)
-        {
-            if (!letterAudioEmitter)
-            {
-                yield break;
-            }
-            yield return new WaitForSeconds(delay);
-            PlayLetterAudio(duration);
-        }
+        // private void PlayLetterAudio(float duration)
+        // {
+        //     float t = (duration - minDuration) / (maxDuration - minDuration);
+        //     float volume = Mathf.Clamp(1f - 2f * t, -1f, 1f);
+        //     letterAudioEmitter.PlayAudioOnce( ("LetterTubeVolume", volume));
+        // }
+        //
+        // private IEnumerator PlayLetterAudioDelayed(float delay, float duration)
+        // {
+        //     if (!letterAudioEmitter)
+        //     {
+        //         yield break;
+        //     }
+        //     yield return new WaitForSeconds(delay);
+        //     PlayLetterAudio(duration);
+        // }
     }
 }
