@@ -33,6 +33,7 @@ namespace Player
         
         private GameObject _heldItem;
         private StickerObject _heldSticker;
+        private StickerObject _currentlyHoveredSticker;
         private int _stickerOrder;
         private int _playerSortingOrder;
         private bool _atPrintZone;
@@ -46,12 +47,58 @@ namespace Player
         {
             base.Start();
             _stickerOrder = startingStickerOrderInLayer;
+            SpriteRenderer = GetComponent<SpriteRenderer>();
             _playerSortingOrder = SpriteRenderer.sortingOrder;
+        }
+
+        private void HandleHoverLogic()
+        {
+            if (_heldItem != null || _atPrintZone)
+            {
+                if (_currentlyHoveredSticker != null)
+                {
+                    _currentlyHoveredSticker.SetHovered(false);
+                    _currentlyHoveredSticker = null;
+                }
+                return;
+            }
+
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, grabRadius, grabbableLayer);
+            StickerObject closestSticker = null;
+            float closestDistance = Mathf.Infinity;
+
+            foreach (Collider2D hit in hits)
+            {
+                float distance = Vector2.Distance(transform.position, hit.transform.position);
+                
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestSticker = hit.GetComponent<StickerObject>();
+                }
+            }
+
+            // If our closest sticker has changed, update the visual states
+            if (closestSticker != _currentlyHoveredSticker)
+            {
+                if (_currentlyHoveredSticker != null)
+                {
+                    _currentlyHoveredSticker.SetHovered(false); 
+                }
+                
+                _currentlyHoveredSticker = closestSticker;
+                
+                if (_currentlyHoveredSticker != null)
+                {
+                    _currentlyHoveredSticker.SetHovered(true); 
+                }
+            }
         }
 
         private void Update()
         {
             if(_category1 && _category2 && _category3 && _category4) printSpriteRenderer.sprite = printOnSprite;
+            HandleHoverLogic();
         }
 
         protected override void OnInteraction(InputAction.CallbackContext context)
@@ -95,47 +142,66 @@ namespace Player
 
         private void TryPickUp()
         {
+            if (_currentlyHoveredSticker == null)
+            {
+                Debug.Log("FAILED: Nothing hovered to pick up.");
+                return;
+            }
+
             Debug.Log("Attempting to pick up item...");
 
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, grabRadius, grabbableLayer);
-
-            if (hits.Length > 0)
-            {
-                Collider2D closestCollider = null;
-                float closestDistance = Mathf.Infinity;
-
-                foreach (Collider2D hit in hits)
-                {
-                    float distance = Vector2.Distance(transform.position, hit.transform.position);
-                    
-                    if (distance < closestDistance)
-                    {
-                        closestDistance = distance;
-                        closestCollider = hit;
-                    }
-                }
-
-                if (closestCollider == null) return;
-                
-                _heldSticker = closestCollider.GetComponent<StickerObject>();
-                if (_heldSticker == null)
-                {
-                    Debug.LogWarning($"Wait, '{closestCollider.name}' isn't a PosterSticker! Are you sure it's on the right layer?");
-                    return;
-                }
-                
-                _heldSticker.OnPickedUp();
-                
-                _heldItem = _heldSticker.gameObject;
-                
-                _heldItem.transform.position = holdSlot.position;
-                _heldItem.transform.SetParent(holdSlot);
-                _heldSticker.SetSortingOrder(_playerSortingOrder + 1);
-            }
-            else
-            {
-                Debug.Log("FAILED: Nothing found on the Grabbable layer within the grab radius.");
-            }
+            _heldSticker = _currentlyHoveredSticker;
+            _heldSticker.OnPickedUp();
+            
+            _heldItem = _heldSticker.gameObject;
+            _heldItem.transform.position = holdSlot.position;
+            _heldItem.transform.SetParent(holdSlot);
+            _heldItem.transform.localPosition = new Vector3(0f, 0f, -0.01f);
+            _heldSticker.SetSortingOrder(_playerSortingOrder + 1);
+            
+            _currentlyHoveredSticker = null;
+            
+            // Debug.Log("Attempting to pick up item...");
+            //
+            // Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, grabRadius, grabbableLayer);
+            //
+            // if (hits.Length > 0)
+            // {
+            //     Collider2D closestCollider = null;
+            //     float closestDistance = Mathf.Infinity;
+            //
+            //     foreach (Collider2D hit in hits)
+            //     {
+            //         float distance = Vector2.Distance(transform.position, hit.transform.position);
+            //         
+            //         if (distance < closestDistance)
+            //         {
+            //             closestDistance = distance;
+            //             closestCollider = hit;
+            //         }
+            //     }
+            //
+            //     if (closestCollider == null) return;
+            //     
+            //     _heldSticker = closestCollider.GetComponent<StickerObject>();
+            //     if (_heldSticker == null)
+            //     {
+            //         Debug.LogWarning($"Wait, '{closestCollider.name}' isn't a PosterSticker! Are you sure it's on the right layer?");
+            //         return;
+            //     }
+            //     
+            //     _heldSticker.OnPickedUp();
+            //     
+            //     _heldItem = _heldSticker.gameObject;
+            //     
+            //     _heldItem.transform.position = holdSlot.position;
+            //     _heldItem.transform.SetParent(holdSlot);
+            //     _heldSticker.SetSortingOrder(_playerSortingOrder + 1);
+            // }
+            // else
+            // {
+            //     Debug.Log("FAILED: Nothing found on the Grabbable layer within the grab radius.");
+            // }
         }
 
         private void DropItem()
@@ -170,6 +236,7 @@ namespace Player
                 _heldItem.transform.SetParent(dropZone.transform);
                 
                 _heldSticker.SetPickedUp();
+                _heldSticker.OnPlaced();
                 _heldSticker.SetSortingOrder(_stickerOrder);
                 _stickerOrder++;
                 
