@@ -746,9 +746,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 194628951}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec054fb2564d6dd4c9c594338fb730c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Objects.PhoneRinging
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PhoneRing
+  playOnEnable: 0
 --- !u!1 &206243321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1651,6 +1653,7 @@ MonoBehaviour:
   minSeparationTime: 0.5
   loopContinuously: 1
   pauseBetweenLoops: 1
+  letterAudioEmitter: {fileID: 0}
 --- !u!4 &310212537
 Transform:
   m_ObjectHideFlags: 0
@@ -2342,6 +2345,7 @@ GameObject:
   m_Component:
   - component: {fileID: 409211773}
   - component: {fileID: 409211772}
+  - component: {fileID: 409211774}
   m_Layer: 0
   m_Name: pipeAnimator
   m_TagString: Untagged
@@ -2380,6 +2384,7 @@ MonoBehaviour:
   minSeparationTime: 0.5
   loopContinuously: 1
   pauseBetweenLoops: 1
+  letterAudioEmitter: {fileID: 409211774}
 --- !u!4 &409211773
 Transform:
   m_ObjectHideFlags: 0
@@ -2395,6 +2400,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &409211774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409211771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: LettersInTubes
+  playOnEnable: 0
 --- !u!1 &416059891
 GameObject:
   m_ObjectHideFlags: 0
@@ -5627,7 +5646,6 @@ GameObject:
   - component: {fileID: 1011143542}
   - component: {fileID: 1011143541}
   - component: {fileID: 1011143543}
-  - component: {fileID: 1011143544}
   m_Layer: 0
   m_Name: Asset 543
   m_TagString: Untagged
@@ -5730,20 +5748,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1011143544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1011143540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adfbcd021ad0d464c8323dacc6328402, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Objects.LetterInTube
-  minRandomDelay: 0
-  maxRandomDelay: 0.5
 --- !u!1 &1049715963
 GameObject:
   m_ObjectHideFlags: 0
@@ -7446,7 +7450,6 @@ GameObject:
   - component: {fileID: 1374276416}
   - component: {fileID: 1374276415}
   - component: {fileID: 1374276417}
-  - component: {fileID: 1374276418}
   m_Layer: 0
   m_Name: Letter 4
   m_TagString: Untagged
@@ -7549,20 +7552,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1374276418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1374276414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adfbcd021ad0d464c8323dacc6328402, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Objects.LetterInTube
-  minRandomDelay: 0
-  maxRandomDelay: 0.5
 --- !u!1 &1389452981
 GameObject:
   m_ObjectHideFlags: 0
@@ -8519,7 +8508,6 @@ GameObject:
   - component: {fileID: 1616740999}
   - component: {fileID: 1616740998}
   - component: {fileID: 1616741000}
-  - component: {fileID: 1616741001}
   m_Layer: 0
   m_Name: Asset 165
   m_TagString: Untagged
@@ -8622,20 +8610,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1616741001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1616740997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adfbcd021ad0d464c8323dacc6328402, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Objects.LetterInTube
-  minRandomDelay: 0
-  maxRandomDelay: 0.5
 --- !u!1 &1619901670
 GameObject:
   m_ObjectHideFlags: 0
