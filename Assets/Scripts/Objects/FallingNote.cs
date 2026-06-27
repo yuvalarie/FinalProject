@@ -37,17 +37,25 @@ public class FallingNote : MonoBehaviour
             }
         }
     }
+    
+    public void CatchByPlayer(Transform catchZoneTransform)
+    {
+        // If it already landed on the floor, we can't catch it anymore
+        if (!_isFalling || _isWaitingToLand) return; 
+        
+        LandAndScatter(catchZoneTransform, true);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!_isFalling || _isWaitingToLand) return; 
 
-        if (other.CompareTag("CatchZone"))
-        {
-            // Hit the player! We DO want it to snap to the center of the CatchZone
-            LandAndScatter(other.transform, true);
-        }
-        else if (other.CompareTag("Floor"))
+        // if (other.CompareTag("CatchZone"))
+        // {
+        //     // Hit the player! We DO want it to snap to the center of the CatchZone
+        //     LandAndScatter(other.transform, true);
+        // }
+        if (other.CompareTag("Floor"))
         {
             _isWaitingToLand = true;
             _floorTransform = other.transform;
