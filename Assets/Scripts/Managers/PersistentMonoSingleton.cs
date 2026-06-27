@@ -6,6 +6,11 @@ namespace Managers
     {
         protected virtual void Awake()
         {
+            if (Instance != null && Instance != this as T)
+            {
+                Destroy(gameObject);
+                return;
+            }
             DontDestroyOnLoad(gameObject);
         }
     }
