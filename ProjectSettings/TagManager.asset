@@ -12,6 +12,8 @@ TagManager:
   - Helda
   - Answer
   - Original
+  - CatchZone
+  - Floor
   layers:
   - Default
   - TransparentFX
@@ -30,8 +32,8 @@ TagManager:
   - Frame
   - Helda
   - Answers
-  - 
-  - 
+  - Notes
+  - Colliders
   - 
   - 
   - 
