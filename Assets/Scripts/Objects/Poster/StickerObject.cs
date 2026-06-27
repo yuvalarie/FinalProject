@@ -12,27 +12,46 @@ namespace Objects.Poster
     };
     public class StickerObject : MonoBehaviour
     {
-        [SerializeField] private Sprite heldSprite;
         [SerializeField] private Category category;
+
+        [Header("Visual States")] 
+        [SerializeField] private Sprite startSprite;
+        [SerializeField] private Sprite hoveredSprite;
+        [SerializeField] private Sprite heldSprite;
+        [SerializeField] private Sprite placedSprite;
         
         private SpriteRenderer _spriteRenderer;
 
         private bool isPickedUp;
-
+        private bool isPlaced;
         private void Start()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
+            _spriteRenderer.sprite = startSprite;
         }
 
+        public void SetHovered(bool isHovered)
+        {
+            if (isPlaced) return;
+            _spriteRenderer.sprite = isHovered ? hoveredSprite : startSprite;
+        }
+        
         public void OnPickedUp()
         {
             if(!isPickedUp) Instantiate(gameObject);
             _spriteRenderer.sprite = heldSprite;
+            Debug.Log($"sorting order {_spriteRenderer.sortingOrder}");
         }
 
         public void OnDropped()
         {
             Destroy(gameObject);
+        }
+
+        public void OnPlaced()
+        {
+            _spriteRenderer.sprite = placedSprite;
+            isPlaced = true;
         }
 
         public Sprite GetSprite => _spriteRenderer.sprite;
