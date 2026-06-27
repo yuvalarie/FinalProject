@@ -2168,6 +2168,7 @@ MonoBehaviour:
   smallCollider: {fileID: 0}
   mediumLargeCollider: {fileID: 0}
   extraLargeCollider: {fileID: 0}
+  catchZoneCollider: {fileID: 1728258104}
 --- !u!1001 &1433759115
 PrefabInstance:
   m_ObjectHideFlags: 0
