@@ -53,6 +53,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Page 13.unity
     guid: 77122d3aed52445169eba58292629824
+  - enabled: 1
+    path: Assets/Scenes/MIniGame4P2.unity
+    guid: 18a7d3d7104d84e209484956a3d5ac95
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

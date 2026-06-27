@@ -12,13 +12,20 @@ namespace Managers
         [Header("Data References")] 
         [SerializeField] private ChosenFriendsData chosenFriendsData;
         [SerializeField] private FriendsDictionary allFriendsDatabase;
+        [SerializeField] private FriendsDataPage13[] setFriends;
 
         [Header("Pharmacy Line")] 
         [Tooltip("How long to wait before the line advances"), SerializeField] private float waitInLine;
         [Tooltip("The standing spots in the line. Element 0 is the front of the line!")]
         [SerializeField] private Transform[] frame2Waypoints; 
         [Tooltip("Where they walk to completely exit Frame 2")]
-        [SerializeField] private Transform frame2ExitPoint; 
+        [SerializeField] private Transform frame2ExitPoint;
+
+        [Header("Frame 3")] 
+        [SerializeField] private List<GameObject> notes;
+        [SerializeField] private Transform handStartPosition;
+        [SerializeField] private Transform handEndPosition;
+        [SerializeField] private float frame3duration;
 
         [Header("Pharmacy Line (Frame 4)")]
         [Tooltip("Where they spawn outside Frame 4 before walking in")]
@@ -39,6 +46,10 @@ namespace Managers
         
         private void Start()
         {
+            foreach (var friend in setFriends)
+            {
+                chosenFriendsData.friends.Add(friend.id);
+            }
             _friendsDictionary = allFriendsDatabase.friendsDictionary;
             foreach (int friendId in chosenFriendsData.friends)
             {
@@ -50,12 +61,12 @@ namespace Managers
         
         private void InitialFillRoutine()
         {
-            for (int i = 0; i < frame4Waypoints.Length; i++)
-            {
-                if (_friendsWaitingToSpawn.Count == 0) break;
-                
-                SpawnFriend(_friendsWaitingToSpawn.Dequeue(), frame4Waypoints[i], true);
-            }
+            // for (int i = 0; i < frame4Waypoints.Length; i++)
+            // {
+            //     if (_friendsWaitingToSpawn.Count == 0) break;
+            //     
+            //     SpawnFriend(_friendsWaitingToSpawn.Dequeue(), frame4Waypoints[i], true);
+            // }
             
             for (int i = 0; i < frame2Waypoints.Length; i++)
             {
@@ -81,13 +92,18 @@ namespace Managers
             // 1. ADVANCE FRAME 4 LINE
             if (_activeLineF4.Count > 0)
             {
-                FriendSequenceController leavingF4 = _activeLineF4[0];
-                _activeLineF4.RemoveAt(0);
-                leavingF4.MoveToExitFrame4(frame4ExitPoint);
-
+                // FriendSequenceController leavingF4 = _activeLineF4[0];
+                // _activeLineF4.RemoveAt(0);
+                // leavingF4.MoveToExitFrame4(frame4ExitPoint);
+                
                 for (int i = 0; i < _activeLineF4.Count; i++)
                 {
-                    _activeLineF4[i].MoveToSpotInFrame4(frame4Waypoints[i]);
+                    if (i >= frame4Waypoints.Length) break;
+                    Transform targetSpot = frame4Waypoints[i];
+                    if (Vector2.Distance(_activeLineF4[i].transform.position, targetSpot.position) > 0.5f)
+                    {
+                        _activeLineF4[i].MoveToSpotInFrame4(targetSpot);
+                    }
                 }
             }
 
@@ -122,10 +138,23 @@ namespace Managers
             container.transform.position = targetLineSpot.position;
             GameObject f2Obj = Instantiate(friendData.frame2Object, container.transform);
             GameObject f4Obj = Instantiate(friendData.frame4Object, container.transform);
+            GameObject handObj = Instantiate(friendData.hand, container.transform);
+            
+            GameObject noteObj = null;
+            if (notes.Count > 0)
+            {
+                noteObj = notes[0];
+                notes.RemoveAt(0);
+            }
+            else
+            {
+                Debug.LogWarning($"Not enough notes! Skipping note assignment for Friend_{id}");
+            }
         
             FriendSequenceController controller = container.AddComponent<FriendSequenceController>();
             
-            controller.Initialize(this, f2Obj, f4Obj, frame2duration, frame4duration, isForFrame4);
+            controller.Initialize(this, f2Obj, f4Obj, frame2duration, frame4duration, isForFrame4, handObj, handStartPosition, handEndPosition, noteObj, frame3duration);
+            notes.RemoveAt(0);
             
             if (isForFrame4)
             {
