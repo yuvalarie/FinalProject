@@ -23,7 +23,7 @@ namespace Audio
         private Bus _voiceBus;
         
         private readonly List<EventInstance> _activeEvents = new List<EventInstance>();
-        private readonly List<StudioEventEmitter> _activeEmitters = new List<StudioEventEmitter>();
+        // private readonly List<StudioEventEmitter> _activeEmitters = new List<StudioEventEmitter>();
         // private List<EventInstance> _ambianceEvents = new List<EventInstance>();
 
 
@@ -72,19 +72,19 @@ namespace Audio
             return eventInstance;
         }
 
-        public StudioEventEmitter InitializeEventEmitter(EventReference eventReference, GameObject emitterGameObject,
-            params (string paramName, float value)[] parameters)
-        {
-            var emitter = emitterGameObject.GetComponent<StudioEventEmitter>();
-            emitter.EventReference = eventReference;
-            
-            foreach (var (paramName, value) in parameters)
-            {
-                emitter.SetParameter(paramName, value);
-            }
-            _activeEmitters.Add(emitter);
-            return emitter;
-        }
+        // public StudioEventEmitter InitializeEventEmitter(EventReference eventReference, GameObject emitterGameObject,
+        //     params (string paramName, float value)[] parameters)
+        // {
+        //     var emitter = emitterGameObject.GetComponent<StudioEventEmitter>();
+        //     emitter.EventReference = eventReference;
+        //     
+        //     foreach (var (paramName, value) in parameters)
+        //     {
+        //         emitter.SetParameter(paramName, value);
+        //     }
+        //     _activeEmitters.Add(emitter);
+        //     return emitter;
+        // }
 
         private void CleanUp()
         {
@@ -95,10 +95,10 @@ namespace Audio
                 eventInstance.release();
             }
 
-            foreach (var emitter in _activeEmitters)
-            {
-                emitter.Stop();
-            }
+            // foreach (var emitter in _activeEmitters)
+            // {
+            //     emitter.Stop();
+            // }
             
         }
 

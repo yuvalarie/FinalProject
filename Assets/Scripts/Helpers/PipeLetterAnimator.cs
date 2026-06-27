@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Audio;
+using Audio.AudioEmitters;
 using UnityEngine;
 using DG.Tweening;
 using FMODUnity;
@@ -40,12 +41,11 @@ namespace Objects
         [SerializeField] private bool loopContinuously = true;
         [SerializeField] private float pauseBetweenLoops = 1f;
         
-        // Audio
-        private EventReference _letterSoundReference;
-
+        [Header("Audio")]
+        [SerializeField] private AudioEmitterBase letterAudioEmitter;
         private void Start()
         {
-            _letterSoundReference = FMODEvents.Instance.GetEventReferenceByName(AudioEventNames.LettersInTubes);
+            // _letterSoundReference = FMODEvents.Instance.GetEventReferenceByName(AudioEventNames.LettersInTubes);
             if (letters.Length != 3)
             {
                 Debug.LogWarning("Please assign exactly 3 letters in the Inspector!");
@@ -115,7 +115,7 @@ namespace Objects
                     .SetDelay(delay)
                     .SetEase(Ease.Linear);
 
-                StartCoroutine(PlayLetterAudioDelayed(delay, duration));
+                StartCoroutine(PlayLetterAudioDelayed(delay + minDelay, duration));
             }
 
             if (loopContinuously)
@@ -127,12 +127,16 @@ namespace Objects
         private void PlayLetterAudio(float duration)
         {
             float t = (duration - minDuration) / (maxDuration - minDuration);
-            float pitchAndVolume = Mathf.Clamp(1f - 2f * t, -1f, 1f);
-            AudioManager.Instance.PlayOneShot(_letterSoundReference, transform.position, ("LetterTubePitch", pitchAndVolume), ("LetterTubeVolume", pitchAndVolume));
+            float volume = Mathf.Clamp(1f - 2f * t, -1f, 1f);
+            letterAudioEmitter.PlayAudioOnce( ("LetterTubeVolume", volume));
         }
 
         private IEnumerator PlayLetterAudioDelayed(float delay, float duration)
         {
+            if (!letterAudioEmitter)
+            {
+                yield break;
+            }
             yield return new WaitForSeconds(delay);
             PlayLetterAudio(duration);
         }

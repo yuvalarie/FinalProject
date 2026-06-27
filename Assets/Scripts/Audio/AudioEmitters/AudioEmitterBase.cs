@@ -20,7 +20,7 @@ namespace Audio.AudioEmitters
 
         public void PlayAudioOnce() => PlayAudioOnce(System.Array.Empty<(string, float)>());
 
-        public void PlayAudioOnce(params (string paramName, float value)[] parameters)
+        public virtual void PlayAudioOnce(params (string paramName, float value)[] parameters)
         {
             if (string.IsNullOrEmpty(AudioEventName))
             {
@@ -33,7 +33,7 @@ namespace Audio.AudioEmitters
 
         public void StartAudio() => StartAudio(System.Array.Empty<(string, float)>());
 
-        public void StartAudio(params (string paramName, float value)[] parameters)
+        public virtual void StartAudio(params (string paramName, float value)[] parameters)
         {
             if(!_isAudioInstanceInitialized)
             {
