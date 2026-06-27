@@ -120,11 +120,11 @@ MonoBehaviour:
     - name: Page 1 Office Ambiance
       eventReference:
         Guid:
-          Data1: 797408416
-          Data2: 1145181333
-          Data3: 447413635
-          Data4: -1162816259
-        Path: event:/Page1/AmbWind
+          Data1: -807748182
+          Data2: 1226925487
+          Data3: -577922937
+          Data4: -502671367
+        Path: event:/Page1/AmbOffice
   - sceneName: Page 2
     musicEvents: []
     sfxEvents:
@@ -180,6 +180,14 @@ MonoBehaviour:
           Data3: 301731761
           Data4: -267605559
         Path: event:/Page3/HittingTube
+    - name: Hitting Table
+      eventReference:
+        Guid:
+          Data1: 1369050192
+          Data2: 1316385844
+          Data3: 617514415
+          Data4: 232996827
+        Path: event:/Page3/Hittingtable
     ambianceEvents: []
   - sceneName: Page 4
     musicEvents: []

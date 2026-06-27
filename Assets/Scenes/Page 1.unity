@@ -634,7 +634,9 @@ GameObject:
   - component: {fileID: 194628954}
   - component: {fileID: 194628953}
   - component: {fileID: 194628952}
+  - component: {fileID: 194628957}
   - component: {fileID: 194628955}
+  - component: {fileID: 194628956}
   m_Layer: 0
   m_Name: 'Phone '
   m_TagString: Untagged
@@ -746,9 +748,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 194628951}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec054fb2564d6dd4c9c594338fb730c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Objects.PhoneRinging
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PhoneRing
+  playOnEnable: 0
+--- !u!114 &194628956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194628951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PhonePickup
+  playOnEnable: 0
+--- !u!114 &194628957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194628951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 491f50fd82614b049a5464a619abfd79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.PhoneAudioController
+  ringEmitter: {fileID: 194628955}
+  pickupEmitter: {fileID: 194628956}
 --- !u!1 &206243321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1651,6 +1683,7 @@ MonoBehaviour:
   minSeparationTime: 0.5
   loopContinuously: 1
   pauseBetweenLoops: 1
+  letterAudioEmitter: {fileID: 0}
 --- !u!4 &310212537
 Transform:
   m_ObjectHideFlags: 0
@@ -2093,7 +2126,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6402ed3a896c6884bbc04773751f3f59, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2342,6 +2375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 409211773}
   - component: {fileID: 409211772}
+  - component: {fileID: 409211774}
   m_Layer: 0
   m_Name: pipeAnimator
   m_TagString: Untagged
@@ -2380,6 +2414,7 @@ MonoBehaviour:
   minSeparationTime: 0.5
   loopContinuously: 1
   pauseBetweenLoops: 1
+  letterAudioEmitter: {fileID: 409211774}
 --- !u!4 &409211773
 Transform:
   m_ObjectHideFlags: 0
@@ -2395,6 +2430,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &409211774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409211771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: LettersInTubes
+  playOnEnable: 0
 --- !u!1 &416059891
 GameObject:
   m_ObjectHideFlags: 0
@@ -3683,7 +3732,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6402ed3a896c6884bbc04773751f3f59, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3729,7 +3778,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6402ed3a896c6884bbc04773751f3f59, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3775,7 +3824,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6402ed3a896c6884bbc04773751f3f59, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3836,7 +3885,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6402ed3a896c6884bbc04773751f3f59, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3882,7 +3931,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6402ed3a896c6884bbc04773751f3f59, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4432,7 +4481,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6402ed3a896c6884bbc04773751f3f59, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4478,7 +4527,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6402ed3a896c6884bbc04773751f3f59, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4734,6 +4783,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 818031138}
+  - component: {fileID: 818031139}
   m_Layer: 0
   m_Name: deskColiiders
   m_TagString: Untagged
@@ -4762,6 +4812,21 @@ Transform:
   - {fileID: 1595667616}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &818031139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818031137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db33ff24f52ea46498076b490aeac160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.CollisionSfxEmitter
+  eventName: HittingTable
+  playOnEnable: 0
+  collisionSource: 1
 --- !u!1 &844534937
 GameObject:
   m_ObjectHideFlags: 0
@@ -5389,82 +5454,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
   nonRigidbodyVelocity: 0
   attenuationObject: {fileID: 1428508820}
---- !u!1 &931836861
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 931836864}
-  - component: {fileID: 931836863}
-  - component: {fileID: 931836862}
-  m_Layer: 0
-  m_Name: WindAmbiance
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &931836862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 931836861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24a3cd20e322eee4bb4f76454dce18fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Audio.WindAmbianceEmitter
---- !u!114 &931836863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 931836861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 797408416
-      Data2: 1145181333
-      Data3: 447413635
-      Data4: -1162816259
-    Path: event:/Page1/AmbWind
-  Event: 
-  EventPlayTrigger: 1
-  EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!4 &931836864
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 931836861}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.33, y: -11.2, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &953588507
 GameObject:
   m_ObjectHideFlags: 0
@@ -5687,7 +5676,6 @@ GameObject:
   - component: {fileID: 1011143542}
   - component: {fileID: 1011143541}
   - component: {fileID: 1011143543}
-  - component: {fileID: 1011143544}
   m_Layer: 0
   m_Name: Asset 543
   m_TagString: Untagged
@@ -5790,20 +5778,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1011143544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1011143540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adfbcd021ad0d464c8323dacc6328402, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Objects.LetterInTube
-  minRandomDelay: 0
-  maxRandomDelay: 0.5
 --- !u!1 &1049715963
 GameObject:
   m_ObjectHideFlags: 0
@@ -7506,7 +7480,6 @@ GameObject:
   - component: {fileID: 1374276416}
   - component: {fileID: 1374276415}
   - component: {fileID: 1374276417}
-  - component: {fileID: 1374276418}
   m_Layer: 0
   m_Name: Letter 4
   m_TagString: Untagged
@@ -7609,20 +7582,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1374276418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1374276414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adfbcd021ad0d464c8323dacc6328402, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Objects.LetterInTube
-  minRandomDelay: 0
-  maxRandomDelay: 0.5
 --- !u!1 &1389452981
 GameObject:
   m_ObjectHideFlags: 0
@@ -8532,7 +8491,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6402ed3a896c6884bbc04773751f3f59, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -8579,7 +8538,6 @@ GameObject:
   - component: {fileID: 1616740999}
   - component: {fileID: 1616740998}
   - component: {fileID: 1616741000}
-  - component: {fileID: 1616741001}
   m_Layer: 0
   m_Name: Asset 165
   m_TagString: Untagged
@@ -8682,20 +8640,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1616741001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1616740997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adfbcd021ad0d464c8323dacc6328402, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Objects.LetterInTube
-  minRandomDelay: 0
-  maxRandomDelay: 0.5
 --- !u!1 &1619901670
 GameObject:
   m_ObjectHideFlags: 0
@@ -8736,8 +8680,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1652084262}
-  - component: {fileID: 1652084261}
-  - component: {fileID: 1652084260}
+  - component: {fileID: 1652084263}
   m_Layer: 0
   m_Name: OfficeAmbiance
   m_TagString: Untagged
@@ -8745,49 +8688,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1652084260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1652084259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 538200cec76281540ad9ed6d906f8aa7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Audio.OfficeAmbianceEmitter
---- !u!114 &1652084261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1652084259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -807748182
-      Data2: 1226925487
-      Data3: -577922937
-      Data4: -502671367
-    Path: event:/Page1/AmbOffice
-  Event: 
-  EventPlayTrigger: 1
-  EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!4 &1652084262
 Transform:
   m_ObjectHideFlags: 0
@@ -8803,6 +8703,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1652084263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652084259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce4148dc5c7df9a468d41bcd33c2b8a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.AmbianceEmitter
+  eventName: OfficeAmbiance
+  playOnStart: 1
 --- !u!1 &1665870705
 GameObject:
   m_ObjectHideFlags: 0
@@ -8831,7 +8745,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6402ed3a896c6884bbc04773751f3f59, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -10189,7 +10103,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6402ed3a896c6884bbc04773751f3f59, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -11162,6 +11076,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[1].sfxEvents.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[1].sfxEvents.Array.data[2].name
+      value: Phone Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[1].sfxEvents.Array.data[2].eventReference.Path
+      value: event:/Page1/PhonePickUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[1].sfxEvents.Array.data[2].eventReference.Guid.Data1
+      value: 1219263329
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[1].sfxEvents.Array.data[2].eventReference.Guid.Data2
+      value: 1103939381
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[1].sfxEvents.Array.data[2].eventReference.Guid.Data3
+      value: 131724685
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[1].sfxEvents.Array.data[2].eventReference.Guid.Data4
+      value: 1809942790
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11236,7 +11178,6 @@ SceneRoots:
   - {fileID: 7667268828029507340}
   - {fileID: 1787550702}
   - {fileID: 2021499807}
-  - {fileID: 931836864}
   - {fileID: 210884718}
   - {fileID: 1911044472}
   - {fileID: 310212537}
