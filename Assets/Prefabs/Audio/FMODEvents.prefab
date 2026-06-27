@@ -180,6 +180,14 @@ MonoBehaviour:
           Data3: 301731761
           Data4: -267605559
         Path: event:/Page3/HittingTube
+    - name: Hitting Table
+      eventReference:
+        Guid:
+          Data1: 1369050192
+          Data2: 1316385844
+          Data3: 617514415
+          Data4: 232996827
+        Path: event:/Page3/Hittingtable
     ambianceEvents: []
   - sceneName: Page 4
     musicEvents: []
