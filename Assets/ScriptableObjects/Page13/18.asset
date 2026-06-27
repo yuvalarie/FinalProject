@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d5b1631329d4c069b44afd29ac56a00, type: 3}
-  m_Name: 10
+  m_Name: 18
   m_EditorClassIdentifier: Assembly-CSharp::Objects.Poster.FriendsDataPage13
-  id: 10
-  frame2Object: {fileID: 3525220289450031238, guid: 454036121901b4145a6fe83cfe322c75, type: 3}
-  frame4Object: {fileID: 2729384803835892720, guid: d59fc58bd4a00f14fa906772f60284bd, type: 3}
+  id: 18
+  frame2Object: {fileID: 5827350255962378348, guid: 058e052db84291e428c45390834eb9fc, type: 3}
+  frame4Object: {fileID: 7277234932505317180, guid: 17b139ca7f923f74d945e54da9e82338, type: 3}
   hand: {fileID: 6543011788602895334, guid: 36440bc4581331a4cb715f5a87eb8c9c, type: 3}

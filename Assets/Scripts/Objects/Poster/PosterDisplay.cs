@@ -7,6 +7,7 @@ namespace Objects.Poster
     {
         [Tooltip("The PosterData Scriptable Object that holds the data for the stickers placed on the poster. This should be assigned in the inspector.")]
         [SerializeField] private PosterData posterData;
+        [SerializeField] private int sortingOrder;
         
         void Start()
         {
@@ -20,6 +21,25 @@ namespace Objects.Poster
             {
                 Destroy(child.gameObject);
             }
+            
+            Vector2 currentPosterSize = Vector2.one;
+            var mySprite = GetComponent<SpriteRenderer>();
+            if (mySprite != null && mySprite.sprite != null)
+            {
+                currentPosterSize = new Vector2(
+                    mySprite.sprite.bounds.size.x, 
+                    mySprite.sprite.bounds.size.y
+                );
+            }
+            
+            Vector2 scaleRatio = Vector2.one;
+            if (posterData.originalPosterSize.x > 0 && posterData.originalPosterSize.y > 0)
+            {
+                scaleRatio = new Vector2(
+                    currentPosterSize.x / posterData.originalPosterSize.x,
+                    currentPosterSize.y / posterData.originalPosterSize.y
+                );
+            }
 
             // Recreate stickers from saved data
             foreach (var entry in posterData.placedStickers)
@@ -32,13 +52,23 @@ namespace Objects.Poster
 
                 var stickerObj = new GameObject("Sticker");
                 stickerObj.transform.SetParent(transform, false);
-                stickerObj.transform.localPosition = entry.localPos;
-                stickerObj.transform.localRotation = entry.localRot;
-                stickerObj.transform.localScale = entry.localScale;
+                stickerObj.transform.localPosition = new Vector3(
+                    entry.localPos.x * scaleRatio.x,
+                    entry.localPos.y * scaleRatio.y,
+                    entry.localPos.z
+                );
+        
+                stickerObj.transform.localRotation = entry.localRot; 
+        
+                stickerObj.transform.localScale = new Vector3(
+                    entry.localScale.x * scaleRatio.x,
+                    entry.localScale.y * scaleRatio.y,
+                    entry.localScale.z
+                );
 
                 var spriteRenderer = stickerObj.AddComponent<SpriteRenderer>();
                 spriteRenderer.sprite = entry.sprite;
-                spriteRenderer.sortingOrder = entry.sortingOrder;
+                spriteRenderer.sortingOrder = entry.sortingOrder + sortingOrder;
             }
         }
     }

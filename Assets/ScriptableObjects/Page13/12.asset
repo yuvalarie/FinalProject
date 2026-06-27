@@ -15,3 +15,4 @@ MonoBehaviour:
   id: 12
   frame2Object: {fileID: 8087847873805804961, guid: d69957587a163e441b380716da6bb503, type: 3}
   frame4Object: {fileID: 3853513288021130554, guid: 9d5c4b04b8415914485b781c6baf9491, type: 3}
+  hand: {fileID: 6543011788602895334, guid: 36440bc4581331a4cb715f5a87eb8c9c, type: 3}
