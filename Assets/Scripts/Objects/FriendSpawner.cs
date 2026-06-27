@@ -74,6 +74,7 @@ namespace Objects
             // DebugBuildFriendList may immediately call OnAllFriendsSwiped (via debugStartIndex),
             // which will overwrite this with the finished sprite - that ordering is intentional.
             phoneDisplayRenderer.sprite = startScreenSprite;
+            chosenFriendsData.friends.Clear();
             DebugBuildFriendList();
         }
 

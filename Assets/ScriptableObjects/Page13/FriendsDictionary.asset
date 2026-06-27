@@ -39,3 +39,11 @@ MonoBehaviour:
     friendData: {fileID: 11400000, guid: 339d6bb2430f9d54592a3b6dd640492d, type: 2}
   - idKey: 14
     friendData: {fileID: 11400000, guid: b93a810c53e795f45b78e771febea1ae, type: 2}
+  - idKey: 15
+    friendData: {fileID: 11400000, guid: bf22ae5c42dbb724c9265d2e7c1f0a89, type: 2}
+  - idKey: 16
+    friendData: {fileID: 11400000, guid: fd3b633fabf13144e9f61f6435669841, type: 2}
+  - idKey: 17
+    friendData: {fileID: 11400000, guid: 6cc869d73db69d1479a38e8febd7f57e, type: 2}
+  - idKey: 18
+    friendData: {fileID: 11400000, guid: be1f77b63b2685c48b2ee611dfd2d433, type: 2}

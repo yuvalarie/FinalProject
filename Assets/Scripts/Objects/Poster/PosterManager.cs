@@ -24,6 +24,14 @@ namespace Objects.Poster
                 return;
             }
             posterData.ClearData();
+            var posterSprite = posterContainer.GetComponent<SpriteRenderer>();
+            if (posterSprite != null && posterSprite.sprite != null)
+            {
+                posterData.originalPosterSize = new Vector2(
+                    posterSprite.sprite.bounds.size.x, 
+                    posterSprite.sprite.bounds.size.y
+                );
+            }
             foreach (Transform child in posterContainer)
             {
                 var spriteRenderer = child.GetComponent<SpriteRenderer>();
