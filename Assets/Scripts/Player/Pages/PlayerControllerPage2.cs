@@ -60,6 +60,7 @@ namespace Player
         [SerializeField] private Collider2D rightDoorCollider;
         [SerializeField] private SpriteRenderer rightDoorSpriteRenderer;
         [SerializeField] private Collider2D helmetArea;
+        [SerializeField] private AudioEmitterBase helmetAudioEmitter;
 
         [Header("Vending machine interaction settings")] 
         [SerializeField, Tooltip("How far from the exact center the items will scatter.")] 
@@ -300,6 +301,7 @@ namespace Player
             }
             _equippedHelmetCount++;
             _equippedHelmets.Add(helmetObject);
+            helmetAudioEmitter.PlayAudioOnce();
             if (_equippedHelmetCount == 1)
             {
                 leftDoorAnimator.SetTrigger(Open);

@@ -15,6 +15,7 @@ namespace Audio
         private EventInstance _openingInstance;
         private EventInstance _gameInstance;
         private bool _openingIsPlaying;
+        private bool _mainGameStarted;
 
         private void Start()
         {
@@ -40,7 +41,7 @@ namespace Audio
         {
             if (sceneName == mainGameSceneName)
                 TransitionToMainGame();
-            else
+            else if (!_mainGameStarted)
                 PlayOpeningMusic();
         }
 
@@ -65,6 +66,7 @@ namespace Audio
                 _openingIsPlaying = false;
             }
 
+            _mainGameStarted = true;
             var eventRef = FMODEvents.Instance.GetEventReferenceByName(AudioEventNames.MusicGame);
             _gameInstance = AudioManager.Instance.CreateInstance(eventRef);
             _gameInstance.start();
