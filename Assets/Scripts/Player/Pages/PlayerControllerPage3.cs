@@ -222,6 +222,11 @@ namespace Player
                 _interactionCount = 9; 
                 SceneLoader.Instance?.ActivatePreloadedScene();
             }
+            
+            if (other.CompareTag("Middle"))
+            {
+                SceneLoader.Instance?.PreloadScene(nextSceneName);
+            }
         }
     }
 }

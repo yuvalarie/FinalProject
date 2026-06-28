@@ -106,6 +106,10 @@ namespace Player
                 CurrentSize = frame1Size;
                 SetSize();
             }
+            if (other.CompareTag("Middle"))
+            {
+                SceneLoader.Instance?.PreloadScene(nextSceneName);
+            }
         }
     }
 }
