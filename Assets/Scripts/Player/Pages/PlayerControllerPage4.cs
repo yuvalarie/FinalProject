@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Managers;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -67,6 +68,7 @@ namespace Player
         [SerializeField] private GameObject textBubble3;
         [SerializeField] private GameObject textBubble4;
         [SerializeField] private GameObject textBubble5;
+        [SerializeField] private ParticleSystem saltParticles;
         
         [Header("Frame9")]
         [SerializeField] private Collider2D frame9EnterCollider;
@@ -225,6 +227,7 @@ namespace Player
         private void Frame8Sequence()
         {
             saltAnimator.SetTrigger(Play);
+            saltParticles.Play();
         }
         
         private void Frame9Sequence()
