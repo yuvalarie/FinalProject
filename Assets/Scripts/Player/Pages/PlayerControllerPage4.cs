@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using Managers;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -17,6 +20,13 @@ namespace Player
         [SerializeField] private GameObject sleepingHelda2;
         [SerializeField] private GameObject standingHelda;
         [SerializeField] private GameObject textBubble1;
+        [SerializeField] private Animator sideTable;
+        [SerializeField] private Collider2D sideTableCollider;
+        [SerializeField] private Collider2D blockCollider;
+        [SerializeField] private Animator lamp;
+        [SerializeField] private Collider2D lampCollider;
+        [SerializeField] private Animator door;
+        [SerializeField] private Collider2D doorCollider;
 
         [Header("Frame2")]
         [SerializeField] private Collider2D frame2EnterCollider;
@@ -27,6 +37,7 @@ namespace Player
         [Header("Frame3")]
         [SerializeField] private Collider2D frame3EnterCollider;
         [SerializeField] private Animator hand2Animator;
+        [SerializeField] private Animator pillow2Animator;
         [SerializeField] private Collider2D frame3ExitCollider;
         [SerializeField] private Transform frame3ExitPosition;
 
@@ -64,17 +75,28 @@ namespace Player
         [SerializeField] private Animator saltAnimator;
         //[SerializeField] private Vector3 frame8Size;
         [SerializeField] private SizeSettings frame8Size;
-        [SerializeField] private GameObject textBubble3;
-        [SerializeField] private GameObject textBubble4;
+        //[SerializeField] private GameObject textBubble3;
+        //[SerializeField] private GameObject textBubble4;
         [SerializeField] private GameObject textBubble5;
+        [SerializeField] private ParticleSystem saltParticles;
         
         [Header("Frame9")]
         [SerializeField] private Collider2D frame9EnterCollider;
         [SerializeField] private Collider2D frame9ExitCollider;
         //[SerializeField] private Vector3 frame9Size;
         [SerializeField] private SizeSettings frame9Size;
+
+        [Header("TextSettings")] 
+        [SerializeField] private List<GameObject> textBubbles;
+        [SerializeField] private List<GameObject> textCircles;
+        [SerializeField] private List<float> textBubblesTiming;
         
         private Vector3 _shadowOriginalPosition;
+
+        private bool atSideTable;
+        private bool atLamp;
+        private bool atDoor;
+        private bool sideTableActivated;
 
         protected override void Start()
         {
@@ -84,17 +106,35 @@ namespace Player
 
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
+            if (atSideTable && !sideTableActivated)
+            {
+                sideTableActivated = true;
+                sleepingHelda1.SetActive(false);
+                sleepingHelda2.SetActive(false);
+                standingHelda.SetActive(true);
+                sideTable.SetTrigger("Stop");
+                blockCollider.enabled = false;
+                StartCoroutine(TextBubblesCoroutine());
+            }
+            else if (atLamp)
+            {
+                lamp.SetTrigger("Play");
+            }
+            else if (atDoor)
+            {
+                door.SetTrigger("Play");
+            }
         }
 
         protected override void OnTriggerEnter2D(Collider2D other)
         {
             base.OnTriggerEnter2D(other);
+            if (other == lampCollider) atLamp = true;
+            if (other == doorCollider) atDoor = true;
+            if (other == sideTableCollider) atSideTable = true;
             if (other == frame1ExitCollider)
             {
                 transform.position = frame2StartPosition.position;
-                sleepingHelda1.SetActive(false);
-                sleepingHelda2.SetActive(false);
-                standingHelda.SetActive(true);
             }
             else if (other == frame2EnterCollider)
             {
@@ -172,7 +212,14 @@ namespace Player
                 SetSize();
             }
         }
-        
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other == lampCollider) atLamp = false;
+            if (other == doorCollider) atDoor = false;
+            if (other == sideTableCollider) atSideTable = false;
+        }
+
         private void Frame2Sequence()
         {
             handAnimator.SetTrigger(Play);
@@ -190,7 +237,7 @@ namespace Player
         
         public void PlayFrame3SecondAnimation()
         {
-            hand2Animator.SetTrigger(Pat);
+            pillow2Animator.SetTrigger(Play);
         }
         
         private void Frame4Sequence()
@@ -225,6 +272,7 @@ namespace Player
         private void Frame8Sequence()
         {
             saltAnimator.SetTrigger(Play);
+            saltParticles.Play();
         }
         
         private void Frame9Sequence()
@@ -241,19 +289,30 @@ namespace Player
         
         public void SetActiveTextBubble3()
         {
-            textBubble3.SetActive(true);
+            //textBubble3.SetActive(true);
         }
         
         public void SetActiveTextBubble4()
         {
-            textBubble4.SetActive(true);
+            //textBubble4.SetActive(true);
         }
         
         public void SetActiveTextBubble5()
         {
             textBubble5.SetActive(true);
-            textBubble3.SetActive(false);
-            textBubble4.SetActive(false);
+            //textBubble3.SetActive(false);
+            //textBubble4.SetActive(false);
+        }
+
+        private IEnumerator TextBubblesCoroutine()
+        {
+            yield return new WaitForSeconds(textBubblesTiming[0]);
+            for (int i = 0; i < textBubbles.Count; i++)
+            {
+                textBubbles[i].SetActive(true);
+                textCircles[i].SetActive(true);
+                yield return new WaitForSeconds(textBubblesTiming[i + 1]);
+            }
         }
     }
 }
