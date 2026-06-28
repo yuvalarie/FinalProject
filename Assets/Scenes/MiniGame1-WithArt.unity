@@ -10059,8 +10059,9 @@ MonoBehaviour:
   smallCollider: {fileID: 0}
   mediumLargeCollider: {fileID: 0}
   extraLargeCollider: {fileID: 0}
+  IsStunned: 0
   blackScreen: {fileID: 2063967277}
-  blackScreenDuration: 3
+  blackScreenDuration: 1.5
   rightHand: {fileID: 2090835416}
   rightHandAnimator: {fileID: 2090835419}
   leftHand: {fileID: 1936283614}
@@ -24860,6 +24861,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2063967279}
   - component: {fileID: 2063967278}
+  - component: {fileID: 2063967280}
   m_Layer: 0
   m_Name: Blackscreen
   m_TagString: Untagged
@@ -24940,6 +24942,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2063967280
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063967277}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c05c76812c7284bfba69ff631c303bf5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2069329510
 GameObject:
   m_ObjectHideFlags: 0

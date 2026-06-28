@@ -2161,13 +2161,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.MiniGames.PlayerControllerMiniGame5
   artSettings: {fileID: 0}
-  speed: 4
+  speed: 7
   nextSceneName: 
   initialSize: 4
   graphicsRoot: {fileID: 0}
   smallCollider: {fileID: 0}
   mediumLargeCollider: {fileID: 0}
   extraLargeCollider: {fileID: 0}
+  IsStunned: 0
   catchZoneCollider: {fileID: 1728258104}
 --- !u!1001 &1433759115
 PrefabInstance:
@@ -2641,7 +2642,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.06100297, y: -0.38635415}
+  m_Offset: {x: -0.23449093, y: -0.104931116}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2651,7 +2652,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.6195273, y: 1.7727078}
+  m_Size: {x: 2.9591308, y: 4.699507}
   m_EdgeRadius: 0
 --- !u!1 &1754127784
 GameObject:
