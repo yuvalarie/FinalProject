@@ -182,6 +182,7 @@ namespace Player
                     break;
                 case >= 64 and < 80:
                     fourthStateSprite.SetActive(false);
+                    SceneLoader.Instance?.PreloadScene(nextSceneName);
                     break;
                 case >= 80 and < 100:
                     fifthStateSprite.SetActive(false);

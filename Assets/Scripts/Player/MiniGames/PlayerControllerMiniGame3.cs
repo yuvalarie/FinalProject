@@ -455,6 +455,8 @@ namespace Player
                 
                 yield return new WaitForSeconds(waitBetweenTasksDuration); 
             }
+            
+            if(currentRound  == 3) SceneLoader.Instance?.PreloadScene(nextSceneName);
 
             Debug.Log("Player's turn!");
             isScreenPlaying = false;

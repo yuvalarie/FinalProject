@@ -213,6 +213,7 @@ namespace Player.Pages
 
         protected override void OnTriggerEnter2D(Collider2D other)
         {
+            base.OnTriggerEnter2D(other);
             if (other == backCollider)
             {
                 atBackCollider = true;
@@ -221,7 +222,6 @@ namespace Player.Pages
             {
                 atFrontCollider = true;
             }
-            base.OnTriggerEnter2D(other);
             if (other == frame1Exit)
             {
                 transform.position = frame1ExitPos.position;

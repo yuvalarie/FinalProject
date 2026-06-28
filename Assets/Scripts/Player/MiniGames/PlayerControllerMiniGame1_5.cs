@@ -131,6 +131,7 @@ namespace Player.MiniGames
                     text3.SetActive(false);
                     text4.SetActive(true);
                     _interactionCount++;
+                    SceneLoader.Instance?.PreloadScene(nextSceneName);
                     break;
                 case 4:
                     text4.SetActive(false);

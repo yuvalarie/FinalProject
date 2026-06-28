@@ -37,6 +37,8 @@ namespace Objects
 
         private Vector3 _offset1;
         private Vector3 _offset2;
+
+        public float AnimationDuration => animationDuration;
         
         private void Start()    
         {
@@ -84,7 +86,6 @@ namespace Objects
             transitionSequence.AppendCallback(() => 
             {
                 _isOn = false;
-                PlayerControllerPage6.TriggerSequenceComplete();
             });
         }
         
@@ -103,7 +104,6 @@ namespace Objects
             transitionSequence.AppendCallback(() => 
             {
                 _isOn = true;
-                PlayerControllerPage6.TriggerBackSequenceComplete();
             });
 
         }
