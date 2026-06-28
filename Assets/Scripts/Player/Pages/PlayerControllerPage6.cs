@@ -33,9 +33,9 @@ namespace Player
         [Header("Interaction Settings")]
         [SerializeField] private MagnifierFollowObject magnifierObject;
         [SerializeField] private Collider2D frame2Collider;
+        [SerializeField] private Transform letterLocation;
 
         [Header("Sprite Settings")]
-
         [SerializeField] private SizeSettings frame1Size;
         [SerializeField] private SizeSettings frame2Size;
         [SerializeField] private SizeSettings frame4Size;
@@ -50,84 +50,200 @@ namespace Player
         [SerializeField] private Collider2D frame6toframe4Trigger;
         [SerializeField] private Collider2D letterTrigger;
 
-        private bool _canMove;
-        private bool textBubble1Shown;
-        private bool textBubble2Shown;
-        private bool textBubble4Shown;
-        private bool textBubble5Shown;
-        private bool textBubble5Cleared;
-        private bool letterShown;
-        private bool letterOpened;
-        private bool letterCleared;
-        
-        private bool _isPlayerInLetterCollider;
-        private bool _wasInLetterCollider;
-        private bool _isAnimation5Complete;
-        
-        private SpriteRenderer _spriteRenderer;
-        
-        public static event Action OnSequenceComplete;
-        public static event Action OnBackSequenceComplete;
-        
+        // State Machine Variables
+        private int _interactionCount = 0;
+        private bool _isSequenceActive = false;
+        private bool _isAnimating = false;
+        private bool _axisInUse = false;
+        private bool _isWaitingForHelda = false; // New flag to freeze the player!
+        private Coroutine _currentSequenceRoutine;
+
+        // Sequence 1 (Frame 2) Readiness
+        private bool _isHeldaReadyForSeq1 = false;
+        private bool _isPlayerAtSeq1 = false;
+        private bool _seq1Done = false;
+
+        // Sequence 2 (Letter) Readiness
+        private bool _isHeldaReadyForSeq2 = false;
+        private bool _isPlayerAtSeq2 = false;
+        private bool _seq2Done = false;
+
         protected override void Start()
         {
             base.Start();
-            _spriteRenderer = GetComponent<SpriteRenderer>();
-            _canMove = true;
-        }
-        
-        protected override void OnEnable()
-        {
-            base.OnEnable();
-            OnSequenceComplete += StartTextSequence;
-            OnBackSequenceComplete += StartExitAnimation;
         }
         
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
-            if (!context.performed) return;
-            if (textBubble1Shown && !textBubble2Shown)
-            {
-                StartMagnifierSequence();
-            }
-            if(textBubble1Shown && textBubble2Shown && !textBubble4Shown)
-            {
-                StartCoroutine(StartTextBubble4Coroutine());
-            }
-            if (textBubble1Shown && textBubble2Shown && textBubble4Shown && !textBubble5Shown)
-            {
-                magnifierObject.BackTransition();
-            }
-            
-            // Clear Bubble 5 and start final movement
-            if(textBubble1Shown && textBubble2Shown && textBubble4Shown && textBubble5Shown && !textBubble5Cleared)
-            {
-                textBubble5.SetActive(false);
-                textBubble5Cleared = true;
-                heldaMovement.PlayMovement5();
-            }
-            
-            // Open the letter ONLY if player is in the collider
-            if (letterShown && !letterOpened && _isPlayerInLetterCollider)
-            {
-                closedLetterObject.SetActive(false);
-                openLetterObject.SetActive(true);
-                letterOpened = true;
-            }
-            else if (letterShown && letterOpened)
-            {
-                openLetterObject.SetActive(false);
-                letterCleared = true;
-                _canMove = true;
-            }
+            // Interactions are now handled by movement!
         }
 
         protected override void HandleMovement()
         {
-            if (_canMove) base.HandleMovement();
+            // Lock the player in place if a sequence is running OR if they are waiting for Helda
+            if (_isSequenceActive || _isWaitingForHelda)
+            {
+                if (Rb != null) Rb.linearVelocity = Vector2.zero;
+                return;
+            }
+            
+            base.HandleMovement();
         }
+
+        private void Update()
+        {
+            if (!_isSequenceActive) return;
+
+            if (Mathf.Abs(MoveInput.x) < 0.1f)
+            {
+                _axisInUse = false;
+            }
+
+            if (_isAnimating || _axisInUse) return;
+
+            // Move Forward
+            if (MoveInput.x > 0.5f)
+            {
+                // Prevent overstepping boundaries
+                if ((!_seq1Done && _interactionCount >= 4) || (_seq1Done && _interactionCount >= 8)) return;
+                
+                _axisInUse = true;
+                _interactionCount++;
+                if (_currentSequenceRoutine != null) StopCoroutine(_currentSequenceRoutine);
+                _currentSequenceRoutine = StartCoroutine(TransitionToState(_interactionCount, true));
+            }
+            // Move Backward
+            else if (MoveInput.x < -0.5f)
+            {
+                // Prevent walking back before the start of the current sequence
+                if ((!_seq1Done && _interactionCount <= 1) || (_seq1Done && _interactionCount <= 5)) return;
+                
+                _axisInUse = true;
+                _interactionCount--;
+                if (_currentSequenceRoutine != null) StopCoroutine(_currentSequenceRoutine);
+                _currentSequenceRoutine = StartCoroutine(TransitionToState(_interactionCount, false));
+            }
+        }
+
+        private IEnumerator TransitionToState(int targetState, bool isMovingForward)
+        {
+            _isAnimating = true;
+
+            // Clear all UI elements first to avoid overlaps
+            textBubble1.SetActive(false);
+            textBubble2.SetActive(false);
+            textBubble3.SetActive(false);
+            textBubble4.SetActive(false);
+            textBubble5.SetActive(false);
+            closedLetterObject.SetActive(false);
+            openLetterObject.SetActive(false);
+
+            switch (targetState)
+            {
+                /* --- SEQUENCE 1 (Frame 2 text and magnifier) --- */
+                case 1:
+                    if (!isMovingForward) 
+                    {
+                        magnifierObject.BackTransition(); // Player pressed back from the magnifier
+                        yield return new WaitForSeconds(magnifierObject.AnimationDuration);
+                    }
+                    textBubble1.SetActive(true);
+                    break;
+                
+                case 2:
+                    if (isMovingForward)
+                    {
+                        magnifierObject.FrameTransition();
+                        yield return new WaitForSeconds(magnifierObject.AnimationDuration);
+                    }
+                    textBubble2.SetActive(true);
+                    yield return new WaitForSeconds(1f);
+                    textBubble3.SetActive(true);
+                    break;
+                
+                case 3:
+                    yield return new WaitForSeconds(0.1f);
+                    textBubble4.SetActive(true);
+                    break;
+                
+                case 4: // End of Sequence 1
+                    if (isMovingForward)
+                    {
+                        magnifierObject.BackTransition();
+                        // Wait for the magnifier to fully close before sending Helda away and unfreezing the player
+                        yield return new WaitForSeconds(magnifierObject.AnimationDuration); 
+                        heldaMovement.PlayMovement3(); 
+                    }
+                    
+                    _isSequenceActive = false;
+                    _seq1Done = true;
+                    frame2Collider.enabled = false;
+                    break;
+
+                /* --- SEQUENCE 2 (Frame 5 text and letter) --- */
+                case 5:
+                    textBubble5.SetActive(true);
+                    break;
+                
+                case 6:
+                    closedLetterObject.transform.parent = transform;
+                    closedLetterObject.transform.localPosition = letterLocation.position;
+                    closedLetterObject.SetActive(true);
+                    break;
+                
+                case 7:
+                    openLetterObject.SetActive(true);
+                    break;
+                
+                case 8: // End of Sequence 2
+                    _isSequenceActive = false;
+                    _seq2Done = true;
+                    letterTrigger.enabled = false;
+                    
+                    if (isMovingForward)
+                    {
+                        heldaMovement.PlayMovement5();
+                    }
+                    break;
+            }
+
+            _isAnimating = false;
+        }
+
+        private void TryStartSequence1()
+        {
+            if (_isHeldaReadyForSeq1 && _isPlayerAtSeq1 && !_seq1Done)
+            {
+                _isWaitingForHelda = false; // Unfreeze the waiting state
+                _isSequenceActive = true;
+                _interactionCount = 1;
+                
+                // Fix for the first bubble skipping: Mark the axis as in use immediately!
+                if (Mathf.Abs(MoveInput.x) > 0.1f) _axisInUse = true; 
+                
+                if (_currentSequenceRoutine != null) StopCoroutine(_currentSequenceRoutine);
+                _currentSequenceRoutine = StartCoroutine(TransitionToState(_interactionCount, true));
+            }
+        }
+
+        private void TryStartSequence2()
+        {
+            if (_isHeldaReadyForSeq2 && _isPlayerAtSeq2 && !_seq2Done)
+            {
+                _isWaitingForHelda = false; // Unfreeze the waiting state
+                _isSequenceActive = true;
+                _interactionCount = 5;
+                
+                // Fix for skipping: Mark the axis as in use immediately!
+                if (Mathf.Abs(MoveInput.x) > 0.1f) _axisInUse = true;
+                
+                if (_currentSequenceRoutine != null) StopCoroutine(_currentSequenceRoutine);
+                _currentSequenceRoutine = StartCoroutine(TransitionToState(_interactionCount, true));
+            }
+        }
+
+        /* --- Helda Animation Callbacks --- */
         
-        /* --- Frame 1 Sequence --- */
         public void OnAnimation1Complete()
         {
             if (heldaSpriteRenderer != null && heldaFrame2Sprite != null)
@@ -138,74 +254,12 @@ namespace Player
             heldaMovement.PlayMovement2();
         }
         
-        /* --- Frame 2 Sequence --- */
         public void StartTextBubble1Sequence()
         {
-            textBubble1.SetActive(true);
-            textBubble1Shown = true;
+            _isHeldaReadyForSeq1 = true;
+            TryStartSequence1();
         }
         
-        private void StartMagnifierSequence()
-        {
-            textBubble1.SetActive(false);
-            magnifierObject.FrameTransition();
-        }
-        
-        public static void TriggerSequenceComplete()
-        {
-            OnSequenceComplete?.Invoke();
-        }
-        
-        private void StartTextSequence()
-        {
-            StartCoroutine(StartTextCoroutine());
-        }
-        
-        private IEnumerator StartTextCoroutine()
-        {
-            textBubble1.SetActive(false);
-            yield return new WaitForSeconds(0.5f);
-            if (textBubble3 != null && textBubble2 != null)
-            {
-                textBubble2.SetActive(true);
-                yield return new WaitForSeconds(0.1f);
-                textBubble3.SetActive(true);
-                textBubble2Shown = true;
-            }
-        }
-        
-        private IEnumerator StartTextBubble4Coroutine()
-        {
-            textBubble2.SetActive(false);
-            textBubble3.SetActive(false);
-            yield return new WaitForSeconds(0.1f);
-            if (textBubble4 != null)
-            {
-                textBubble4.SetActive(true);
-                textBubble4Shown = true;
-            }
-        }
-        
-        public static void TriggerBackSequenceComplete()
-        {
-            OnBackSequenceComplete?.Invoke();
-        }
-        
-        private void StartExitAnimation()
-        {
-            textBubble4.SetActive(false);
-            _canMove = true;
-            frame2Collider.enabled = false;
-            heldaMovement.PlayMovement3();
-        }
-        
-        public void ChangeCanMoveState()
-        {
-            _canMove = true;
-            frame2Collider.enabled = false;
-        }
-        
-        /* --- Frame 4 Sequence --- */
         public void StartAnimation4()
         {
             heldaSpriteRenderer.sprite = heldaFrame4Sprite;
@@ -215,112 +269,51 @@ namespace Player
         
         public void ShowTextBubble5()
         {
-            if (textBubble5 != null)
-            {
-                textBubble5.SetActive(true);
-                textBubble5Shown = true;
-            }
+            _isHeldaReadyForSeq2 = true;
+            TryStartSequence2();
         }
-        
-        /* --- Frame 5 Sequence (Letter) --- */
-        
-        // This will be called by HeldaMovementPage5 when her final jump finishes
+
         public void OnAnimation5Complete()
         {
-            _isAnimation5Complete = true;
-            
-            // If the player is ALREADY standing in the trigger zone, show the letter immediately
-            if (_wasInLetterCollider && !letterShown)
-            {
-                closedLetterObject.SetActive(true);
-                letterShown = true;
-            }
         }
+        
+        /* --- Triggers --- */
         
         protected override void OnTriggerEnter2D(Collider2D other)
         {
             base.OnTriggerEnter2D(other);
 
             if (other == frame2Collider)
-
             {
-                _canMove = false;
-
-                Rigidbody2D rb = GetComponent<Rigidbody2D>();
-
-                if (rb != null)
-                {
-                    rb.linearVelocity = Vector2.zero;
-                }
-
-            }
-
-            if (other == frame1toframe2Trigger)
-            {
-                // _spriteRenderer.sprite = frame2Sprite;
-                // transform.localScale = frame2Scale;
-                CurrentSize = frame2Size;
-                SetSize();
-            }
-            if (other == frame2toframe1Trigger)
-            {
-                // _spriteRenderer.sprite = frame1Sprite;
-                // transform.localScale = frame1Scale;
-                CurrentSize = frame1Size;
-                SetSize();
-            }
-            if (other == frame2toframe4Trigger)
-            {
-                // _spriteRenderer.sprite = frame4Sprite;
-                // transform.localScale = frame4Scale;
-                CurrentSize = frame4Size;
-                SetSize();
-            }
-            if (other == frame4toframe2Trigger)
-            {
-                // _spriteRenderer.sprite = frame2Sprite;
-                // transform.localScale = frame2Scale;
-                CurrentSize = frame2Size;
-                SetSize();
-            }
-            if (other == frame4toframe6Trigger)
-            {
-                // _spriteRenderer.sprite = frame6Sprite;
-                // transform.localScale = frame6Scale;
-                CurrentSize = frame6Size;
-                SetSize();
-            }
-            if (other == frame6toframe4Trigger)
-            {
-                // _spriteRenderer.sprite = frame4Sprite;
-                // transform.localScale = frame4Scale;
-                CurrentSize = frame4Size;
-                SetSize();
+                _isPlayerAtSeq1 = true;
+                _isWaitingForHelda = true; // Officially freeze the player!
+                if (Rb != null) Rb.linearVelocity = Vector2.zero;
+                
+                TryStartSequence1(); 
             }
             
             if (other == letterTrigger)
             {
-                _isPlayerInLetterCollider = true;
-                _wasInLetterCollider = true;
-                _canMove = false;
-                Rigidbody2D rb = GetComponent<Rigidbody2D>();
-                if (rb != null)
-                {
-                    rb.linearVelocity = Vector2.zero;
-                }
-                if (_isAnimation5Complete && !letterShown)
-                {
-                    closedLetterObject.SetActive(true);
-                    letterShown = true;
-                }
+                _isPlayerAtSeq2 = true;
+                _isWaitingForHelda = true; // Officially freeze the player!
+                if (Rb != null) Rb.linearVelocity = Vector2.zero;
+                
+                TryStartSequence2();
             }
+
+            if (other == frame1toframe2Trigger) { CurrentSize = frame2Size; SetSize(); }
+            if (other == frame2toframe1Trigger) { CurrentSize = frame1Size; SetSize(); }
+            if (other == frame2toframe4Trigger) { CurrentSize = frame4Size; SetSize(); }
+            if (other == frame4toframe2Trigger) { CurrentSize = frame2Size; SetSize(); }
+            if (other == frame4toframe6Trigger) { CurrentSize = frame6Size; SetSize(); }
+            if (other == frame6toframe4Trigger) { CurrentSize = frame4Size; SetSize(); }
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
             if (other == letterTrigger)
             {
-                _isPlayerInLetterCollider = false;
+                _isPlayerAtSeq2 = false;
             }
         }
     }
