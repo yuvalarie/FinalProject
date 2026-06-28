@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using FMOD.Studio;
 using Managers;
 using UnityEngine;
@@ -6,19 +8,38 @@ using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 namespace Audio
 {
+    public enum MusicArea { Start, Main, MG1, MG2, MG3, MG4_1, MG4_2, End }
+
     public class MusicManager : PersistentMonoSingleton<MusicManager>
     {
-        [Header("Scene Names")]
-        [Tooltip("When this scene loads, Opening music stops and Main Game music begins")]
-        [SerializeField] private string mainGameSceneName;
+        [Serializable]
+        public struct SceneAreaEntry
+        {
+            public string sceneName;
+            public MusicArea area;
+        }
 
-        private EventInstance _openingInstance;
-        private EventInstance _gameInstance;
-        private bool _openingIsPlaying;
-        private bool _mainGameStarted;
+        [Header("Scene Mapping")]
+        [Tooltip("Maps scene names to their music area. Unmapped scenes default to Main.")]
+        [SerializeField] private List<SceneAreaEntry> sceneAreaMappings;
+
+        private Dictionary<string, MusicArea> _sceneAreaDict;
+        private EventInstance _musicInstance;
+        private int _currentProgress;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            _sceneAreaDict = new Dictionary<string, MusicArea>();
+            foreach (var entry in sceneAreaMappings)
+                _sceneAreaDict[entry.sceneName] = entry.area;
+        }
 
         private void Start()
         {
+            var eventRef = FMODEvents.Instance.GetEventReferenceByName(AudioEventNames.MusicGame);
+            _musicInstance = AudioManager.Instance.CreateInstance(eventRef);
+            _musicInstance.start();
             HandleSceneMusic(SceneManager.GetActiveScene().name);
         }
 
@@ -39,51 +60,35 @@ namespace Audio
 
         private void HandleSceneMusic(string sceneName)
         {
-            if (sceneName == mainGameSceneName)
-                TransitionToMainGame();
-            else if (!_mainGameStarted)
-                PlayOpeningMusic();
+            var area = _sceneAreaDict.GetValueOrDefault(sceneName, MusicArea.Main);
+            SetArea(area);
         }
 
-        private void PlayOpeningMusic()
+        private void SetArea(MusicArea area)
         {
-            if (_openingIsPlaying) return;
-
-            var eventRef = FMODEvents.Instance.GetEventReferenceByName(AudioEventNames.MusicOpening);
-            _openingInstance = AudioManager.Instance.CreateInstance(eventRef);
-            _openingInstance.start();
-            _openingIsPlaying = true;
+            _musicInstance.setParameterByNameWithLabel(AudioEventNames.MusicAreaParam, area.ToString());
+            _currentProgress = 0;
+            _musicInstance.setParameterByName(AudioEventNames.MusicProgressParam, 0f);
         }
 
-        private void TransitionToMainGame()
+        public void AdvanceProgress()
         {
-            if (_gameInstance.isValid()) return;
+            _currentProgress = Mathf.Clamp(_currentProgress + 1, 0, 3);
+            _musicInstance.setParameterByName(AudioEventNames.MusicProgressParam, _currentProgress);
+        }
 
-            if (_openingIsPlaying)
-            {
-                _openingInstance.stop(STOP_MODE.ALLOWFADEOUT);
-                _openingInstance.release();
-                _openingIsPlaying = false;
-            }
-
-            _mainGameStarted = true;
-            var eventRef = FMODEvents.Instance.GetEventReferenceByName(AudioEventNames.MusicGame);
-            _gameInstance = AudioManager.Instance.CreateInstance(eventRef);
-            _gameInstance.start();
+        public void SetProgress(int stage)
+        {
+            _currentProgress = Mathf.Clamp(stage, 0, 3);
+            _musicInstance.setParameterByName(AudioEventNames.MusicProgressParam, _currentProgress);
         }
 
         private void OnDestroy()
         {
-            if (_openingInstance.isValid())
+            if (_musicInstance.isValid())
             {
-                _openingInstance.stop(STOP_MODE.IMMEDIATE);
-                _openingInstance.release();
-            }
-
-            if (_gameInstance.isValid())
-            {
-                _gameInstance.stop(STOP_MODE.IMMEDIATE);
-                _gameInstance.release();
+                _musicInstance.stop(STOP_MODE.IMMEDIATE);
+                _musicInstance.release();
             }
         }
     }
