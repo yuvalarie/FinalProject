@@ -81,6 +81,7 @@ namespace Player
             yield return new WaitForSeconds(1f);
             frame4Part2.SetActive(true);
             canMove = true;
+            SceneLoader.Instance?.PreloadScene(nextSceneName);
             yield return new WaitForSeconds(1f);
             textBubble1.SetActive(true);
             textBubble1Shown = true;
@@ -105,10 +106,6 @@ namespace Player
                 // transform.localScale = frame1Size;
                 CurrentSize = frame1Size;
                 SetSize();
-            }
-            if (other.CompareTag("Middle"))
-            {
-                SceneLoader.Instance?.PreloadScene(nextSceneName);
             }
         }
     }

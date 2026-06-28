@@ -1,4 +1,5 @@
 using System.Collections;
+using Managers;
 using Objects;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -29,6 +30,7 @@ namespace Player
         protected override void Start()
         {
             base.Start();
+            SceneLoader.Instance?.PreloadScene(nextSceneName);
             // Set hand to resting position on enable
             if (handPivot != null)
                 handPivot.localRotation = Quaternion.Euler(0f, 0f, restingAngle);

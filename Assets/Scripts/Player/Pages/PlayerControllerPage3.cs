@@ -140,6 +140,7 @@ namespace Player
                 case 5:
                     sprite5.SetActive(true);
                     textBubble5.SetActive(true);
+                    SceneLoader.Instance?.PreloadScene(nextSceneName);
                     break;
                 
                 case 6:
@@ -221,11 +222,6 @@ namespace Player
             {
                 _interactionCount = 9; 
                 SceneLoader.Instance?.ActivatePreloadedScene();
-            }
-            
-            if (other.CompareTag("Middle"))
-            {
-                SceneLoader.Instance?.PreloadScene(nextSceneName);
             }
         }
     }
