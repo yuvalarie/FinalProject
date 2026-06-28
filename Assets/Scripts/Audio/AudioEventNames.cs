@@ -27,6 +27,10 @@ namespace Audio
         public const string ThoughtBubble = "Thought Bubble";
         public const string ElevatorMoving = "Elevator Moving";
         public const string SaltShaker = "Salt Shake";
+        public const string LampSwing = "Lamp Swing";
+        public const string LockedDoor = "Locked Door";
+        public const string AlarmClockRing = "Alarm Clock Ring";
+        
         
         // Music Events
         public const string MusicOpening = "Music Opening"; // no longer used

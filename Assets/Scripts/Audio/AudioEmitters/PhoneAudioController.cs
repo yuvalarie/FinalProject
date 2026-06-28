@@ -10,6 +10,7 @@ namespace Audio.AudioEmitters
 
         public void RingStart() => ringEmitter.ResumeAudio();
         public void RingStop() => ringEmitter.PauseAudio();
+        public void RingStopImmediate() => ringEmitter.StopAudio();
         public void Pickup() => pickupEmitter.PlayAudioOnce();
     }
 }
