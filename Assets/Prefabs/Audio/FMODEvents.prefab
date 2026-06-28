@@ -200,6 +200,14 @@ MonoBehaviour:
           Data3: -945193344
           Data4: -2080786899
         Path: event:/Page2/LetterHittingTray
+    - name: Pickup Hat
+      eventReference:
+        Guid:
+          Data1: 298464488
+          Data2: 1084910506
+          Data3: -617250164
+          Data4: 976825418
+        Path: event:/Page2/PickupHat
     ambianceEvents:
     - name: Factory Ambiance
       eventReference:
