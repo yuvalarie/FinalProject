@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using Managers;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -35,6 +37,7 @@ namespace Player
         [Header("Frame3")]
         [SerializeField] private Collider2D frame3EnterCollider;
         [SerializeField] private Animator hand2Animator;
+        [SerializeField] private Animator pillow2Animator;
         [SerializeField] private Collider2D frame3ExitCollider;
         [SerializeField] private Transform frame3ExitPosition;
 
@@ -72,8 +75,8 @@ namespace Player
         [SerializeField] private Animator saltAnimator;
         //[SerializeField] private Vector3 frame8Size;
         [SerializeField] private SizeSettings frame8Size;
-        [SerializeField] private GameObject textBubble3;
-        [SerializeField] private GameObject textBubble4;
+        //[SerializeField] private GameObject textBubble3;
+        //[SerializeField] private GameObject textBubble4;
         [SerializeField] private GameObject textBubble5;
         [SerializeField] private ParticleSystem saltParticles;
         
@@ -82,6 +85,11 @@ namespace Player
         [SerializeField] private Collider2D frame9ExitCollider;
         //[SerializeField] private Vector3 frame9Size;
         [SerializeField] private SizeSettings frame9Size;
+
+        [Header("TextSettings")] 
+        [SerializeField] private List<GameObject> textBubbles;
+        [SerializeField] private List<GameObject> textCircles;
+        [SerializeField] private List<float> textBubblesTiming;
         
         private Vector3 _shadowOriginalPosition;
 
@@ -106,6 +114,7 @@ namespace Player
                 standingHelda.SetActive(true);
                 sideTable.SetTrigger("Stop");
                 blockCollider.enabled = false;
+                StartCoroutine(TextBubblesCoroutine());
             }
             else if (atLamp)
             {
@@ -228,7 +237,7 @@ namespace Player
         
         public void PlayFrame3SecondAnimation()
         {
-            hand2Animator.SetTrigger(Pat);
+            pillow2Animator.SetTrigger(Play);
         }
         
         private void Frame4Sequence()
@@ -280,19 +289,30 @@ namespace Player
         
         public void SetActiveTextBubble3()
         {
-            textBubble3.SetActive(true);
+            //textBubble3.SetActive(true);
         }
         
         public void SetActiveTextBubble4()
         {
-            textBubble4.SetActive(true);
+            //textBubble4.SetActive(true);
         }
         
         public void SetActiveTextBubble5()
         {
             textBubble5.SetActive(true);
-            textBubble3.SetActive(false);
-            textBubble4.SetActive(false);
+            //textBubble3.SetActive(false);
+            //textBubble4.SetActive(false);
+        }
+
+        private IEnumerator TextBubblesCoroutine()
+        {
+            yield return new WaitForSeconds(textBubblesTiming[0]);
+            for (int i = 0; i < textBubbles.Count; i++)
+            {
+                textBubbles[i].SetActive(true);
+                textCircles[i].SetActive(true);
+                yield return new WaitForSeconds(textBubblesTiming[i + 1]);
+            }
         }
     }
 }
