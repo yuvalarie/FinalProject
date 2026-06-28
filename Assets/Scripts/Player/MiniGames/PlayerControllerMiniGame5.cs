@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Managers;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Player.MiniGames
@@ -8,6 +9,13 @@ namespace Player.MiniGames
         [Header("Catching Settings")]
         [SerializeField, Tooltip("Drag the CatchZone child object's BoxCollider2D here.")] 
         private Collider2D catchZoneCollider;
+
+        protected override void Start()
+        {
+            base.Start();
+            SceneLoader.Instance?.PreloadScene(nextSceneName);
+        }
+
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
             if (!context.performed || catchZoneCollider == null) return;

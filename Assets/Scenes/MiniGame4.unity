@@ -274,7 +274,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: dbd332c11004a42bba39db616920b854, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -458,6 +458,8 @@ MonoBehaviour:
   hoveredSprite: {fileID: 21300000, guid: 973182254fdbd416a8dc7a39f3ad7623, type: 3}
   heldSprite: {fileID: 21300000, guid: b5610f928093c496999a10a85ad5a7be, type: 3}
   placedSprite: {fileID: 21300000, guid: dbd332c11004a42bba39db616920b854, type: 3}
+  maxSortingOrder: 4
+  ogSortingOrder: 2
 --- !u!1 &205669393
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,7 +644,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 58
   m_Sprite: {fileID: 21300000, guid: e6e6b583a719c4d17b56aa671b2e0ef7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -734,7 +736,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 4b0ab9492a8b348ec82f0a09045ca110, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -955,6 +957,8 @@ MonoBehaviour:
   hoveredSprite: {fileID: 21300000, guid: 41845929bb7684c7aba80186e85a2fcd, type: 3}
   heldSprite: {fileID: 21300000, guid: 3b8698dcd7fdb4e38be84390eb31c61f, type: 3}
   placedSprite: {fileID: 21300000, guid: 4b0ab9492a8b348ec82f0a09045ca110, type: 3}
+  maxSortingOrder: 4
+  ogSortingOrder: 3
 --- !u!1 &264852842
 GameObject:
   m_ObjectHideFlags: 0
@@ -1020,7 +1024,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 2a0c49427336440368d83904d67a75ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1216,6 +1220,8 @@ MonoBehaviour:
   hoveredSprite: {fileID: 21300000, guid: 7ed9d7dfcb35b4830a1ec42ac7d3e6a3, type: 3}
   heldSprite: {fileID: 21300000, guid: 4b79f0c7a1d204cca873af3932a84976, type: 3}
   placedSprite: {fileID: 21300000, guid: 2a0c49427336440368d83904d67a75ed, type: 3}
+  maxSortingOrder: 4
+  ogSortingOrder: 3
 --- !u!1 &371158086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,7 +1323,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 12
+  m_SortingOrder: 60
   m_Sprite: {fileID: 21300000, guid: 925fcdb241bcf46eaa318f13c1bf8443, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1671,6 +1677,8 @@ MonoBehaviour:
   hoveredSprite: {fileID: 21300000, guid: 60d526d2246154e5cb0368d0b517edf6, type: 3}
   heldSprite: {fileID: 21300000, guid: 7825c57a587b74fab943574fa0aaad1a, type: 3}
   placedSprite: {fileID: 21300000, guid: 8df145288cfd0469eb55407c57aa317f, type: 3}
+  maxSortingOrder: 4
+  ogSortingOrder: 1
 --- !u!1 &498278085
 GameObject:
   m_ObjectHideFlags: 0
@@ -1736,7 +1744,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 2900bc5778e7245598addcc55bbd44d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2010,6 +2018,8 @@ MonoBehaviour:
   hoveredSprite: {fileID: 21300000, guid: d99bdf769230e463aaccd16ab945599f, type: 3}
   heldSprite: {fileID: 21300000, guid: 9e7f9135a51c147a1953cfc1721d4073, type: 3}
   placedSprite: {fileID: 21300000, guid: 7cd342368158e453eb433ec6ed5ee0cd, type: 3}
+  maxSortingOrder: 4
+  ogSortingOrder: 2
 --- !u!1 &532856696
 GameObject:
   m_ObjectHideFlags: 0
@@ -2165,7 +2175,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: e1e92cbf8534b4335aa863f080996a80, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2541,6 +2551,8 @@ MonoBehaviour:
   hoveredSprite: {fileID: 21300000, guid: 27fb72a5e4de14e4aa048130cd2f523a, type: 3}
   heldSprite: {fileID: 21300000, guid: bbac3b44350c24befa031cf31cca66c3, type: 3}
   placedSprite: {fileID: 21300000, guid: e1e92cbf8534b4335aa863f080996a80, type: 3}
+  maxSortingOrder: 4
+  ogSortingOrder: 2
 --- !u!1001 &614916068
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2662,7 +2674,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 11
+  m_SortingOrder: 59
   m_Sprite: {fileID: 21300000, guid: 4343c149197b2429b9aa845a354660ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2890,7 +2902,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 7096aa13e64774f2f8daf91a1340116d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3089,6 +3101,8 @@ MonoBehaviour:
   hoveredSprite: {fileID: 21300000, guid: 51ab0e6468ff243ac9f1e19ef7e3677f, type: 3}
   heldSprite: {fileID: 21300000, guid: 07bb67de9a8664d639108fab7581ce66, type: 3}
   placedSprite: {fileID: 21300000, guid: d789a5bb69426421b8672157d65f265b, type: 3}
+  maxSortingOrder: 4
+  ogSortingOrder: 3
 --- !u!1 &924870999
 GameObject:
   m_ObjectHideFlags: 0
@@ -3373,7 +3387,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 6cb7eac409afb4368a93a1f100900909, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3736,6 +3750,8 @@ MonoBehaviour:
   hoveredSprite: {fileID: 21300000, guid: b6a90f2825f1f48b3886252d6441e9d6, type: 3}
   heldSprite: {fileID: 21300000, guid: 92ca1a3442ce34d27bf14df96a036902, type: 3}
   placedSprite: {fileID: 21300000, guid: 6cb7eac409afb4368a93a1f100900909, type: 3}
+  maxSortingOrder: 4
+  ogSortingOrder: 3
 --- !u!1 &1126679058
 GameObject:
   m_ObjectHideFlags: 0
@@ -3990,7 +4006,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 28634d0d09f0449c89035505736e8730, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4297,6 +4313,8 @@ MonoBehaviour:
   hoveredSprite: {fileID: 21300000, guid: 652c9e155aa7d4969afaae8f99ac1467, type: 3}
   heldSprite: {fileID: 21300000, guid: 7e1e74325d61b40fa8318c583a88186e, type: 3}
   placedSprite: {fileID: 21300000, guid: 5ecc4dceec1234f40a78e0114ff3b2d3, type: 3}
+  maxSortingOrder: 3
+  ogSortingOrder: 2
 --- !u!1 &1409171764
 GameObject:
   m_ObjectHideFlags: 0
@@ -4968,6 +4986,8 @@ MonoBehaviour:
   hoveredSprite: {fileID: 21300000, guid: fc34532f3013f43c0a74e8f66c2fad6b, type: 3}
   heldSprite: {fileID: 21300000, guid: 75bcf130761e4463ea113fbac53acd87, type: 3}
   placedSprite: {fileID: 21300000, guid: e3e39e3a063e34d359604524d2db5f69, type: 3}
+  maxSortingOrder: 4
+  ogSortingOrder: 1
 --- !u!1 &1480119087
 GameObject:
   m_ObjectHideFlags: 0
@@ -5033,7 +5053,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: e135365fef0064ff18c6a39458dd3438, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5054,7 +5074,7 @@ Transform:
   m_GameObject: {fileID: 1480119087}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.72, y: -1.2, z: 0}
+  m_LocalPosition: {x: 6.72, y: -1.875, z: 0}
   m_LocalScale: {x: 0.2399182, y: 0.2399182, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5185,6 +5205,8 @@ MonoBehaviour:
   hoveredSprite: {fileID: 21300000, guid: 0eaed5031406249c1aa9f3d48e2d2c11, type: 3}
   heldSprite: {fileID: 21300000, guid: 83dc1f530862f4985be94c2bfcfdf837, type: 3}
   placedSprite: {fileID: 21300000, guid: e135365fef0064ff18c6a39458dd3438, type: 3}
+  maxSortingOrder: 4
+  ogSortingOrder: 3
 --- !u!1 &1513172538
 GameObject:
   m_ObjectHideFlags: 0
@@ -5250,7 +5272,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 61936ee5a535c4df596132d81fbea88c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5492,6 +5514,8 @@ MonoBehaviour:
   hoveredSprite: {fileID: 21300000, guid: 8c7a27ce47c5a495aa5c5a33bdda807a, type: 3}
   heldSprite: {fileID: 21300000, guid: a2332a47a390e4cb092b40a98f8f1901, type: 3}
   placedSprite: {fileID: 21300000, guid: 61936ee5a535c4df596132d81fbea88c, type: 3}
+  maxSortingOrder: 4
+  ogSortingOrder: 3
 --- !u!1 &1524319030
 GameObject:
   m_ObjectHideFlags: 0
@@ -5557,7 +5581,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: def33fb4d70274f15b58cee8d2c0ad4c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5766,6 +5790,8 @@ MonoBehaviour:
   hoveredSprite: {fileID: 21300000, guid: 3475bdbf8b52f40578dcc308a894c42f, type: 3}
   heldSprite: {fileID: 21300000, guid: cc3486a0b58774794b154266ee939aea, type: 3}
   placedSprite: {fileID: 21300000, guid: def33fb4d70274f15b58cee8d2c0ad4c, type: 3}
+  maxSortingOrder: 4
+  ogSortingOrder: 3
 --- !u!1 &1525879969
 GameObject:
   m_ObjectHideFlags: 0
@@ -6080,6 +6106,8 @@ MonoBehaviour:
   hoveredSprite: {fileID: 21300000, guid: f25a266cf9a98477eb97e899a1c0e51d, type: 3}
   heldSprite: {fileID: 21300000, guid: d5636bc137e214ee39c98263fac9cee4, type: 3}
   placedSprite: {fileID: 21300000, guid: dad1d0e5687084f75bb02aae5c40eb3d, type: 3}
+  maxSortingOrder: 4
+  ogSortingOrder: 1
 --- !u!1 &1617231090
 GameObject:
   m_ObjectHideFlags: 0
@@ -6564,6 +6592,8 @@ MonoBehaviour:
   hoveredSprite: {fileID: 21300000, guid: d30e0f62f6e894a90b3ec3137d9fe478, type: 3}
   heldSprite: {fileID: 21300000, guid: b79886fd24c4449328fe30c1e34ab237, type: 3}
   placedSprite: {fileID: 21300000, guid: 56a6d556f066646859c2bf4bd79b6263, type: 3}
+  maxSortingOrder: 4
+  ogSortingOrder: 1
 --- !u!1 &1658215369
 GameObject:
   m_ObjectHideFlags: 0
@@ -6760,6 +6790,8 @@ MonoBehaviour:
   hoveredSprite: {fileID: 21300000, guid: beae972a9e064440ab23ee3c9d2c8c7f, type: 3}
   heldSprite: {fileID: 21300000, guid: 4480afb0da05140949f45f700619ea3f, type: 3}
   placedSprite: {fileID: 21300000, guid: 5f60ce72a87254fceb28baa31fb02c6b, type: 3}
+  maxSortingOrder: 3
+  ogSortingOrder: 1
 --- !u!1 &1694480534
 GameObject:
   m_ObjectHideFlags: 0
@@ -7043,6 +7075,8 @@ MonoBehaviour:
   hoveredSprite: {fileID: 21300000, guid: e320c4394113442c5a41e0ea13db37b2, type: 3}
   heldSprite: {fileID: 21300000, guid: c594b295ecb9e43d0a045c506ea4723f, type: 3}
   placedSprite: {fileID: 21300000, guid: 55759fd9e5f6b4186846ca8b35d8d342, type: 3}
+  maxSortingOrder: 3
+  ogSortingOrder: 1
 --- !u!1 &1695073605
 GameObject:
   m_ObjectHideFlags: 0
@@ -7106,7 +7140,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 59
   m_Sprite: {fileID: 21300000, guid: 6576f7790efc74bae87316bed574f7a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7677,6 +7711,8 @@ MonoBehaviour:
   hoveredSprite: {fileID: 21300000, guid: f775ec271f8454ff7808bfd1074b2612, type: 3}
   heldSprite: {fileID: 21300000, guid: 3ffaef3a707404dcba01bd096ae8f629, type: 3}
   placedSprite: {fileID: 21300000, guid: 25be9c737a7ed4821a05546c813ed39c, type: 3}
+  maxSortingOrder: 4
+  ogSortingOrder: 1
 --- !u!1 &1725678108
 GameObject:
   m_ObjectHideFlags: 0
@@ -8069,7 +8105,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: ecc3d0203598a40feaf426977152a562, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8380,6 +8416,8 @@ MonoBehaviour:
   hoveredSprite: {fileID: 21300000, guid: 5abb19441f0d04013b52bf25ddfadd48, type: 3}
   heldSprite: {fileID: 21300000, guid: 47cc46be65df24bba8f6d8bd40752863, type: 3}
   placedSprite: {fileID: 21300000, guid: 8a59ab230b61e494cbde34e838ca9d05, type: 3}
+  maxSortingOrder: 3
+  ogSortingOrder: 2
 --- !u!1 &1976860413
 GameObject:
   m_ObjectHideFlags: 0

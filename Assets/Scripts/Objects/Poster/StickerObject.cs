@@ -19,21 +19,28 @@ namespace Objects.Poster
         [SerializeField] private Sprite hoveredSprite;
         [SerializeField] private Sprite heldSprite;
         [SerializeField] private Sprite placedSprite;
+        [SerializeField] private int maxSortingOrder;
+        [SerializeField] private int ogSortingOrder;
         
         private SpriteRenderer _spriteRenderer;
+        private bool _isHovered;
 
         private bool isPickedUp;
         private bool isPlaced;
+        
         private void Start()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _spriteRenderer.sprite = startSprite;
+            _spriteRenderer.sortingOrder = ogSortingOrder;
         }
 
         public void SetHovered(bool isHovered)
         {
             if (isPlaced) return;
             _spriteRenderer.sprite = isHovered ? hoveredSprite : startSprite;
+            _spriteRenderer.sortingOrder = isHovered ? maxSortingOrder : ogSortingOrder;
+            _isHovered = isHovered;
         }
         
         public void OnPickedUp()

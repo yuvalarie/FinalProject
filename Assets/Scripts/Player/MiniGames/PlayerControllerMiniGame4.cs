@@ -46,6 +46,7 @@ namespace Player
         protected override void Start()
         {
             base.Start();
+            SceneLoader.Instance?.PreloadScene(nextSceneName);
             _stickerOrder = startingStickerOrderInLayer;
             SpriteRenderer = GetComponent<SpriteRenderer>();
             _playerSortingOrder = SpriteRenderer.sortingOrder;

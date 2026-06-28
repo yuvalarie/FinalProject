@@ -15,6 +15,7 @@ TagManager:
   - CatchZone
   - Floor
   - Letter
+  - Middle
   layers:
   - Default
   - TransparentFX

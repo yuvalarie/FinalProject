@@ -31,6 +31,8 @@ namespace Player
         protected SpriteRenderer SpriteRenderer;
         protected SizeSettings CurrentSize;
         
+        public bool IsStunned = false;
+        
         protected virtual void Awake()
         {
             _inputActions = new InputSystem_Actions();
@@ -46,15 +48,8 @@ namespace Player
         {
             CurrentSize = initialSize;
             SetSize();
-            StartCoroutine(DelayedSceneLoading());
         }
-
-        private IEnumerator DelayedSceneLoading()
-        {
-            yield return new WaitForNextFrameUnit();
-            SceneLoader.Instance?.PreloadScene(nextSceneName);
-        }
-
+        
         protected virtual void OnEnable()
         {
             _inputActions.Game.MoveRight.performed += ctx => MoveInput.x = 1f;
@@ -82,6 +77,7 @@ namespace Player
         
         protected virtual void HandleMovement()
         {
+            if(IsStunned) return;
             targetVelocity = new Vector2(MoveInput.x * speed, MoveInput.y * speed);
             Rb.linearVelocity = targetVelocity;
         }
@@ -99,6 +95,23 @@ namespace Player
             {
                 SceneLoader.Instance?.ActivatePreloadedScene();
             }
+
+            if (other.CompareTag("Middle"))
+            {
+                SceneLoader.Instance?.PreloadScene(nextSceneName);
+            }
+        }
+        
+        public void StartKnockback(float duration) 
+        {
+            StartCoroutine(KnockbackRoutine(duration));
+        }
+
+        private IEnumerator KnockbackRoutine(float duration)
+        {
+            IsStunned = true;
+            yield return new WaitForSeconds(duration);
+            IsStunned = false;
         }
 
         protected void SetSize()
