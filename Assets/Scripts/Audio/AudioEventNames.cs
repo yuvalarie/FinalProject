@@ -26,10 +26,15 @@ namespace Audio
         public const string Puff = "Puff";
         public const string ThoughtBubble = "Thought Bubble";
         public const string ElevatorMoving = "Elevator Moving";
+        
+        // page 4
         public const string SaltShaker = "Salt Shake";
         public const string LampSwing = "Lamp Swing";
         public const string LockedDoor = "Locked Door";
-        public const string AlarmClockRing = "Alarm Clock Ring";
+        public const string AlarmClockRing = "Alarm Clock";
+        public const string CouchHit = "Couch Hit";
+        public const string PullingBlanket = "Pulling Blanket";
+        public const string HittingPillow = "Hitting Pillow";
         
         
         // Music Events

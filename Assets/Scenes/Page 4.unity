@@ -763,6 +763,7 @@ GameObject:
   - component: {fileID: 54473961}
   - component: {fileID: 54473960}
   - component: {fileID: 54473963}
+  - component: {fileID: 54473964}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -911,6 +912,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5.283793, y: 13.009239}
   m_EdgeRadius: 0
+--- !u!114 &54473964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54473959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: LockedDoor
+  playOnEnable: 0
 --- !u!1 &62870329
 GameObject:
   m_ObjectHideFlags: 0
@@ -5489,6 +5504,7 @@ GameObject:
   - component: {fileID: 651026860}
   - component: {fileID: 651026862}
   - component: {fileID: 651026861}
+  - component: {fileID: 651026863}
   m_Layer: 0
   m_Name: Chair
   m_TagString: Untagged
@@ -5675,6 +5691,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5.154339, y: 4.398359}
   m_EdgeRadius: 0
+--- !u!114 &651026863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651026856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db33ff24f52ea46498076b490aeac160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.CollisionSfxEmitter
+  eventName: CouchHit
+  playOnEnable: 0
+  collisionSource: 0
 --- !u!1 &659087409
 GameObject:
   m_ObjectHideFlags: 0
@@ -6540,6 +6571,7 @@ GameObject:
   - component: {fileID: 787630423}
   - component: {fileID: 787630422}
   - component: {fileID: 787630424}
+  - component: {fileID: 787630425}
   m_Layer: 0
   m_Name: TidyBalnket
   m_TagString: Untagged
@@ -6643,6 +6675,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &787630425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787630421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PullingBlanket
+  playOnEnable: 0
 --- !u!1 &794856419
 GameObject:
   m_ObjectHideFlags: 0
@@ -6992,6 +7038,7 @@ GameObject:
   - component: {fileID: 867459642}
   - component: {fileID: 867459641}
   - component: {fileID: 867459643}
+  - component: {fileID: 867459644}
   m_Layer: 0
   m_Name: pillowHand
   m_TagString: Untagged
@@ -7095,6 +7142,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &867459644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867459640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: 
+  playOnEnable: 0
 --- !u!1 &871815628
 GameObject:
   m_ObjectHideFlags: 0
@@ -9661,6 +9722,7 @@ GameObject:
   - component: {fileID: 1148820751}
   - component: {fileID: 1148820753}
   - component: {fileID: 1148820754}
+  - component: {fileID: 1148820755}
   m_Layer: 0
   m_Name: SIdeTable
   m_TagString: Untagged
@@ -9809,6 +9871,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.4921904, y: 6.0566273}
   m_EdgeRadius: 0
+--- !u!114 &1148820755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148820750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: AlarmClockRing
+  playOnEnable: 0
 --- !u!1 &1186254630
 GameObject:
   m_ObjectHideFlags: 0
@@ -11554,6 +11630,7 @@ GameObject:
   - component: {fileID: 1452309791}
   - component: {fileID: 1452309790}
   - component: {fileID: 1452309793}
+  - component: {fileID: 1452309794}
   m_Layer: 0
   m_Name: Lamp
   m_TagString: Untagged
@@ -11702,6 +11779,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5.753599, y: 7.532973}
   m_EdgeRadius: 0
+--- !u!114 &1452309794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452309789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: LampSwing
+  playOnEnable: 0
 --- !u!1 &1488992980
 GameObject:
   m_ObjectHideFlags: 0
@@ -12342,6 +12433,154 @@ PrefabInstance:
     - target: {fileID: 4444035843161751185, guid: b594158561ed215468477153f2c5a490, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[1].name
+      value: Lamp Swing
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[2].name
+      value: Locked Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[3].name
+      value: Couch Hit
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[4].name
+      value: Hitting Pillow
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[5].name
+      value: Pulling Blanket
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[6].name
+      value: Alarm Clock
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[1].eventReference.Path
+      value: event:/Page4/LightSwing
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[2].eventReference.Path
+      value: event:/Page4/LockedDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[3].eventReference.Path
+      value: event:/Page4/CouchBoing
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[4].eventReference.Path
+      value: event:/Page4/HittingPillow
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[5].eventReference.Path
+      value: event:/Page4/PullingBlanket
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[6].eventReference.Path
+      value: event:/Page4/AlarmClock
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[1].eventReference.Guid.Data1
+      value: 634751631
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[1].eventReference.Guid.Data2
+      value: 1266166844
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[1].eventReference.Guid.Data3
+      value: 106873267
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[1].eventReference.Guid.Data4
+      value: 1443332286
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[2].eventReference.Guid.Data1
+      value: -2130039281
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[2].eventReference.Guid.Data2
+      value: 1310229539
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[2].eventReference.Guid.Data3
+      value: -1202379609
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[2].eventReference.Guid.Data4
+      value: -404981151
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[3].eventReference.Guid.Data1
+      value: 228069756
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[3].eventReference.Guid.Data2
+      value: 1075754657
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[3].eventReference.Guid.Data3
+      value: 966830260
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[3].eventReference.Guid.Data4
+      value: 1688293583
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[4].eventReference.Guid.Data1
+      value: 18194565
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[4].eventReference.Guid.Data2
+      value: 1154429939
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[4].eventReference.Guid.Data3
+      value: -1138314318
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[4].eventReference.Guid.Data4
+      value: -946741935
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[5].eventReference.Guid.Data1
+      value: -407845688
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[5].eventReference.Guid.Data2
+      value: 1287659369
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[5].eventReference.Guid.Data3
+      value: 1078710414
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[5].eventReference.Guid.Data4
+      value: 1424622125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[6].eventReference.Guid.Data1
+      value: -347125656
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[6].eventReference.Guid.Data2
+      value: 1088159648
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[6].eventReference.Guid.Data3
+      value: -1978551148
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531969585048773637, guid: b594158561ed215468477153f2c5a490, type: 3}
+      propertyPath: sceneAudioReferences.Array.data[4].sfxEvents.Array.data[6].eventReference.Guid.Data4
+      value: 200050847
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
