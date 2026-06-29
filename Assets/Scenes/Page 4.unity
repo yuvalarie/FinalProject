@@ -18176,6 +18176,7 @@ MonoBehaviour:
   lampCollider: {fileID: 1452309793}
   door: {fileID: 54473960}
   doorCollider: {fileID: 54473963}
+  waitBetweenClockAndHelda: 0.5
   frame2EnterCollider: {fileID: 1812060611}
   frame2StartPosition: {fileID: 1323273216}
   handAnimator: {fileID: 300911383}

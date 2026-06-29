@@ -44,7 +44,7 @@ namespace Player
         protected override void Start()
         {
             base.Start();
-            //SceneLoader.Instance.PreloadScene(nextSceneName);
+            SceneLoader.Instance.PreloadScene(nextSceneName);
         }
 
         protected override void OnInteraction(InputAction.CallbackContext context)

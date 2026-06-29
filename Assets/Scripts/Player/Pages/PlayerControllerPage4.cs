@@ -6,6 +6,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using WaitForSeconds = UnityEngine.WaitForSeconds;
 
 namespace Player
 {
@@ -27,6 +28,7 @@ namespace Player
         [SerializeField] private Collider2D lampCollider;
         [SerializeField] private Animator door;
         [SerializeField] private Collider2D doorCollider;
+        [SerializeField] private float waitBetweenClockAndHelda;
 
         [Header("Frame2")]
         [SerializeField] private Collider2D frame2EnterCollider;
@@ -106,15 +108,12 @@ namespace Player
 
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
+            if (!context.performed) return;
             if (atSideTable && !sideTableActivated)
             {
                 sideTableActivated = true;
-                sleepingHelda1.SetActive(false);
-                sleepingHelda2.SetActive(false);
-                standingHelda.SetActive(true);
-                sideTable.SetTrigger("Stop");
-                blockCollider.enabled = false;
-                StartCoroutine(TextBubblesCoroutine());
+                sideTable.SetTrigger("Play");
+                StartCoroutine(SmallCoroutine());
             }
             else if (atLamp)
             {
@@ -124,6 +123,16 @@ namespace Player
             {
                 door.SetTrigger("Play");
             }
+        }
+
+        private IEnumerator SmallCoroutine()
+        {
+            yield return new WaitForSeconds(waitBetweenClockAndHelda);
+            sleepingHelda1.SetActive(false);
+            sleepingHelda2.SetActive(false);
+            standingHelda.SetActive(true);
+            blockCollider.enabled = false;
+            StartCoroutine(TextBubblesCoroutine());
         }
 
         protected override void OnTriggerEnter2D(Collider2D other)
