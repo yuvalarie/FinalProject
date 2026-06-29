@@ -10061,7 +10061,7 @@ MonoBehaviour:
   extraLargeCollider: {fileID: 0}
   IsStunned: 0
   blackScreen: {fileID: 2063967277}
-  blackScreenDuration: 1.5
+  blackScreenDuration: 2.2
   rightHand: {fileID: 2090835416}
   rightHandAnimator: {fileID: 2090835419}
   leftHand: {fileID: 1936283614}
@@ -13224,7 +13224,7 @@ Transform:
   m_GameObject: {fileID: 1064533624}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.83, y: 1.69, z: 0}
+  m_LocalPosition: {x: -3.44, y: 1.69, z: 0}
   m_LocalScale: {x: 0.2399655, y: 0.2399655, z: 0.2399655}
   m_ConstrainProportionsScale: 0
   m_Children:
