@@ -77,6 +77,8 @@ namespace Player.Pages
         private bool atFrontCollider;
         private bool isDoor2Open = false;
         private bool isDoor4Open = false;
+        private bool atDoor3;
+        private bool isDoor3Open;
 
         protected override void Start()
         {
@@ -115,6 +117,14 @@ namespace Player.Pages
                 door4Close.SetActive(false);
                 door5.SetTrigger("Open");
                 isDoor4Open = true;
+            }
+            else if (atDoor3 && !isDoor3Open)
+            {
+                door3.SetTrigger("Open");
+                var col = door3.GetComponent<Collider2D>();
+                col.enabled = false;
+                door3SpriteRenderer.sortingOrder = frontSortingOrder - 1;
+                isDoor3Open = true;
             }
         }
         
@@ -232,6 +242,8 @@ namespace Player.Pages
                 SpriteRenderer.sortingOrder = backSortingOrder;
                 door1.SetTrigger("Open");
                 door1SpriteRenderer.sortingOrder = backSortingOrder - 1;
+                var col = door1.GetComponent<Collider2D>();
+                col.enabled = false;
             }
             else if (other == frame2FrontEnter)
             {
@@ -239,8 +251,8 @@ namespace Player.Pages
                 SpriteRenderer.sortingOrder = frontSortingOrder;
                 CurrentSize = frontSize;
                 SetSize();
-                door3.SetTrigger("Open");
-                door3SpriteRenderer.sortingOrder = frontSortingOrder - 1;
+                atDoor3 = true;
+                frame2BackEnter.enabled = false;
             }
             else if (other == frame2BackExit)
             {
@@ -248,6 +260,7 @@ namespace Player.Pages
                 SpriteRenderer.sortingOrder = backSortingOrder;
                 CurrentSize = backSize;
                 SetSize();
+                frame2BackEnter.enabled = true;
             }
             else if (other == frame4Enter)
             {
