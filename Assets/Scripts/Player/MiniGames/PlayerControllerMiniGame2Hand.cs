@@ -30,7 +30,6 @@ namespace Player
         protected override void Start()
         {
             base.Start();
-            SceneLoader.Instance?.PreloadScene(nextSceneName);
             // Set hand to resting position on enable
             if (handPivot != null)
                 handPivot.localRotation = Quaternion.Euler(0f, 0f, restingAngle);

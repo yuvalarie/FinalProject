@@ -1,4 +1,5 @@
 using System;
+using Managers;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,7 +10,13 @@ namespace Player
         private bool _movementLocked = false;
         private bool _interactionLocked = true;
         private Action _interactionAction;
-        
+
+        protected override void Start()
+        {
+            base.Start();
+            SceneLoader.Instance?.PreloadScene(nextSceneName);
+        }
+
         public void SetInteractionAction(Action action)
         {
             _interactionAction = action;
