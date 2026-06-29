@@ -1735,7 +1735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BouncyObject
   knockbackForce: 5
-  upwardLift: 0.5
+  upwardLift: 0.3
 --- !u!61 &912404140
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -30,6 +30,7 @@ namespace Player
         protected Animator Animator;
         protected SpriteRenderer SpriteRenderer;
         protected SizeSettings CurrentSize;
+        private Vector2 _currentVisualOffset;
         
         public bool IsStunned = false;
         
@@ -86,10 +87,12 @@ namespace Player
                 if (MoveInput.x < 0)
                 {
                     SpriteRenderer.flipX = true;
+                    if(graphicsRoot != null && _currentVisualOffset != Vector2.zero) graphicsRoot.localPosition = new Vector3(-_currentVisualOffset.x, _currentVisualOffset.y, 0f);
                 }
                 else if (MoveInput.x > 0)
                 {
                     SpriteRenderer.flipX = false;
+                    if(graphicsRoot != null && _currentVisualOffset != Vector2.zero) graphicsRoot.localPosition = new Vector3(_currentVisualOffset.x, _currentVisualOffset.y, 0f);
                 }
             }
         }
@@ -150,7 +153,9 @@ namespace Player
         
         private void ApplyVisualOffset(Vector2 offset)
         {
-            graphicsRoot.localPosition = offset;
+            _currentVisualOffset = offset;
+            float xSign = SpriteRenderer.flipX ? -1f : 1f;
+            graphicsRoot.localPosition = new Vector3(_currentVisualOffset.x * xSign, _currentVisualOffset.y, 0f);
         }
 
         protected void SetSmall()
@@ -180,6 +185,7 @@ namespace Player
             if (Animator != null) Animator.runtimeAnimatorController = artSettings.mediumLargeAnimatorController;
             SpriteRenderer.sprite = artSettings.mediumLargeSprite;
             transform.localScale = new Vector3(artSettings.largeSize, artSettings.largeSize);
+            ApplyVisualOffset(artSettings.mediumLargeOffset);
         }
         
         protected void SetExtraLarge()

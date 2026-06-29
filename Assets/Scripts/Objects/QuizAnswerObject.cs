@@ -8,6 +8,8 @@ namespace Objects
         [SerializeField] private Sprite originalSprite;
         [SerializeField] private Sprite hoverSprite;
         [SerializeField] private Sprite chosenSprite;
+        [SerializeField] private int maxSortingOrder;
+        [SerializeField] private int minSortingOrder;
 
         private SpriteRenderer spriteRenderer;
 
@@ -19,6 +21,7 @@ namespace Objects
         public void SwitchToHover()
         {
             spriteRenderer.sprite = hoverSprite;
+            spriteRenderer.sortingOrder = maxSortingOrder;
         }
         
         public void SwitchToChosen()
@@ -29,6 +32,7 @@ namespace Objects
         public void SwitchToOriginal()
         {
             spriteRenderer.sprite = originalSprite;
+            spriteRenderer.sortingOrder = minSortingOrder;
         }
     }
 }
