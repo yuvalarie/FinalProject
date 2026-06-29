@@ -34,26 +34,55 @@ namespace Managers
         [SerializeField] private bool skipWalkIn;
         [SerializeField] private bool skipHandEntry;
 
+        private bool _hasCompletedHandExit = false;
+        private bool _hasEnteredStopTrigger = false;
+
         private void Start()
         {
             hand.position = handHiddenPosition.position;
             handController.DisableSwiping();
-            walkController.DisableInteraction();
-            walkController.SetInteractionAction(motherController.TryAdvanceFinishedReaction);
+            friendSpawner.FriendSwiped += OnFriendSwiped;
             DebugStart();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject != walkController.gameObject) return;
-            OnPlayerReachedStopPosition();
+            if (_hasEnteredStopTrigger) return;
+            _hasEnteredStopTrigger = true;
+            if (_hasCompletedHandExit)
+                OnPlayerReEnteredStopTrigger();
+            else
+                OnPlayerReachedStopPosition();
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.gameObject != walkController.gameObject) return;
+            _hasEnteredStopTrigger = false;
+        }
+
+        private void OnPlayerReEnteredStopTrigger()
+        {
+            walkController.DisableMovement();
+            motherController.SetResumeAction(OnReEntryResume);
+            handController.EnableNavigationMode(motherController.TryGoBackFinishedReaction, motherController.TryAdvanceFinishedReaction);
+        }
+
+        private void OnReEntryResume()
+        {
+            walkController.EnableMovement();
+            handController.DisableNavigationMode();
+        }
+
+        private void OnFriendSwiped(int swipedCount, int totalCount)
+        {
+            motherController.UpdateAngerState(swipedCount, totalCount);
         }
 
         private void OnPlayerReachedStopPosition()
         {
-            // Lock the player in place and begin the hand entry
             walkController.DisableMovement();
-            stopTrigger.enabled = false;
             StartHandEntry();
         }
 
@@ -98,14 +127,13 @@ namespace Managers
         // Future: trigger mother reactions and friend exodus here before the hand leaves.
         private void OnSwipingComplete()
         {
-            // Debug.Log("[MiniGame2SceneController] OnSwipingComplete fired");
             friendSpawner.AllFriendsSwiped -= OnSwipingComplete;
+            friendSpawner.FriendSwiped -= OnFriendSwiped;
             motherController.SetFriendsLeaveAction(friendSpawner.TellFriendsToLeave);
             motherController.SetFinishedAllReactionsAction(StartHandExit);
             motherController.StartFinishedReactions();
-            walkController.EnableInteraction();
-            
-            // StartHandExit();
+            handController.DisableSwiping();
+            handController.EnableNavigationMode(motherController.TryGoBackFinishedReaction, motherController.TryAdvanceFinishedReaction);
         }
 
         private void StartHandExit()
@@ -133,9 +161,10 @@ namespace Managers
 
         private void OnHandExitComplete()
         {
-            // handController.enabled = false;
             handController.DisableSwiping();
+            handController.DisableNavigationMode();
             walkController.EnableMovement();
+            _hasCompletedHandExit = true;
         }
 
         // Handles debug entry points — skips walk-in and/or hand entry if flagged

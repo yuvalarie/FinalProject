@@ -61,6 +61,7 @@ namespace Objects
         [SerializeField] private bool logOrderedList;
 
         public event Action AllFriendsSwiped;
+        public event Action<int, int> FriendSwiped;
         private Action _friendsLeaveAction;
 
         private List<FriendData> _orderedFriends;
@@ -153,6 +154,7 @@ namespace Objects
         private void AdvanceToNextFriend()
         {
             _currentFriendIndex++;
+            FriendSwiped?.Invoke(_currentFriendIndex, _orderedFriends.Count);
 
             if (_currentFriendIndex >= _orderedFriends.Count)
             {
