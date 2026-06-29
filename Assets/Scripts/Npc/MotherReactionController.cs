@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Audio;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -16,12 +17,18 @@ namespace Npc
         [SerializeField] private List<Sprite> acceptedReactionSprites;
         [SerializeField] private List<Sprite> rejectedReactionSprites;
         [Header("Finished Reactions")]
-        [SerializeField, Tooltip("Sprites for the end of the minigame reactions of the mother, needs to be in order that we want to show")] 
-        private List<Sprite> finishedReactionSprites;
-        [SerializeField, Tooltip("the index needs to be the same index as in the finished reaction sprites"), Min(0)] 
+        [SerializeField, Tooltip("GameObjects for the end of the minigame reactions of the mother, needs to be in order")]
+        private List<GameObject> finishedReactionObjects;
+        [SerializeField, Tooltip("the index needs to be the same index as in the finished reaction objects"), Min(0)]
         private int reactionIndexWhereFriendsLeave;
-        [SerializeField, Tooltip("Minimal time that the reaction is shown"), Min(0.01f)] 
+        [SerializeField, Tooltip("Minimal time that the reaction is shown"), Min(0.01f)]
         private float finishedReactionCooldownDuration;
+        [Header("Anger States")]
+        [SerializeField] private SpriteRenderer heldaBodyRenderer;
+        [SerializeField, Tooltip("5 sprites in order from least to most angry — index 0 is the default sprite already on the renderer")]
+        private List<Sprite> angerStateSprites;
+
+        private int _currentAngerStateIndex = 0;
         
         private Coroutine _finishedReactionCooldown;
         private int _currentFinishedReactionIndex = 0;
@@ -30,8 +37,15 @@ namespace Npc
         private Coroutine _activeReaction;
         private bool _finishedAllReactions = false;
         private Action _finishedAllReactionsAction;
+        private Action _resumeAction;
         private bool _friendsHaveLeft = false;
         
+        private void Start()
+        {
+            foreach (var obj in finishedReactionObjects)
+                obj.SetActive(false);
+        }
+
         public void ShowAcceptedReaction()
         {
             // public wrapper in case we split the reactions later
@@ -80,6 +94,16 @@ namespace Npc
             return sourceList[randomIndex];
         }
         
+        public void UpdateAngerState(int swipedCount, int totalCount)
+        {
+            if (angerStateSprites == null || angerStateSprites.Count == 0) return;
+            int stateIndex = Mathf.Clamp((swipedCount - 1) * angerStateSprites.Count / totalCount, 0, angerStateSprites.Count - 1);
+            if (stateIndex <= _currentAngerStateIndex) return;
+            _currentAngerStateIndex = stateIndex;
+            heldaBodyRenderer.sprite = angerStateSprites[stateIndex];
+            MusicManager.Instance.AdvanceProgress();
+        }
+
         public void SetFriendsLeaveAction(Action friendsLeaveAction)
         {
             _friendsLeaveAction = friendsLeaveAction;
@@ -88,6 +112,11 @@ namespace Npc
         public void SetFinishedAllReactionsAction(Action finishedAllReactionsAction)
         {
             _finishedAllReactionsAction = finishedAllReactionsAction;
+        }
+
+        public void SetResumeAction(Action resumeAction)
+        {
+            _resumeAction = resumeAction;
         }
 
         public void StartFinishedReactions()
@@ -104,37 +133,57 @@ namespace Npc
 
         public void TryAdvanceFinishedReaction()
         {
-            if (_finishedReactionCooldown != null || _finishedAllReactions) return; // still in cooldown, can't advance yet, ignore input
-            if (_currentFinishedReactionIndex >= finishedReactionSprites.Count)
+            if (_finishedReactionCooldown != null) return;
+            if (_currentFinishedReactionIndex >= finishedReactionObjects.Count)
             {
-                _finishedAllReactions = true;
-                reactionBubbleSpriteRenderer.enabled = false;
-                if (!_friendsHaveLeft)
+                if (_finishedAllReactions)
                 {
-                    _friendsHaveLeft = true;
-                    _friendsLeaveAction?.Invoke();
+                    _resumeAction?.Invoke();
                 }
-                _finishedAllReactionsAction?.Invoke();
+                else
+                {
+                    _finishedAllReactions = true;
+                    if (!_friendsHaveLeft)
+                    {
+                        _friendsHaveLeft = true;
+                        _friendsLeaveAction?.Invoke();
+                    }
+                    _finishedAllReactionsAction?.Invoke();
+                }
             }
             else
             {
                 _finishedReactionCooldown = StartCoroutine(AdvanceFinishedReactionRoutine());
             }
         }
-        
+
+        public void TryGoBackFinishedReaction()
+        {
+            if (_finishedReactionCooldown != null) return;
+            if (_currentFinishedReactionIndex <= 1) return;
+            _finishedReactionCooldown = StartCoroutine(GoBackFinishedReactionRoutine());
+        }
+
         private IEnumerator AdvanceFinishedReactionRoutine()
         {
-            reactionBubbleSpriteRenderer.enabled = false;
-            yield return null;
-            reactionBubbleSpriteRenderer.sprite = finishedReactionSprites[_currentFinishedReactionIndex];
+            if (_currentFinishedReactionIndex > 0)
+                finishedReactionObjects[_currentFinishedReactionIndex - 1].SetActive(false);
             if (!_friendsHaveLeft && _currentFinishedReactionIndex == reactionIndexWhereFriendsLeave)
             {
                 _friendsHaveLeft = true;
                 _friendsLeaveAction?.Invoke();
             }
+            finishedReactionObjects[_currentFinishedReactionIndex].SetActive(true);
             _currentFinishedReactionIndex++;
-            yield return null;
-            reactionBubbleSpriteRenderer.enabled = true;
+            yield return new WaitForSeconds(finishedReactionCooldownDuration);
+            _finishedReactionCooldown = null;
+        }
+
+        private IEnumerator GoBackFinishedReactionRoutine()
+        {
+            finishedReactionObjects[_currentFinishedReactionIndex - 1].SetActive(false);
+            _currentFinishedReactionIndex--;
+            finishedReactionObjects[_currentFinishedReactionIndex - 1].SetActive(true);
             yield return new WaitForSeconds(finishedReactionCooldownDuration);
             _finishedReactionCooldown = null;
         }

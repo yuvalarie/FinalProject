@@ -25,6 +25,9 @@ namespace Player
 
         private bool _isMoving;
         private bool _swipeLocked = false;
+        private bool _navigationMode = false;
+        private System.Action _onNavigateLeft;
+        private System.Action _onNavigateRight;
 
         
         protected override void Start()
@@ -36,15 +39,46 @@ namespace Player
         }
         public void EnableSwiping() => _swipeLocked = false;
         public void DisableSwiping() => _swipeLocked = true;
+
+        public void EnableNavigationMode(System.Action onLeft, System.Action onRight)
+        {
+            _navigationMode = true;
+            _onNavigateLeft = onLeft;
+            _onNavigateRight = onRight;
+            MoveInput = Vector2.zero;
+        }
+
+        public void DisableNavigationMode()
+        {
+            _navigationMode = false;
+            _onNavigateLeft = null;
+            _onNavigateRight = null;
+        }
         
 
         protected override void HandleMovement()
         {
-            if (_isMoving || _swipeLocked) return;
+            if (_isMoving) return;
+
+            if (_navigationMode)
+            {
+                if (MoveInput.x > 0.5f)
+                {
+                    MoveInput.x = 0f;
+                    StartCoroutine(NavigationFireRoutine(_onNavigateRight));
+                }
+                else if (MoveInput.x < -0.5f)
+                {
+                    MoveInput.x = 0f;
+                    StartCoroutine(NavigationFireRoutine(_onNavigateLeft));
+                }
+                return;
+            }
+
+            if (_swipeLocked) return;
 
             if (MoveInput.x > 0.5f)
             {
-                // Z rotation is inverted relative to gizmos — negate the angle
                 MoveInput.x = 0f;
                 StartCoroutine(SwipeRoutine(-chooseAngle, OnChooseReached));
             }
@@ -53,6 +87,14 @@ namespace Player
                 MoveInput.x = 0f;
                 StartCoroutine(SwipeRoutine(-discardAngle, OnDiscardReached));
             }
+        }
+
+        private IEnumerator NavigationFireRoutine(System.Action callback)
+        {
+            _isMoving = true;
+            callback?.Invoke();
+            yield return null;
+            _isMoving = false;
         }
 
         protected override void OnInteraction(InputAction.CallbackContext context)
