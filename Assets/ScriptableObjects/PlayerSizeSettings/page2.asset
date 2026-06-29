@@ -20,7 +20,7 @@ MonoBehaviour:
   mediumSize: 0.24
   largeSize: 0.24
   mediumLargeAnimatorController: {fileID: 9100000, guid: e126f0f5622094d28a8a5e1d588a9288, type: 2}
-  mediumLargeOffset: {x: 6.8532, y: 0.5}
+  mediumLargeOffset: {x: 22, y: 0.5}
   extraLargeSprite: {fileID: 0}
   extraLargeSize: 0
   extraLargeAnimatorController: {fileID: 0}
