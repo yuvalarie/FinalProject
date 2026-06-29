@@ -82,8 +82,8 @@ namespace Player
             rightHand.SetActive(true);
             leftHand.SetActive(true);
             
-            if (_rightHandSprite != null) _rightHandSprite.enabled = false;
-            if (_leftHandSprite != null) _leftHandSprite.enabled = true;
+            if (_rightHandSprite != null) _rightHandSprite.enabled = true;
+            if (_leftHandSprite != null) _leftHandSprite.enabled = false;
             StartCoroutine(TurnOffBlackScreenCoroutine());
         }
 

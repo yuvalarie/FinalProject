@@ -30,6 +30,7 @@ namespace Player.MiniGames
         [SerializeField] private GameObject text3;
         [SerializeField] private GameObject text4;
         [SerializeField] private GameObject appLogo;
+        [SerializeField] private float animationDuration;
         
         [Header("Quiz Settings")]
         [SerializeField] private QuizStage[] quizStages;
@@ -194,10 +195,13 @@ namespace Player.MiniGames
             }
             else
             {
-                _interactionCount = 2; 
                 text2.SetActive(true);
+                yield return new WaitForSeconds(animationDuration);
+                text2.SetActive(false);
+                text3.SetActive(true);
                 ResetHandPosition();
                 _isAnimating = false;
+                _interactionCount = 3; 
             }
         }
 
@@ -218,6 +222,7 @@ namespace Player.MiniGames
         private void ResetHandPosition()
         {
             transform.position = _startPosition;
+            transform.rotation = Quaternion.identity;
             TrailRenderer[] trails = GetComponentsInChildren<TrailRenderer>();
             foreach (var trail in trails)
             {

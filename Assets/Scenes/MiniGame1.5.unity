@@ -272,6 +272,8 @@ MonoBehaviour:
   originalSprite: {fileID: 21300000, guid: f9870134c1bf34b55b602a794fc9e8a7, type: 3}
   hoverSprite: {fileID: 21300000, guid: eb2eeea485d85439faaf1d6fb01146bd, type: 3}
   chosenSprite: {fileID: 21300000, guid: b0f71968470d6434ab49ce7613bcfa01, type: 3}
+  maxSortingOrder: 14
+  minSortingOrder: 12
 --- !u!1001 &159612793
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -540,6 +542,7 @@ MonoBehaviour:
   text3: {fileID: 1469109428}
   text4: {fileID: 1939699996}
   appLogo: {fileID: 690061598}
+  animationDuration: 3
   quizStages:
   - stageParent: {fileID: 1565958707}
     questionObject: {fileID: 1282812121}
@@ -869,6 +872,8 @@ MonoBehaviour:
   originalSprite: {fileID: 21300000, guid: afe2c5cdab5c64c03bf1162efc8bcfb1, type: 3}
   hoverSprite: {fileID: 21300000, guid: ba7869ab472944df7a1b9b5d17df092d, type: 3}
   chosenSprite: {fileID: 21300000, guid: 1b4f8b2bdb35644c492560ee0d578baf, type: 3}
+  maxSortingOrder: 14
+  minSortingOrder: 13
 --- !u!1 &390351395
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,6 +1027,8 @@ MonoBehaviour:
   originalSprite: {fileID: 21300000, guid: 7508bd7aaec124dc5bff66371cb4f409, type: 3}
   hoverSprite: {fileID: 21300000, guid: 5a4d494e3d5644c77a2534b7ea32037c, type: 3}
   chosenSprite: {fileID: 21300000, guid: b08c8518c0cd446f4a7f30e2d2a82d7b, type: 3}
+  maxSortingOrder: 14
+  minSortingOrder: 12
 --- !u!1 &480142923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1407,6 +1414,8 @@ MonoBehaviour:
   originalSprite: {fileID: 21300000, guid: 9a99086a564f5406eaf9660b33817652, type: 3}
   hoverSprite: {fileID: 21300000, guid: e32ac1987131b4236aa21bb175b5026e, type: 3}
   chosenSprite: {fileID: 21300000, guid: aaf1b4073e53840c59774eeb5ce0cb4e, type: 3}
+  maxSortingOrder: 14
+  minSortingOrder: 12
 --- !u!1 &603413013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1830,6 +1839,8 @@ MonoBehaviour:
   originalSprite: {fileID: 21300000, guid: 29ca478e575cb46368e41cbe0402e7d2, type: 3}
   hoverSprite: {fileID: 21300000, guid: 676d882be78c1437eb14b77f79440fbe, type: 3}
   chosenSprite: {fileID: 21300000, guid: cf9e21723c088466a8fb6eb85c0a1770, type: 3}
+  maxSortingOrder: 14
+  minSortingOrder: 13
 --- !u!1001 &714737923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2040,6 +2051,8 @@ MonoBehaviour:
   originalSprite: {fileID: 21300000, guid: 6e5b5294a734f46a2a831e2a65e696b4, type: 3}
   hoverSprite: {fileID: 21300000, guid: b8882ef4796bb4b21be3da0cb86ee8f3, type: 3}
   chosenSprite: {fileID: 21300000, guid: 6002acb5d6ace4bbca9bf5e670ea282e, type: 3}
+  maxSortingOrder: 14
+  minSortingOrder: 13
 --- !u!1 &846876262
 GameObject:
   m_ObjectHideFlags: 0
@@ -2193,6 +2206,8 @@ MonoBehaviour:
   originalSprite: {fileID: 21300000, guid: 4d2a50c2fb6fe4be5bbad27e2552eaeb, type: 3}
   hoverSprite: {fileID: 21300000, guid: 3c9843aab44f44fc48abc0eb87a7b15e, type: 3}
   chosenSprite: {fileID: 21300000, guid: c8ff3f0b56e0e484ba6c9c42b2633509, type: 3}
+  maxSortingOrder: 14
+  minSortingOrder: 11
 --- !u!1 &873316239
 GameObject:
   m_ObjectHideFlags: 0
@@ -2886,6 +2901,8 @@ MonoBehaviour:
   originalSprite: {fileID: 21300000, guid: 2e334ffe683e846178c549506939168d, type: 3}
   hoverSprite: {fileID: 21300000, guid: 9b02bba28441f43878995ec920509c4f, type: 3}
   chosenSprite: {fileID: 21300000, guid: db633a02a62db4f59ace65e0f2b99956, type: 3}
+  maxSortingOrder: 14
+  minSortingOrder: 12
 --- !u!1 &1215107127
 GameObject:
   m_ObjectHideFlags: 0
@@ -3039,6 +3056,8 @@ MonoBehaviour:
   originalSprite: {fileID: 21300000, guid: 87284e75edc1344ca83c88aa3aa30f8a, type: 3}
   hoverSprite: {fileID: 21300000, guid: 70bc237e9002f47c7b1a0467d2897008, type: 3}
   chosenSprite: {fileID: 21300000, guid: d2f8447746fee41d795d45fa49fcd67b, type: 3}
+  maxSortingOrder: 13
+  minSortingOrder: 12
 --- !u!1 &1219319622
 GameObject:
   m_ObjectHideFlags: 0
@@ -3192,6 +3211,8 @@ MonoBehaviour:
   originalSprite: {fileID: 21300000, guid: a2090e53bd837482b9c91dd92c510050, type: 3}
   hoverSprite: {fileID: 21300000, guid: cd7daccedc2474958bda56d20e0821ec, type: 3}
   chosenSprite: {fileID: 21300000, guid: a8191c872643e42cbb65e105c414b22d, type: 3}
+  maxSortingOrder: 14
+  minSortingOrder: 12
 --- !u!1 &1262400458
 GameObject:
   m_ObjectHideFlags: 0
@@ -3653,6 +3674,8 @@ MonoBehaviour:
   originalSprite: {fileID: 21300000, guid: 14eb206e1686340d086b1bea3b4c89b6, type: 3}
   hoverSprite: {fileID: 21300000, guid: 44ddadee96e2645458d44d4d58365e3e, type: 3}
   chosenSprite: {fileID: 21300000, guid: 7d05398f1084245b682155099c51152c, type: 3}
+  maxSortingOrder: 13
+  minSortingOrder: 12
 --- !u!1 &1469109428
 GameObject:
   m_ObjectHideFlags: 0
@@ -4145,6 +4168,8 @@ MonoBehaviour:
   originalSprite: {fileID: 21300000, guid: b3c690cbfca7740c5a5fa9d30388df04, type: 3}
   hoverSprite: {fileID: 21300000, guid: 689fdaddeeeb74e2a92f628dee1d426e, type: 3}
   chosenSprite: {fileID: 21300000, guid: 9794812774ef24305b0cee700a184d76, type: 3}
+  maxSortingOrder: 14
+  minSortingOrder: 12
 --- !u!1 &1816114430
 GameObject:
   m_ObjectHideFlags: 0
@@ -4300,7 +4325,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 12
+  m_SortingOrder: 13
   m_Sprite: {fileID: 21300000, guid: cb869e250c18b43e4a752c2954446790, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4388,6 +4413,8 @@ MonoBehaviour:
   originalSprite: {fileID: 21300000, guid: cb869e250c18b43e4a752c2954446790, type: 3}
   hoverSprite: {fileID: 21300000, guid: f49f38a4b6fca4e32a6da3ee8bd7bdc2, type: 3}
   chosenSprite: {fileID: 21300000, guid: b343777360a934caa88dc4e6c53ddab2, type: 3}
+  maxSortingOrder: 14
+  minSortingOrder: 13
 --- !u!1 &1939699996
 GameObject:
   m_ObjectHideFlags: 0
@@ -4773,6 +4800,8 @@ MonoBehaviour:
   originalSprite: {fileID: 21300000, guid: a80435f9d755f431abb19886c817a404, type: 3}
   hoverSprite: {fileID: 21300000, guid: dc04dce322090477f8f46fb78cc142ce, type: 3}
   chosenSprite: {fileID: 21300000, guid: 45c3cff2b15ef4060bc773eebb3e4a4a, type: 3}
+  maxSortingOrder: 14
+  minSortingOrder: 12
 --- !u!1 &1990718213
 GameObject:
   m_ObjectHideFlags: 0
@@ -4926,6 +4955,8 @@ MonoBehaviour:
   originalSprite: {fileID: 21300000, guid: e7ca6cf0c7bf74ec784eedf72f9a9ebf, type: 3}
   hoverSprite: {fileID: 21300000, guid: f37c658fb66a74e9782585d4704a557a, type: 3}
   chosenSprite: {fileID: 21300000, guid: 8296b14dbae3b4acba7360024d34ad12, type: 3}
+  maxSortingOrder: 13
+  minSortingOrder: 12
 --- !u!1 &2112596553
 GameObject:
   m_ObjectHideFlags: 0
@@ -4991,7 +5022,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 12
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: 92f235b835d5a434e9062cd8dfb93fb1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5079,6 +5110,8 @@ MonoBehaviour:
   originalSprite: {fileID: 21300000, guid: 92f235b835d5a434e9062cd8dfb93fb1, type: 3}
   hoverSprite: {fileID: 21300000, guid: bf2c73d0ff4304fe7a7bce127aeae427, type: 3}
   chosenSprite: {fileID: 21300000, guid: 138ff096fb9ef4f6ab572f24e9454a9a, type: 3}
+  maxSortingOrder: 13
+  minSortingOrder: 11
 --- !u!1 &2146440561
 GameObject:
   m_ObjectHideFlags: 0
@@ -5232,6 +5265,8 @@ MonoBehaviour:
   originalSprite: {fileID: 21300000, guid: 92aab7c7552e540e3bf81f156c4f485d, type: 3}
   hoverSprite: {fileID: 21300000, guid: 7679e1f9ed98c45069d562df90530744, type: 3}
   chosenSprite: {fileID: 21300000, guid: a6e3a526b5dd341a0b614c393520ebca, type: 3}
+  maxSortingOrder: 13
+  minSortingOrder: 12
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
