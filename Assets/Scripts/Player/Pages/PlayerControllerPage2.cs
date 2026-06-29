@@ -219,7 +219,7 @@ namespace Player
             //     yield return new WaitForSeconds(AudioDelay);
             // }
             int idx = Random.Range(0, pipe1LetterObject.Length);
-            GameObject newLetter = Instantiate(pipe1LetterObject[idx], pipe1StartPosition.position, Quaternion.identity, pipe1Parent.transform);
+            GameObject newLetter = Instantiate(pipe1LetterObject[idx], pipe1StartPosition.position, pipe1StartPosition.rotation, pipe1Parent.transform);
             newLetter.SetActive(true);
             
             Vector2 randomOffset = UnityEngine.Random.insideUnitCircle * dropScatterRadius;
@@ -245,7 +245,7 @@ namespace Player
             //     yield return new WaitForSeconds(AudioDelay);
             // }
             int idx = Random.Range(0, pipe2LetterObject.Length);
-            GameObject newLetter = Instantiate(pipe2LetterObject[idx], pipe2StartPosition.position, Quaternion.identity, pipe2Parent.transform);
+            GameObject newLetter = Instantiate(pipe2LetterObject[idx], pipe2StartPosition.position, pipe2StartPosition.rotation, pipe2Parent.transform);
             newLetter.SetActive(true);
             
             Vector2 randomOffset = UnityEngine.Random.insideUnitCircle * dropScatterRadius;
