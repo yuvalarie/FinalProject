@@ -80,6 +80,18 @@ namespace Player
             if(IsStunned) return;
             targetVelocity = new Vector2(MoveInput.x * speed, MoveInput.y * speed);
             Rb.linearVelocity = targetVelocity;
+
+            if (SpriteRenderer != null)
+            {
+                if (MoveInput.x < 0)
+                {
+                    SpriteRenderer.flipX = true;
+                }
+                else if (MoveInput.x > 0)
+                {
+                    SpriteRenderer.flipX = false;
+                }
+            }
         }
 
         protected abstract void OnInteraction(InputAction.CallbackContext context);
