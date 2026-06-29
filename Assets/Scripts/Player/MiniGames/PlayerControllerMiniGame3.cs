@@ -44,6 +44,7 @@ namespace Player
         [Header("UI Screen Settings")]
         [SerializeField, Tooltip("How long should the next task be shown")] private float showTaskDuration;
         [SerializeField, Tooltip("How long should the next task be shown")] private float waitBetweenTasksDuration;
+        [SerializeField, Tooltip("How long should the old task be shown")] private float waitForOldTask;
         
         [Header("Failure Feedback Settings")]
         [SerializeField, Tooltip("The mouth Transform to vibrate on failure")] 
@@ -227,7 +228,7 @@ namespace Player
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
             if (!context.performed || isScreenPlaying) return;
-            if(_isEnd) SceneLoader.Instance.ActivatePreloadedScene();
+            //if(_isEnd) SceneLoader.Instance.ActivatePreloadedScene();
             
             UpdateClosestInteractables();
 
@@ -469,7 +470,8 @@ namespace Player
                     display.SetActive(true);
                 }
                 
-                yield return new WaitForSeconds(showTaskDuration);
+                if (i == currentRound - 1) yield return new WaitForSeconds(showTaskDuration);
+                else yield return new WaitForSeconds(waitForOldTask);
                 
                 if (display != null) display.SetActive(false);
                 
