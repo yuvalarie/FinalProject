@@ -248,6 +248,78 @@ MonoBehaviour:
           Data3: 1383664822
           Data4: 864526522
         Path: event:/Page4/SaltShaker
+    - name: Lamp Swing
+      eventReference:
+        Guid:
+          Data1: 634751631
+          Data2: 1266166844
+          Data3: 106873267
+          Data4: 1443332286
+        Path: event:/Page4/LightSwing
+    - name: Locked Door
+      eventReference:
+        Guid:
+          Data1: -2130039281
+          Data2: 1310229539
+          Data3: -1202379609
+          Data4: -404981151
+        Path: event:/Page4/LockedDoor
+    - name: Couch Hit
+      eventReference:
+        Guid:
+          Data1: 228069756
+          Data2: 1075754657
+          Data3: 966830260
+          Data4: 1688293583
+        Path: event:/Page4/CouchBoing
+    - name: Hitting Pillow
+      eventReference:
+        Guid:
+          Data1: 18194565
+          Data2: 1154429939
+          Data3: -1138314318
+          Data4: -946741935
+        Path: event:/Page4/HittingPillow
+    - name: Pulling Blanket
+      eventReference:
+        Guid:
+          Data1: -407845688
+          Data2: 1287659369
+          Data3: 1078710414
+          Data4: 1424622125
+        Path: event:/Page4/PullingBlanket
+    - name: Alarm Clock
+      eventReference:
+        Guid:
+          Data1: -347125656
+          Data2: 1088159648
+          Data3: -1978551148
+          Data4: 200050847
+        Path: event:/Page4/AlarmClock
+    - name: Pulling Pillow
+      eventReference:
+        Guid:
+          Data1: -551795462
+          Data2: 1319503639
+          Data3: -811962976
+          Data4: 1754606916
+        Path: event:/Page4/PullingPillow
+    - name: Wearing Slippers
+      eventReference:
+        Guid:
+          Data1: -595803052
+          Data2: 1279169486
+          Data3: -928717685
+          Data4: -1807161947
+        Path: event:/Page4/WearingSlippers
+    - name: Slippers On Wood
+      eventReference:
+        Guid:
+          Data1: 242175156
+          Data2: 1212234249
+          Data3: -1229864826
+          Data4: 1138323655
+        Path: event:/Page4/WalkingDownThe Stairs
     ambianceEvents: []
   - sceneName: Page 6
     musicEvents: []

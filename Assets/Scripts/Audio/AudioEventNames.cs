@@ -35,6 +35,9 @@ namespace Audio
         public const string CouchHit = "Couch Hit";
         public const string PullingBlanket = "Pulling Blanket";
         public const string HittingPillow = "Hitting Pillow";
+        public const string PullingPillow = "Pulling Pillow";
+        public const string WearingSlippers = "Wearing Slippers";
+        public const string SlippersOnWood = "Slippers On Wood";
         
         
         // Music Events
