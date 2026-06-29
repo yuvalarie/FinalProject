@@ -16,15 +16,20 @@ public class BouncyObject : MonoBehaviour
         {
             Rigidbody2D playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
         
-            // --- ADD THIS ---
-            var playerScript = collision.gameObject.GetComponent<PlayerControllerBase>(); // Or your specific player class name
+            var playerScript = collision.gameObject.GetComponent<PlayerControllerBase>(); 
             if (playerScript != null) playerScript.StartKnockback(0.2f); 
-            // ----------------
 
             if (playerRb != null)
             {
-                Vector2 bounceDirection = (collision.transform.position - transform.position).normalized;
+                // 1. Get the exact pixel where they collided
+                Vector2 contactPoint = collision.GetContact(0).point;
+                
+                // 2. Measure from the contact point to the player, NOT from the center of the bouncy object
+                Vector2 bounceDirection = ((Vector2)collision.transform.position - contactPoint).normalized;
+                
+                // 3. Add the extra lift
                 bounceDirection.y += upwardLift;
+                
                 playerRb.linearVelocity = Vector2.zero;
                 playerRb.AddForce(bounceDirection.normalized * knockbackForce, ForceMode2D.Impulse);
             }
