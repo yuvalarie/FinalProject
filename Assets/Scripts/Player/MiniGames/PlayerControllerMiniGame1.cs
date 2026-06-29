@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Audio;
 using Managers;
 using Objects;
 using UnityEngine;
@@ -67,6 +68,8 @@ namespace Player
         private bool _isEndSequenceActive = false;
         private int _endSequenceStep = 0;
         private bool _isSequenceWaiting = false;
+
+        private int _musicStage = 0;
         
         private static readonly int GrabAnimation = Animator.StringToHash("Grab");
         private static readonly int DropAnimation = Animator.StringToHash("Drop");
@@ -165,7 +168,9 @@ namespace Player
         private void UpdateTableStatus()
         {
             float percentage = ((float)_numOfPlacedObjects / totalObjectsToPlace) * 100f;
-            //Debug.Log($"placed {_numOfPlacedObjects} objects");
+            //Debug.Log($"placed {_numOfPlacedObjects} objects");    
+            int expectedMusicStage = 0;
+            
 
             switch (percentage)
             {
@@ -175,14 +180,17 @@ namespace Player
                 case >= 32 and < 48:
                     secondStateSprite.SetActive(false);
                     secondStateSprite2.SetActive(false);
+                    expectedMusicStage = 1;
                     break;
                 case >= 48 and < 64:
                     thirdStateSprite.SetActive(false);
                     thirdStateSprite2.SetActive(false);
+                    expectedMusicStage = 2;
                     break;
                 case >= 64 and < 80:
                     fourthStateSprite.SetActive(false);
                     SceneLoader.Instance?.PreloadScene(nextSceneName);
+                    expectedMusicStage = 3;
                     break;
                 case >= 80 and < 100:
                     fifthStateSprite.SetActive(false);
@@ -195,6 +203,12 @@ namespace Player
                         AdvanceEndSequence();
                     }
                     break;
+            }
+
+            if (_musicStage < expectedMusicStage)
+            {
+                _musicStage++;
+                MusicManager.Instance.AdvanceProgress();
             }
         }
 
