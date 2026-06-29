@@ -533,6 +533,7 @@ MonoBehaviour:
   smallCollider: {fileID: 0}
   mediumLargeCollider: {fileID: 0}
   extraLargeCollider: {fileID: 0}
+  IsStunned: 0
   waitForText1: 1
   text1: {fileID: 181211504}
   text2: {fileID: 1262400458}
@@ -1952,7 +1953,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 13
-  m_Sprite: {fileID: 21300000, guid: f02f37177feac410ca6942a3ad590ec5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6e5b5294a734f46a2a831e2a65e696b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2036,7 +2037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad402b0624e4f009316840c33810c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Objects.QuizAnswerObject
-  originalSprite: {fileID: 21300000, guid: f02f37177feac410ca6942a3ad590ec5, type: 3}
+  originalSprite: {fileID: 21300000, guid: 6e5b5294a734f46a2a831e2a65e696b4, type: 3}
   hoverSprite: {fileID: 21300000, guid: b8882ef4796bb4b21be3da0cb86ee8f3, type: 3}
   chosenSprite: {fileID: 21300000, guid: 6002acb5d6ace4bbca9bf5e670ea282e, type: 3}
 --- !u!1 &846876262
@@ -2190,7 +2191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Objects.QuizAnswerObject
   originalSprite: {fileID: 21300000, guid: 4d2a50c2fb6fe4be5bbad27e2552eaeb, type: 3}
-  hoverSprite: {fileID: 21300000, guid: f24136623db8e432ca5b13b9b08f5b7c, type: 3}
+  hoverSprite: {fileID: 21300000, guid: 3c9843aab44f44fc48abc0eb87a7b15e, type: 3}
   chosenSprite: {fileID: 21300000, guid: c8ff3f0b56e0e484ba6c9c42b2633509, type: 3}
 --- !u!1 &873316239
 GameObject:
