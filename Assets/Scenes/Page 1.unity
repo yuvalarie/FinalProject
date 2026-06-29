@@ -352,7 +352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Transitions.RowTransition
   destinationSpawn: {fileID: 1200895308}
   targetSize: 0
-  sortingOrder: 5
+  sortingOrder: 6
   targetSpeed: 2
 --- !u!1 &142365814
 GameObject:
@@ -455,7 +455,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 05700983a8b9d41279eb9680e569b83b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2023,7 +2023,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: cc3df3050c80148289ea06fb99223a97, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4170,10 +4170,11 @@ PolygonCollider2D:
     m_Paths:
     - - {x: -0.3208046, y: 0.5475247}
       - {x: -1.7093585, y: 0.36149064}
-      - {x: -1.7110809, y: 0.29871047}
-      - {x: 0.14352016, y: 0.5346683}
-      - {x: 2.4246032, y: 0.5284431}
-      - {x: 2.4466715, y: 0.59840274}
+      - {x: -1.6895899, y: 0.11362225}
+      - {x: -0.6662355, y: 0.24528676}
+      - {x: 0.18773423, y: 0.41405737}
+      - {x: 2.8367152, y: 0.55711985}
+      - {x: 2.8627737, y: 0.8128943}
   m_UseDelaunayMesh: 0
 --- !u!1 &764209212
 GameObject:
@@ -5447,7 +5448,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: a7b9b804337014ebfbf8918bd7ab7d6f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7371,7 +7372,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: 2a7a6f5d2eb864e34a9ecf9be901d927, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -11486,7 +11487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Transitions.RowTransition
   destinationSpawn: {fileID: 0}
   targetSize: 0
-  sortingOrder: 5
+  sortingOrder: 6
   targetSpeed: 2
 --- !u!1 &2006968008
 GameObject:
@@ -12027,7 +12028,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: 6364b2de3bce04041b80ee45142d1c9f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
