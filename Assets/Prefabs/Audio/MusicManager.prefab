@@ -44,4 +44,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75bdd174a2997b49bda70ebfe0af48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Audio.MusicManager
-  mainGameSceneName: Page 4
+  sceneAreaMappings:
+  - sceneName: Page 1
+    area: 0
+  - sceneName: Page 2
+    area: 0
+  - sceneName: Page 3
+    area: 0
+  - sceneName: MiniGame1-WithArt
+    area: 2
+  - sceneName: MiniGame1.5
+    area: 3
+  - sceneName: MiniGame2
+    area: 3
+  - sceneName: MiniGame3
+    area: 4
+  - sceneName: MiniGame4
+    area: 5
+  - sceneName: MIniGame4P2
+    area: 6

@@ -37,7 +37,7 @@ namespace Audio
             _voiceBus = RuntimeManager.GetBus("bus:/Voice");
         }
 
-        private void Update()
+        private void FixedUpdate()
         { 
             // might want to change this to only update when the volume sliders are changed, but for now it should be fine
             //TODO: change to work with in-game sliders when implemented.
@@ -56,7 +56,7 @@ namespace Audio
             {
                 eventInstance.setParameterByName(paramName, value);
             }
-            eventInstance.set3DAttributes(worldPosition.To3DAttributes());
+            // eventInstance.set3DAttributes(worldPosition.To3DAttributes());
             eventInstance.start();
             eventInstance.release(); // Release the instance immediately since it's a one-shot
         }
