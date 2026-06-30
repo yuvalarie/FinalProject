@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Audio;
+using Audio.AudioEmitters;
 using Managers;
 using Objects;
 using UnityEngine;
@@ -57,6 +58,9 @@ namespace Player
         [SerializeField] private GameObject endColliders;
         [SerializeField] private GameObject sideColliders;
         [SerializeField] private float enterAnimationDuration;
+        
+        [Header("Audio")]
+        [SerializeField] private AudioEmitterBase misplacedAudioEmitter;
         
         private GrabbableObject _heldGrabbable;
         private int _numOfPlacedObjects = 0;
@@ -340,6 +344,7 @@ namespace Player
                 _heldGrabbable.ResetPosition();
                 _heldGrabbable.currentState = GrabbableObject.ObjectState.Start;
                 _heldGrabbable.SwitchState();
+                misplacedAudioEmitter?.PlayAudioOnce();
                 _heldGrabbable = null;
             }
             
