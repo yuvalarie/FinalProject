@@ -1,5 +1,6 @@
 ﻿using System;
 using DG.Tweening;
+using Managers;
 using Objects.Poster;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -157,7 +158,7 @@ namespace Player.Pages
             heldaSeq.Append(handWithNote.transform.DOMove(frame5Start.position, frame5Duration));
 
             // Final callback to re-enable movement
-            heldaSeq.OnComplete(() => canMove = true);
+            heldaSeq.OnComplete(() => { canMove = true; SceneLoader.Instance.ActivatePreloadedScene(); });
         }
 
         protected override void OnTriggerEnter2D(Collider2D other)

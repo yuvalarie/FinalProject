@@ -161,65 +161,46 @@ namespace Player
             _heldSticker.SetSortingOrder(_playerSortingOrder + 1);
             
             _currentlyHoveredSticker = null;
-            
-            // Debug.Log("Attempting to pick up item...");
-            //
-            // Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, grabRadius, grabbableLayer);
-            //
-            // if (hits.Length > 0)
-            // {
-            //     Collider2D closestCollider = null;
-            //     float closestDistance = Mathf.Infinity;
-            //
-            //     foreach (Collider2D hit in hits)
-            //     {
-            //         float distance = Vector2.Distance(transform.position, hit.transform.position);
-            //         
-            //         if (distance < closestDistance)
-            //         {
-            //             closestDistance = distance;
-            //             closestCollider = hit;
-            //         }
-            //     }
-            //
-            //     if (closestCollider == null) return;
-            //     
-            //     _heldSticker = closestCollider.GetComponent<StickerObject>();
-            //     if (_heldSticker == null)
-            //     {
-            //         Debug.LogWarning($"Wait, '{closestCollider.name}' isn't a PosterSticker! Are you sure it's on the right layer?");
-            //         return;
-            //     }
-            //     
-            //     _heldSticker.OnPickedUp();
-            //     
-            //     _heldItem = _heldSticker.gameObject;
-            //     
-            //     _heldItem.transform.position = holdSlot.position;
-            //     _heldItem.transform.SetParent(holdSlot);
-            //     _heldSticker.SetSortingOrder(_playerSortingOrder + 1);
-            // }
-            // else
-            // {
-            //     Debug.Log("FAILED: Nothing found on the Grabbable layer within the grab radius.");
-            // }
         }
 
         private void DropItem()
         {
             Debug.Log("Attempting to drop item...");
-            Collider2D dropZone = Physics2D.OverlapCircle(transform.position, grabRadius, dropZoneLayer);
+            
+            // Get ALL drop zones within grab radius
+            Collider2D[] dropZones = Physics2D.OverlapCircleAll(transform.position, grabRadius, dropZoneLayer);
+            
+            Collider2D closestZone = null;
+            float closestDistance = Mathf.Infinity;
 
-            if (dropZone != null)
+            // Find the absolute closest drop zone to the player
+            foreach (Collider2D zone in dropZones)
             {
-                var zone = dropZone.gameObject;
-                if (zone.CompareTag($"Original"))
+                float distance = Vector2.Distance(transform.position, zone.transform.position);
+                if (distance < closestDistance)
                 {
-                    _heldSticker.OnDropped();
+                    closestDistance = distance;
+                    closestZone = zone;
+                }
+            }
+
+            // If we found a valid drop zone nearby...
+            if (closestZone != null)
+            {
+                // 1. Did we drop it back on the original table?
+                if (closestZone.CompareTag("Original"))
+                {
+                    Debug.Log("Dropped back to the original table.");
+                    _heldSticker.OnDropped(); // Destroys the clone in hand
+                    
+                    // Clear the hand references
+                    _heldItem = null;
+                    _heldSticker = null;
                     return;
                 }
                 
-                Bounds paperBounds = dropZone.bounds;
+                // 2. Otherwise, we are dropping on the paper. Do the bounds check!
+                Bounds paperBounds = closestZone.bounds;
                 Bounds stickerBounds = _heldSticker.StickerBounds;
                 
                 bool isFullyInside = 
@@ -230,11 +211,12 @@ namespace Player
                 
                 if (!isFullyInside)
                 {
-                    Debug.Log("FAILED: The sticker is sticking out of the paper! Move it inward.");
-                    return;
+                    Debug.Log("FAILED: The sticker is sticking out of the paper! Staying in hand.");
+                    return; // By returning early, the item stays in the player's hand!
                 }
 
-                _heldItem.transform.SetParent(dropZone.transform);
+                // 3. Successfully placed on the paper
+                _heldItem.transform.SetParent(closestZone.transform);
                 
                 _heldSticker.SetPickedUp();
                 _heldSticker.OnPlaced();
@@ -243,12 +225,13 @@ namespace Player
                 
                 SetCategory(_heldSticker.GetCategory);
                 
+                // Clear the hand references
                 _heldItem = null;
                 _heldSticker = null;
             }
             else
             {
-                Debug.Log("FAILED: Cannot drop here. You must be in a drop zone!");
+                Debug.Log("FAILED: Cannot drop here. You must be in a drop zone! Staying in hand.");
             }
         }
 

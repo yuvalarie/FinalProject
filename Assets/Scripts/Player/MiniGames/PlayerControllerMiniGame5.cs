@@ -1,4 +1,7 @@
-﻿using Managers;
+﻿using System;
+using System.Collections;
+using Managers;
+using Objects;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +13,16 @@ namespace Player.MiniGames
         [SerializeField, Tooltip("Drag the CatchZone child object's BoxCollider2D here.")] 
         private Collider2D catchZoneCollider;
 
+        [Header("Game Settings")]
+        [SerializeField] private GameObject openingText;
+        [SerializeField] private GameObject trashCan;
+        [SerializeField] private Transform trashCanPosition;
+        [SerializeField] private float textDuration;
+        [SerializeField] private NoteSpawner noteSpawner;
+
+        private bool _atTrashCan;
+        private bool _pickedUpTrashCan;
+
         protected override void Start()
         {
             base.Start();
@@ -18,6 +31,13 @@ namespace Player.MiniGames
 
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
+            if (_atTrashCan && !_pickedUpTrashCan)
+            {
+                trashCan.transform.parent = transform;
+                trashCan.transform.position = trashCanPosition.position;
+                _pickedUpTrashCan = true;
+                StartCoroutine(StartGameCoroutine());
+            }
             if (!context.performed || catchZoneCollider == null) return;
 
             // Ask the Physics engine: "What objects are currently overlapping my CatchZone bounds?"
@@ -41,5 +61,22 @@ namespace Player.MiniGames
             }
         }
 
+        private IEnumerator StartGameCoroutine()
+        {
+            openingText.SetActive(true);
+            yield return new WaitForSeconds(textDuration);
+            openingText.SetActive(false);
+            noteSpawner.StartGame();
+        }
+
+        protected override void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("Trash") && !_pickedUpTrashCan) _atTrashCan = true;
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.CompareTag("Trash")) _atTrashCan = false;
+        }
     }
 }
