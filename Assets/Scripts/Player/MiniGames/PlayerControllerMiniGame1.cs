@@ -14,18 +14,17 @@ namespace Player
     {
         [SerializeField] private GameObject blackScreen;
         [SerializeField] private float blackScreenDuration;
-        [Header("Hand Settings")]
-        [SerializeField, Tooltip("The child GameObject for the Right Hand.")]
-        private GameObject rightHand;
-        [SerializeField, Tooltip("The Animator component on the Right Hand.")]
-        private Animator rightHandAnimator;
         
-        [SerializeField, Tooltip("The child GameObject for the Left Hand.")]
-        private GameObject leftHand;
-        [SerializeField, Tooltip("The Animator component on the Left Hand.")]
-        private Animator leftHandAnimator;
+        [Header("Hold Settings")]
+        [SerializeField, Tooltip("Transform where the held object will sit when facing Right.")]
+        private Transform rightHoldSlot;
+        [SerializeField, Tooltip("Transform where the held object will sit when facing Left.")]
+        private Transform leftHoldSlot;
+        
+        [SerializeField, Tooltip("The Animator component that handles the lift/drop animations.")]
+        private Animator interactionAnimator;
 
-        [SerializeField, Tooltip("Optional offset for the grab radius relative to the active hand.")]
+        [SerializeField, Tooltip("Optional offset for the grab radius relative to the active hold slot.")]
         private Vector3 grabOriginOffset = Vector3.zero;
 
         [SerializeField, Tooltip("The layer used for grabbable objects.")]
@@ -65,10 +64,7 @@ namespace Player
         private GrabbableObject _heldGrabbable;
         private int _numOfPlacedObjects = 0;
         
-        private SpriteRenderer _spriteRenderer;
-        private SpriteRenderer _rightHandSprite;
-        private SpriteRenderer _leftHandSprite;
-        private bool _isFacingRight = false;
+        private bool _isFacingRight = true; // Assuming the player starts facing right (flipX = false)
         
         private bool _isEndSequenceActive = false;
         private int _endSequenceStep = 0;
@@ -82,16 +78,6 @@ namespace Player
         protected override void Start()
         {
             base.Start();
-            _spriteRenderer = GetComponent<SpriteRenderer>();
-            
-            _rightHandSprite = rightHand.GetComponent<SpriteRenderer>();
-            _leftHandSprite = leftHand.GetComponent<SpriteRenderer>();
-            
-            rightHand.SetActive(true);
-            leftHand.SetActive(true);
-            
-            if (_rightHandSprite != null) _rightHandSprite.enabled = true;
-            if (_leftHandSprite != null) _leftHandSprite.enabled = false;
             StartCoroutine(TurnOffBlackScreenCoroutine());
         }
 
@@ -123,60 +109,52 @@ namespace Player
         
         private void HandleFacingDirection()
         {
+            // Update our internal facing state based on movement input
             if (MoveInput.x > 0 && !_isFacingRight)
             {
-                Flip();
+                _isFacingRight = true;
+                ShiftObjectToActiveSlot();
             }
             else if (MoveInput.x < 0 && _isFacingRight)
             {
-                Flip();
+                _isFacingRight = false;
+                ShiftObjectToActiveSlot();
             }
         }
-        
-        private void Flip()
+
+        private void ShiftObjectToActiveSlot()
         {
-            _isFacingRight = !_isFacingRight;
-            
-            if (_spriteRenderer != null)
-            {
-                _spriteRenderer.flipX = _isFacingRight;
-            }
-            
-            if (_rightHandSprite != null) _rightHandSprite.enabled = _isFacingRight;
-            if (_leftHandSprite != null) _leftHandSprite.enabled = !_isFacingRight;
-            
+            // If we are holding an object, instantly pop it to the new active hold slot
             if (_heldGrabbable != null)
             {
-                Transform newHand = GetActiveHand();
-                _heldGrabbable.transform.SetParent(newHand);
+                Transform activeSlot = GetActiveSlot();
+                _heldGrabbable.transform.SetParent(activeSlot);
                 _heldGrabbable.transform.localPosition = Vector3.zero;
             }
         }
         
-        private Transform GetActiveHand()
+        private Transform GetActiveSlot()
         {
-            return _isFacingRight ? rightHand.transform : leftHand.transform;
-        }
-
-        private Animator GetActiveAnimator()
-        {
-            return _isFacingRight ? rightHandAnimator : leftHandAnimator;
+            return _isFacingRight ? rightHoldSlot : leftHoldSlot;
         }
 
         private Vector2 GetGrabOrigin()
         {
-            Transform activeHand = GetActiveHand();
+            Transform activeSlot = GetActiveSlot();
+            // Optional: invert the offset if facing left so it stays in front of the player
             Vector3 currentOffset = _isFacingRight ? grabOriginOffset : new Vector3(-grabOriginOffset.x, grabOriginOffset.y, grabOriginOffset.z);
-            return (Vector2)activeHand.position + (Vector2)currentOffset;
+            
+            // If the activeSlot is null (e.g. forgot to assign in inspector), fallback to player center
+            if (activeSlot == null) return (Vector2)transform.position + (Vector2)currentOffset;
+            
+            return (Vector2)activeSlot.position + (Vector2)currentOffset;
         }
 
         private void UpdateTableStatus()
         {
             float percentage = ((float)_numOfPlacedObjects / totalObjectsToPlace) * 100f;
-            //Debug.Log($"placed {_numOfPlacedObjects} objects");    
             int expectedMusicStage = 0;
             
-
             switch (percentage)
             {
                 case >= 16 and < 32:
@@ -280,18 +258,16 @@ namespace Player
                     return;
                 }
                 
-                // Trigger Grab on BOTH hands at the exact same time so they sync perfectly!
-                rightHandAnimator?.SetTrigger(GrabAnimation);
-                leftHandAnimator?.SetTrigger(GrabAnimation);
+                interactionAnimator?.SetTrigger(GrabAnimation);
                 
                 _heldGrabbable = closestItem;
                 
                 _heldGrabbable.currentState = GrabbableObject.ObjectState.Held;
                 _heldGrabbable.SwitchState();
-                
                 _heldGrabbable.CenterChildren();
 
-                _heldGrabbable.transform.SetParent(GetActiveHand());
+                // Parent to the currently active slot based on facing direction
+                _heldGrabbable.transform.SetParent(GetActiveSlot());
                 _heldGrabbable.transform.localPosition = Vector3.zero;
                 _heldGrabbable.transform.localRotation = Quaternion.identity;
             }
@@ -348,14 +324,11 @@ namespace Player
                 _heldGrabbable = null;
             }
             
-            // Trigger Drop on BOTH hands at the same time
-            rightHandAnimator?.SetTrigger(DropAnimation);
-            leftHandAnimator?.SetTrigger(DropAnimation);
+            interactionAnimator?.SetTrigger(DropAnimation);
         }
         
         private void OnDrawGizmos()
         {
-            if (rightHand == null || leftHand == null) return; 
             Vector2 grabOrigin = GetGrabOrigin();
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(grabOrigin, pickupRadius);
