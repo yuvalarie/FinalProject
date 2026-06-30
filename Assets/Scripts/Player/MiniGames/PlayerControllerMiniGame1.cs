@@ -223,16 +223,19 @@ namespace Player
             }
             else if (_endSequenceStep == 1)
             {
-                StartCoroutine(EyesAndBubbleRoutine());
+                EyesAndBubbleRoutine();
+            }
+            else if (_endSequenceStep == 2)
+            {
+                heldaAnimator.SetTrigger("Exit");
             }
         }
         
-        private IEnumerator EyesAndBubbleRoutine()
+        private void EyesAndBubbleRoutine()
         {
             _isSequenceWaiting = true;
             
             eyeAnimator.SetTrigger("EyesRoll");
-            yield return new WaitForSeconds(7f);
             textBubble.SetActive(true);
             
             _endSequenceStep++;
