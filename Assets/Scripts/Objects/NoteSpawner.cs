@@ -30,9 +30,13 @@ namespace Objects
         [SerializeField] private int currentLevelIndex = 0;
 
         private bool _isSpawning = true;
+        private bool _hasStarted;
 
-        private void Start()
+        public void StartGame()
         {
+            if (_hasStarted) return; 
+            
+            _hasStarted = true;
             StartCoroutine(SpawnRoutine());
             StartCoroutine(AutoLevelUpRoutine());
         }

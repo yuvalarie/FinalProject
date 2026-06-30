@@ -59,7 +59,8 @@ namespace Player
         [SerializeField] private Animator backAnimator;
         [SerializeField] private Animator smallMirrorAnimator;
         [SerializeField] private Animator bigMirrorAnimator;
-        [SerializeField] private Collider2D frame6ExitCollider;
+        [SerializeField] private Collider2D frame6ExitCollider1;
+        [SerializeField] private Collider2D frame6ExitCollider2;
         [SerializeField] private Transform frame6ExitPosition;
         [SerializeField] private GameObject textBubble2;
         
@@ -94,16 +95,23 @@ namespace Player
         [SerializeField] private List<float> textBubblesTiming;
         
         private Vector3 _shadowOriginalPosition;
+        private SpriteRenderer shadowSpriteRenderer;
 
         private bool atSideTable;
         private bool atLamp;
         private bool atDoor;
         private bool sideTableActivated;
+        private bool isShadowChild;
+        private bool hasPassedFrame7;
 
         protected override void Start()
         {
             base.Start();
-            if (shadowObject != null) _shadowOriginalPosition = shadowObject.transform.position;
+            if (shadowObject != null)
+            {
+                _shadowOriginalPosition = shadowObject.transform.position;
+                shadowSpriteRenderer = shadowObject.GetComponent<SpriteRenderer>();
+            }
         }
 
         protected override void OnInteraction(InputAction.CallbackContext context)
@@ -122,6 +130,14 @@ namespace Player
             else if (atDoor)
             {
                 door.SetTrigger("Play");
+            }
+        }
+
+        protected void Update()
+        {
+            if (isShadowChild && shadowSpriteRenderer != null)
+            {
+                shadowSpriteRenderer.flipX = SpriteRenderer.flipX;
             }
         }
 
@@ -179,23 +195,33 @@ namespace Player
                 Frame6Sequence();
                 frame6EnterCollider.enabled = false;
             }
-            else if (other == frame6ExitCollider)
+            else if (other == frame6ExitCollider1 || other == frame6ExitCollider2)
             {
                 transform.position = frame7StartPosition.position;
             }
             else if (other == frame7EnterCollider)
             {
-                Frame7Sequence();
-                frame7EnterCollider.enabled = false;
+                if (! hasPassedFrame7)
+                {
+                    Frame7Sequence();
+                    hasPassedFrame7 = true;
+                    return;
+                }
+                shadowObject.transform.SetParent(gameObject.transform);
+                isShadowChild = true;
+                SpriteRenderer.color = new Color(1f, 1f, 1f, 0f);
+                //frame7EnterCollider.enabled = false;
             }
             else if (other == frame7EnterRightCollider)
             {
                 shadowObject.transform.SetParent(gameObject.transform);
+                isShadowChild = true;
                 SpriteRenderer.color = new Color(1f, 1f, 1f, 0f);
             }
             else if (other == frame7ExitCollider)
             {
                 shadowObject.transform.SetParent(null);
+                isShadowChild = false;
                 SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
             }
             else if (other == frame7ExitLeftCollider)
@@ -276,6 +302,7 @@ namespace Player
             SpriteRenderer.color = new Color(1f, 1f, 1f, 0f);
             shadowObject.transform.SetParent(gameObject.transform);
             shadowAnimator.SetTrigger(Play);
+            isShadowChild = true;
         }
         
         private void Frame8Sequence()
