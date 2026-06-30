@@ -274,6 +274,8 @@ MonoBehaviour:
   chosenSprite: {fileID: 21300000, guid: b0f71968470d6434ab49ce7613bcfa01, type: 3}
   maxSortingOrder: 14
   minSortingOrder: 12
+  activationScaleDuration: 1
+  activationScaleEase: 27
 --- !u!1001 &159612793
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -604,7 +606,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -805,7 +807,7 @@ Transform:
   m_GameObject: {fileID: 328395378}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.15, y: -6.2799997, z: 0}
+  m_LocalPosition: {x: -3.13, y: -6.2799997, z: 0}
   m_LocalScale: {x: 0.2399182, y: 0.2399182, z: 0.2399182}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -874,6 +876,8 @@ MonoBehaviour:
   chosenSprite: {fileID: 21300000, guid: 1b4f8b2bdb35644c492560ee0d578baf, type: 3}
   maxSortingOrder: 14
   minSortingOrder: 13
+  activationScaleDuration: 1
+  activationScaleEase: 27
 --- !u!1 &390351395
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,6 +1033,8 @@ MonoBehaviour:
   chosenSprite: {fileID: 21300000, guid: b08c8518c0cd446f4a7f30e2d2a82d7b, type: 3}
   maxSortingOrder: 14
   minSortingOrder: 12
+  activationScaleDuration: 1
+  activationScaleEase: 27
 --- !u!1 &480142923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1159,14 +1165,14 @@ TrailRenderer:
       m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 2
-    numCapVertices: 5
+    numCornerVertices: 32
+    numCapVertices: 32
     alignment: 0
     textureMode: 0
     textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 0.01
+  m_MinVertexDistance: 0.002
   m_MaskInteraction: 0
   m_Autodestruct: 0
   m_Emitting: 1
@@ -1416,6 +1422,8 @@ MonoBehaviour:
   chosenSprite: {fileID: 21300000, guid: aaf1b4073e53840c59774eeb5ce0cb4e, type: 3}
   maxSortingOrder: 14
   minSortingOrder: 12
+  activationScaleDuration: 1
+  activationScaleEase: 27
 --- !u!1 &603413013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1841,6 +1849,8 @@ MonoBehaviour:
   chosenSprite: {fileID: 21300000, guid: cf9e21723c088466a8fb6eb85c0a1770, type: 3}
   maxSortingOrder: 14
   minSortingOrder: 13
+  activationScaleDuration: 1
+  activationScaleEase: 27
 --- !u!1001 &714737923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2053,6 +2063,8 @@ MonoBehaviour:
   chosenSprite: {fileID: 21300000, guid: 6002acb5d6ace4bbca9bf5e670ea282e, type: 3}
   maxSortingOrder: 14
   minSortingOrder: 13
+  activationScaleDuration: 1
+  activationScaleEase: 27
 --- !u!1 &846876262
 GameObject:
   m_ObjectHideFlags: 0
@@ -2208,6 +2220,8 @@ MonoBehaviour:
   chosenSprite: {fileID: 21300000, guid: c8ff3f0b56e0e484ba6c9c42b2633509, type: 3}
   maxSortingOrder: 14
   minSortingOrder: 11
+  activationScaleDuration: 1
+  activationScaleEase: 27
 --- !u!1 &873316239
 GameObject:
   m_ObjectHideFlags: 0
@@ -2507,6 +2521,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1145484378}
+  - component: {fileID: 1145484379}
   m_Layer: 10
   m_Name: GameObject
   m_TagString: Untagged
@@ -2531,6 +2546,25 @@ Transform:
   - {fileID: 1960934895}
   m_Father: {fileID: 238109404}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1145484379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145484377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2de629305529fb849817f2fd62b825c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.RoundedTrailFollower
+  target: {fileID: 0}
+  detachFromParentAtRuntime: 1
+  smoothTime: 0.025
+  maxSpeed: 300
+  maxLagDistance: 0.06
+  teleportDistance: 1.5
+  clearTrailsOnTeleport: 1
 --- !u!1 &1160422441
 GameObject:
   m_ObjectHideFlags: 0
@@ -2903,6 +2937,8 @@ MonoBehaviour:
   chosenSprite: {fileID: 21300000, guid: db633a02a62db4f59ace65e0f2b99956, type: 3}
   maxSortingOrder: 14
   minSortingOrder: 12
+  activationScaleDuration: 1
+  activationScaleEase: 27
 --- !u!1 &1215107127
 GameObject:
   m_ObjectHideFlags: 0
@@ -3058,6 +3094,8 @@ MonoBehaviour:
   chosenSprite: {fileID: 21300000, guid: d2f8447746fee41d795d45fa49fcd67b, type: 3}
   maxSortingOrder: 13
   minSortingOrder: 12
+  activationScaleDuration: 1
+  activationScaleEase: 27
 --- !u!1 &1219319622
 GameObject:
   m_ObjectHideFlags: 0
@@ -3213,6 +3251,8 @@ MonoBehaviour:
   chosenSprite: {fileID: 21300000, guid: a8191c872643e42cbb65e105c414b22d, type: 3}
   maxSortingOrder: 14
   minSortingOrder: 12
+  activationScaleDuration: 1
+  activationScaleEase: 27
 --- !u!1 &1262400458
 GameObject:
   m_ObjectHideFlags: 0
@@ -3676,6 +3716,8 @@ MonoBehaviour:
   chosenSprite: {fileID: 21300000, guid: 7d05398f1084245b682155099c51152c, type: 3}
   maxSortingOrder: 13
   minSortingOrder: 12
+  activationScaleDuration: 1
+  activationScaleEase: 27
 --- !u!1 &1469109428
 GameObject:
   m_ObjectHideFlags: 0
@@ -4170,6 +4212,8 @@ MonoBehaviour:
   chosenSprite: {fileID: 21300000, guid: 9794812774ef24305b0cee700a184d76, type: 3}
   maxSortingOrder: 14
   minSortingOrder: 12
+  activationScaleDuration: 1
+  activationScaleEase: 27
 --- !u!1 &1816114430
 GameObject:
   m_ObjectHideFlags: 0
@@ -4415,6 +4459,8 @@ MonoBehaviour:
   chosenSprite: {fileID: 21300000, guid: b343777360a934caa88dc4e6c53ddab2, type: 3}
   maxSortingOrder: 14
   minSortingOrder: 13
+  activationScaleDuration: 1
+  activationScaleEase: 27
 --- !u!1 &1939699996
 GameObject:
   m_ObjectHideFlags: 0
@@ -4692,14 +4738,14 @@ TrailRenderer:
       m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 2
-    numCapVertices: 5
+    numCornerVertices: 32
+    numCapVertices: 32
     alignment: 0
     textureMode: 0
     textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 0.01
+  m_MinVertexDistance: 0.002
   m_MaskInteraction: 0
   m_Autodestruct: 0
   m_Emitting: 1
@@ -4859,6 +4905,8 @@ MonoBehaviour:
   chosenSprite: {fileID: 21300000, guid: 45c3cff2b15ef4060bc773eebb3e4a4a, type: 3}
   maxSortingOrder: 14
   minSortingOrder: 12
+  activationScaleDuration: 1
+  activationScaleEase: 27
 --- !u!1 &1990718213
 GameObject:
   m_ObjectHideFlags: 0
@@ -5014,6 +5062,8 @@ MonoBehaviour:
   chosenSprite: {fileID: 21300000, guid: 8296b14dbae3b4acba7360024d34ad12, type: 3}
   maxSortingOrder: 13
   minSortingOrder: 12
+  activationScaleDuration: 1
+  activationScaleEase: 27
 --- !u!1 &2112596553
 GameObject:
   m_ObjectHideFlags: 0
@@ -5169,6 +5219,8 @@ MonoBehaviour:
   chosenSprite: {fileID: 21300000, guid: 138ff096fb9ef4f6ab572f24e9454a9a, type: 3}
   maxSortingOrder: 13
   minSortingOrder: 11
+  activationScaleDuration: 1
+  activationScaleEase: 27
 --- !u!1 &2146440561
 GameObject:
   m_ObjectHideFlags: 0
@@ -5324,6 +5376,8 @@ MonoBehaviour:
   chosenSprite: {fileID: 21300000, guid: a6e3a526b5dd341a0b614c393520ebca, type: 3}
   maxSortingOrder: 13
   minSortingOrder: 12
+  activationScaleDuration: 1
+  activationScaleEase: 27
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
