@@ -94,16 +94,22 @@ namespace Player
         [SerializeField] private List<float> textBubblesTiming;
         
         private Vector3 _shadowOriginalPosition;
+        private SpriteRenderer shadowSpriteRenderer;
 
         private bool atSideTable;
         private bool atLamp;
         private bool atDoor;
         private bool sideTableActivated;
+        private bool isShadowChild;
 
         protected override void Start()
         {
             base.Start();
-            if (shadowObject != null) _shadowOriginalPosition = shadowObject.transform.position;
+            if (shadowObject != null)
+            {
+                _shadowOriginalPosition = shadowObject.transform.position;
+                shadowSpriteRenderer = shadowObject.GetComponent<SpriteRenderer>();
+            }
         }
 
         protected override void OnInteraction(InputAction.CallbackContext context)
@@ -123,6 +129,11 @@ namespace Player
             {
                 door.SetTrigger("Play");
             }
+        }
+
+        protected void Update()
+        {
+            if (isShadowChild && shadowSpriteRenderer != null) shadowSpriteRenderer.flipX = SpriteRenderer.flipX;
         }
 
         private IEnumerator SmallCoroutine()
@@ -191,11 +202,13 @@ namespace Player
             else if (other == frame7EnterRightCollider)
             {
                 shadowObject.transform.SetParent(gameObject.transform);
+                isShadowChild = true;
                 SpriteRenderer.color = new Color(1f, 1f, 1f, 0f);
             }
             else if (other == frame7ExitCollider)
             {
                 shadowObject.transform.SetParent(null);
+                isShadowChild = false;
                 SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
             }
             else if (other == frame7ExitLeftCollider)
