@@ -107,9 +107,21 @@ namespace Player
             StartCoroutine(PlaySequenceOnScreen());
         }
 
+        protected override void HandleMovement()
+        {
+            if (isScreenPlaying)
+            {
+                if (Rb != null) Rb.linearVelocity = Vector2.zero;
+                MoveInput = Vector2.zero; 
+                return;
+            }
+
+            base.HandleMovement();
+        }
+
         private void Update()
         {
-            if (_heldToolSpriteRenderer != null && Mathf.Abs(MoveInput.x) > 0.1f)
+            if (_heldToolSpriteRenderer != null && Mathf.Abs(MoveInput.x) > 0.1f && !isScreenPlaying)
             {
                 bool isMovingLeft = MoveInput.x < 0;
                 bool invertFlip = invertedFacingToolsList.Contains(currentHeldTool);
@@ -402,45 +414,6 @@ namespace Player
             ClearInteractionStates();
             StartCoroutine(PlaySequenceOnScreen()); 
         }
-
-        // private void OnTriggerEnter2D(Collider2D other)
-        // {
-        //     SimonInteractable interactable = other.GetComponent<SimonInteractable>();
-        //     if (interactable != null)
-        //     {
-        //         if (interactable.isToolStation)
-        //         {
-        //             currentStandingToolStation = interactable.toolType;
-        //             _currentStandingToolInteractable = interactable;
-        //         }
-        //         if (interactable.isArea)
-        //         {
-        //             // FIXED 3: Storing the interactable component, not just the Enum!
-        //             if (!_activeOverlappingAreas.Contains(interactable))
-        //             {
-        //                 _activeOverlappingAreas.Add(interactable);
-        //             }
-        //         }
-        //     }
-        // }
-        //
-        // private void OnTriggerExit2D(Collider2D other)
-        // {
-        //     SimonInteractable interactable = other.GetComponent<SimonInteractable>();
-        //     if (interactable != null)
-        //     {
-        //         if (interactable.isToolStation && currentStandingToolStation == interactable.toolType)
-        //         {
-        //             currentStandingToolStation = ToolType.None;
-        //             if (_currentStandingToolInteractable == interactable) 
-        //                 _currentStandingToolInteractable = null;
-        //         }
-        //         if (interactable.isArea)
-        //         {
-        //             _activeOverlappingAreas.Remove(interactable);
-        //         }
-        //     }
-        // }
         
         private GameObject GetSpriteForCombination(ToolType tool, AreaType area)
         {
