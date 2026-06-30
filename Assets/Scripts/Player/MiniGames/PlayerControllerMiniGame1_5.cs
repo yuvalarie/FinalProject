@@ -83,6 +83,9 @@ namespace Player.MiniGames
             if (_isAnimating) return; 
             base.HandleMovement();
             RotateTowardsMovement(targetVelocity);
+            
+            // Continuously search for the closest answer while the player moves
+            UpdateClosestAnswer(); 
         }
         
         private void RotateTowardsMovement(Vector2 velocity)
@@ -102,6 +105,48 @@ namespace Player.MiniGames
                 transform.rotation,
                 targetRotation,
                 rotationSpeed * Time.fixedDeltaTime);
+        }
+
+        // --- NEW METHOD: Replaces the old Triggers ---
+        private void UpdateClosestAnswer()
+        {
+            var offsetPosition = new Vector3(transform.position.x, transform.position.y + interactVerticalOffset, transform.position.z);
+            
+            // Get EVERYTHING inside the radius
+            Collider2D[] hits = Physics2D.OverlapCircleAll(offsetPosition, interactRadius, answerLayer);
+
+            QuizAnswerObject closestAnswer = null;
+            float closestDistance = float.MaxValue;
+
+            // Find which one is mathematically closest to the hand
+            foreach (var hit in hits)
+            {
+                if (hit.CompareTag("Answer"))
+                {
+                    float distance = Vector2.Distance(offsetPosition, hit.transform.position);
+                    if (distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        closestAnswer = hit.GetComponent<QuizAnswerObject>();
+                    }
+                }
+            }
+
+            // If the closest answer has changed, update the visual hover states
+            if (closestAnswer != _currentlyHoveredAnswer)
+            {
+                if (_currentlyHoveredAnswer != null)
+                {
+                    _currentlyHoveredAnswer.SwitchToOriginal();
+                }
+
+                _currentlyHoveredAnswer = closestAnswer;
+
+                if (_currentlyHoveredAnswer != null)
+                {
+                    _currentlyHoveredAnswer.SwitchToHover();
+                }
+            }
         }
 
         protected override void OnInteraction(InputAction.CallbackContext context)
@@ -147,19 +192,15 @@ namespace Player.MiniGames
 
         private void QuizInteraction()
         {
-            var offsetPosition = new Vector3(transform.position.x, transform.position.y + interactVerticalOffset, transform.position.z);
-            Collider2D hit = Physics2D.OverlapCircle(offsetPosition, interactRadius, answerLayer);
-
-            if (hit != null)
+            // Now, we just check if we already have a hovered item locked in!
+            // No new physics checks are needed here.
+            if (_currentlyHoveredAnswer != null)
             {
-                Transform selectedItem = hit.transform;
+                Transform selectedItem = _currentlyHoveredAnswer.transform;
                 QuizStage currentStage = quizStages[_currentStageIndex];
 
-                if (hit.CompareTag("Answer"))
-                {
-                    _currentlyHoveredAnswer.SwitchToChosen();
-                    StartCoroutine(AnswerSelectionRoutine(selectedItem, currentStage));
-                }
+                _currentlyHoveredAnswer.SwitchToChosen();
+                StartCoroutine(AnswerSelectionRoutine(selectedItem, currentStage));
             }
         }
 
@@ -181,7 +222,10 @@ namespace Player.MiniGames
             }
 
             yield return new WaitForSeconds(waitBeforeNextStage);
-            _currentlyHoveredAnswer = null;
+            
+            // Clear the hover reference when moving to the next stage
+            _currentlyHoveredAnswer = null; 
+            
             selectedItem.gameObject.SetActive(false);
             yield return new WaitForSeconds(0.5f);
 
@@ -227,36 +271,6 @@ namespace Player.MiniGames
             foreach (var trail in trails)
             {
                 trail.Clear();
-            }
-        }
-
-        protected override void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision.CompareTag("Answer"))
-            {
-                QuizAnswerObject answer = collision.GetComponent<QuizAnswerObject>();
-                if (answer != null)
-                {
-                    if (answer != _currentlyHoveredAnswer && _currentlyHoveredAnswer != null)
-                    {
-                        _currentlyHoveredAnswer.SwitchToOriginal();
-                    }
-                    _currentlyHoveredAnswer = answer;
-                    _currentlyHoveredAnswer.SwitchToHover();
-                }
-            }
-        }
-
-        private void OnTriggerExit2D(Collider2D collision)
-        {
-            if (collision.CompareTag("Answer"))
-            {
-                QuizAnswerObject answer = collision.GetComponent<QuizAnswerObject>();
-                if (_currentlyHoveredAnswer == answer)
-                {
-                    _currentlyHoveredAnswer.SwitchToOriginal();
-                    _currentlyHoveredAnswer = null;
-                }
             }
         }
 
