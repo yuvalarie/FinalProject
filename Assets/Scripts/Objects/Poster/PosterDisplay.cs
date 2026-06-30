@@ -7,6 +7,7 @@ namespace Objects.Poster
     {
         [Tooltip("The PosterData Scriptable Object that holds the data for the stickers placed on the poster. This should be assigned in the inspector.")]
         [SerializeField] private PosterData posterData;
+        [SerializeField] private PosterData defaultPoster;
         [SerializeField] private int sortingOrder;
         
         void Start()
@@ -41,8 +42,10 @@ namespace Objects.Poster
                 );
             }
 
+            var relevantPoster = posterData.placedStickers.Count == 0 ? defaultPoster : posterData;
+
             // Recreate stickers from saved data
-            foreach (var entry in posterData.placedStickers)
+            foreach (var entry in relevantPoster.placedStickers)
             {
                 if (entry.sprite == null)
                 {

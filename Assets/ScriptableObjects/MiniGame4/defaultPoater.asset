@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e309fb40a292764695367805817d445, type: 3}
+  m_Name: defaultPoater
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.Poster.PosterData
+  originalPosterSize: {x: 1, y: 1}
+  placedStickers:
+  - localPos: {x: -0.7492161, y: 1.4664861, z: -0.0037538998}
+    localRot: {x: 0, y: 0, z: 0, w: 1}
+    localScale: {x: 1.0000001, y: 1.0000001, z: 1}
+    sortingOrder: 2
+    sprite: {fileID: 21300000, guid: 25be9c737a7ed4821a05546c813ed39c, type: 3}
+  - localPos: {x: -8.1684065, y: 9.758761, z: -0.0037538998}
+    localRot: {x: 0, y: 0, z: 0, w: 1}
+    localScale: {x: 1.0000001, y: 1.0000001, z: 1}
+    sortingOrder: 3
+    sprite: {fileID: 21300000, guid: dad1d0e5687084f75bb02aae5c40eb3d, type: 3}
+  - localPos: {x: 7.670317, y: 4.757061, z: -0.0037538998}
+    localRot: {x: 0, y: 0, z: 0, w: 1}
+    localScale: {x: 1.0000001, y: 1.0000001, z: 1}
+    sortingOrder: 4
+    sprite: {fileID: 21300000, guid: 61936ee5a535c4df596132d81fbea88c, type: 3}
+  - localPos: {x: -0.24904582, y: -3.5791087, z: -0.0037538998}
+    localRot: {x: 0, y: 0, z: 0, w: 1}
+    localScale: {x: 1.0000001, y: 1.0000001, z: 1}
+    sortingOrder: 5
+    sprite: {fileID: 21300000, guid: 5f60ce72a87254fceb28baa31fb02c6b, type: 3}
+  - localPos: {x: 0.16776353, y: -12.332087, z: -0.0037538998}
+    localRot: {x: 0, y: 0, z: 0, w: 1}
+    localScale: {x: 1.0000001, y: 1.0000001, z: 1}
+    sortingOrder: 6
+    sprite: {fileID: 21300000, guid: e3e39e3a063e34d359604524d2db5f69, type: 3}

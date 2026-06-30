@@ -16,6 +16,7 @@ TagManager:
   - Floor
   - Letter
   - Middle
+  - Trash
   layers:
   - Default
   - TransparentFX
