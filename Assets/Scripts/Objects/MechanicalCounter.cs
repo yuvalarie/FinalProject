@@ -10,7 +10,7 @@ namespace Objects
     public class MechanicalCounter : MonoBehaviour
     {
         [Header("Value")]
-        [SerializeField] private int startingValue;
+        [SerializeField] private long startingValue;
         [SerializeField] private bool autoIncrement = true;
         [Min(0.05f)]
         [SerializeField] private float incrementEverySeconds = 1f;
@@ -37,7 +37,7 @@ namespace Objects
         private readonly List<SpriteRenderer> temporaryRenderers = new();
         private Vector3[] homeLocalPositions;
         private int[] shownDigits;
-        private int currentValue;
+        private long currentValue;
         private Sequence activeRoll;
         private Coroutine incrementRoutine;
         private bool initialized;
@@ -63,16 +63,16 @@ namespace Objects
             ClearTemporaryRenderers();
         }
 
-        public void SetValue(int value)
+        public void SetValue(long value)
         {
             SetValue(value, true);
         }
 
-        public void SetValue(int value, bool animate)
+        public void SetValue(long value, bool animate)
         {
             Initialize();
 
-            value = Mathf.Max(0, value);
+            value = value < 0L ? 0L : value;
             int[] nextDigits = ToDigits(value);
             currentValue = value;
 
@@ -110,17 +110,17 @@ namespace Objects
             activeRoll.OnComplete(() => ApplyDigitsInstant(nextDigits));
         }
 
-        public void SetValueInstant(int value)
+        public void SetValueInstant(long value)
         {
             Initialize();
-            value = Mathf.Max(0, value);
+            value = value < 0L ? 0L : value;
             ApplyDigitsInstant(ToDigits(value));
             currentValue = value;
         }
 
         public void Increment()
         {
-            SetValue(currentValue + 1);
+            SetValue(currentValue == long.MaxValue ? 0L : currentValue + 1L);
         }
 
         private void Initialize()
@@ -198,7 +198,7 @@ namespace Objects
             return true;
         }
 
-        private int[] ToDigits(int value)
+        private int[] ToDigits(long value)
         {
             string valueText = value.ToString();
             int digitAmount = digitColumns.Length;
