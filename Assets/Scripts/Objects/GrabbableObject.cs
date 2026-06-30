@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Audio.AudioEmitters;
+using UnityEngine;
 
 namespace Objects
 {
@@ -18,6 +19,10 @@ namespace Objects
         [SerializeField] private GameObject startSprite;
         [SerializeField] private GameObject heldSprite;
         [SerializeField] private GameObject placedSprite;
+        
+        [Header("Audio Settings")]
+        [SerializeField] private AudioEmitterBase pickupAudioEmitter;
+        [SerializeField] private AudioEmitterBase placedAudioEmitter;
         
         [Tooltip("If true, interacting with this instantly teleports it to its drop spot.")]
         public bool isInstantPlacement = false;
@@ -70,6 +75,7 @@ namespace Objects
                         heldSprite.SetActive(true);
                         var spriteRenderer = heldSprite.GetComponent<SpriteRenderer>();
                         if (spriteRenderer != null) spriteRenderer.sortingOrder = 15;
+                        pickupAudioEmitter?.PlayAudioOnce();
                     }
                     break;
                 case ObjectState.Placed:
@@ -88,6 +94,7 @@ namespace Objects
                         var spriteRenderer = placedSprite.GetComponent<SpriteRenderer>();
                         if (spriteRenderer != null && targetSpriteRenderer != null) spriteRenderer.sortingOrder = targetSpriteRenderer.sortingOrder + 1;
                         if (isInstantPlacement) spriteRenderer.sortingOrder = 3;
+                        placedAudioEmitter?.PlayAudioOnce();
                     }
                     break;
             }

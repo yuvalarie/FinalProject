@@ -71,7 +71,7 @@ MonoBehaviour:
           Data2: 1324616524
           Data3: -760152186
           Data4: -455709455
-        Path: event:/Page3/HellPortal
+        Path: event:/Page3/HellPortalWithMusic
     - name: Open Letter
       eventReference:
         Guid:
@@ -332,4 +332,40 @@ MonoBehaviour:
           Data3: -1520273758
           Data4: -1661057562
         Path: event:/Page6/ThoughtBubble
+    ambianceEvents: []
+  - sceneName: MiniGame3
+    musicEvents: []
+    sfxEvents:
+    - name: Tool 1 Preview
+      eventReference:
+        Guid:
+          Data1: 279709653
+          Data2: 1220381320
+          Data3: -1733141613
+          Data4: 1734482115
+        Path: event:/MiniGame3/Previews/Ver1/Tool1Preview
+    - name: Tool 2 Preview
+      eventReference:
+        Guid:
+          Data1: 2023141571
+          Data2: 1322218307
+          Data3: 2123457177
+          Data4: 893916094
+        Path: event:/MiniGame3/Previews/Ver1/Tool2Preview
+    - name: Tool 3 Preview
+      eventReference:
+        Guid:
+          Data1: -600933252
+          Data2: 1128042039
+          Data3: -1002755396
+          Data4: -1516638010
+        Path: event:/MiniGame3/Previews/Ver1/Tool3Preview
+    - name: Tool 4 Preview
+      eventReference:
+        Guid:
+          Data1: -1949840696
+          Data2: 1313121223
+          Data3: -1968890185
+          Data4: 707609140
+        Path: event:/MiniGame3/Previews/Ver1/Tool4Preview
     ambianceEvents: []

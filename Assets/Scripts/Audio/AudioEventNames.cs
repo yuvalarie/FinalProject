@@ -39,6 +39,16 @@ namespace Audio
         public const string WearingSlippers = "Wearing Slippers";
         public const string SlippersOnWood = "Slippers On Wood";
         
+        //minigame 3
+        public const string Tool1Preview = "Tool 1 Preview";
+        public const string Tool2Preview = "Tool 2 Preview";
+        public const string Tool3Preview = "Tool 3 Preview";
+        public const string Tool4Preview = "Tool 4 Preview";
+        public const string Tool1Use = "Tool 1 Use";
+        public const string Tool2Use = "Tool 2 Use";
+        public const string Tool3Use = "Tool 3 Use";
+        public const string Tool4Use = "Tool 4 Use";
+        
         
         // Music Events
         public const string MusicOpening = "Music Opening"; // no longer used

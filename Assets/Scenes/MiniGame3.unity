@@ -1443,6 +1443,7 @@ GameObject:
   m_Component:
   - component: {fileID: 128374904}
   - component: {fileID: 128374905}
+  - component: {fileID: 128374906}
   m_Layer: 0
   m_Name: Tool1Right
   m_TagString: Untagged
@@ -1523,6 +1524,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &128374906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128374903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Tool1Preview
+  playOnEnable: 1
 --- !u!1 &183110562
 GameObject:
   m_ObjectHideFlags: 0
@@ -2230,6 +2245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 213706240}
   - component: {fileID: 213706241}
+  - component: {fileID: 213706242}
   m_Layer: 0
   m_Name: Tool3Right
   m_TagString: Untagged
@@ -2310,6 +2326,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &213706242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213706239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Tool3Preview
+  playOnEnable: 1
 --- !u!1 &246450445
 GameObject:
   m_ObjectHideFlags: 0
@@ -3067,6 +3097,7 @@ GameObject:
   m_Component:
   - component: {fileID: 313793109}
   - component: {fileID: 313793110}
+  - component: {fileID: 313793111}
   m_Layer: 0
   m_Name: Tool4UP
   m_TagString: Untagged
@@ -3148,6 +3179,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &313793111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313793108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Tool4Preview
+  playOnEnable: 1
 --- !u!1 &422671007
 GameObject:
   m_ObjectHideFlags: 0
@@ -3158,6 +3203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 422671008}
   - component: {fileID: 422671009}
+  - component: {fileID: 422671010}
   m_Layer: 0
   m_Name: Tool1Left
   m_TagString: Untagged
@@ -3238,6 +3284,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &422671010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422671007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Tool1Preview
+  playOnEnable: 1
 --- !u!1 &460013548
 GameObject:
   m_ObjectHideFlags: 0
@@ -4257,6 +4317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 910332937}
   - component: {fileID: 910332938}
+  - component: {fileID: 910332939}
   m_Layer: 0
   m_Name: Tool2Down
   m_TagString: Untagged
@@ -4337,6 +4398,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &910332939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910332936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Tool2Preview
+  playOnEnable: 1
 --- !u!1 &912940435
 GameObject:
   m_ObjectHideFlags: 0
@@ -4867,6 +4942,7 @@ GameObject:
   m_Component:
   - component: {fileID: 945081264}
   - component: {fileID: 945081265}
+  - component: {fileID: 945081266}
   m_Layer: 0
   m_Name: Tool2Right
   m_TagString: Untagged
@@ -4947,6 +5023,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &945081266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945081263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Tool2Preview
+  playOnEnable: 1
 --- !u!1 &1000060987
 GameObject:
   m_ObjectHideFlags: 0
@@ -5212,6 +5302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1059856381}
   - component: {fileID: 1059856382}
+  - component: {fileID: 1059856383}
   m_Layer: 0
   m_Name: Tool2Left
   m_TagString: Untagged
@@ -5292,6 +5383,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1059856383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059856380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Tool2Preview
+  playOnEnable: 1
 --- !u!1 &1104236482
 GameObject:
   m_ObjectHideFlags: 0
@@ -5302,6 +5407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1104236483}
   - component: {fileID: 1104236484}
+  - component: {fileID: 1104236485}
   m_Layer: 0
   m_Name: Tool4Left
   m_TagString: Untagged
@@ -5382,6 +5488,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1104236485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104236482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Tool4Preview
+  playOnEnable: 1
 --- !u!1 &1136808477
 GameObject:
   m_ObjectHideFlags: 0
@@ -5600,6 +5720,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1186815419}
   - component: {fileID: 1186815420}
+  - component: {fileID: 1186815421}
   m_Layer: 0
   m_Name: Tool1Down_1
   m_TagString: Untagged
@@ -5680,6 +5801,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1186815421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186815418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Tool1Preview
+  playOnEnable: 1
 --- !u!1 &1193172873
 GameObject:
   m_ObjectHideFlags: 0
@@ -5780,6 +5915,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1196950774}
   - component: {fileID: 1196950775}
+  - component: {fileID: 1196950776}
   m_Layer: 0
   m_Name: Tool3Left
   m_TagString: Untagged
@@ -5860,6 +5996,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1196950776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196950773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Tool3Preview
+  playOnEnable: 1
 --- !u!1 &1306949060
 GameObject:
   m_ObjectHideFlags: 0
@@ -6073,6 +6223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1401882637}
   - component: {fileID: 1401882638}
+  - component: {fileID: 1401882639}
   m_Layer: 0
   m_Name: Tool4Down
   m_TagString: Untagged
@@ -6153,6 +6304,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1401882639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401882636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Tool4Preview
+  playOnEnable: 1
 --- !u!1 &1403801400
 GameObject:
   m_ObjectHideFlags: 0
@@ -6163,6 +6328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403801401}
   - component: {fileID: 1403801402}
+  - component: {fileID: 1403801403}
   m_Layer: 0
   m_Name: Tool2UP
   m_TagString: Untagged
@@ -6244,6 +6410,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1403801403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403801400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Tool2Preview
+  playOnEnable: 1
 --- !u!1 &1423278992
 GameObject:
   m_ObjectHideFlags: 0
@@ -7525,6 +7705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1641795220}
   - component: {fileID: 1641795221}
+  - component: {fileID: 1641795222}
   m_Layer: 0
   m_Name: Tool3UP
   m_TagString: Untagged
@@ -7606,6 +7787,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1641795222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641795219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Tool3Preview
+  playOnEnable: 1
 --- !u!1 &1667209533
 GameObject:
   m_ObjectHideFlags: 0
@@ -7647,6 +7842,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1694327730}
   - component: {fileID: 1694327731}
+  - component: {fileID: 1694327732}
   m_Layer: 0
   m_Name: Tool1Up
   m_TagString: Untagged
@@ -7728,6 +7924,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1694327732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694327729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Tool1Preview
+  playOnEnable: 1
 --- !u!1 &1716723361
 GameObject:
   m_ObjectHideFlags: 0
@@ -7828,6 +8038,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1717661035}
   - component: {fileID: 1717661036}
+  - component: {fileID: 1717661037}
   m_Layer: 0
   m_Name: Tool4Right
   m_TagString: Untagged
@@ -7908,6 +8119,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1717661037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717661034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Tool4Preview
+  playOnEnable: 1
 --- !u!1 &1777162459
 GameObject:
   m_ObjectHideFlags: 0
@@ -8896,6 +9121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1815919483}
   - component: {fileID: 1815919484}
+  - component: {fileID: 1815919485}
   m_Layer: 0
   m_Name: Tool3Down
   m_TagString: Untagged
@@ -8976,6 +9202,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1815919485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815919482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Tool3Preview
+  playOnEnable: 1
 --- !u!1 &1932084746
 GameObject:
   m_ObjectHideFlags: 0
