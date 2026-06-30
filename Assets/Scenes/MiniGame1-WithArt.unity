@@ -1587,7 +1587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4661888c504577bfe41e062cd5ba35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Objects.GrabbableObject
-  currentState: 0
+  currentState: 2
   targetDropSpot: {fileID: 158307809}
   validDropSpots: []
   startSprite: {fileID: 158307806}
@@ -2127,7 +2127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &158307807
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10075,7 +10075,7 @@ MonoBehaviour:
   dropZoneLayer:
     serializedVersion: 2
     m_Bits: 4096
-  totalObjectsToPlace: 19
+  totalObjectsToPlace: 18
   firstStateSprite: {fileID: 1624540207}
   secondStateSprite: {fileID: 1638612992}
   secondStateSprite2: {fileID: 1638612992}
@@ -10089,6 +10089,7 @@ MonoBehaviour:
   textBubble: {fileID: 2011410440}
   endColliders: {fileID: 1300406220}
   sideColliders: {fileID: 927451839}
+  enterAnimationDuration: 1.5
 --- !u!50 &755708804
 Rigidbody2D:
   serializedVersion: 5
@@ -13224,7 +13225,7 @@ Transform:
   m_GameObject: {fileID: 1064533624}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.44, y: 1.69, z: 0}
+  m_LocalPosition: {x: -1.83, y: 1.69, z: 0}
   m_LocalScale: {x: 0.2399655, y: 0.2399655, z: 0.2399655}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23690,7 +23691,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &2016007242
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -23737,7 +23738,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 919628fa359ac4ce493c0dfc9e141d97, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

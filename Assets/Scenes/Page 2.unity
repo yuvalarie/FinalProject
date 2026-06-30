@@ -516,7 +516,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 49917692a7a9a4aa6b6cb773fac0f15e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -599,7 +599,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0013195872, y: -2.8321025}
+  m_Offset: {x: -0.24123895, y: -2.8321025}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -609,7 +609,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.1481323, y: 4.1880746}
+  m_Size: {x: 3.6332495, y: 4.1880746}
   m_EdgeRadius: 0
 --- !u!1 &58989799
 GameObject:
@@ -7282,7 +7282,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 9
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 4eda1c0e96a9448ba991e0357bf20db0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9339,6 +9339,7 @@ MonoBehaviour:
   leftDoorCollider: {fileID: 0}
   rightDoorCollider: {fileID: 0}
   rightDoorSpriteRenderer: {fileID: 0}
+  rightWallSpriteRenderer: {fileID: 0}
   helmetArea: {fileID: 0}
   helmetAudioEmitter: {fileID: 0}
   dropScatterRadius: 0.5
@@ -10782,7 +10783,7 @@ MonoBehaviour:
   frame6To7Trigger: {fileID: 1895977004}
   frame7To6Trigger: {fileID: 431148427}
   helmetPlacement: {x: -0.75, y: 1.33, z: 0}
-  bigHelmetPlacement: {x: -10.66, y: 7.89, z: 0}
+  bigHelmetPlacement: {x: -1.4, y: 7.89, z: 0}
   availableHelmets:
   - {fileID: 397743743}
   - {fileID: 1096389645}
@@ -10795,6 +10796,7 @@ MonoBehaviour:
   leftDoorCollider: {fileID: 1185440334}
   rightDoorCollider: {fileID: 55584314}
   rightDoorSpriteRenderer: {fileID: 55584310}
+  rightWallSpriteRenderer: {fileID: 1038841719}
   helmetArea: {fileID: 1834646705}
   helmetAudioEmitter: {fileID: 1993236669}
   dropScatterRadius: 0.1

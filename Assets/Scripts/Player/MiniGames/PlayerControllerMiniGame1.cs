@@ -56,6 +56,7 @@ namespace Player
         [SerializeField] private GameObject textBubble;
         [SerializeField] private GameObject endColliders;
         [SerializeField] private GameObject sideColliders;
+        [SerializeField] private float enterAnimationDuration;
         
         private GrabbableObject _heldGrabbable;
         private int _numOfPlacedObjects = 0;
@@ -219,21 +220,19 @@ namespace Player
             if (_endSequenceStep == 0)
             {
                 heldaAnimator.SetTrigger("Enter");
-                _endSequenceStep++;
+                StartCoroutine(EyesAndBubbleRoutine());
             }
             else if (_endSequenceStep == 1)
             {
-                EyesAndBubbleRoutine();
-            }
-            else if (_endSequenceStep == 2)
-            {
+                textBubble.SetActive(false);
                 heldaAnimator.SetTrigger("Exit");
             }
         }
         
-        private void EyesAndBubbleRoutine()
+        private IEnumerator EyesAndBubbleRoutine()
         {
             _isSequenceWaiting = true;
+            yield return new WaitForSeconds(enterAnimationDuration);
             
             eyeAnimator.SetTrigger("EyesRoll");
             textBubble.SetActive(true);
