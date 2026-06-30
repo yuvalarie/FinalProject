@@ -1153,7 +1153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &108931526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1175,13 +1175,13 @@ MonoBehaviour:
   mediumLargeCollider: {fileID: 0}
   extraLargeCollider: {fileID: 0}
   IsStunned: 0
-  totalActionsToWin: 5
+  totalActionsToWin: 3
   holdSlot: {fileID: 1667209534}
   invertedFacingToolsList: 0400000002000000
-  backToPlaceDuration: 2
-  showTaskDuration: 2
-  waitBetweenTasksDuration: 1
-  waitForOldTask: 0
+  backToPlaceDuration: 1.5
+  showTaskDuration: 1.5
+  waitBetweenTasksDuration: 0.5
+  waitForOldTask: 0.5
   mouthTransform: {fileID: 18803695}
   mouthVibrateDuration: 0.3
   mouthVibrateStrength: 0.2
@@ -3254,7 +3254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &460013549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3730,7 +3730,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &668321923
 Animator:
   serializedVersion: 7
@@ -6820,7 +6820,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1428781626
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8784,7 +8784,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.14382124, y: -0.99323463}
+  m_Offset: {x: 0.14382172, y: -1.4978352}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -8794,7 +8794,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 28.824371, y: 14.472126}
+  m_Size: {x: 28.824371, y: 15.481327}
   m_EdgeRadius: 0
 --- !u!1 &1799068935
 GameObject:
@@ -8995,7 +8995,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &1932084747
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9625,7 +9625,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -3.7805917, y: 0.7851019}
+  m_Offset: {x: -3.7805915, y: -0.5734391}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -9635,7 +9635,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 8.096686, y: 10.468897}
+  m_Size: {x: 8.096686, y: 13.185979}
   m_EdgeRadius: 0
 --- !u!61 &1941176735
 BoxCollider2D:
