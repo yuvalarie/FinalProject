@@ -59,6 +59,7 @@ namespace Player
         [SerializeField] private Collider2D leftDoorCollider;
         [SerializeField] private Collider2D rightDoorCollider;
         [SerializeField] private SpriteRenderer rightDoorSpriteRenderer;
+        [SerializeField] private SpriteRenderer rightWallSpriteRenderer;
         [SerializeField] private Collider2D helmetArea;
         [SerializeField] private AudioEmitterBase helmetAudioEmitter;
 
@@ -136,7 +137,16 @@ namespace Player
 
         protected override void HandleMovement()
         {
-            if(!_isElevatorMoving) base.HandleMovement();
+            if (!_isElevatorMoving)
+            {
+                base.HandleMovement(); // Run standard movement
+        
+                // If the player is actively pressing left or right, ensure helmets match
+                if (Mathf.Abs(MoveInput.x) > 0.1f)
+                {
+                    RefreshHelmets();
+                }
+            }
         }
 
         private void PieInteraction()
@@ -301,6 +311,9 @@ namespace Player
             }
             _equippedHelmetCount++;
             _equippedHelmets.Add(helmetObject);
+            
+            RefreshHelmets();
+            
             helmetAudioEmitter.PlayAudioOnce();
             if (_equippedHelmetCount == 1)
             {
@@ -309,6 +322,39 @@ namespace Player
                 rightDoorCollider.enabled = false;
                 leftDoorCollider.enabled = false;
                 rightDoorSpriteRenderer.sortingOrder = 10;
+                rightWallSpriteRenderer.sortingOrder = 9;
+            }
+        }
+        
+        private void RefreshHelmets()
+        {
+            // 1. Check current facing direction from the base script
+            bool isFacingLeft = SpriteRenderer != null && SpriteRenderer.flipX;
+            float xSign = isFacingLeft ? -1f : 1f;
+
+            // 2. Determine base placement and scale based on current frame size
+            bool isBigFrame = CurrentSize == frame6Size;
+            Vector3 currentBasePlacement = isBigFrame ? bigHelmetPlacement : helmetPlacement;
+            Sprite currentSprite = isBigFrame ? frame6HelmetSprite : frame1HelmetSprite;
+            Vector3 currentScale = isBigFrame ? frame6HelmetSize : frame1HelmetSize;
+
+            // 3. Apply to all equipped helmets
+            for (int i = 0; i < _equippedHelmets.Count; i++)
+            {
+                var helmet = _equippedHelmets[i];
+        
+                var sr = helmet.GetComponent<SpriteRenderer>();
+                if (sr != null)
+                {
+                    sr.sprite = currentSprite;
+                    sr.flipX = isFacingLeft; // Flip the sprite
+                }
+
+                helmet.transform.localScale = currentScale;
+
+                // Multiply the X position by xSign to shift it to the other side!
+                Vector3 targetPlacement = currentBasePlacement + (helmetStackOffset * i);
+                helmet.transform.localPosition = new Vector3(targetPlacement.x * xSign, targetPlacement.y, targetPlacement.z);
             }
         }
 
@@ -348,33 +394,15 @@ namespace Player
             }
             if (other == frame5To6Trigger)
             {
-                // transform.localScale = new Vector3(frame6Scale, frame6Scale, 1f);
-                // _spriteRenderer.sprite = frame6Sprite;
                 CurrentSize = frame6Size;
                 SetSize();
-                for (int i = 0; i < _equippedHelmetCount; i++)
-                {
-                    var helmet = _equippedHelmets[i];
-                    var spriteRenderer = helmet.GetComponent<SpriteRenderer>();
-                    if (spriteRenderer != null) spriteRenderer.sprite = frame6HelmetSprite;
-                    helmet.transform.localScale = frame6HelmetSize;
-                    helmet.transform.localPosition = bigHelmetPlacement + (helmetStackOffset * i);
-                }
+                RefreshHelmets();
             }
             else if (other == frame6To5Trigger)
             {
-                // transform.localScale = new Vector3(frame1To6Scale, frame1To6Scale, 1f);
-                // _spriteRenderer.sprite = frame1Sprite;
                 CurrentSize = frame1Size;
                 SetSize();
-                for (int i = 0; i < _equippedHelmetCount; i++)
-                {
-                    var helmet = _equippedHelmets[i];
-                    var spriteRenderer = helmet.GetComponent<SpriteRenderer>();
-                    if (spriteRenderer != null) spriteRenderer.sprite = frame1HelmetSprite;
-                    helmet.transform.localScale = frame1HelmetSize;
-                    helmet.transform.localPosition = helmetPlacement + (helmetStackOffset * i);
-                }
+                RefreshHelmets();
             }
             
             if (other == lastFrameTrigger && !_hasActivatedLastFrameSequence)
@@ -382,41 +410,6 @@ namespace Player
                 StartCoroutine(LastFrameSequenceCoroutine());
                 _hasActivatedLastFrameSequence = true;
             }
-        }
-        
-        private void OnTriggerStay2D(Collider2D other)
-        {
-            // if (other == elevatorTrigger)
-            // {
-            //     bool isAwayFromTop = Vector3.Distance(elevatorTarget.position, elevatorTargetPlacement.position) > 0.05f;
-            //     bool isAwayFromBottom = Vector3.Distance(elevatorTarget.position, _elevatorStartPosition) > 0.05f;
-            //
-            //     if (isAwayFromTop && isAwayFromBottom)
-            //     {
-            //         transform.position = new Vector3(elevatorPlacement.position.x, transform.position.y, transform.position.z);
-            //     }
-            //     
-            //     if (MoveInput.y != 0f)
-            //     {
-            //         float desiredY = transform.position.y + _elevatorOffsetY;
-            //         float minY = _elevatorStartPosition.y;
-            //         float maxY = elevatorTargetPlacement.position.y;
-            //         float clampedY = Mathf.Clamp(desiredY, minY, maxY);
-            //         elevatorTarget.position = new Vector3(
-            //             elevatorTarget.position.x, 
-            //             clampedY,
-            //             elevatorTarget.position.z
-            //         );
-            //         if (desiredY != clampedY)
-            //         {
-            //             transform.position = new Vector3(
-            //                 transform.position.x, 
-            //                 clampedY - _elevatorOffsetY, 
-            //                 transform.position.z
-            //             );
-            //         }
-            //     }
-            // }
         }
 
         private void OnTriggerExit2D(Collider2D other)
