@@ -1126,6 +1126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 75013066}
   - component: {fileID: 75013065}
+  - component: {fileID: 75013067}
   m_Layer: 11
   m_Name: blanket
   m_TagString: Untagged
@@ -1152,7 +1153,7 @@ MonoBehaviour:
   heldSprite: {fileID: 1225813364}
   placedSprite: {fileID: 89904517}
   pickupAudioEmitter: {fileID: 0}
-  placedAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 75013067}
   isInstantPlacement: 1
 --- !u!4 &75013066
 Transform:
@@ -1171,6 +1172,20 @@ Transform:
   - {fileID: 89904519}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &75013067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75013064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PullingBlanket
+  playOnEnable: 0
 --- !u!1 &89904517
 GameObject:
   m_ObjectHideFlags: 0
@@ -3272,6 +3287,8 @@ GameObject:
   m_Component:
   - component: {fileID: 264501464}
   - component: {fileID: 264501465}
+  - component: {fileID: 264501467}
+  - component: {fileID: 264501466}
   m_Layer: 0
   m_Name: pupet1
   m_TagString: Untagged
@@ -3314,9 +3331,37 @@ MonoBehaviour:
   startSprite: {fileID: 1487781226}
   heldSprite: {fileID: 2078064834}
   placedSprite: {fileID: 2078064834}
-  pickupAudioEmitter: {fileID: 0}
-  placedAudioEmitter: {fileID: 0}
+  pickupAudioEmitter: {fileID: 264501467}
+  placedAudioEmitter: {fileID: 264501466}
   isInstantPlacement: 0
+--- !u!114 &264501466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264501463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PlaceActionFigure
+  playOnEnable: 0
+--- !u!114 &264501467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264501463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PickupActionFigure
+  playOnEnable: 0
 --- !u!1 &273442072
 GameObject:
   m_ObjectHideFlags: 0
@@ -4567,6 +4612,8 @@ GameObject:
   m_Component:
   - component: {fileID: 337677238}
   - component: {fileID: 337677239}
+  - component: {fileID: 337677241}
+  - component: {fileID: 337677240}
   m_Layer: 0
   m_Name: thonge
   m_TagString: Untagged
@@ -4612,6 +4659,34 @@ MonoBehaviour:
   pickupAudioEmitter: {fileID: 0}
   placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
+--- !u!114 &337677240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337677237}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PickupToothBox
+  playOnEnable: 0
+--- !u!114 &337677241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337677237}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PlaceBook
+  playOnEnable: 0
 --- !u!1 &344511342
 GameObject:
   m_ObjectHideFlags: 0
@@ -4622,6 +4697,8 @@ GameObject:
   m_Component:
   - component: {fileID: 344511343}
   - component: {fileID: 344511344}
+  - component: {fileID: 344511346}
+  - component: {fileID: 344511345}
   m_Layer: 0
   m_Name: pupet3
   m_TagString: Untagged
@@ -4664,9 +4741,37 @@ MonoBehaviour:
   startSprite: {fileID: 2016121930}
   heldSprite: {fileID: 842495470}
   placedSprite: {fileID: 842495470}
-  pickupAudioEmitter: {fileID: 0}
-  placedAudioEmitter: {fileID: 0}
+  pickupAudioEmitter: {fileID: 344511346}
+  placedAudioEmitter: {fileID: 344511345}
   isInstantPlacement: 0
+--- !u!114 &344511345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344511342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PlaceActionFigure
+  playOnEnable: 0
+--- !u!114 &344511346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344511342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PickupActionFigure
+  playOnEnable: 0
 --- !u!1 &347663198
 GameObject:
   m_ObjectHideFlags: 0
@@ -5047,6 +5152,8 @@ GameObject:
   m_Component:
   - component: {fileID: 356323819}
   - component: {fileID: 356323820}
+  - component: {fileID: 356323822}
+  - component: {fileID: 356323821}
   m_Layer: 0
   m_Name: book5
   m_TagString: Untagged
@@ -5095,9 +5202,37 @@ MonoBehaviour:
   startSprite: {fileID: 2144471570}
   heldSprite: {fileID: 206240837}
   placedSprite: {fileID: 206240837}
-  pickupAudioEmitter: {fileID: 0}
-  placedAudioEmitter: {fileID: 0}
+  pickupAudioEmitter: {fileID: 356323822}
+  placedAudioEmitter: {fileID: 356323821}
   isInstantPlacement: 0
+--- !u!114 &356323821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356323818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PlaceBook
+  playOnEnable: 0
+--- !u!114 &356323822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356323818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PickupBook
+  playOnEnable: 0
 --- !u!1 &357755054
 GameObject:
   m_ObjectHideFlags: 0
@@ -5401,6 +5536,8 @@ GameObject:
   m_Component:
   - component: {fileID: 425580719}
   - component: {fileID: 425580720}
+  - component: {fileID: 425580722}
+  - component: {fileID: 425580721}
   m_Layer: 0
   m_Name: book3
   m_TagString: Untagged
@@ -5449,9 +5586,37 @@ MonoBehaviour:
   startSprite: {fileID: 216498586}
   heldSprite: {fileID: 1503769565}
   placedSprite: {fileID: 1503769565}
-  pickupAudioEmitter: {fileID: 0}
-  placedAudioEmitter: {fileID: 0}
+  pickupAudioEmitter: {fileID: 425580722}
+  placedAudioEmitter: {fileID: 425580721}
   isInstantPlacement: 0
+--- !u!114 &425580721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425580718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PlaceBook
+  playOnEnable: 0
+--- !u!114 &425580722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425580718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PickupBook
+  playOnEnable: 0
 --- !u!1 &427196287
 GameObject:
   m_ObjectHideFlags: 0
@@ -5643,6 +5808,8 @@ GameObject:
   m_Component:
   - component: {fileID: 433958203}
   - component: {fileID: 433958202}
+  - component: {fileID: 433958205}
+  - component: {fileID: 433958204}
   m_Layer: 0
   m_Name: book2
   m_TagString: Untagged
@@ -5674,8 +5841,8 @@ MonoBehaviour:
   startSprite: {fileID: 551359129}
   heldSprite: {fileID: 320239509}
   placedSprite: {fileID: 320239509}
-  pickupAudioEmitter: {fileID: 0}
-  placedAudioEmitter: {fileID: 0}
+  pickupAudioEmitter: {fileID: 433958205}
+  placedAudioEmitter: {fileID: 433958204}
   isInstantPlacement: 0
 --- !u!4 &433958203
 Transform:
@@ -5694,6 +5861,34 @@ Transform:
   - {fileID: 320239510}
   m_Father: {fileID: 1525461050}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &433958204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433958201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PlaceBook
+  playOnEnable: 0
+--- !u!114 &433958205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433958201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PickupBook
+  playOnEnable: 0
 --- !u!1 &469334388
 GameObject:
   m_ObjectHideFlags: 0
@@ -5704,6 +5899,8 @@ GameObject:
   m_Component:
   - component: {fileID: 469334389}
   - component: {fileID: 469334390}
+  - component: {fileID: 469334392}
+  - component: {fileID: 469334391}
   m_Layer: 0
   m_Name: snowball
   m_TagString: Untagged
@@ -5746,9 +5943,37 @@ MonoBehaviour:
   startSprite: {fileID: 304189905}
   heldSprite: {fileID: 1640684659}
   placedSprite: {fileID: 1640684659}
-  pickupAudioEmitter: {fileID: 0}
-  placedAudioEmitter: {fileID: 0}
+  pickupAudioEmitter: {fileID: 469334392}
+  placedAudioEmitter: {fileID: 469334391}
   isInstantPlacement: 0
+--- !u!114 &469334391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469334388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PlaceSnowGlobe
+  playOnEnable: 0
+--- !u!114 &469334392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469334388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PickupSnowGlobe
+  playOnEnable: 0
 --- !u!1 &474752058
 GameObject:
   m_ObjectHideFlags: 0
@@ -6287,6 +6512,8 @@ GameObject:
   m_Component:
   - component: {fileID: 525719765}
   - component: {fileID: 525719766}
+  - component: {fileID: 525719768}
+  - component: {fileID: 525719767}
   m_Layer: 0
   m_Name: pupet
   m_TagString: Untagged
@@ -6329,9 +6556,37 @@ MonoBehaviour:
   startSprite: {fileID: 578365907}
   heldSprite: {fileID: 1287828110}
   placedSprite: {fileID: 1287828110}
-  pickupAudioEmitter: {fileID: 0}
-  placedAudioEmitter: {fileID: 0}
+  pickupAudioEmitter: {fileID: 525719768}
+  placedAudioEmitter: {fileID: 525719767}
   isInstantPlacement: 0
+--- !u!114 &525719767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525719764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PlaceDoll
+  playOnEnable: 0
+--- !u!114 &525719768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525719764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PickupDoll
+  playOnEnable: 0
 --- !u!1 &529467780
 GameObject:
   m_ObjectHideFlags: 0
@@ -10132,6 +10387,7 @@ GameObject:
   - component: {fileID: 755708803}
   - component: {fileID: 755708804}
   - component: {fileID: 755708805}
+  - component: {fileID: 755708806}
   m_Layer: 10
   m_Name: DaveTheAngel
   m_TagString: Untagged
@@ -10274,6 +10530,20 @@ CapsuleCollider2D:
   m_Offset: {x: -0.8726545, y: 0.50522095}
   m_Size: {x: 7.316894, y: 10.774426}
   m_Direction: 0
+--- !u!114 &755708806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755708800}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: 
+  playOnEnable: 0
 --- !u!1001 &755710585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10708,6 +10978,8 @@ GameObject:
   m_Component:
   - component: {fileID: 788019200}
   - component: {fileID: 788019201}
+  - component: {fileID: 788019203}
+  - component: {fileID: 788019202}
   m_Layer: 0
   m_Name: candle
   m_TagString: Untagged
@@ -10750,9 +11022,37 @@ MonoBehaviour:
   startSprite: {fileID: 149957252}
   heldSprite: {fileID: 521144952}
   placedSprite: {fileID: 521144952}
-  pickupAudioEmitter: {fileID: 0}
-  placedAudioEmitter: {fileID: 0}
+  pickupAudioEmitter: {fileID: 788019203}
+  placedAudioEmitter: {fileID: 788019202}
   isInstantPlacement: 0
+--- !u!114 &788019202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788019199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PlaceToothBox
+  playOnEnable: 0
+--- !u!114 &788019203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788019199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PickupToothBox
+  playOnEnable: 0
 --- !u!1 &815334984
 GameObject:
   m_ObjectHideFlags: 0
@@ -11754,6 +12054,8 @@ GameObject:
   m_Component:
   - component: {fileID: 900097310}
   - component: {fileID: 900097311}
+  - component: {fileID: 900097313}
+  - component: {fileID: 900097312}
   m_Layer: 0
   m_Name: flashlight
   m_TagString: Untagged
@@ -11796,9 +12098,37 @@ MonoBehaviour:
   startSprite: {fileID: 206851226}
   heldSprite: {fileID: 475463673}
   placedSprite: {fileID: 475463673}
-  pickupAudioEmitter: {fileID: 0}
-  placedAudioEmitter: {fileID: 0}
+  pickupAudioEmitter: {fileID: 900097313}
+  placedAudioEmitter: {fileID: 900097312}
   isInstantPlacement: 0
+--- !u!114 &900097312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900097309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PlaceFlashlight
+  playOnEnable: 0
+--- !u!114 &900097313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900097309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PickupFlashlight
+  playOnEnable: 0
 --- !u!1 &907083271
 GameObject:
   m_ObjectHideFlags: 0
@@ -13256,6 +13586,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1055745462}
   - component: {fileID: 1055745463}
+  - component: {fileID: 1055745465}
+  - component: {fileID: 1055745464}
   m_Layer: 11
   m_Name: poster1
   m_TagString: Untagged
@@ -13298,9 +13630,37 @@ MonoBehaviour:
   startSprite: {fileID: 1032033971}
   heldSprite: {fileID: 557174259}
   placedSprite: {fileID: 557174259}
-  pickupAudioEmitter: {fileID: 0}
-  placedAudioEmitter: {fileID: 0}
+  pickupAudioEmitter: {fileID: 1055745465}
+  placedAudioEmitter: {fileID: 1055745464}
   isInstantPlacement: 0
+--- !u!114 &1055745464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055745461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PlacePoster
+  playOnEnable: 0
+--- !u!114 &1055745465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055745461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PickupPoster
+  playOnEnable: 0
 --- !u!1 &1064533624
 GameObject:
   m_ObjectHideFlags: 0
@@ -13860,6 +14220,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1143976938}
   - component: {fileID: 1143976939}
+  - component: {fileID: 1143976941}
+  - component: {fileID: 1143976940}
   m_Layer: 0
   m_Name: poster2
   m_TagString: Untagged
@@ -13902,9 +14264,37 @@ MonoBehaviour:
   startSprite: {fileID: 1713879245}
   heldSprite: {fileID: 1022542791}
   placedSprite: {fileID: 1022542791}
-  pickupAudioEmitter: {fileID: 0}
-  placedAudioEmitter: {fileID: 0}
+  pickupAudioEmitter: {fileID: 1143976941}
+  placedAudioEmitter: {fileID: 1143976940}
   isInstantPlacement: 0
+--- !u!114 &1143976940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143976937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PlacePoster
+  playOnEnable: 0
+--- !u!114 &1143976941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143976937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PickupPoster
+  playOnEnable: 0
 --- !u!1 &1158460449
 GameObject:
   m_ObjectHideFlags: 0
@@ -14938,6 +15328,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1199352265}
   - component: {fileID: 1199352266}
+  - component: {fileID: 1199352268}
+  - component: {fileID: 1199352267}
   m_Layer: 0
   m_Name: book4
   m_TagString: Untagged
@@ -14986,9 +15378,37 @@ MonoBehaviour:
   startSprite: {fileID: 1543458019}
   heldSprite: {fileID: 1141793233}
   placedSprite: {fileID: 1141793233}
-  pickupAudioEmitter: {fileID: 0}
-  placedAudioEmitter: {fileID: 0}
+  pickupAudioEmitter: {fileID: 1199352268}
+  placedAudioEmitter: {fileID: 1199352267}
   isInstantPlacement: 0
+--- !u!114 &1199352267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199352264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PlaceBook
+  playOnEnable: 0
+--- !u!114 &1199352268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199352264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PickupBook
+  playOnEnable: 0
 --- !u!1 &1211331503
 GameObject:
   m_ObjectHideFlags: 0
@@ -17993,6 +18413,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1476001031}
   - component: {fileID: 1476001032}
+  - component: {fileID: 1476001034}
+  - component: {fileID: 1476001033}
   m_Layer: 0
   m_Name: chips
   m_TagString: Untagged
@@ -18035,9 +18457,37 @@ MonoBehaviour:
   startSprite: {fileID: 1509400438}
   heldSprite: {fileID: 873632308}
   placedSprite: {fileID: 873632308}
-  pickupAudioEmitter: {fileID: 0}
-  placedAudioEmitter: {fileID: 0}
+  pickupAudioEmitter: {fileID: 1476001034}
+  placedAudioEmitter: {fileID: 1476001033}
   isInstantPlacement: 0
+--- !u!114 &1476001033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476001030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PlaceChipBag
+  playOnEnable: 0
+--- !u!114 &1476001034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476001030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PickupChipBag
+  playOnEnable: 0
 --- !u!1 &1487781226
 GameObject:
   m_ObjectHideFlags: 0
@@ -20817,6 +21267,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1639041469}
   - component: {fileID: 1639041470}
+  - component: {fileID: 1639041472}
+  - component: {fileID: 1639041471}
   m_Layer: 0
   m_Name: camera
   m_TagString: Untagged
@@ -20859,9 +21311,37 @@ MonoBehaviour:
   startSprite: {fileID: 1424486048}
   heldSprite: {fileID: 726431757}
   placedSprite: {fileID: 726431757}
-  pickupAudioEmitter: {fileID: 0}
-  placedAudioEmitter: {fileID: 0}
+  pickupAudioEmitter: {fileID: 1639041472}
+  placedAudioEmitter: {fileID: 1639041471}
   isInstantPlacement: 0
+--- !u!114 &1639041471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639041468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PlaceCamera
+  playOnEnable: 0
+--- !u!114 &1639041472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639041468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PickupCamera
+  playOnEnable: 0
 --- !u!1 &1640684659
 GameObject:
   m_ObjectHideFlags: 0
@@ -21174,6 +21654,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1671121323}
   - component: {fileID: 1671121324}
+  - component: {fileID: 1671121326}
+  - component: {fileID: 1671121325}
   m_Layer: 0
   m_Name: meds
   m_TagString: Untagged
@@ -21216,9 +21698,37 @@ MonoBehaviour:
   startSprite: {fileID: 550311679}
   heldSprite: {fileID: 907083271}
   placedSprite: {fileID: 907083271}
-  pickupAudioEmitter: {fileID: 0}
-  placedAudioEmitter: {fileID: 0}
+  pickupAudioEmitter: {fileID: 1671121326}
+  placedAudioEmitter: {fileID: 1671121325}
   isInstantPlacement: 0
+--- !u!114 &1671121325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671121322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PlacePillBottle
+  playOnEnable: 0
+--- !u!114 &1671121326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671121322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PickupPillBottle
+  playOnEnable: 0
 --- !u!1 &1702711317
 GameObject:
   m_ObjectHideFlags: 0
@@ -24986,6 +25496,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2042550183}
   - component: {fileID: 2042550184}
+  - component: {fileID: 2042550186}
+  - component: {fileID: 2042550185}
   m_Layer: 0
   m_Name: book6
   m_TagString: Untagged
@@ -25034,9 +25546,37 @@ MonoBehaviour:
   startSprite: {fileID: 773903535}
   heldSprite: {fileID: 859164917}
   placedSprite: {fileID: 859164917}
-  pickupAudioEmitter: {fileID: 0}
-  placedAudioEmitter: {fileID: 0}
+  pickupAudioEmitter: {fileID: 2042550186}
+  placedAudioEmitter: {fileID: 2042550185}
   isInstantPlacement: 0
+--- !u!114 &2042550185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042550182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PlaceBook
+  playOnEnable: 0
+--- !u!114 &2042550186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042550182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PickupBook
+  playOnEnable: 0
 --- !u!1 &2063616144
 GameObject:
   m_ObjectHideFlags: 0
@@ -25708,6 +26248,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2118768733}
   - component: {fileID: 2118768734}
+  - component: {fileID: 2118768736}
+  - component: {fileID: 2118768735}
   m_Layer: 0
   m_Name: porn
   m_TagString: Untagged
@@ -25750,9 +26292,37 @@ MonoBehaviour:
   startSprite: {fileID: 2018120604}
   heldSprite: {fileID: 224863496}
   placedSprite: {fileID: 224863496}
-  pickupAudioEmitter: {fileID: 0}
-  placedAudioEmitter: {fileID: 0}
+  pickupAudioEmitter: {fileID: 2118768736}
+  placedAudioEmitter: {fileID: 2118768735}
   isInstantPlacement: 0
+--- !u!114 &2118768735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118768732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PlaceMagazine
+  playOnEnable: 0
+--- !u!114 &2118768736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118768732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PickupMagazine
+  playOnEnable: 0
 --- !u!1 &2144471570
 GameObject:
   m_ObjectHideFlags: 0
