@@ -35,6 +35,7 @@ namespace Player
         [SerializeField] private Collider2D frame2Collider;
         [SerializeField] private Transform letterLocation;
         [SerializeField] private Animator ricePotAnimator;
+        [SerializeField] private Animator windowAnimator;
 
         [Header("Sprite Settings")]
         [SerializeField] private SizeSettings frame1Size;
@@ -51,6 +52,7 @@ namespace Player
         [SerializeField] private Collider2D frame6toframe4Trigger;
         [SerializeField] private Collider2D letterTrigger;
         [SerializeField] private Collider2D ricePotTrigger;
+        [SerializeField] private Collider2D windowTrigger;
 
         // State Machine Variables
         private int _interactionCount = 0;
@@ -69,9 +71,9 @@ namespace Player
         private bool _isHeldaReadyForSeq2 = false;
         private bool _isPlayerAtSeq2 = false;
         private bool _seq2Done = false;
-        
-        // RicePot
+
         private bool _atRicePot;
+        private bool _atWindow;
 
         protected override void Start()
         {
@@ -82,6 +84,7 @@ namespace Player
         {
             if (!context.performed) return;
             if(_atRicePot) ricePotAnimator.SetTrigger("Play");
+            if(_atWindow) windowAnimator.SetTrigger("Play");
         }
 
         protected override void HandleMovement()
@@ -289,6 +292,7 @@ namespace Player
         {
             base.OnTriggerEnter2D(other);
             if (other == ricePotTrigger) _atRicePot = true;
+            if (other == windowTrigger) _atWindow = true;
 
             if (other == frame2Collider)
             {
@@ -324,6 +328,7 @@ namespace Player
             }
             
             if (other == ricePotTrigger) _atRicePot = false;
+            if (other == windowTrigger) _atWindow = false;
         }
     }
 }
