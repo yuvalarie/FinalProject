@@ -513,6 +513,22 @@ MonoBehaviour:
           Data4: -1661057562
         Path: event:/Page6/ThoughtBubble
     ambianceEvents: []
+  - sceneName: MiniGame1_5
+    musicEvents: []
+    sfxEvents: []
+    ambianceEvents: []
+  - sceneName: MiniGame2
+    musicEvents: []
+    sfxEvents:
+    - name: Hell Portal No Music
+      eventReference:
+        Guid:
+          Data1: 331067839
+          Data2: 1108384871
+          Data3: 1762091933
+          Data4: 1404263902
+        Path: event:/MiniGame2/HellPortalWithoutMusic
+    ambianceEvents: []
   - sceneName: MiniGame3
     musicEvents: []
     sfxEvents:

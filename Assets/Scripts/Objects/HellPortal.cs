@@ -24,7 +24,8 @@ namespace Objects
             if (_inFlightCount == 1)
             {
                 // Only play the sound when the first friend is sucked in, to avoid overlapping sounds.
-                audioEmitter.StartAudio(("Indicator", 0f)); // so it won't jump to the end of the sound
+                audioEmitter.ResumeAudio();
+                // audioEmitter.StartAudio(("Indicator", 0f)); // 0 == start, which will fade out the music
             }
             friend.GetThrown(transform.position, OnFriendArrived);
         }
@@ -45,7 +46,8 @@ namespace Objects
         {
             // This method can be called after the animation finishes to hide the portal.
             // You can use an animation event at the end of the animation to call this method.
-            audioEmitter.SetParameter("Indicator", 1f); // 1 == end, which will fade in the music
+            // audioEmitter.SetParameter("Indicator", 1f); // 1 == end, which will fade in the music
+            audioEmitter.StopAudio(); // 1 == end, which will fade in the music
             gameObject.SetActive(false);
             // we might want to set a dispersing animation here instead of just hiding it, but for now this is fine.
         }
