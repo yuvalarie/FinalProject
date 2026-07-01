@@ -75,6 +75,7 @@ namespace Player.Pages
 
         private bool atBackCollider;
         private bool atFrontCollider;
+        private bool isDoor1Open = false;
         private bool isDoor2Open = false;
         private bool isDoor4Open = false;
         private bool atDoor3;
@@ -240,7 +241,11 @@ namespace Player.Pages
             {
                 transform.position = frame2BackEnterPos.position;
                 SpriteRenderer.sortingOrder = backSortingOrder;
-                door1.SetTrigger("Open");
+                if(!isDoor1Open)
+                {
+                    door1.SetTrigger("Open");
+                    isDoor1Open = true;
+                }
                 door1SpriteRenderer.sortingOrder = backSortingOrder - 1;
                 var col = door1.GetComponent<Collider2D>();
                 col.enabled = false;
