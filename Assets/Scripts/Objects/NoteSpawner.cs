@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Player.MiniGames;
+using UnityEditor.Analytics;
 using UnityEngine;
 
 namespace Objects
@@ -17,6 +19,8 @@ namespace Objects
 
     public class NoteSpawner : MonoBehaviour
     {
+        [SerializeField] PlayerControllerMiniGame5 playerController;
+        
         [Header("Spawn Settings")]
         [SerializeField] private FallingNote notePrefab;
         [SerializeField, Tooltip("Exact point where ALL notes spawn from.")] 
@@ -89,7 +93,21 @@ namespace Objects
                     currentLevelIndex++;
                     Debug.Log("Level Up! Now on level: " + currentLevelIndex);
                 }
+                else
+                {
+                    EndGame();
+                    yield break;
+                }
             }
+        }
+
+        private void EndGame()
+        {
+            _isSpawning = false; 
+    
+            Debug.Log("Game Over! All levels completed.");
+            
+           StartCoroutine(playerController.GameEnded());
         }
 
         // Draws a helpful red cone in the Scene view so you can see where notes will fly!
