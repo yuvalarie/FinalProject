@@ -8,6 +8,7 @@ namespace Audio
     public static class AudioEventNames
     {
         // SFX Events
+        // opening
         public const string LettersInTubes = "Letters In Tubes short";
         public const string LettersPoppingOutOfTube = "Letters Popping Out Of Tube";
         public const string LetterHittingTray = "Letter Hitting Tray";
@@ -62,6 +63,9 @@ namespace Audio
         public const string PlaceFlashlight = "Place Flashlight";
         public const string PickupSnowGlobe = "Pickup Snow Globe";
         public const string PlaceSnowGlobe = "Place Snow Globe";
+        
+        //minigame 2
+        public const string HellPortalNoMusic = "Hell Portal No Music";
         
         
         //minigame 3

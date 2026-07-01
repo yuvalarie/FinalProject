@@ -30,7 +30,7 @@ namespace Player
         
         [Header("Sequence Settings")]
         [SerializeField] private GameObject hellDoor;
-        [SerializeField] private AudioEmitterBase hellDoorAudioEmitter;
+        [SerializeField] private HellPortalAudioEmitter hellDoorAudioEmitter;
         [SerializeField] private Animator letterAnimator1;
         [SerializeField] private Animator letterAnimator2;
         [SerializeField] private GameObject letterObject;
@@ -102,7 +102,7 @@ namespace Player
             textBubble4.SetActive(false); textBubble5.SetActive(false); textBubble6.SetActive(false);
             start.SetActive(false); sprite1.SetActive(false); sprite2.SetActive(false);
             sprite3.SetActive(false); sprite4.SetActive(false); sprite5.SetActive(false); sprite6.SetActive(false);
-            hellDoor.SetActive(false); hellDoorAudioEmitter.StopAudio();
+            hellDoor.SetActive(false); hellDoorAudioEmitter.StopHellAudio();
             letterObject.SetActive(false); endTriggerObject.SetActive(false);
             openLetter1.SetActive(false); openLetter2.SetActive(false);
             smallLetterObject.SetActive(false);
@@ -128,7 +128,7 @@ namespace Player
                 case 3:
                     sprite3.SetActive(true);
                     hellDoor.SetActive(true);
-                    hellDoorAudioEmitter.StartAudio();
+                    hellDoorAudioEmitter.PlayHellAudio();
                     textBubble3.SetActive(true);
                     break;
                 

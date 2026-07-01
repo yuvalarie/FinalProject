@@ -139,6 +139,7 @@
           private IEnumerator MoveRoutine(Vector3 target)
           {
               Vector3 startPosition = transform.position;
+              friendSpriteRenderer.flipX = startPosition.x < target.x;
               float elapsed = 0f;
 
               while (elapsed < movementDuration)
