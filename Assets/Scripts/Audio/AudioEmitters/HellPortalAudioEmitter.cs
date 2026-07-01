@@ -6,5 +6,16 @@ namespace Audio.AudioEmitters
         {
             AudioEventName = AudioEventNames.HellPortal;
         }
+
+        public void PlayHellAudio()
+        {
+            StartAudio(("Indicator", 0f));
+        }
+        
+        public void StopHellAudio()
+        {
+            SetParameter("Indicator", 1f);
+            AudioInstance.release();
+        }
     }
 }

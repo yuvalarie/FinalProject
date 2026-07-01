@@ -321,6 +321,186 @@ MonoBehaviour:
           Data4: 1138323655
         Path: event:/Page4/WalkingDownThe Stairs
     ambianceEvents: []
+  - sceneName: MiniGame1
+    musicEvents: []
+    sfxEvents:
+    - name: Pickup Magazine
+      eventReference:
+        Guid:
+          Data1: -2142142187
+          Data2: 1222436562
+          Data3: -1877524050
+          Data4: -1619107717
+        Path: event:/MiniGame1/PickupMagazine
+    - name: Place Magazine
+      eventReference:
+        Guid:
+          Data1: 593408055
+          Data2: 1107747963
+          Data3: 1686566055
+          Data4: 902792413
+        Path: event:/MiniGame1/PlaceMagazine
+    - name: Pickup Pill Bottle
+      eventReference:
+        Guid:
+          Data1: 104807606
+          Data2: 1247321365
+          Data3: -1742650472
+          Data4: 1909271961
+        Path: event:/MiniGame1/PickupPillBottle
+    - name: Place Pill Bottle
+      eventReference:
+        Guid:
+          Data1: 1666456876
+          Data2: 1076524681
+          Data3: -660188244
+          Data4: -233090036
+        Path: event:/MiniGame1/PlacePillBottle
+    - name: Pickup Poster
+      eventReference:
+        Guid:
+          Data1: -2081598686
+          Data2: 1102662314
+          Data3: -608093052
+          Data4: 1653039659
+        Path: event:/MiniGame1/PickupPoster
+    - name: Place Poster
+      eventReference:
+        Guid:
+          Data1: -1414216627
+          Data2: 1201356405
+          Data3: -834090078
+          Data4: -117811774
+        Path: event:/MiniGame1/PlacePoster
+    - name: Pickup Tooth Box
+      eventReference:
+        Guid:
+          Data1: -1623214081
+          Data2: 1312678604
+          Data3: -1417988444
+          Data4: 1383016100
+        Path: event:/MiniGame1/PickupToothBox
+    - name: Place Tooth Box
+      eventReference:
+        Guid:
+          Data1: -1343996024
+          Data2: 1273989426
+          Data3: -377682507
+          Data4: 44320824
+        Path: event:/MiniGame1/PlaceToothBox
+    - name: Pickup Book
+      eventReference:
+        Guid:
+          Data1: 1439209593
+          Data2: 1247477919
+          Data3: -1925822575
+          Data4: 907544011
+        Path: event:/MiniGame1/PickupBook
+    - name: Place Book
+      eventReference:
+        Guid:
+          Data1: 176234276
+          Data2: 1187242491
+          Data3: 210159793
+          Data4: 1751573691
+        Path: event:/MiniGame1/PlaceBook
+    - name: Pickup Chip Bag
+      eventReference:
+        Guid:
+          Data1: -1368235199
+          Data2: 1292077974
+          Data3: 205249710
+          Data4: -1738979398
+        Path: event:/MiniGame1/PickupChipBag
+    - name: Place Chip Bag
+      eventReference:
+        Guid:
+          Data1: -821466187
+          Data2: 1338571664
+          Data3: 1414937225
+          Data4: -853605212
+        Path: event:/MiniGame1/PlaceChipBag
+    - name: Pickup Camera
+      eventReference:
+        Guid:
+          Data1: 1596101730
+          Data2: 1285156720
+          Data3: -407830603
+          Data4: 17927942
+        Path: event:/MiniGame1/PickupCamera
+    - name: Place Camera
+      eventReference:
+        Guid:
+          Data1: 1063283247
+          Data2: 1334686342
+          Data3: -1856085578
+          Data4: -1238041981
+        Path: event:/MiniGame1/PlaceCamera
+    - name: Pickup Action Figure
+      eventReference:
+        Guid:
+          Data1: 1730964821
+          Data2: 1158510536
+          Data3: 326963362
+          Data4: 1250079949
+        Path: event:/MiniGame1/PickupActionFigure
+    - name: Place Action Figure
+      eventReference:
+        Guid:
+          Data1: -832840641
+          Data2: 1323279701
+          Data3: -1591122522
+          Data4: 1671067191
+        Path: event:/MiniGame1/PlaceActionFigure
+    - name: Pickup Doll
+      eventReference:
+        Guid:
+          Data1: 666251507
+          Data2: 1204589184
+          Data3: 301271175
+          Data4: -1789088317
+        Path: event:/MiniGame1/PickupDoll
+    - name: Place Doll
+      eventReference:
+        Guid:
+          Data1: 1996765561
+          Data2: 1212152984
+          Data3: -359104361
+          Data4: 1321363871
+        Path: event:/MiniGame1/PlaceDoll
+    - name: Pickup Flashlight
+      eventReference:
+        Guid:
+          Data1: 873605091
+          Data2: 1303469111
+          Data3: 1574026409
+          Data4: 251421045
+        Path: event:/MiniGame1/PickupFlashlight
+    - name: Place Flashlight
+      eventReference:
+        Guid:
+          Data1: -1684669753
+          Data2: 1119498738
+          Data3: 2097804981
+          Data4: -571889784
+        Path: event:/MiniGame1/PlaceFlashlight
+    - name: Pickup Snow Globe
+      eventReference:
+        Guid:
+          Data1: 1347943620
+          Data2: 1206077239
+          Data3: 169976484
+          Data4: -254000496
+        Path: event:/MiniGame1/PickupSnowGlobe
+    - name: Place Snow Globe
+      eventReference:
+        Guid:
+          Data1: -527150113
+          Data2: 1193002474
+          Data3: 142735764
+          Data4: 1227554653
+        Path: event:/MiniGame1/PlaceSnowGlobe
+    ambianceEvents: []
   - sceneName: Page 6
     musicEvents: []
     sfxEvents:
@@ -332,6 +512,22 @@ MonoBehaviour:
           Data3: -1520273758
           Data4: -1661057562
         Path: event:/Page6/ThoughtBubble
+    ambianceEvents: []
+  - sceneName: MiniGame1_5
+    musicEvents: []
+    sfxEvents: []
+    ambianceEvents: []
+  - sceneName: MiniGame2
+    musicEvents: []
+    sfxEvents:
+    - name: Hell Portal No Music
+      eventReference:
+        Guid:
+          Data1: 331067839
+          Data2: 1108384871
+          Data3: 1762091933
+          Data4: 1404263902
+        Path: event:/MiniGame2/HellPortalWithoutMusic
     ambianceEvents: []
   - sceneName: MiniGame3
     musicEvents: []
