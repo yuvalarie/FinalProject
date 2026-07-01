@@ -1113,6 +1113,8 @@ MonoBehaviour:
   startSprite: {fileID: 1183601617}
   heldSprite: {fileID: 1298897444}
   placedSprite: {fileID: 1298897444}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &75013064
 GameObject:
@@ -1149,6 +1151,8 @@ MonoBehaviour:
   startSprite: {fileID: 1225813364}
   heldSprite: {fileID: 1225813364}
   placedSprite: {fileID: 89904517}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 1
 --- !u!4 &75013066
 Transform:
@@ -1593,6 +1597,8 @@ MonoBehaviour:
   startSprite: {fileID: 158307806}
   heldSprite: {fileID: 2016007241}
   placedSprite: {fileID: 2016007241}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 1
 --- !u!4 &106973609
 Transform:
@@ -3308,6 +3314,8 @@ MonoBehaviour:
   startSprite: {fileID: 1487781226}
   heldSprite: {fileID: 2078064834}
   placedSprite: {fileID: 2078064834}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &273442072
 GameObject:
@@ -4601,6 +4609,8 @@ MonoBehaviour:
   startSprite: {fileID: 1509269832}
   heldSprite: {fileID: 887930448}
   placedSprite: {fileID: 887930448}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &344511342
 GameObject:
@@ -4654,6 +4664,8 @@ MonoBehaviour:
   startSprite: {fileID: 2016121930}
   heldSprite: {fileID: 842495470}
   placedSprite: {fileID: 842495470}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &347663198
 GameObject:
@@ -5083,6 +5095,8 @@ MonoBehaviour:
   startSprite: {fileID: 2144471570}
   heldSprite: {fileID: 206240837}
   placedSprite: {fileID: 206240837}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &357755054
 GameObject:
@@ -5435,6 +5449,8 @@ MonoBehaviour:
   startSprite: {fileID: 216498586}
   heldSprite: {fileID: 1503769565}
   placedSprite: {fileID: 1503769565}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &427196287
 GameObject:
@@ -5658,6 +5674,8 @@ MonoBehaviour:
   startSprite: {fileID: 551359129}
   heldSprite: {fileID: 320239509}
   placedSprite: {fileID: 320239509}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!4 &433958203
 Transform:
@@ -5728,6 +5746,8 @@ MonoBehaviour:
   startSprite: {fileID: 304189905}
   heldSprite: {fileID: 1640684659}
   placedSprite: {fileID: 1640684659}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &474752058
 GameObject:
@@ -5961,6 +5981,8 @@ MonoBehaviour:
   startSprite: {fileID: 593848409}
   heldSprite: {fileID: 1211331503}
   placedSprite: {fileID: 1211331503}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &488724071
 GameObject:
@@ -6154,7 +6176,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 14
-  m_Sprite: {fileID: 21300000, guid: 935a647661f6e49179d258584465b3d6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 835469aa4629e458284b85ac96a1dc32, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6307,6 +6329,8 @@ MonoBehaviour:
   startSprite: {fileID: 578365907}
   heldSprite: {fileID: 1287828110}
   placedSprite: {fileID: 1287828110}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &529467780
 GameObject:
@@ -8364,6 +8388,8 @@ MonoBehaviour:
   startSprite: {fileID: 2027904296}
   heldSprite: {fileID: 1090794831}
   placedSprite: {fileID: 1090794831}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &630867430
 GameObject:
@@ -8507,6 +8533,8 @@ MonoBehaviour:
   startSprite: {fileID: 334957869}
   heldSprite: {fileID: 1171470077}
   placedSprite: {fileID: 1171470077}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1001 &640171407
 PrefabInstance:
@@ -9913,6 +9941,8 @@ MonoBehaviour:
   startSprite: {fileID: 1629474600}
   heldSprite: {fileID: 368001908}
   placedSprite: {fileID: 368001908}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &709182661
 GameObject:
@@ -10087,6 +10117,8 @@ MonoBehaviour:
   startSprite: {fileID: 923543065}
   heldSprite: {fileID: 105667013}
   placedSprite: {fileID: 105667013}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &755708800
 GameObject:
@@ -10177,6 +10209,7 @@ MonoBehaviour:
   endColliders: {fileID: 1300406220}
   sideColliders: {fileID: 927451839}
   enterAnimationDuration: 1.5
+  misplacedAudioEmitter: {fileID: 0}
 --- !u!50 &755708804
 Rigidbody2D:
   serializedVersion: 5
@@ -10350,6 +10383,8 @@ MonoBehaviour:
   startSprite: {fileID: 815334984}
   heldSprite: {fileID: 1702711317}
   placedSprite: {fileID: 1702711317}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &773903535
 GameObject:
@@ -10715,6 +10750,8 @@ MonoBehaviour:
   startSprite: {fileID: 149957252}
   heldSprite: {fileID: 521144952}
   placedSprite: {fileID: 521144952}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &815334984
 GameObject:
@@ -11759,6 +11796,8 @@ MonoBehaviour:
   startSprite: {fileID: 206851226}
   heldSprite: {fileID: 475463673}
   placedSprite: {fileID: 475463673}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &907083271
 GameObject:
@@ -12673,6 +12712,8 @@ MonoBehaviour:
   startSprite: {fileID: 857231138}
   heldSprite: {fileID: 2041306531}
   placedSprite: {fileID: 2041306531}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &969275033
 GameObject:
@@ -13257,6 +13298,8 @@ MonoBehaviour:
   startSprite: {fileID: 1032033971}
   heldSprite: {fileID: 557174259}
   placedSprite: {fileID: 557174259}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &1064533624
 GameObject:
@@ -13804,6 +13847,8 @@ MonoBehaviour:
   startSprite: {fileID: 1559581129}
   heldSprite: {fileID: 96711757}
   placedSprite: {fileID: 96711757}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &1143976937
 GameObject:
@@ -13857,6 +13902,8 @@ MonoBehaviour:
   startSprite: {fileID: 1713879245}
   heldSprite: {fileID: 1022542791}
   placedSprite: {fileID: 1022542791}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &1158460449
 GameObject:
@@ -14939,6 +14986,8 @@ MonoBehaviour:
   startSprite: {fileID: 1543458019}
   heldSprite: {fileID: 1141793233}
   placedSprite: {fileID: 1141793233}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &1211331503
 GameObject:
@@ -16863,6 +16912,8 @@ MonoBehaviour:
   startSprite: {fileID: 928816597}
   heldSprite: {fileID: 1418697900}
   placedSprite: {fileID: 1418697900}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &1380261600
 GameObject:
@@ -16916,6 +16967,8 @@ MonoBehaviour:
   startSprite: {fileID: 598521240}
   heldSprite: {fileID: 969275033}
   placedSprite: {fileID: 969275033}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &1403756602
 GameObject:
@@ -17982,6 +18035,8 @@ MonoBehaviour:
   startSprite: {fileID: 1509400438}
   heldSprite: {fileID: 873632308}
   placedSprite: {fileID: 873632308}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &1487781226
 GameObject:
@@ -20804,6 +20859,8 @@ MonoBehaviour:
   startSprite: {fileID: 1424486048}
   heldSprite: {fileID: 726431757}
   placedSprite: {fileID: 726431757}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &1640684659
 GameObject:
@@ -21159,6 +21216,8 @@ MonoBehaviour:
   startSprite: {fileID: 550311679}
   heldSprite: {fileID: 907083271}
   placedSprite: {fileID: 907083271}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &1702711317
 GameObject:
@@ -22158,6 +22217,8 @@ MonoBehaviour:
   startSprite: {fileID: 685933594}
   heldSprite: {fileID: 329578910}
   placedSprite: {fileID: 329578910}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &1838090413
 GameObject:
@@ -24973,6 +25034,8 @@ MonoBehaviour:
   startSprite: {fileID: 773903535}
   heldSprite: {fileID: 859164917}
   placedSprite: {fileID: 859164917}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &2063616144
 GameObject:
@@ -25229,6 +25292,8 @@ MonoBehaviour:
   startSprite: {fileID: 691902000}
   heldSprite: {fileID: 474752058}
   placedSprite: {fileID: 474752058}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &2078064834
 GameObject:
@@ -25685,6 +25750,8 @@ MonoBehaviour:
   startSprite: {fileID: 2018120604}
   heldSprite: {fileID: 224863496}
   placedSprite: {fileID: 224863496}
+  pickupAudioEmitter: {fileID: 0}
+  placedAudioEmitter: {fileID: 0}
   isInstantPlacement: 0
 --- !u!1 &2144471570
 GameObject:

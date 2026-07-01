@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DaveRaisingArmAnimation
+  m_Name: DaveArmRaisedAnimation
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,27 +21,15 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: 8eee869e80ff84c65a90bee8bd4b79d4, type: 3}
-    - time: 0.083333336
-      value: {fileID: 21300000, guid: 009544d5dc53e4cb2a4d394e0b8427b4, type: 3}
-    - time: 0.16666667
-      value: {fileID: 21300000, guid: e7fee825a5f0e4705b8439a7d70af2d1, type: 3}
-    - time: 0.25
-      value: {fileID: 21300000, guid: 65eadf52d245040b6a03079bf928b26c, type: 3}
-    - time: 0.33333334
-      value: {fileID: 21300000, guid: d17dea8aa9af14178aebc5359142dbcd, type: 3}
-    - time: 0.41666666
-      value: {fileID: 21300000, guid: 7bd1469d03eed4ea8b152bd2bd823efc, type: 3}
-    - time: 0.5
       value: {fileID: 21300000, guid: 70a186db8b7024e25aedb571dd3d0860, type: 3}
-    - time: 0.5833333
+    - time: 0.2
       value: {fileID: 21300000, guid: 835469aa4629e458284b85ac96a1dc32, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 12
+  m_SampleRate: 10
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -58,12 +46,6 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 8eee869e80ff84c65a90bee8bd4b79d4, type: 3}
-    - {fileID: 21300000, guid: 009544d5dc53e4cb2a4d394e0b8427b4, type: 3}
-    - {fileID: 21300000, guid: e7fee825a5f0e4705b8439a7d70af2d1, type: 3}
-    - {fileID: 21300000, guid: 65eadf52d245040b6a03079bf928b26c, type: 3}
-    - {fileID: 21300000, guid: d17dea8aa9af14178aebc5359142dbcd, type: 3}
-    - {fileID: 21300000, guid: 7bd1469d03eed4ea8b152bd2bd823efc, type: 3}
     - {fileID: 21300000, guid: 70a186db8b7024e25aedb571dd3d0860, type: 3}
     - {fileID: 21300000, guid: 835469aa4629e458284b85ac96a1dc32, type: 3}
   m_AnimationClipSettings:
@@ -71,7 +53,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.6666666
+    m_StopTime: 0.3
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
