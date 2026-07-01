@@ -2194,7 +2194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player.MiniGames.PlayerControllerMiniGame5
   artSettings: {fileID: 0}
   speed: 7
-  nextSceneName: 
+  nextSceneName: Page 15
   initialSize: 4
   graphicsRoot: {fileID: 0}
   smallCollider: {fileID: 0}
