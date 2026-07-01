@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Audio.AudioEmitters;
 using Objects;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -35,7 +36,9 @@ namespace Player
         [SerializeField] private Collider2D frame2Collider;
         [SerializeField] private Transform letterLocation;
         [SerializeField] private Animator ricePotAnimator;
+        [SerializeField] private AudioEmitterBase ricePotAudioEmitter;
         [SerializeField] private Animator windowAnimator;
+        [SerializeField] private AudioEmitterBase windowAudioEmitter;
 
         [Header("Sprite Settings")]
         [SerializeField] private SizeSettings frame1Size;
@@ -83,8 +86,16 @@ namespace Player
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
             if (!context.performed) return;
-            if(_atRicePot) ricePotAnimator.SetTrigger("Play");
-            if(_atWindow) windowAnimator.SetTrigger("Play");
+            if(_atRicePot)
+            {
+                ricePotAnimator.SetTrigger("Play");
+                ricePotAudioEmitter?.PlayAudioOnce();
+            }
+            if(_atWindow)
+            {
+                windowAnimator.SetTrigger("Play");
+                windowAudioEmitter?.PlayAudioOnce();
+            }
         }
 
         protected override void HandleMovement()
