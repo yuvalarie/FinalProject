@@ -2641,6 +2641,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1433364554171140419, guid: 2c82b5637459261408b6ec4e11de4702, type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6472086462334387705, guid: 2c82b5637459261408b6ec4e11de4702, type: 3}
       propertyPath: heldaBodyRenderer
       value: 

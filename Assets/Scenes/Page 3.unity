@@ -2770,7 +2770,7 @@ MonoBehaviour:
   sprite5: {fileID: 1554227799}
   sprite6: {fileID: 117392868}
   hellDoor: {fileID: 2035115535}
-  hellDoorAudioEmitter: {fileID: 2035115539}
+  hellDoorAudioEmitter: {fileID: 2035115540}
   letterAnimator1: {fileID: 1856725120}
   letterAnimator2: {fileID: 1552387258}
   letterObject: {fileID: 1552387255}
@@ -3952,6 +3952,7 @@ GameObject:
   - component: {fileID: 2035115537}
   - component: {fileID: 2035115536}
   - component: {fileID: 2035115539}
+  - component: {fileID: 2035115540}
   m_Layer: 0
   m_Name: hellportal0001
   m_TagString: Untagged
@@ -4061,13 +4062,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2035115535}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: HellPortal
   playOnEnable: 0
+--- !u!114 &2035115540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035115535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d0c93b5a470f7c4bb9c2179ed81f69f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.HellPortalAudioEmitter
 --- !u!1 &2103865343
 GameObject:
   m_ObjectHideFlags: 0

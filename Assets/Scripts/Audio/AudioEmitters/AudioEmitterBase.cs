@@ -80,7 +80,7 @@ namespace Audio.AudioEmitters
             }
         }
 
-        public void InitializeAudioInstance()
+        private void InitializeAudioInstance()
         {
             var eventReference = FMODEvents.Instance.GetEventReferenceByName(AudioEventName);
             AudioInstance = AudioManager.Instance.CreateInstance(eventReference);
