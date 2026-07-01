@@ -1167,7 +1167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerMiniGame3
   artSettings: {fileID: 0}
-  speed: 3
+  speed: 6
   nextSceneName: Page 11
   initialSize: 4
   graphicsRoot: {fileID: 0}
