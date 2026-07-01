@@ -39,6 +39,31 @@ namespace Audio
         public const string WearingSlippers = "Wearing Slippers";
         public const string SlippersOnWood = "Slippers On Wood";
         
+        //minigame 1
+        public const string PickupMagazine = "Pickup Magazine";
+        public const string PlaceMagazine = "Place Magazine";
+        public const string PickupPillBottle = "Pickup Pill Bottle";
+        public const string PlacePillBottle = "Place Pill Bottle";
+        public const string PickupPoster = "Pickup Poster";
+        public const string PlacePoster = "Place Poster";
+        public const string PickupToothBox = "Pickup Tooth Box";
+        public const string PlaceToothBox = "Place Tooth Box";
+        public const string PickupBook = "Pickup Book";
+        public const string PlaceBook = "Place Book";
+        public const string PickupChipBag = "Pickup Chip Bag";
+        public const string PlaceChipBag = "Place Chip Bag";
+        public const string PickupCamera = "Pickup Camera";
+        public const string PlaceCamera = "Place Camera";
+        public const string PickupActionFigure = "Pickup Action Figure";
+        public const string PlaceActionFigure = "Place Action Figure";
+        public const string PickupDoll = "Pickup Doll";
+        public const string PlaceDoll = "Place Doll";
+        public const string PickupFlashlight = "Pickup Flashlight";
+        public const string PlaceFlashlight = "Place Flashlight";
+        public const string PickupSnowGlobe = "Pickup Snow Globe";
+        public const string PlaceSnowGlobe = "Place Snow Globe";
+        
+        
         //minigame 3
         public const string Tool1Preview = "Tool 1 Preview";
         public const string Tool2Preview = "Tool 2 Preview";
