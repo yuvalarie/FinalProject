@@ -15,7 +15,7 @@ namespace Audio.AudioEmitters
         public void StopHellAudio()
         {
             SetParameter("Indicator", 1f);
-            AudioInstance.release();
+            // AudioInstance.release();
         }
     }
 }
