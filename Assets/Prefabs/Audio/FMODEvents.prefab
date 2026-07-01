@@ -321,6 +321,10 @@ MonoBehaviour:
           Data4: 1138323655
         Path: event:/Page4/WalkingDownThe Stairs
     ambianceEvents: []
+  - sceneName: MiniGame1
+    musicEvents: []
+    sfxEvents: []
+    ambianceEvents: []
   - sceneName: Page 6
     musicEvents: []
     sfxEvents:
