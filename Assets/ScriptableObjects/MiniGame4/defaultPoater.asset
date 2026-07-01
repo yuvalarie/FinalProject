@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e309fb40a292764695367805817d445, type: 3}
   m_Name: defaultPoater
   m_EditorClassIdentifier: Assembly-CSharp::Objects.Poster.PosterData
-  originalPosterSize: {x: 1, y: 1}
+  originalPosterSize: {x: 27.28704, y: 35.02778}
   placedStickers:
   - localPos: {x: -0.7492161, y: 1.4664861, z: -0.0037538998}
     localRot: {x: 0, y: 0, z: 0, w: 1}
