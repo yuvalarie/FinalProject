@@ -12,6 +12,7 @@
           [SerializeField] private SpriteRenderer friendSpriteRenderer;
           [SerializeField] private SpriteRenderer speechBubbleSpriteRenderer;
           [SerializeField] private GameObject speechBubble;
+          [SerializeField] private GameObject poof;
 
           [Header("Speech Bubble")]
           [Tooltip("Extra vertical gap between the top of the roaming sprite and the speech bubble.")]
@@ -32,6 +33,7 @@
           private Bounds _areaBounds;
           private string _thrownSortingLayer;
           private int _thrownSortingOrder;
+          private float _poofDuration = 0.5f;
 
           // TODO: add a flip to the X of the sprite when we walk to the right, as all the friends are looking to the left by default.
           // private void Start()
@@ -51,7 +53,7 @@
               friendSpriteRenderer.sortingLayerName = roamingLayer;
               friendSpriteRenderer.sortingOrder = roamingOrder;
               speechBubbleSpriteRenderer.sortingLayerName = roamingLayer;
-              speechBubbleSpriteRenderer.sortingOrder = roamingOrder + 1;
+              speechBubbleSpriteRenderer.sortingOrder = roamingOrder + 2;
               _thrownSortingLayer = thrownLayer;
               _thrownSortingOrder = thrownOrder;
           }
@@ -103,6 +105,9 @@
 
           private IEnumerator SpeechBubbleThenRoamRoutine(Bounds areaBounds, float duration)
           {
+              poof.SetActive(true);
+              yield return new WaitForSeconds(_poofDuration);
+              poof.SetActive(false);
               ShowSpeechBubble();
               yield return new WaitForSeconds(duration);
               HideSpeechBubble();

@@ -133,28 +133,35 @@ namespace Npc
 
         public void TryAdvanceFinishedReaction()
         {
-            if (_finishedReactionCooldown != null) return;
+            // if (_finishedReactionCooldown != null) return;
+            if (_finishedReactionCooldown != null || _finishedAllReactions) return;
             if (_currentFinishedReactionIndex >= finishedReactionObjects.Count)
             {
-                if (_finishedAllReactions)
+                // if (_finishedAllReactions)
+                // {
+                //     _resumeAction?.Invoke();
+                // }
+                // else
+                // {
+                _finishedAllReactions = true;
+                if (!_friendsHaveLeft)
                 {
-                    _resumeAction?.Invoke();
+                    _friendsHaveLeft = true;
+                    _friendsLeaveAction?.Invoke();
                 }
-                else
-                {
-                    _finishedAllReactions = true;
-                    if (!_friendsHaveLeft)
-                    {
-                        _friendsHaveLeft = true;
-                        _friendsLeaveAction?.Invoke();
-                    }
-                    _finishedAllReactionsAction?.Invoke();
-                }
+                _finishedAllReactionsAction?.Invoke();
+                // }
             }
             else
             {
                 _finishedReactionCooldown = StartCoroutine(AdvanceFinishedReactionRoutine());
             }
+        }
+
+        public void HideCurrentFinishedReaction()
+        {
+            if (_currentFinishedReactionIndex > 0)
+                finishedReactionObjects[_currentFinishedReactionIndex - 1].SetActive(false);
         }
 
         public void TryGoBackFinishedReaction()

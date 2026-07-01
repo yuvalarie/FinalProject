@@ -512,6 +512,14 @@ MonoBehaviour:
           Data3: -1520273758
           Data4: -1661057562
         Path: event:/Page6/ThoughtBubble
+    - name: Pull Curtain
+      eventReference:
+        Guid:
+          Data1: 1305586858
+          Data2: 1276772018
+          Data3: -538604627
+          Data4: 899408711
+        Path: event:/Page6/PullCurtain
     ambianceEvents: []
   - sceneName: MiniGame1_5
     musicEvents: []
