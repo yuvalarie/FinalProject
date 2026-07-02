@@ -370,6 +370,7 @@ GameObject:
   - component: {fileID: 90656283}
   - component: {fileID: 90656282}
   - component: {fileID: 90656281}
+  - component: {fileID: 90656284}
   m_Layer: 0
   m_Name: window0001
   m_TagString: Untagged
@@ -472,6 +473,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &90656284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90656280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PullCurtain
+  playOnEnable: 0
 --- !u!1 &105518839
 GameObject:
   m_ObjectHideFlags: 0
@@ -7591,7 +7606,9 @@ MonoBehaviour:
   frame2Collider: {fileID: 964742402}
   letterLocation: {fileID: 903490965}
   ricePotAnimator: {fileID: 1071486119}
+  ricePotAudioEmitter: {fileID: 0}
   windowAnimator: {fileID: 90656281}
+  windowAudioEmitter: {fileID: 90656284}
   frame1Size: 0
   frame2Size: 1
   frame4Size: 0

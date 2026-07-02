@@ -50,10 +50,12 @@ namespace Managers
             if (other.gameObject != walkController.gameObject) return;
             if (_hasEnteredStopTrigger) return;
             _hasEnteredStopTrigger = true;
-            if (_hasCompletedHandExit)
-                OnPlayerReEnteredStopTrigger();
-            else
-                OnPlayerReachedStopPosition();
+            // if (_hasCompletedHandExit)
+            //     OnPlayerReEnteredStopTrigger();
+            // else
+            //     OnPlayerReachedStopPosition();
+            if (_hasCompletedHandExit) return; // one-shot: scene already finished, ignore further entries
+            OnPlayerReachedStopPosition();
         }
 
         private void OnTriggerExit2D(Collider2D other)
@@ -164,6 +166,7 @@ namespace Managers
             handController.DisableSwiping();
             handController.DisableNavigationMode();
             walkController.EnableMovement();
+            motherController.HideCurrentFinishedReaction();
             _hasCompletedHandExit = true;
         }
 

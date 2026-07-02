@@ -25,7 +25,6 @@ namespace Audio
         public const string VendingMachinePie = "Vending Machine Pie";
         public const string VendingMachineDrink = "Vending Machine Drink";
         public const string Puff = "Puff";
-        public const string ThoughtBubble = "Thought Bubble";
         public const string ElevatorMoving = "Elevator Moving";
         
         // page 4
@@ -63,6 +62,10 @@ namespace Audio
         public const string PlaceFlashlight = "Place Flashlight";
         public const string PickupSnowGlobe = "Pickup Snow Globe";
         public const string PlaceSnowGlobe = "Place Snow Globe";
+        
+        // page 6
+        public const string PullCurtain = "Pull Curtain";
+        public const string ThoughtBubble = "Thought Bubble";
         
         //minigame 2
         public const string HellPortalNoMusic = "Hell Portal No Music";
