@@ -62,10 +62,14 @@ namespace Audio
         public const string PlaceFlashlight = "Place Flashlight";
         public const string PickupSnowGlobe = "Pickup Snow Globe";
         public const string PlaceSnowGlobe = "Place Snow Globe";
+        public const string PickupThong = "Pickup Thong";
+        public const string PlaceThong = "Place Thong";
+        public const string MiniGame1Mistake = "MiniGame1 Mistake";
         
         // page 6
-        public const string PullCurtain = "Pull Curtain";
+        public const string PullCurtain = "Pull Curtain"; 
         public const string ThoughtBubble = "Thought Bubble";
+        public const string HeldaWalkingHardFloor = "Helda Walking Hard Floor";
         
         //minigame 2
         public const string HellPortalNoMusic = "Hell Portal No Music";

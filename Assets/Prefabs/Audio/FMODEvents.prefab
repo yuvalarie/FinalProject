@@ -500,6 +500,30 @@ MonoBehaviour:
           Data3: 142735764
           Data4: 1227554653
         Path: event:/MiniGame1/PlaceSnowGlobe
+    - name: MiniGame1 Mistake
+      eventReference:
+        Guid:
+          Data1: 1683723392
+          Data2: 1271206608
+          Data3: -1547223632
+          Data4: -987026573
+        Path: event:/MiniGame1/MisplacedItem
+    - name: Pickup Thong
+      eventReference:
+        Guid:
+          Data1: -115878464
+          Data2: 1256288764
+          Data3: 1750292869
+          Data4: 1191745722
+        Path: event:/MiniGame1/PickupThong
+    - name: Place Thong
+      eventReference:
+        Guid:
+          Data1: 129257682
+          Data2: 1113988625
+          Data3: -1430338933
+          Data4: -1094005613
+        Path: event:/MiniGame1/PlaceThong
     ambianceEvents: []
   - sceneName: Page 6
     musicEvents: []
@@ -520,6 +544,22 @@ MonoBehaviour:
           Data3: -538604627
           Data4: 899408711
         Path: event:/Page6/PullCurtain
+    - name: Gasp
+      eventReference:
+        Guid:
+          Data1: -190389785
+          Data2: 1170293729
+          Data3: -773553504
+          Data4: -1449774272
+        Path: event:/Page6/Gasp
+    - name: Helda Walking Hard Floor
+      eventReference:
+        Guid:
+          Data1: -138657010
+          Data2: 1125405973
+          Data3: -579002712
+          Data4: -1491384750
+        Path: event:/Page6/HardFloorWalking
     ambianceEvents: []
   - sceneName: MiniGame1_5
     musicEvents: []
