@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using Audio.AudioEmitters;
 using Player;
 using UnityEngine;
 
@@ -28,13 +29,27 @@ namespace Objects
         [SerializeField] private Transform legsTargetPosition3;
         [SerializeField] private GameObject legsObject;
 
+        [Header("Footstep SFX")]
+        [SerializeField, Tooltip("Plays once per hop, timed to land when she hits the ground.")]
+        private AudioEmitterBase footstepSfx;
+
         private void Start()
         {
             PlayMovement1();
         }
 
+        private void PlayFootstepSfx()
+        {
+            float interval = duration / numberOfJumps;
+            for (int i = 1; i <= numberOfJumps; i++)
+            {
+                DOVirtual.DelayedCall(interval * i, () => footstepSfx?.PlayAudioOnce());
+            }
+        }
+
         public void PlayMovement1()
         {
+            PlayFootstepSfx();
             transform.DOJump(target1.position, jumpPower, numberOfJumps, duration)
                 .SetEase(Ease.Linear)
                 .OnComplete(() => player.OnAnimation1Complete());
@@ -42,6 +57,7 @@ namespace Objects
 
         public void PlayMovement2()
         {
+            PlayFootstepSfx();
             Sequence sequence2 = DOTween.Sequence();
             sequence2.Append(transform.DOJump(target2.position, jumpPower, numberOfJumps, duration)
                 .SetEase(Ease.Linear));
@@ -52,6 +68,7 @@ namespace Objects
 
         public void PlayMovement3()
         {
+            PlayFootstepSfx();
             Sequence sequence3 = DOTween.Sequence();
             sequence3.Append(transform.DOJump(target3.position, jumpPower, numberOfJumps, duration)
                 .SetEase(Ease.Linear));
@@ -66,6 +83,7 @@ namespace Objects
 
         public void PlayMovement4()
         {
+            PlayFootstepSfx();
             transform.DOJump(target4.position, jumpPower, numberOfJumps, duration)
                 .SetEase(Ease.Linear)
                 .OnComplete(() => player.ShowTextBubble5());
@@ -73,6 +91,7 @@ namespace Objects
 
         public void PlayMovement5()
         {
+            PlayFootstepSfx();
             transform.DOJump(target5.position, jumpPower, numberOfJumps, duration)
                 .SetEase(Ease.Linear)
                 .OnComplete(() => player.OnAnimation5Complete());
