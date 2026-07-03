@@ -34,8 +34,39 @@ namespace Player.MiniGames
             SceneLoader.Instance?.PreloadScene(nextSceneName);
         }
 
+        private void Update()
+        {
+            if (_pickedUpTrashCan)
+            {
+                AutomaticCatchCheck();
+            }
+        }
+
+        private void AutomaticCatchCheck()
+        {
+            if (catchZoneCollider == null) return;
+
+            Collider2D[] overlappedObjects = Physics2D.OverlapBoxAll(
+                catchZoneCollider.bounds.center, 
+                catchZoneCollider.bounds.size, 
+                0f
+            );
+
+            foreach (Collider2D col in overlappedObjects)
+            {
+                FallingNote note = col.GetComponent<FallingNote>();
+                
+                if (note != null)
+                {
+                    note.CatchByPlayer(holdSlot);
+                }
+            }
+        }
+
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
+            if (!context.performed) return;
+
             if (_atTrashCan && !_pickedUpTrashCan)
             {
                 _pickedUpTrashCan = true;
@@ -45,27 +76,6 @@ namespace Player.MiniGames
                 secondAnimator.enabled = true;
                 transform.localScale = new Vector3(size, size, 1f);
                 StartCoroutine(StartGameCoroutine());
-            }
-            if (!context.performed || catchZoneCollider == null) return;
-
-            // Ask the Physics engine: "What objects are currently overlapping my CatchZone bounds?"
-            Collider2D[] overlappedObjects = Physics2D.OverlapBoxAll(
-                catchZoneCollider.bounds.center, 
-                catchZoneCollider.bounds.size, 
-                0f
-            );
-
-            // Loop through everything we found inside the box
-            foreach (Collider2D col in overlappedObjects)
-            {
-                // Check if the object we found has the FallingNote script
-                FallingNote note = col.GetComponent<FallingNote>();
-                
-                if (note != null)
-                {
-                    // Manually trigger the catch!
-                    note.CatchByPlayer(holdSlot);
-                }
             }
         }
 
