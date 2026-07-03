@@ -7617,7 +7617,7 @@ MonoBehaviour:
   frame2toframe1Trigger: {fileID: 1760313206}
   frame2toframe4Trigger: {fileID: 1806899932}
   frame4toframe2Trigger: {fileID: 1114643386}
-  frame4toframe6Trigger: {fileID: 507774498}
+  frame4toframe6Trigger: {fileID: 1661256524}
   frame6toframe4Trigger: {fileID: 1274614957}
   letterTrigger: {fileID: 1005272911}
   ricePotTrigger: {fileID: 1928727649}

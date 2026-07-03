@@ -4656,8 +4656,8 @@ MonoBehaviour:
   startSprite: {fileID: 1509269832}
   heldSprite: {fileID: 887930448}
   placedSprite: {fileID: 887930448}
-  pickupAudioEmitter: {fileID: 0}
-  placedAudioEmitter: {fileID: 0}
+  pickupAudioEmitter: {fileID: 337677241}
+  placedAudioEmitter: {fileID: 337677240}
   isInstantPlacement: 0
 --- !u!114 &337677240
 MonoBehaviour:
@@ -4666,12 +4666,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 337677237}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
-  eventName: PickupToothBox
+  eventName: PlaceThong
   playOnEnable: 0
 --- !u!114 &337677241
 MonoBehaviour:
@@ -4680,12 +4680,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 337677237}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
-  eventName: PlaceBook
+  eventName: PickupThong
   playOnEnable: 0
 --- !u!1 &344511342
 GameObject:
@@ -10465,7 +10465,7 @@ MonoBehaviour:
   endColliders: {fileID: 1300406220}
   sideColliders: {fileID: 927451839}
   enterAnimationDuration: 1.5
-  misplacedAudioEmitter: {fileID: 0}
+  misplacedAudioEmitter: {fileID: 755708806}
 --- !u!50 &755708804
 Rigidbody2D:
   serializedVersion: 5
@@ -10537,12 +10537,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 755708800}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
-  eventName: 
+  eventName: MiniGame1Mistake
   playOnEnable: 0
 --- !u!1001 &755710585
 PrefabInstance:
