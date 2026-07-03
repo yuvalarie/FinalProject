@@ -97,6 +97,10 @@ namespace Player
         private Quaternion _heldToolOriginalLocalRotation;
         private Transform _heldToolOriginalParent;
         private Vector3 _playerStartPosition;
+        private Transform _currentRightGrabSlot;
+        private Transform _currentLeftGrabSlot;
+        private float _currentDetectionRadius;
+        private bool _isFacingRight = true;
         private bool _isEnd;
         private bool _flipx;
         
@@ -104,6 +108,8 @@ namespace Player
         {
             base.Start();
             _playerStartPosition = transform.position;
+            if (SpriteRenderer != null) _isFacingRight = !SpriteRenderer.flipX;
+            ResetToolSettings();
             GenerateSequence();
             StartCoroutine(PlaySequenceOnScreen());
         }
@@ -122,20 +128,62 @@ namespace Player
 
         private void Update()
         {
-            if (_heldToolSpriteRenderer != null && Mathf.Abs(MoveInput.x) > 0.1f && !isScreenPlaying)
-            {
-                bool isMovingLeft = MoveInput.x < 0;
-                bool invertFlip = invertedFacingToolsList.Contains(currentHeldTool);
+            UpdateFacingDirection();
+            UpdateHeldToolFacing();
+        }
 
-                if (invertFlip)
-                {
-                    _heldToolSpriteRenderer.flipX = !isMovingLeft;
-                }
-                else
-                {
-                    _heldToolSpriteRenderer.flipX = isMovingLeft;
-                }
+        private void UpdateFacingDirection()
+        {
+            if (isScreenPlaying || Mathf.Abs(MoveInput.x) <= 0.1f) return;
+
+            bool nextFacingRight = MoveInput.x > 0f;
+            if (_isFacingRight == nextFacingRight) return;
+
+            _isFacingRight = nextFacingRight;
+        }
+
+        private void UpdateHeldToolFacing()
+        {
+            if (_heldToolSpriteRenderer == null || isScreenPlaying) return;
+
+            bool invertFlip = invertedFacingToolsList != null && invertedFacingToolsList.Contains(currentHeldTool);
+            bool isFacingLeft = !_isFacingRight;
+            _heldToolSpriteRenderer.flipX = invertFlip ? !isFacingLeft : isFacingLeft;
+        }
+
+        private Transform GetActiveGrabSlot()
+        {
+            Transform activeSlot = _isFacingRight ? _currentRightGrabSlot : _currentLeftGrabSlot;
+            if (activeSlot != null) return activeSlot;
+            return grabSlot != null ? grabSlot : holdSlot;
+        }
+
+        private Vector2 GetSearchOrigin()
+        {
+            Transform activeSearchSlot = GetActiveGrabSlot();
+            return activeSearchSlot != null ? activeSearchSlot.position : transform.position;
+        }
+
+        private void SaveToolSettings(SimonInteractable toolInteractable)
+        {
+            if (toolInteractable == null)
+            {
+                ResetToolSettings();
+                return;
             }
+
+            _currentRightGrabSlot = toolInteractable.rightGrabSlot;
+            _currentLeftGrabSlot = toolInteractable.leftGrabSlot;
+            _currentDetectionRadius = toolInteractable.detectionRadius > 0f
+                ? toolInteractable.detectionRadius
+                : detectionRadius;
+        }
+
+        private void ResetToolSettings()
+        {
+            _currentRightGrabSlot = null;
+            _currentLeftGrabSlot = null;
+            _currentDetectionRadius = detectionRadius;
         }
 
         private void GenerateSequence()
@@ -185,7 +233,8 @@ namespace Player
         
         private void UpdateClosestInteractables()
         {
-            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(grabSlot.position, detectionRadius, interactableLayer);
+            Vector2 searchOrigin = GetSearchOrigin();
+            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(searchOrigin, _currentDetectionRadius, interactableLayer);
             
             SimonInteractable closestTool = null;
             SimonInteractable closestArea = null;
@@ -197,8 +246,7 @@ namespace Player
                 SimonInteractable interactable = hit.GetComponent<SimonInteractable>();
                 if (interactable != null)
                 {
-                    // Calculate exact distance to this interactable
-                    float dist = Vector2.Distance(transform.position, hit.transform.position);
+                    float dist = Vector2.Distance(searchOrigin, hit.transform.position);
                     
                     if (interactable.isToolStation && dist < minToolDist)
                     {
@@ -240,8 +288,13 @@ namespace Player
 
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
-            if (!context.performed || isScreenPlaying) return;
-            //if(_isEnd) SceneLoader.Instance.ActivatePreloadedScene();
+            if (!context.performed) return;
+            if(_isEnd)
+            {
+                SceneLoader.Instance.ActivatePreloadedScene();
+                return;
+            }
+            if (isScreenPlaying) return;
             
             UpdateClosestInteractables();
 
@@ -257,6 +310,7 @@ namespace Player
                 
                 if (_currentStandingToolInteractable != null)
                 {
+                    SaveToolSettings(_currentStandingToolInteractable);
                     _heldToolObject = _currentStandingToolInteractable.gameObject;
                     _heldToolOriginalLocalPosition = _heldToolObject.transform.localPosition;
                     _heldToolOriginalLocalRotation = _heldToolObject.transform.localRotation;
@@ -273,6 +327,8 @@ namespace Player
                         _heldToolObject.transform.SetParent(holdSlot);
                         _heldToolObject.transform.localPosition = Vector3.zero;
                     }
+
+                    UpdateHeldToolFacing();
                 }
                 
                 Debug.Log($"Picked up: {currentHeldTool}");
@@ -297,6 +353,7 @@ namespace Player
                 _heldToolObject = null;
             }
             currentHeldTool = ToolType.None;
+            ResetToolSettings();
         }
 
         private void ValidatePlayerAction(ToolType usedTool, AreaType appliedArea)
@@ -378,8 +435,9 @@ namespace Player
         {
             yield return new WaitForSeconds(0.5f);
             endReaction.SetActive(true);
-            yield return new WaitForSeconds(0.5f);
+            //yield return new WaitForSeconds(0.5f);
             _isEnd = true;
+            isScreenPlaying = false;
         }
 
         private IEnumerator HandleFailureRoutine()
@@ -461,8 +519,9 @@ namespace Player
         
         private void OnDrawGizmos()
         {
+            Vector2 searchOrigin = GetSearchOrigin();
             Gizmos.color = Color.cyan;
-            Gizmos.DrawWireSphere(grabSlot.position, detectionRadius);
+            Gizmos.DrawWireSphere(searchOrigin, _currentDetectionRadius > 0f ? _currentDetectionRadius : detectionRadius);
         }
     }
 }

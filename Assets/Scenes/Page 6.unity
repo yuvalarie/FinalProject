@@ -3898,6 +3898,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Camera.CameraSizeAdjustment
   targetAspect: 1.7777778
+  updateWhenResolutionChanges: 1
+  logViewportChanges: 0
 --- !u!114 &929162306
 MonoBehaviour:
   m_ObjectHideFlags: 0

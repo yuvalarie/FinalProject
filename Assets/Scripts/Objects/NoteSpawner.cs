@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Player.MiniGames;
-using UnityEditor.Analytics;
 using UnityEngine;
 
 namespace Objects

@@ -12,6 +12,12 @@ namespace Player
         [SerializeField, Tooltip("Drag the PlayerArtSettings ScriptableObject here.")] protected PlayerArtController artSettings;
         
         [SerializeField, Tooltip("Movement speed of the player.")] protected float speed = 5f;
+        [Header("Movement Feel")]
+        [SerializeField, Tooltip("How fast the player reaches max speed.")] 
+        protected float acceleration = 8f;
+
+        [SerializeField, Tooltip("How much the player slides to a stop (lower number = more slide).")] 
+        protected float deceleration = 8f;
         
         [SerializeField, Tooltip("next scene name")] protected string nextSceneName;
 
@@ -23,6 +29,7 @@ namespace Player
         [SerializeField] private Collider2D extraLargeCollider;
         
         private InputSystem_Actions _inputActions;
+        private bool _isUsingTextInput;
         protected Rigidbody2D Rb;
         protected Vector2 MoveInput;
         protected Vector2 targetVelocity;
@@ -53,22 +60,52 @@ namespace Player
         
         protected virtual void OnEnable()
         {
-            _inputActions.Game.MoveRight.performed += ctx => MoveInput.x = 1f;
-            _inputActions.Game.MoveRight.canceled += ctx => MoveInput.x = 0f;
-            _inputActions.Game.MoveLeft.performed += ctx => MoveInput.x = -1f;
-            _inputActions.Game.MoveLeft.canceled += ctx => MoveInput.x = 0f;
-            _inputActions.Game.MoveUp.performed += ctx => MoveInput.y = 1f;
-            _inputActions.Game.MoveUp.canceled += ctx => MoveInput.y = 0f;
-            _inputActions.Game.MoveDown.performed += ctx => MoveInput.y = -1f;
-            _inputActions.Game.MoveDown.canceled += ctx => MoveInput.y = 0f;
+            _inputActions.Game.MoveRight.performed += OnMoveRightPerformed;
+            _inputActions.Game.MoveRight.canceled += OnMoveRightCanceled;
+            _inputActions.Game.MoveLeft.performed += OnMoveLeftPerformed;
+            _inputActions.Game.MoveLeft.canceled += OnMoveLeftCanceled;
+            _inputActions.Game.MoveUp.performed += OnMoveUpPerformed;
+            _inputActions.Game.MoveUp.canceled += OnMoveUpCanceled;
+            _inputActions.Game.MoveDown.performed += OnMoveDownPerformed;
+            _inputActions.Game.MoveDown.canceled += OnMoveDownCanceled;
             
             _inputActions.Game.Interact.performed += OnInteraction;
             _inputActions.Game.Interact.canceled += OnInteraction;
+
+            _inputActions.Text.Forward.performed += OnTextForward;
+            _inputActions.Text.Backward.performed += OnTextBackward;
+
+            if (_isUsingTextInput)
+            {
+                _inputActions.Text.Enable();
+                _inputActions.Game.Disable();
+            }
+            else
+            {
+                _inputActions.Game.Enable();
+                _inputActions.Text.Disable();
+            }
         }
         
         private void OnDisable()
         {
+            _inputActions.Game.MoveRight.performed -= OnMoveRightPerformed;
+            _inputActions.Game.MoveRight.canceled -= OnMoveRightCanceled;
+            _inputActions.Game.MoveLeft.performed -= OnMoveLeftPerformed;
+            _inputActions.Game.MoveLeft.canceled -= OnMoveLeftCanceled;
+            _inputActions.Game.MoveUp.performed -= OnMoveUpPerformed;
+            _inputActions.Game.MoveUp.canceled -= OnMoveUpCanceled;
+            _inputActions.Game.MoveDown.performed -= OnMoveDownPerformed;
+            _inputActions.Game.MoveDown.canceled -= OnMoveDownCanceled;
+            
+            _inputActions.Game.Interact.performed -= OnInteraction;
+            _inputActions.Game.Interact.canceled -= OnInteraction;
+
+            _inputActions.Text.Forward.performed -= OnTextForward;
+            _inputActions.Text.Backward.performed -= OnTextBackward;
+
             _inputActions.Game.Disable();
+            _inputActions.Text.Disable();
         }
 
         protected virtual void FixedUpdate()
@@ -79,8 +116,11 @@ namespace Player
         protected virtual void HandleMovement()
         {
             if(IsStunned) return;
+            // targetVelocity = new Vector2(MoveInput.x * speed, MoveInput.y * speed);
+            // Rb.linearVelocity = targetVelocity;
             targetVelocity = new Vector2(MoveInput.x * speed, MoveInput.y * speed);
-            Rb.linearVelocity = targetVelocity;
+            float currentAccelRate = (MoveInput.magnitude > 0.1f) ? acceleration : deceleration;
+            Rb.linearVelocity = Vector2.Lerp(Rb.linearVelocity, targetVelocity, currentAccelRate * Time.fixedDeltaTime);
 
             if (SpriteRenderer != null)
             {
@@ -98,6 +138,46 @@ namespace Player
         }
 
         protected abstract void OnInteraction(InputAction.CallbackContext context);
+
+        protected virtual void OnTextForward(InputAction.CallbackContext context)
+        {
+        }
+
+        protected virtual void OnTextBackward(InputAction.CallbackContext context)
+        {
+        }
+
+        protected void BeginTextInputMode()
+        {
+            _isUsingTextInput = true;
+            StopMovementInput();
+            _inputActions.Game.Disable();
+            _inputActions.Text.Enable();
+        }
+
+        protected void EndTextInputMode()
+        {
+            _isUsingTextInput = false;
+            StopMovementInput();
+            _inputActions.Text.Disable();
+            _inputActions.Game.Enable();
+        }
+
+        private void StopMovementInput()
+        {
+            MoveInput = Vector2.zero;
+            targetVelocity = Vector2.zero;
+            if (Rb != null) Rb.linearVelocity = Vector2.zero;
+        }
+
+        private void OnMoveRightPerformed(InputAction.CallbackContext context) => MoveInput.x = 1f;
+        private void OnMoveRightCanceled(InputAction.CallbackContext context) => MoveInput.x = 0f;
+        private void OnMoveLeftPerformed(InputAction.CallbackContext context) => MoveInput.x = -1f;
+        private void OnMoveLeftCanceled(InputAction.CallbackContext context) => MoveInput.x = 0f;
+        private void OnMoveUpPerformed(InputAction.CallbackContext context) => MoveInput.y = 1f;
+        private void OnMoveUpCanceled(InputAction.CallbackContext context) => MoveInput.y = 0f;
+        private void OnMoveDownPerformed(InputAction.CallbackContext context) => MoveInput.y = -1f;
+        private void OnMoveDownCanceled(InputAction.CallbackContext context) => MoveInput.y = 0f;
 
         private void OnDestroy()
         {

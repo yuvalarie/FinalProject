@@ -48,8 +48,6 @@ namespace Player
         
         private bool _isSequenceActive = false;
         private bool _isAnimating = false;
-        private bool _axisInUse = false;
-        
         private Coroutine _currentSequenceRoutine;
 
         protected override void OnInteraction(InputAction.CallbackContext context)
@@ -67,31 +65,22 @@ namespace Player
             base.HandleMovement();
         }
 
-        private void Update()
+        protected override void OnTextForward(InputAction.CallbackContext context)
         {
-            if (!_isSequenceActive) return;
+            if (!context.performed || !_isSequenceActive || _isAnimating || _interactionCount >= 8) return;
 
-            if (Mathf.Abs(MoveInput.x) < 0.1f)
-            {
-                _axisInUse = false;
-            }
+            _interactionCount++;
+            if (_currentSequenceRoutine != null) StopCoroutine(_currentSequenceRoutine);
+            _currentSequenceRoutine = StartCoroutine(TransitionToState(_interactionCount, true));
+        }
 
-            if (_isAnimating || _axisInUse) return;
+        protected override void OnTextBackward(InputAction.CallbackContext context)
+        {
+            if (!context.performed || !_isSequenceActive || _isAnimating || _interactionCount <= 0) return;
 
-            if (MoveInput.x > 0.5f && _interactionCount < 8)
-            {
-                _axisInUse = true;
-                _interactionCount++;
-                if (_currentSequenceRoutine != null) StopCoroutine(_currentSequenceRoutine);
-                _currentSequenceRoutine = StartCoroutine(TransitionToState(_interactionCount, true));
-            }
-            else if (MoveInput.x < -0.5f && _interactionCount > 0)
-            {
-                _axisInUse = true;
-                _interactionCount--;
-                if (_currentSequenceRoutine != null) StopCoroutine(_currentSequenceRoutine);
-                _currentSequenceRoutine = StartCoroutine(TransitionToState(_interactionCount, false));
-            }
+            _interactionCount--;
+            if (_currentSequenceRoutine != null) StopCoroutine(_currentSequenceRoutine);
+            _currentSequenceRoutine = StartCoroutine(TransitionToState(_interactionCount, false));
         }
 
         private IEnumerator TransitionToState(int targetState, bool isMovingForward)
@@ -113,6 +102,7 @@ namespace Player
                 case 0:
                     start.SetActive(true);
                     _isSequenceActive = false;
+                    EndTextInputMode();
                     break;
                 
                 case 1:
@@ -184,6 +174,7 @@ namespace Player
                     endTriggerObject.SetActive(true);
                     
                     _isSequenceActive = false; 
+                    EndTextInputMode();
 
                     if (isMovingForward)
                     {
@@ -210,10 +201,7 @@ namespace Player
             {
                 _isSequenceActive = true;
                 _interactionCount = 1;
-                if (Mathf.Abs(MoveInput.x) > 0.1f)
-                {
-                    _axisInUse = true;
-                }
+                BeginTextInputMode();
                 if (_currentSequenceRoutine != null) StopCoroutine(_currentSequenceRoutine);
                 _currentSequenceRoutine = StartCoroutine(TransitionToState(_interactionCount, true));
             }
