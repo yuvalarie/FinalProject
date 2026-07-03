@@ -1173,6 +1173,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerMiniGame3
   artSettings: {fileID: 0}
   speed: 6
+  acceleration: 8
+  deceleration: 8
   nextSceneName: Page 11
   initialSize: 4
   graphicsRoot: {fileID: 0}
@@ -1180,7 +1182,7 @@ MonoBehaviour:
   mediumLargeCollider: {fileID: 0}
   extraLargeCollider: {fileID: 0}
   IsStunned: 0
-  totalActionsToWin: 3
+  totalActionsToWin: 6
   holdSlot: {fileID: 1667209534}
   invertedFacingToolsList: 0400000002000000
   backToPlaceDuration: 1.5
@@ -8049,7 +8051,7 @@ Transform:
   m_GameObject: {fileID: 1667209533}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.8, z: 0}
+  m_LocalPosition: {x: 0, y: 13.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
