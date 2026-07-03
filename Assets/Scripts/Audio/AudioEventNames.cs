@@ -70,6 +70,7 @@ namespace Audio
         public const string PullCurtain = "Pull Curtain"; 
         public const string ThoughtBubble = "Thought Bubble";
         public const string HeldaWalkingHardFloor = "Helda Walking Hard Floor";
+        public const string PotBoiling = "Pot Boiling";
         
         //minigame 2
         public const string HellPortalNoMusic = "Hell Portal No Music";

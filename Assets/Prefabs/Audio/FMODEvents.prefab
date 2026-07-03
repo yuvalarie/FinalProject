@@ -560,6 +560,14 @@ MonoBehaviour:
           Data3: -579002712
           Data4: -1491384750
         Path: event:/Page6/HardFloorWalking
+    - name: Pot Boiling
+      eventReference:
+        Guid:
+          Data1: -481527498
+          Data2: 1136542061
+          Data3: 1631603625
+          Data4: -785334172
+        Path: event:/Page6/PotBoiling
     ambianceEvents: []
   - sceneName: MiniGame1_5
     musicEvents: []
