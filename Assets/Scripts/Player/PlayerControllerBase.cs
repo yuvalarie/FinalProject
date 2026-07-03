@@ -12,6 +12,12 @@ namespace Player
         [SerializeField, Tooltip("Drag the PlayerArtSettings ScriptableObject here.")] protected PlayerArtController artSettings;
         
         [SerializeField, Tooltip("Movement speed of the player.")] protected float speed = 5f;
+        [Header("Movement Feel")]
+        [SerializeField, Tooltip("How fast the player reaches max speed.")] 
+        protected float acceleration = 8f;
+
+        [SerializeField, Tooltip("How much the player slides to a stop (lower number = more slide).")] 
+        protected float deceleration = 8f;
         
         [SerializeField, Tooltip("next scene name")] protected string nextSceneName;
 
@@ -110,8 +116,11 @@ namespace Player
         protected virtual void HandleMovement()
         {
             if(IsStunned) return;
+            // targetVelocity = new Vector2(MoveInput.x * speed, MoveInput.y * speed);
+            // Rb.linearVelocity = targetVelocity;
             targetVelocity = new Vector2(MoveInput.x * speed, MoveInput.y * speed);
-            Rb.linearVelocity = targetVelocity;
+            float currentAccelRate = (MoveInput.magnitude > 0.1f) ? acceleration : deceleration;
+            Rb.linearVelocity = Vector2.Lerp(Rb.linearVelocity, targetVelocity, currentAccelRate * Time.fixedDeltaTime);
 
             if (SpriteRenderer != null)
             {

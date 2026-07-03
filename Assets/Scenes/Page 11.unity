@@ -3359,6 +3359,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Camera.CameraSizeAdjustment
   targetAspect: 1.7777778
+  updateWhenResolutionChanges: 1
+  logViewportChanges: 0
 --- !u!114 &929162306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5934,6 +5936,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player.Pages.PlayerControllerPage11
   artSettings: {fileID: 0}
   speed: 3
+  acceleration: 8
+  deceleration: 8
   nextSceneName: MiniGame4
   initialSize: 4
   graphicsRoot: {fileID: 1977202015}
