@@ -2447,6 +2447,7 @@ GameObject:
   - component: {fileID: 624094422}
   - component: {fileID: 624094424}
   - component: {fileID: 624094425}
+  - component: {fileID: 624094426}
   m_Layer: 0
   m_Name: Helda Cube 1
   m_TagString: Untagged
@@ -2573,6 +2574,21 @@ MonoBehaviour:
   legsTargetPosition2: {fileID: 936997222}
   legsTargetPosition3: {fileID: 860118921}
   legsObject: {fileID: 1374815942}
+  footstepSfx: {fileID: 624094426}
+--- !u!114 &624094426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624094421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: HeldaWalkingHardFloor
+  playOnEnable: 0
 --- !u!1 &630262492
 GameObject:
   m_ObjectHideFlags: 0
@@ -4558,6 +4574,7 @@ GameObject:
   - component: {fileID: 1071486121}
   - component: {fileID: 1071486120}
   - component: {fileID: 1071486119}
+  - component: {fileID: 1071486122}
   m_Layer: 0
   m_Name: RicePot0001
   m_TagString: Untagged
@@ -4633,7 +4650,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 2a00e69f264374ad0a24f93276706231, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4660,6 +4677,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1071486122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071486118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PotBoiling
+  playOnEnable: 0
 --- !u!1 &1087816468
 GameObject:
   m_ObjectHideFlags: 0
@@ -5724,6 +5755,7 @@ GameObject:
   - component: {fileID: 1265505099}
   - component: {fileID: 1265505098}
   - component: {fileID: 1265505100}
+  - component: {fileID: 1265505101}
   m_Layer: 0
   m_Name: LetterOpen
   m_TagString: Untagged
@@ -5826,6 +5858,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1265505101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265505097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: LetterOpen
+  playOnEnable: 1
 --- !u!1 &1274614956
 GameObject:
   m_ObjectHideFlags: 0
@@ -8926,6 +8972,7 @@ GameObject:
   - component: {fileID: 1878629007}
   - component: {fileID: 1878629009}
   - component: {fileID: 1878629008}
+  - component: {fileID: 1878629010}
   m_Layer: 0
   m_Name: poof
   m_TagString: Untagged
@@ -9028,6 +9075,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1878629010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878629006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Puff
+  playOnEnable: 1
 --- !u!1 &1895027430
 GameObject:
   m_ObjectHideFlags: 0
