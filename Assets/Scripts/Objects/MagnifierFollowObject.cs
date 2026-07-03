@@ -1,7 +1,5 @@
-﻿using System;
-using UnityEngine;
 using DG.Tweening;
-using Player;
+using UnityEngine;
 
 namespace Objects
 {
@@ -10,14 +8,14 @@ namespace Objects
         [Header("UI Canvas Masks")]
         [Tooltip("The UI Canvas mask for the top frame")]
         [SerializeField] private Transform magnifyingGlassCanvas;
-        
+
         [Tooltip("The UI Canvas mask for the bottom frame")]
         [SerializeField] private Transform magnifyingGlassCanvas2;
-        
+
         [Header("Scene Objects")]
         [Tooltip("The Scene magnifying glass object for the bottom frame")]
         [SerializeField] private Transform magnifyingGlass2;
-        
+
         [Tooltip("Drag the invisible boundary/border collider that separates the frames here")]
         [SerializeField] private Collider2D frameBorderCollider;
 
@@ -25,87 +23,196 @@ namespace Objects
         [Tooltip("Create an empty GameObject where the top glass should slide down to, and drag it here")]
         [SerializeField] private Transform topGlassExitPoint;
         private Vector3 _topGlassStartPosition;
-        
+
         [Tooltip("Create an empty GameObject where the bottom glass should slide to, and drag it here")]
         [SerializeField] private Transform bottomGlassTargetPoint;
         private Vector3 _bottomGlassStartPosition;
-        
+
         [Tooltip("How many seconds each movement takes")]
         [SerializeField] private float animationDuration = 0.8f;
 
         private bool _isOn = true;
 
-        private Vector3 _offset1;
-        private Vector3 _offset2;
+        private RectTransform _magnifyingGlassCanvasRect;
+        private RectTransform _magnifyingGlassCanvas2Rect;
+        private Canvas _magnifyingGlassCanvasRoot;
+        private Canvas _magnifyingGlassCanvas2Root;
+        private RectTransform _magnifyingGlassCanvasParentRect;
+        private RectTransform _magnifyingGlassCanvas2ParentRect;
+        private Vector2 _canvasOffset1;
+        private Vector2 _canvasOffset2;
+        private Sequence _transitionSequence;
+        private bool _hasTopCanvasBinding;
+        private bool _hasBottomCanvasBinding;
+        private bool _reportedMissingReferences;
 
         public float AnimationDuration => animationDuration;
-        
-        private void Start()    
+
+        private void Start()
         {
-            if (magnifyingGlassCanvas != null)        
-            {
-                _offset1 = magnifyingGlassCanvas.position - transform.position;
-            }
-            if (magnifyingGlass2 != null && magnifyingGlassCanvas2 != null)        
-            {
-                _offset2 = magnifyingGlassCanvas2.position - magnifyingGlass2.position;
-            }
+            _hasTopCanvasBinding = TryCacheCanvasBinding(
+                magnifyingGlassCanvas,
+                transform,
+                out _magnifyingGlassCanvasRect,
+                out _magnifyingGlassCanvasRoot,
+                out _magnifyingGlassCanvasParentRect,
+                out _canvasOffset1);
+
+            _hasBottomCanvasBinding = TryCacheCanvasBinding(
+                magnifyingGlassCanvas2,
+                magnifyingGlass2,
+                out _magnifyingGlassCanvas2Rect,
+                out _magnifyingGlassCanvas2Root,
+                out _magnifyingGlassCanvas2ParentRect,
+                out _canvasOffset2);
 
             _topGlassStartPosition = transform.position;
-            _bottomGlassStartPosition = magnifyingGlass2.position;
+
+            if (magnifyingGlass2 != null)
+            {
+                _bottomGlassStartPosition = magnifyingGlass2.position;
+            }
         }
 
         private void LateUpdate()
         {
-            // Top frame logic
-            magnifyingGlassCanvas.position = new Vector3(
-                transform.position.x + _offset1.x, 
-                transform.position.y + _offset1.y, 
-                transform.position.z
-            );
-            // Bottom frame logic
-            magnifyingGlassCanvas2.position = new Vector3(
-                magnifyingGlass2.position.x + _offset2.x, 
-                magnifyingGlass2.position.y + _offset2.y, 
-                magnifyingGlassCanvas2.position.z
-            );
+            UpdateCanvasFollower(
+                _hasTopCanvasBinding,
+                _magnifyingGlassCanvasRect,
+                _magnifyingGlassCanvasRoot,
+                _magnifyingGlassCanvasParentRect,
+                transform,
+                _canvasOffset1);
+
+            UpdateCanvasFollower(
+                _hasBottomCanvasBinding,
+                _magnifyingGlassCanvas2Rect,
+                _magnifyingGlassCanvas2Root,
+                _magnifyingGlassCanvas2ParentRect,
+                magnifyingGlass2,
+                _canvasOffset2);
         }
 
         public void FrameTransition()
         {
-            // Create a DOTween Sequence to queue up animations back-to-back
-            Sequence transitionSequence = DOTween.Sequence();
-
-            // 1. Move the top glass down to its exit point (easing makes it start slow and speed up)
-            transitionSequence.Append(transform.DOMove(topGlassExitPoint.position, animationDuration).SetEase(Ease.InOutQuad));
-
-            // 3. Move the bottom glass from its starting position into view (easing makes it smoothly settle into place)
-            transitionSequence.Join(magnifyingGlass2.DOMove(bottomGlassTargetPoint.position, animationDuration).SetEase(Ease.InOutQuad));
-            
-            // 2. Swap the _isOn boolean the exact millisecond the top glass disappears
-            transitionSequence.AppendCallback(() => 
+            if (!CanRunTransition(topGlassExitPoint, bottomGlassTargetPoint))
             {
-                _isOn = false;
-            });
+                return;
+            }
+
+            RestartTransitionSequence();
+
+            _transitionSequence.Append(transform.DOMove(topGlassExitPoint.position, animationDuration).SetEase(Ease.InOutQuad));
+            _transitionSequence.Join(magnifyingGlass2.DOMove(bottomGlassTargetPoint.position, animationDuration).SetEase(Ease.InOutQuad));
+            _transitionSequence.AppendCallback(() => _isOn = false);
         }
-        
+
         public void BackTransition()
         {
-            // Create a DOTween Sequence to queue up animations back-to-back
-            Sequence transitionSequence = DOTween.Sequence();
-
-            // 1. Move the top glass down to its exit point (easing makes it start slow and speed up)
-            transitionSequence.Append(transform.DOMove(_topGlassStartPosition, animationDuration).SetEase(Ease.InOutQuad));
-
-            // 3. Move the bottom glass from its starting position into view (easing makes it smoothly settle into place)
-            transitionSequence.Join(magnifyingGlass2.DOMove(_bottomGlassStartPosition, animationDuration).SetEase(Ease.InOutQuad));
-            
-            // 2. Swap the _isOn boolean the exact millisecond the top glass disappears
-            transitionSequence.AppendCallback(() => 
+            if (magnifyingGlass2 == null)
             {
-                _isOn = true;
-            });
+                ReportMissingReferences();
+                return;
+            }
 
+            RestartTransitionSequence();
+
+            _transitionSequence.Append(transform.DOMove(_topGlassStartPosition, animationDuration).SetEase(Ease.InOutQuad));
+            _transitionSequence.Join(magnifyingGlass2.DOMove(_bottomGlassStartPosition, animationDuration).SetEase(Ease.InOutQuad));
+            _transitionSequence.AppendCallback(() => _isOn = true);
+        }
+
+        private bool TryCacheCanvasBinding(
+            Transform canvasFollower,
+            Transform worldTarget,
+            out RectTransform followerRect,
+            out Canvas canvasRoot,
+            out RectTransform parentRect,
+            out Vector2 offset)
+        {
+            followerRect = canvasFollower as RectTransform;
+            canvasRoot = followerRect != null ? followerRect.GetComponentInParent<Canvas>() : null;
+            parentRect = followerRect != null ? followerRect.parent as RectTransform : null;
+            offset = Vector2.zero;
+
+            if (followerRect == null || canvasRoot == null || parentRect == null || worldTarget == null)
+            {
+                ReportMissingReferences();
+                return false;
+            }
+
+            UnityEngine.Camera canvasCamera = GetCanvasCamera(canvasRoot);
+            Vector2 followerScreenPosition = RectTransformUtility.WorldToScreenPoint(canvasCamera, followerRect.position);
+            Vector2 targetScreenPosition = WorldToScreenPoint(canvasRoot, worldTarget.position);
+            offset = followerScreenPosition - targetScreenPosition;
+            return true;
+        }
+
+        private void UpdateCanvasFollower(
+            bool hasBinding,
+            RectTransform followerRect,
+            Canvas canvasRoot,
+            RectTransform parentRect,
+            Transform worldTarget,
+            Vector2 offset)
+        {
+            if (!hasBinding || followerRect == null || canvasRoot == null || parentRect == null || worldTarget == null)
+            {
+                return;
+            }
+
+            UnityEngine.Camera canvasCamera = GetCanvasCamera(canvasRoot);
+            Vector2 targetScreenPosition = WorldToScreenPoint(canvasRoot, worldTarget.position) + offset;
+
+            if (RectTransformUtility.ScreenPointToWorldPointInRectangle(parentRect, targetScreenPosition, canvasCamera, out Vector3 targetWorldPosition))
+            {
+                followerRect.position = targetWorldPosition;
+            }
+        }
+
+        private static UnityEngine.Camera GetCanvasCamera(Canvas canvasRoot)
+        {
+            return canvasRoot.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvasRoot.worldCamera;
+        }
+
+        private static Vector2 WorldToScreenPoint(Canvas canvasRoot, Vector3 worldPosition)
+        {
+            UnityEngine.Camera canvasCamera = GetCanvasCamera(canvasRoot);
+            return canvasCamera != null ? canvasCamera.WorldToScreenPoint(worldPosition) : (Vector2)worldPosition;
+        }
+
+        private bool CanRunTransition(Transform topTarget, Transform bottomTarget)
+        {
+            if (magnifyingGlass2 != null && topTarget != null && bottomTarget != null)
+            {
+                return true;
+            }
+
+            ReportMissingReferences();
+            return false;
+        }
+
+        private void RestartTransitionSequence()
+        {
+            _transitionSequence?.Kill();
+            _transitionSequence = DOTween.Sequence();
+        }
+
+        private void ReportMissingReferences()
+        {
+            if (_reportedMissingReferences)
+            {
+                return;
+            }
+
+            _reportedMissingReferences = true;
+            Debug.LogWarning($"{nameof(MagnifierFollowObject)} on {name} has missing or invalid references. Check the magnifier world objects, UI mask RectTransforms, and target points.", this);
+        }
+
+        private void OnDisable()
+        {
+            _transitionSequence?.Kill();
+            _transitionSequence = null;
         }
     }
 }

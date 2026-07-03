@@ -116,3 +116,6 @@ InitTestScene*.unity*
 # Log files can be ignored.
 fmod_editor.log
 AssetsArt_CrunchCompression_Report.txt
+Assets/Scripts/DebugTools.meta
+Assets/Scripts/DebugTools/BuildDiagnosticsLogger.cs.meta
+Assets/Scripts/DebugTools/BuildDiagnosticsLogger.cs

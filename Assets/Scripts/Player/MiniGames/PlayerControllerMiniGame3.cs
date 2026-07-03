@@ -241,7 +241,7 @@ namespace Player
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
             if (!context.performed || isScreenPlaying) return;
-            //if(_isEnd) SceneLoader.Instance.ActivatePreloadedScene();
+            if(_isEnd) SceneLoader.Instance.ActivatePreloadedScene();
             
             UpdateClosestInteractables();
 
