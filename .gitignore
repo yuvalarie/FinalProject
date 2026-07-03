@@ -119,3 +119,5 @@ AssetsArt_CrunchCompression_Report.txt
 Assets/Scripts/DebugTools.meta
 Assets/Scripts/DebugTools/BuildDiagnosticsLogger.cs.meta
 Assets/Scripts/DebugTools/BuildDiagnosticsLogger.cs
+UnusedImageTextures_Report.txt
+UnusedSpriteTextures_Report.txt

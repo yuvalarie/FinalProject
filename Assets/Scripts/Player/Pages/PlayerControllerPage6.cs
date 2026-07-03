@@ -61,7 +61,6 @@ namespace Player
         private int _interactionCount = 0;
         private bool _isSequenceActive = false;
         private bool _isAnimating = false;
-        private bool _axisInUse = false;
         private bool _isWaitingForHelda = false; // New flag to freeze the player!
         private Coroutine _currentSequenceRoutine;
 
@@ -110,39 +109,24 @@ namespace Player
             base.HandleMovement();
         }
 
-        private void Update()
+        protected override void OnTextForward(InputAction.CallbackContext context)
         {
-            if (!_isSequenceActive) return;
+            if (!context.performed || !_isSequenceActive || _isAnimating) return;
+            if ((!_seq1Done && _interactionCount >= 4) || (_seq1Done && _interactionCount >= 8)) return;
 
-            if (Mathf.Abs(MoveInput.x) < 0.1f)
-            {
-                _axisInUse = false;
-            }
+            _interactionCount++;
+            if (_currentSequenceRoutine != null) StopCoroutine(_currentSequenceRoutine);
+            _currentSequenceRoutine = StartCoroutine(TransitionToState(_interactionCount, true));
+        }
 
-            if (_isAnimating || _axisInUse) return;
+        protected override void OnTextBackward(InputAction.CallbackContext context)
+        {
+            if (!context.performed || !_isSequenceActive || _isAnimating) return;
+            if ((!_seq1Done && _interactionCount <= 1) || (_seq1Done && _interactionCount <= 5)) return;
 
-            // Move Forward
-            if (MoveInput.x > 0.5f)
-            {
-                // Prevent overstepping boundaries
-                if ((!_seq1Done && _interactionCount >= 4) || (_seq1Done && _interactionCount >= 8)) return;
-                
-                _axisInUse = true;
-                _interactionCount++;
-                if (_currentSequenceRoutine != null) StopCoroutine(_currentSequenceRoutine);
-                _currentSequenceRoutine = StartCoroutine(TransitionToState(_interactionCount, true));
-            }
-            // Move Backward
-            else if (MoveInput.x < -0.5f)
-            {
-                // Prevent walking back before the start of the current sequence
-                if ((!_seq1Done && _interactionCount <= 1) || (_seq1Done && _interactionCount <= 5)) return;
-                
-                _axisInUse = true;
-                _interactionCount--;
-                if (_currentSequenceRoutine != null) StopCoroutine(_currentSequenceRoutine);
-                _currentSequenceRoutine = StartCoroutine(TransitionToState(_interactionCount, false));
-            }
+            _interactionCount--;
+            if (_currentSequenceRoutine != null) StopCoroutine(_currentSequenceRoutine);
+            _currentSequenceRoutine = StartCoroutine(TransitionToState(_interactionCount, false));
         }
 
         private IEnumerator TransitionToState(int targetState, bool isMovingForward)
@@ -196,6 +180,7 @@ namespace Player
                     }
                     
                     _isSequenceActive = false;
+                    EndTextInputMode();
                     _seq1Done = true;
                     frame2Collider.enabled = false;
                     break;
@@ -217,6 +202,7 @@ namespace Player
                 
                 case 8: // End of Sequence 2
                     _isSequenceActive = false;
+                    EndTextInputMode();
                     _seq2Done = true;
                     letterTrigger.enabled = false;
                     
@@ -237,9 +223,7 @@ namespace Player
                 _isWaitingForHelda = false; // Unfreeze the waiting state
                 _isSequenceActive = true;
                 _interactionCount = 1;
-                
-                // Fix for the first bubble skipping: Mark the axis as in use immediately!
-                if (Mathf.Abs(MoveInput.x) > 0.1f) _axisInUse = true; 
+                BeginTextInputMode();
                 
                 if (_currentSequenceRoutine != null) StopCoroutine(_currentSequenceRoutine);
                 _currentSequenceRoutine = StartCoroutine(TransitionToState(_interactionCount, true));
@@ -253,9 +237,7 @@ namespace Player
                 _isWaitingForHelda = false; // Unfreeze the waiting state
                 _isSequenceActive = true;
                 _interactionCount = 5;
-                
-                // Fix for skipping: Mark the axis as in use immediately!
-                if (Mathf.Abs(MoveInput.x) > 0.1f) _axisInUse = true;
+                BeginTextInputMode();
                 
                 if (_currentSequenceRoutine != null) StopCoroutine(_currentSequenceRoutine);
                 _currentSequenceRoutine = StartCoroutine(TransitionToState(_interactionCount, true));

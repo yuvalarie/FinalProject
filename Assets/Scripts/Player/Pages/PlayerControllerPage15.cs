@@ -20,7 +20,6 @@ namespace Player.Pages
         private bool isSequenceActive = false;
         private bool hasSequenceStarted = false;
         private bool isAnimating = false;
-        private bool axisInUse = false;
         private int interactionCount;
 
         protected override void Start()
@@ -44,29 +43,20 @@ namespace Player.Pages
             base.HandleMovement();
         }
         
-        private void Update()
+        protected override void OnTextForward(InputAction.CallbackContext context)
         {
-            if (!isSequenceActive) return;
+            if (!context.performed || !isSequenceActive || isAnimating || interactionCount >= 4) return;
 
-            if (Mathf.Abs(MoveInput.x) < 0.1f)
-            {
-                axisInUse = false;
-            }
+            interactionCount++;
+            TransitionToState(interactionCount, true);
+        }
 
-            if (isAnimating || axisInUse) return;
+        protected override void OnTextBackward(InputAction.CallbackContext context)
+        {
+            if (!context.performed || !isSequenceActive || isAnimating || interactionCount <= 0) return;
 
-            if (MoveInput.x > 0.5f && interactionCount < 4)
-            {
-                axisInUse = true;
-                interactionCount++;
-                TransitionToState(interactionCount, true);
-            }
-            else if (MoveInput.x < -0.5f && interactionCount > 0)
-            {
-                axisInUse = true;
-                if(interactionCount > 1) interactionCount--;
-                TransitionToState(interactionCount, false);
-            }
+            if(interactionCount > 1) interactionCount--;
+            TransitionToState(interactionCount, false);
         }
         
         private void TransitionToState(int targetState, bool isMovingForward)
@@ -92,6 +82,7 @@ namespace Player.Pages
                 case 4:
                     screen4.SetActive(true);
                     isSequenceActive = false;
+                    EndTextInputMode();
                     break;
             }
 
@@ -106,7 +97,7 @@ namespace Player.Pages
                 hasSequenceStarted = true;
                 isSequenceActive = true;
                 interactionCount = 1;
-                axisInUse = true;
+                BeginTextInputMode();
                 TransitionToState(interactionCount, true);
             }
         }
