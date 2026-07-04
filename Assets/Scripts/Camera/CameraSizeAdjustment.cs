@@ -21,6 +21,12 @@ namespace Camera
         private void Awake()
         {
             _camera = GetComponent<UnityEngine.Camera>();
+            ForceAspectRatio();
+        }
+
+        private void OnEnable()
+        {
+            ForceAspectRatio();
         }
 
         void Start()

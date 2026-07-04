@@ -14,52 +14,52 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Prototypes/PosterDisplay.unity
     guid: 77f5647460617b44b89bdeeb5de030cd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Page 1.unity
     guid: c16e644746d834f699558a1d8cc7e27d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Page 2.unity
     guid: 3ca5c4da119674bce8a5efb720fd2f3f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Page 3.unity
     guid: 2466e9452f83e46db88dac6cbc0a4ac6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Page 4.unity
     guid: 8ff64a892ddbe407eb385194d9b142b5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MiniGame1-WithArt.unity
     guid: ee4c6451a8c45b444bac61016b3e00ea
   - enabled: 1
     path: Assets/Scenes/Page 6.unity
     guid: d1badaf4f7ff14626a9675d9cf58c638
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MiniGame1.5.unity
     guid: ba7f78a7e50db4d9f83fa2ca774555ac
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MiniGame2.unity
     guid: 1eacb48f3d1103d4e8d6f0cb5e4c126a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Page 8.unity
     guid: 1d0c9cb4bcad341c99209ab8e8a7856b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MiniGame3.unity
     guid: a7ddd10364962254cbb36d3ebcffcf10
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Page 11.unity
     guid: 255174c7383104b178adb08cbd63c13c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MiniGame4.unity
     guid: 6d4cd7ab0bda64e53a06ba7c2e7d8033
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Page 13.unity
     guid: 77122d3aed52445169eba58292629824
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MIniGame4P2.unity
     guid: 18a7d3d7104d84e209484956a3d5ac95
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Page 15.unity
     guid: d1fd0c30578624c6e9cefafb8f928c3f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Page 16.unity
     guid: bee17e441fe894b5cb673a94378d14d5
   m_configObjects:
