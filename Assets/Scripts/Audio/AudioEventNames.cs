@@ -72,6 +72,15 @@ namespace Audio
         public const string HeldaWalkingHardFloor = "Helda Walking Hard Floor";
         public const string PotBoiling = "Pot Boiling";
         
+        // minigame 1.5
+        public const string AnswerHover = "Answer Hover";
+        public const string AnswerExitHover = "Answer Exit Hover";
+        public const string AnswerChosen = "Answer Chosen";
+        public const string AnswerAppear = "Answer Appear";
+        public const string MessageShown = "Message Shown";
+        public const string ProcessingAnswers = "Processing Answers";
+        
+
         //minigame 2
         public const string HellPortalNoMusic = "Hell Portal No Music";
         
