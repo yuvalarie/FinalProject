@@ -1182,7 +1182,7 @@ MonoBehaviour:
   mediumLargeCollider: {fileID: 0}
   extraLargeCollider: {fileID: 0}
   IsStunned: 0
-  totalActionsToWin: 6
+  totalActionsToWin: 4
   holdSlot: {fileID: 1667209534}
   invertedFacingToolsList: 0400000002000000
   backToPlaceDuration: 1.5
