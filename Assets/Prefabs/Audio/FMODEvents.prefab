@@ -676,4 +676,36 @@ MonoBehaviour:
           Data3: -400164676
           Data4: -2101953938
         Path: event:/MiniGame3/TikTokExplainer
+    - name: Tool 1 Use
+      eventReference:
+        Guid:
+          Data1: 2108002702
+          Data2: 1269854920
+          Data3: 1717229221
+          Data4: 1573341347
+        Path: event:/MiniGame3/Tool1Use
+    - name: Tool 2 Use
+      eventReference:
+        Guid:
+          Data1: 1842909254
+          Data2: 1287397335
+          Data3: -1489743725
+          Data4: -805814414
+        Path: event:/MiniGame3/Tool2Use
+    - name: Tool 3 Use
+      eventReference:
+        Guid:
+          Data1: 1900142639
+          Data2: 1137670570
+          Data3: -1905356364
+          Data4: -1677354594
+        Path: event:/MiniGame3/Tool3Use
+    - name: Tool 4 Use
+      eventReference:
+        Guid:
+          Data1: -1395883092
+          Data2: 1206257799
+          Data3: 1365785768
+          Data4: 376007159
+        Path: event:/MiniGame3/Tool4Use
     ambianceEvents: []
