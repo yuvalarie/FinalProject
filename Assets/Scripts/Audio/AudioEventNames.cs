@@ -8,6 +8,7 @@ namespace Audio
     public static class AudioEventNames
     {
         // SFX Events
+        public const string InteractionClick = "Interaction Click";
         // opening
         public const string LettersInTubes = "Letters In Tubes short";
         public const string LettersPoppingOutOfTube = "Letters Popping Out Of Tube";
@@ -72,11 +73,21 @@ namespace Audio
         public const string HeldaWalkingHardFloor = "Helda Walking Hard Floor";
         public const string PotBoiling = "Pot Boiling";
         
+        // minigame 1.5
+        public const string AnswerHover = "Answer Hover";
+        public const string AnswerExitHover = "Answer Exit Hover";
+        public const string AnswerChosen = "Answer Chosen";
+        public const string AnswerAppear = "Answer Appear";
+        public const string MessageShown = "Message Shown";
+        public const string ProcessingAnswers = "Processing Answers";
+        
+
         //minigame 2
         public const string HellPortalNoMusic = "Hell Portal No Music";
         
         
         //minigame 3
+        public const string TikTokSound = "TikTok Sound";
         public const string Tool1Preview = "Tool 1 Preview";
         public const string Tool2Preview = "Tool 2 Preview";
         public const string Tool3Preview = "Tool 3 Preview";

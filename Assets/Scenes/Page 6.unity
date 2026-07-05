@@ -2318,7 +2318,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.09551501, y: -0.4103465}
+  m_Offset: {x: 0.06662154, y: -0.6270428}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2328,7 +2328,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.25324965, y: 4.7729654}
+  m_Size: {x: 0.3110366, y: 5.206358}
   m_EdgeRadius: 0
 --- !u!4 &507774499
 Transform:
@@ -7683,7 +7683,7 @@ MonoBehaviour:
   frame2toframe1Trigger: {fileID: 1760313206}
   frame2toframe4Trigger: {fileID: 1806899932}
   frame4toframe2Trigger: {fileID: 1114643386}
-  frame4toframe6Trigger: {fileID: 1661256524}
+  frame4toframe6Trigger: {fileID: 507774498}
   frame6toframe4Trigger: {fileID: 1274614957}
   letterTrigger: {fileID: 1005272911}
   ricePotTrigger: {fileID: 1928727649}

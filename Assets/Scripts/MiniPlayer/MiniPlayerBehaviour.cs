@@ -21,7 +21,7 @@ namespace MiniPlayer
         
         [Header("Mapping Adjustments")]
         [SerializeField, Tooltip("Check this to flip the horizontal movement (Right becomes Left).")]
-        private bool invertX = true; // Set to true by default for your specific room layout!
+        private bool invertX = true; 
         
         [SerializeField, Tooltip("Check this to flip the vertical movement (Up becomes Down).")]
         private bool invertY = false;
@@ -29,31 +29,20 @@ namespace MiniPlayer
         [SerializeField] private float offsetX = 0f;
         [SerializeField] private float offsetY = 0f;
         
-        // [Header("Transparency Link")]
-        // [SerializeField, Tooltip("The big character's controller script.")]
-        // private PlayerControllerBase bigPlayerController;
-        //
-        // [SerializeField, Tooltip("The big character's SpriteRenderer.")]
-        // private SpriteRenderer bigSpriteRenderer;
+        private SpriteRenderer mySpriteRenderer;
         
-        //private SpriteRenderer mySpriteRenderer;
+        // ADD THIS: A variable to remember where we were last frame
+        private float _previousX;
 
         private void Start()
         {
-            //mySpriteRenderer = GetComponent<SpriteRenderer>();
+            mySpriteRenderer = GetComponent<SpriteRenderer>();
+            // Initialize the previous position
+            _previousX = transform.position.x;
         }
-        
-        //public bool IsTrans => bigPlayerController != null && bigPlayerController.IsTrans;
 
         private void Update()
         {
-            // --- 1. Visual Link ---
-            // if (mySpriteRenderer != null && bigSpriteRenderer != null)
-            // {
-            //     mySpriteRenderer.color = bigSpriteRenderer.color;
-            // }
-            
-            // --- 2. Movement Link ---
             if (bigCharacter == null || littleFrameBoundary == null || 
                 bigBottomLeftMarker == null || bigTopRightMarker == null) return;
 
@@ -68,7 +57,22 @@ namespace MiniPlayer
             float targetX = Mathf.Lerp(littleBounds.min.x, littleBounds.max.x, normalizedX) + offsetX;
             float targetY = Mathf.Lerp(littleBounds.min.y, littleBounds.max.y, normalizedY) + offsetY;
 
+            // --- FLIP LOGIC FIX ---
+            // Compare our new targetX to where we were last frame!
+            if (targetX > _previousX)
+            {
+                mySpriteRenderer.flipX = false; // Moving right
+            }
+            else if (targetX < _previousX)
+            {
+                mySpriteRenderer.flipX = true; // Moving left
+            }
+
+            // Apply position
             transform.position = new Vector3(targetX, targetY, transform.position.z);
+            
+            // Save our current X so we can compare it again on the next frame
+            _previousX = targetX;
         }
     }
 }

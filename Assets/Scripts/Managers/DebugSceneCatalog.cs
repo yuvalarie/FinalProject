@@ -8,7 +8,7 @@ namespace DebugTools
 
         private static readonly DebugSceneEntry[] SceneEntries =
         {
-            Reserved("Reserved - Scene 1"),
+            Reserved("StartScreen"),
             Reserved("Reserved - Scene 2"),
             Scene("Page 1"),
             Scene("Page 2"),

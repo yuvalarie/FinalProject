@@ -318,6 +318,7 @@ GameObject:
   - component: {fileID: 97855145}
   - component: {fileID: 97855146}
   - component: {fileID: 97855147}
+  - component: {fileID: 97855148}
   m_Layer: 20
   m_Name: Tool2
   m_TagString: Untagged
@@ -1139,6 +1140,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &97855148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97855141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Tool3Use
+  playOnEnable: 0
 --- !u!1 &108931525
 GameObject:
   m_ObjectHideFlags: 0
@@ -2395,6 +2410,7 @@ GameObject:
   - component: {fileID: 246450449}
   - component: {fileID: 246450450}
   - component: {fileID: 246450451}
+  - component: {fileID: 246450452}
   m_Layer: 20
   m_Name: Tool1
   m_TagString: Untagged
@@ -2933,6 +2949,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &246450452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246450445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Tool2Use
+  playOnEnable: 0
 --- !u!1001 &272091302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3846,6 +3876,7 @@ GameObject:
   - component: {fileID: 668321924}
   - component: {fileID: 668321923}
   - component: {fileID: 668321926}
+  - component: {fileID: 668321927}
   m_Layer: 0
   m_Name: AnimationPhone
   m_TagString: Untagged
@@ -3965,6 +3996,20 @@ MonoBehaviour:
   phone1: {fileID: 668321922}
   phone2: {fileID: 1428781625}
   hand: {fileID: 108931525}
+--- !u!114 &668321927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668321922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: TikTokSound
+  playOnEnable: 0
 --- !u!1 &720036357
 GameObject:
   m_ObjectHideFlags: 0
@@ -4519,6 +4564,7 @@ GameObject:
   - component: {fileID: 912940439}
   - component: {fileID: 912940440}
   - component: {fileID: 912940441}
+  - component: {fileID: 912940442}
   m_Layer: 20
   m_Name: Tool3
   m_TagString: Untagged
@@ -4940,6 +4986,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &912940442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912940435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Tool1Use
+  playOnEnable: 0
 --- !u!1 &932242824
 GameObject:
   m_ObjectHideFlags: 0
@@ -10612,6 +10672,7 @@ GameObject:
   - component: {fileID: 2060909863}
   - component: {fileID: 2060909865}
   - component: {fileID: 2060909866}
+  - component: {fileID: 2060909867}
   m_Layer: 20
   m_Name: Tool4
   m_TagString: Untagged
@@ -10781,6 +10842,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2060909867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060909859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Tool4Use
+  playOnEnable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

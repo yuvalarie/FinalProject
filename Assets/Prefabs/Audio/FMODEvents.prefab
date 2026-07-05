@@ -104,6 +104,14 @@ MonoBehaviour:
           Data3: 2112626578
           Data4: -1168902055
         Path: event:/General/LetterChangeShort
+    - name: Interaction Click
+      eventReference:
+        Guid:
+          Data1: -2073710377
+          Data2: 1139084323
+          Data3: 1477213082
+          Data4: 822601527
+        Path: event:/General/InteractionFeedback
     ambianceEvents: []
   - sceneName: Page 1
     musicEvents: []
@@ -544,14 +552,6 @@ MonoBehaviour:
           Data3: -538604627
           Data4: 899408711
         Path: event:/Page6/PullCurtain
-    - name: Gasp
-      eventReference:
-        Guid:
-          Data1: -190389785
-          Data2: 1170293729
-          Data3: -773553504
-          Data4: -1449774272
-        Path: event:/Page6/Gasp
     - name: Helda Walking Hard Floor
       eventReference:
         Guid:
@@ -571,7 +571,55 @@ MonoBehaviour:
     ambianceEvents: []
   - sceneName: MiniGame1_5
     musicEvents: []
-    sfxEvents: []
+    sfxEvents:
+    - name: Answer Hover
+      eventReference:
+        Guid:
+          Data1: 1179213902
+          Data2: 1234382452
+          Data3: 637954690
+          Data4: -1247682399
+        Path: event:/MiniGame1_5/AnswerHover
+    - name: Answer Exit Hover
+      eventReference:
+        Guid:
+          Data1: -190999521
+          Data2: 1273752843
+          Data3: 740453792
+          Data4: 209129402
+        Path: event:/MiniGame1_5/AnswerUnHover
+    - name: Answer Chosen
+      eventReference:
+        Guid:
+          Data1: 1903852918
+          Data2: 1138870928
+          Data3: 357651105
+          Data4: 2100018403
+        Path: event:/MiniGame1_5/AnswerChosen
+    - name: Answer Appear
+      eventReference:
+        Guid:
+          Data1: 1688330571
+          Data2: 1326713811
+          Data3: 32128190
+          Data4: 1258728996
+        Path: event:/MiniGame1_5/AnswerAppear
+    - name: Message Shown
+      eventReference:
+        Guid:
+          Data1: -1570178208
+          Data2: 1111025249
+          Data3: 971943072
+          Data4: -1573871674
+        Path: event:/MiniGame1_5/MessageShowen
+    - name: Processing Answers
+      eventReference:
+        Guid:
+          Data1: -222623842
+          Data2: 1131396653
+          Data3: 79975552
+          Data4: 1601039280
+        Path: event:/MiniGame1_5/ProcessingAnswers
     ambianceEvents: []
   - sceneName: MiniGame2
     musicEvents: []
@@ -591,26 +639,26 @@ MonoBehaviour:
     - name: Tool 1 Preview
       eventReference:
         Guid:
+          Data1: -600933252
+          Data2: 1128042039
+          Data3: -1002755396
+          Data4: -1516638010
+        Path: event:/MiniGame3/Previews/Ver1/Tool1Preview
+    - name: Tool 2 Preview
+      eventReference:
+        Guid:
           Data1: 279709653
           Data2: 1220381320
           Data3: -1733141613
           Data4: 1734482115
-        Path: event:/MiniGame3/Previews/Ver1/Tool1Preview
-    - name: Tool 2 Preview
+        Path: event:/MiniGame3/Previews/Ver1/Tool2Preview
+    - name: Tool 3 Preview
       eventReference:
         Guid:
           Data1: 2023141571
           Data2: 1322218307
           Data3: 2123457177
           Data4: 893916094
-        Path: event:/MiniGame3/Previews/Ver1/Tool2Preview
-    - name: Tool 3 Preview
-      eventReference:
-        Guid:
-          Data1: -600933252
-          Data2: 1128042039
-          Data3: -1002755396
-          Data4: -1516638010
         Path: event:/MiniGame3/Previews/Ver1/Tool3Preview
     - name: Tool 4 Preview
       eventReference:
@@ -620,4 +668,44 @@ MonoBehaviour:
           Data3: -1968890185
           Data4: 707609140
         Path: event:/MiniGame3/Previews/Ver1/Tool4Preview
+    - name: TikTok Sound
+      eventReference:
+        Guid:
+          Data1: -155858623
+          Data2: 1258650162
+          Data3: -400164676
+          Data4: -2101953938
+        Path: event:/MiniGame3/TikTokExplainer
+    - name: Tool 1 Use
+      eventReference:
+        Guid:
+          Data1: 2108002702
+          Data2: 1269854920
+          Data3: 1717229221
+          Data4: 1573341347
+        Path: event:/MiniGame3/Tool1Use
+    - name: Tool 2 Use
+      eventReference:
+        Guid:
+          Data1: 1842909254
+          Data2: 1287397335
+          Data3: -1489743725
+          Data4: -805814414
+        Path: event:/MiniGame3/Tool2Use
+    - name: Tool 3 Use
+      eventReference:
+        Guid:
+          Data1: 1900142639
+          Data2: 1137670570
+          Data3: -1905356364
+          Data4: -1677354594
+        Path: event:/MiniGame3/Tool3Use
+    - name: Tool 4 Use
+      eventReference:
+        Guid:
+          Data1: -1395883092
+          Data2: 1206257799
+          Data3: 1365785768
+          Data4: 376007159
+        Path: event:/MiniGame3/Tool4Use
     ambianceEvents: []

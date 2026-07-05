@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Audio.AudioEmitters;
 using DG.Tweening;
 using Managers;
 using Objects;
@@ -51,6 +52,12 @@ namespace Player.MiniGames
         [SerializeField] private bool rotateTowardsMovement = true;
         [SerializeField] private float rotationSpeed = 15f;
         [SerializeField] private float rotationOffset = 0f;
+        
+        [Header("Audio Settings")]
+        [SerializeField] private AudioEmitterBase hoverEmitter;
+        [SerializeField] private AudioEmitterBase hoverExitEmitter;
+        [SerializeField] private AudioEmitterBase chosenEmitter;
+        
 
         private Vector2 _lastVelocity;
 
@@ -138,6 +145,7 @@ namespace Player.MiniGames
                 if (_currentlyHoveredAnswer != null)
                 {
                     _currentlyHoveredAnswer.SwitchToOriginal();
+                    hoverExitEmitter?.PlayAudioOnce();
                 }
 
                 _currentlyHoveredAnswer = closestAnswer;
@@ -145,6 +153,7 @@ namespace Player.MiniGames
                 if (_currentlyHoveredAnswer != null)
                 {
                     _currentlyHoveredAnswer.SwitchToHover();
+                    hoverEmitter?.PlayAudioOnce();
                 }
             }
         }
@@ -200,6 +209,7 @@ namespace Player.MiniGames
                 QuizStage currentStage = quizStages[_currentStageIndex];
 
                 _currentlyHoveredAnswer.SwitchToChosen();
+                chosenEmitter?.PlayAudioOnce();
                 StartCoroutine(AnswerSelectionRoutine(selectedItem, currentStage));
             }
         }
