@@ -1182,7 +1182,7 @@ MonoBehaviour:
   mediumLargeCollider: {fileID: 0}
   extraLargeCollider: {fileID: 0}
   IsStunned: 0
-  totalActionsToWin: 4
+  totalActionsToWin: 3
   holdSlot: {fileID: 1667209534}
   invertedFacingToolsList: 0400000002000000
   backToPlaceDuration: 1.5
@@ -3394,11 +3394,11 @@ MonoBehaviour:
   pimple3Animator: {fileID: 1306949062}
   pimple4Animator: {fileID: 722875018}
   pimple5Animator: {fileID: 1502374653}
-  wait1: 0
-  wait2: 0
-  wait3: 0
-  wait4: 0
-  wait5: 0
+  wait1: 10
+  wait2: 17
+  wait3: 20
+  wait4: 25
+  wait5: 35
 --- !u!4 &460013550
 Transform:
   m_ObjectHideFlags: 0
