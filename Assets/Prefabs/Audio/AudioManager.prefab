@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5730181177150766635}
   - component: {fileID: 7103074799548194426}
+  - component: {fileID: 6364996123524293955}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -49,3 +50,16 @@ MonoBehaviour:
   sfxVolume: 1
   ambianceVolume: 1
   voiceVolume: 1
+--- !u!114 &6364996123524293955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6030717069895283399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a475281c017ba944bbad2b2867a603f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.InteractionSfxListener
+  interactionEventName: InteractionClick

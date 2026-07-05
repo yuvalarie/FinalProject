@@ -8,6 +8,7 @@ namespace Audio
     public static class AudioEventNames
     {
         // SFX Events
+        public const string InteractionClick = "Interaction Click";
         // opening
         public const string LettersInTubes = "Letters In Tubes short";
         public const string LettersPoppingOutOfTube = "Letters Popping Out Of Tube";

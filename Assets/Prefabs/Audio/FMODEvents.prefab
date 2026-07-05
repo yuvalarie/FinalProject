@@ -104,6 +104,14 @@ MonoBehaviour:
           Data3: 2112626578
           Data4: -1168902055
         Path: event:/General/LetterChangeShort
+    - name: Interaction Click
+      eventReference:
+        Guid:
+          Data1: -2073710377
+          Data2: 1139084323
+          Data3: 1477213082
+          Data4: 822601527
+        Path: event:/General/InteractionFeedback
     ambianceEvents: []
   - sceneName: Page 1
     musicEvents: []
