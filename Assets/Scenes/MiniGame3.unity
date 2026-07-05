@@ -318,6 +318,7 @@ GameObject:
   - component: {fileID: 97855145}
   - component: {fileID: 97855146}
   - component: {fileID: 97855147}
+  - component: {fileID: 97855148}
   m_Layer: 20
   m_Name: Tool2
   m_TagString: Untagged
@@ -1139,6 +1140,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &97855148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97855141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Tool3Use
+  playOnEnable: 0
 --- !u!1 &108931525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1545,7 +1560,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool1Preview
   playOnEnable: 1
-  playOnStart: 0
 --- !u!1 &183110562
 GameObject:
   m_ObjectHideFlags: 0
@@ -2382,7 +2396,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool3Preview
   playOnEnable: 1
-  playOnStart: 0
 --- !u!1 &246450445
 GameObject:
   m_ObjectHideFlags: 0
@@ -2397,6 +2410,7 @@ GameObject:
   - component: {fileID: 246450449}
   - component: {fileID: 246450450}
   - component: {fileID: 246450451}
+  - component: {fileID: 246450452}
   m_Layer: 20
   m_Name: Tool1
   m_TagString: Untagged
@@ -2935,6 +2949,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &246450452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246450445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Tool2Use
+  playOnEnable: 0
 --- !u!1001 &272091302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3257,7 +3285,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool4Preview
   playOnEnable: 1
-  playOnStart: 0
 --- !u!1 &422671007
 GameObject:
   m_ObjectHideFlags: 0
@@ -3363,7 +3390,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool1Preview
   playOnEnable: 1
-  playOnStart: 0
 --- !u!1 &460013548
 GameObject:
   m_ObjectHideFlags: 0
@@ -3984,7 +4010,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: TikTokSound
   playOnEnable: 0
-  playOnStart: 0
 --- !u!1 &720036357
 GameObject:
   m_ObjectHideFlags: 0
@@ -4525,7 +4550,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool2Preview
   playOnEnable: 1
-  playOnStart: 0
 --- !u!1 &912940435
 GameObject:
   m_ObjectHideFlags: 0
@@ -4540,6 +4564,7 @@ GameObject:
   - component: {fileID: 912940439}
   - component: {fileID: 912940440}
   - component: {fileID: 912940441}
+  - component: {fileID: 912940442}
   m_Layer: 20
   m_Name: Tool3
   m_TagString: Untagged
@@ -4961,6 +4986,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &912940442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912940435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Tool1Use
+  playOnEnable: 0
 --- !u!1 &932242824
 GameObject:
   m_ObjectHideFlags: 0
@@ -5156,7 +5195,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool2Preview
   playOnEnable: 1
-  playOnStart: 0
 --- !u!1 &1000060987
 GameObject:
   m_ObjectHideFlags: 0
@@ -5548,7 +5586,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool2Preview
   playOnEnable: 1
-  playOnStart: 0
 --- !u!1 &1104236482
 GameObject:
   m_ObjectHideFlags: 0
@@ -5654,7 +5691,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool4Preview
   playOnEnable: 1
-  playOnStart: 0
 --- !u!1 &1136808477
 GameObject:
   m_ObjectHideFlags: 0
@@ -5968,7 +6004,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool1Preview
   playOnEnable: 1
-  playOnStart: 0
 --- !u!1 &1193172873
 GameObject:
   m_ObjectHideFlags: 0
@@ -6164,7 +6199,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool3Preview
   playOnEnable: 1
-  playOnStart: 0
 --- !u!1 &1266043634
 GameObject:
   m_ObjectHideFlags: 0
@@ -6504,7 +6538,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool4Preview
   playOnEnable: 1
-  playOnStart: 0
 --- !u!1 &1403801400
 GameObject:
   m_ObjectHideFlags: 0
@@ -6611,7 +6644,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool2Preview
   playOnEnable: 1
-  playOnStart: 0
 --- !u!1 &1423278992
 GameObject:
   m_ObjectHideFlags: 0
@@ -8054,7 +8086,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool3Preview
   playOnEnable: 1
-  playOnStart: 0
 --- !u!1 &1667209533
 GameObject:
   m_ObjectHideFlags: 0
@@ -8192,7 +8223,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool1Preview
   playOnEnable: 1
-  playOnStart: 0
 --- !u!1 &1716723361
 GameObject:
   m_ObjectHideFlags: 0
@@ -8388,7 +8418,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool4Preview
   playOnEnable: 1
-  playOnStart: 0
 --- !u!1 &1777162459
 GameObject:
   m_ObjectHideFlags: 0
@@ -9475,7 +9504,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool3Preview
   playOnEnable: 1
-  playOnStart: 0
 --- !u!1 &1932084746
 GameObject:
   m_ObjectHideFlags: 0
@@ -10644,6 +10672,7 @@ GameObject:
   - component: {fileID: 2060909863}
   - component: {fileID: 2060909865}
   - component: {fileID: 2060909866}
+  - component: {fileID: 2060909867}
   m_Layer: 20
   m_Name: Tool4
   m_TagString: Untagged
@@ -10813,6 +10842,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2060909867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060909859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Tool4Use
+  playOnEnable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

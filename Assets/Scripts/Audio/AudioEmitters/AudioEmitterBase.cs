@@ -88,7 +88,7 @@ namespace Audio.AudioEmitters
             _isAudioInstanceInitialized = true;
         }
         
-        private void OnDestroy()
+        protected virtual void OnDestroy()
         {
             if(_isAudioInstanceInitialized)
             {
