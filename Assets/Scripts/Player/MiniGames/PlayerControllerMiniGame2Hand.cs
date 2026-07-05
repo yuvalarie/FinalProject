@@ -45,7 +45,8 @@ namespace Player
             _navigationMode = true;
             _onNavigateLeft = onLeft;
             _onNavigateRight = onRight;
-            MoveInput = Vector2.zero;
+            // MoveInput = Vector2.zero;
+            BeginTextInputMode();
         }
 
         public void DisableNavigationMode()
@@ -53,8 +54,9 @@ namespace Player
             _navigationMode = false;
             _onNavigateLeft = null;
             _onNavigateRight = null;
+            EndTextInputMode();
         }
-        
+
 
         protected override void HandleMovement()
         {
@@ -62,16 +64,16 @@ namespace Player
 
             if (_navigationMode)
             {
-                if (MoveInput.x > 0.5f)
-                {
-                    MoveInput.x = 0f;
-                    StartCoroutine(NavigationFireRoutine(_onNavigateRight));
-                }
-                else if (MoveInput.x < -0.5f)
-                {
-                    MoveInput.x = 0f;
-                    StartCoroutine(NavigationFireRoutine(_onNavigateLeft));
-                }
+                // if (MoveInput.x > 0.5f)
+                // {
+                //     MoveInput.x = 0f;
+                //     StartCoroutine(NavigationFireRoutine(_onNavigateRight));
+                // }
+                // else if (MoveInput.x < -0.5f)
+                // {
+                //     MoveInput.x = 0f;
+                //     StartCoroutine(NavigationFireRoutine(_onNavigateLeft));
+                // }
                 return;
             }
 
@@ -95,6 +97,18 @@ namespace Player
             callback?.Invoke();
             yield return null;
             _isMoving = false;
+        }
+
+        protected override void OnTextForward(InputAction.CallbackContext context)
+        {
+            if (!_navigationMode || _isMoving) return;
+            StartCoroutine(NavigationFireRoutine(_onNavigateRight));
+        }
+
+        protected override void OnTextBackward(InputAction.CallbackContext context)
+        {
+            if (!_navigationMode || _isMoving) return;
+            StartCoroutine(NavigationFireRoutine(_onNavigateLeft));
         }
 
         protected override void OnInteraction(InputAction.CallbackContext context)
