@@ -50,9 +50,9 @@ namespace Objects
         {
             // _letterSoundReference = FMODEvents.Instance.GetEventReferenceByName(AudioEventNames.LettersInTubes);
             
-            if (letters.Length != 5)
+            if (letters.Length < 1)
             {
-                Debug.LogWarning("Please assign exactly 3 letters in the Inspector!");
+                Debug.LogWarning("Please assign letters in the Inspector!");
                 return;
             }
             if (topPipeWaypoints.Length < 2 || bottomPipeWaypoints.Length < 2)
@@ -82,12 +82,10 @@ namespace Objects
                 if (isGoingToTopPipe)
                 {
                     chosenWaypoints = topPipeWaypoints;
-                    lettersSpriteRenderers[i].sortingOrder = 11;
                 }
                 else
                 {
                     chosenWaypoints = bottomPipeWaypoints;
-                    lettersSpriteRenderers[i].sortingOrder = 11;
                 }
 
                 float duration = Random.Range(minDuration, maxDuration);

@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Prototypes/PosterDisplay.unity
     guid: 77f5647460617b44b89bdeeb5de030cd
   - enabled: 1
+    path: Assets/Scenes/StartScreen.unity
+    guid: 62010827a6077421381675dd63cb1bd5
+  - enabled: 1
     path: Assets/Scenes/Page 1.unity
     guid: c16e644746d834f699558a1d8cc7e27d
   - enabled: 1
