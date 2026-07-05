@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 72403245}
   - component: {fileID: 72403247}
   - component: {fileID: 72403248}
+  - component: {fileID: 72403249}
   m_Layer: 16
   m_Name: Q3-A1
   m_TagString: Answer
@@ -276,6 +277,20 @@ MonoBehaviour:
   minSortingOrder: 12
   activationScaleDuration: 1
   activationScaleEase: 27
+--- !u!114 &72403249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72403244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: AnswerAppear
+  playOnEnable: 1
 --- !u!1001 &159612793
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -343,6 +358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 181211506}
   - component: {fileID: 181211505}
+  - component: {fileID: 181211507}
   m_Layer: 0
   m_Name: StartConvo
   m_TagString: Untagged
@@ -423,6 +439,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &181211507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181211504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: MessageShown
+  playOnEnable: 1
 --- !u!1 &238109402
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +466,9 @@ GameObject:
   - component: {fileID: 238109405}
   - component: {fileID: 238109407}
   - component: {fileID: 238109408}
+  - component: {fileID: 238109411}
+  - component: {fileID: 238109410}
+  - component: {fileID: 238109409}
   m_Layer: 10
   m_Name: DaveHand
   m_TagString: Angel
@@ -585,6 +618,9 @@ MonoBehaviour:
   rotateTowardsMovement: 1
   rotationSpeed: 15
   rotationOffset: -90
+  hoverEmitter: {fileID: 238109411}
+  hoverExitEmitter: {fileID: 238109410}
+  chosenEmitter: {fileID: 238109409}
 --- !u!50 &238109407
 Rigidbody2D:
   serializedVersion: 5
@@ -723,6 +759,48 @@ PolygonCollider2D:
       - {x: 0.6574074, y: 0.0925926}
       - {x: 0.6759259, y: 0.4537037}
   m_UseDelaunayMesh: 0
+--- !u!114 &238109409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238109402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: AnswerChosen
+  playOnEnable: 0
+--- !u!114 &238109410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238109402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: AnswerExitHover
+  playOnEnable: 0
+--- !u!114 &238109411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238109402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: AnswerHover
+  playOnEnable: 0
 --- !u!1 &328395378
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,6 +813,7 @@ GameObject:
   - component: {fileID: 328395379}
   - component: {fileID: 328395381}
   - component: {fileID: 328395382}
+  - component: {fileID: 328395383}
   m_Layer: 16
   m_Name: Q1-A1
   m_TagString: Answer
@@ -880,6 +959,20 @@ MonoBehaviour:
   minSortingOrder: 13
   activationScaleDuration: 1
   activationScaleEase: 27
+--- !u!114 &328395383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328395378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: AnswerAppear
+  playOnEnable: 1
 --- !u!1 &390351395
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,6 +985,7 @@ GameObject:
   - component: {fileID: 390351396}
   - component: {fileID: 390351398}
   - component: {fileID: 390351399}
+  - component: {fileID: 390351400}
   m_Layer: 16
   m_Name: Q3-A5
   m_TagString: Answer
@@ -1037,6 +1131,20 @@ MonoBehaviour:
   minSortingOrder: 12
   activationScaleDuration: 1
   activationScaleEase: 27
+--- !u!114 &390351400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390351395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: AnswerAppear
+  playOnEnable: 1
 --- !u!1 &480142923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,6 +1389,7 @@ GameObject:
   - component: {fileID: 571505441}
   - component: {fileID: 571505443}
   - component: {fileID: 571505444}
+  - component: {fileID: 571505445}
   m_Layer: 16
   m_Name: Q1-A5
   m_TagString: Answer
@@ -1426,6 +1535,20 @@ MonoBehaviour:
   minSortingOrder: 12
   activationScaleDuration: 1
   activationScaleEase: 27
+--- !u!114 &571505445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571505440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: AnswerAppear
+  playOnEnable: 1
 --- !u!1 &603413013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1708,6 +1831,7 @@ GameObject:
   - component: {fileID: 697985618}
   - component: {fileID: 697985620}
   - component: {fileID: 697985621}
+  - component: {fileID: 697985622}
   m_Layer: 16
   m_Name: Q1-A6
   m_TagString: Answer
@@ -1853,6 +1977,20 @@ MonoBehaviour:
   minSortingOrder: 13
   activationScaleDuration: 1
   activationScaleEase: 27
+--- !u!114 &697985622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697985617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: AnswerAppear
+  playOnEnable: 1
 --- !u!1001 &714737923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1922,6 +2060,7 @@ GameObject:
   - component: {fileID: 829462644}
   - component: {fileID: 829462646}
   - component: {fileID: 829462647}
+  - component: {fileID: 829462648}
   m_Layer: 16
   m_Name: Q3-A2
   m_TagString: Answer
@@ -2067,6 +2206,20 @@ MonoBehaviour:
   minSortingOrder: 13
   activationScaleDuration: 1
   activationScaleEase: 27
+--- !u!114 &829462648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829462643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: AnswerAppear
+  playOnEnable: 1
 --- !u!1 &846876262
 GameObject:
   m_ObjectHideFlags: 0
@@ -2079,6 +2232,7 @@ GameObject:
   - component: {fileID: 846876263}
   - component: {fileID: 846876265}
   - component: {fileID: 846876266}
+  - component: {fileID: 846876267}
   m_Layer: 16
   m_Name: Q1-A2
   m_TagString: Answer
@@ -2224,6 +2378,20 @@ MonoBehaviour:
   minSortingOrder: 11
   activationScaleDuration: 1
   activationScaleEase: 27
+--- !u!114 &846876267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846876262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: AnswerAppear
+  playOnEnable: 1
 --- !u!1 &873316239
 GameObject:
   m_ObjectHideFlags: 0
@@ -2812,6 +2980,7 @@ GameObject:
   - component: {fileID: 1212706269}
   - component: {fileID: 1212706271}
   - component: {fileID: 1212706272}
+  - component: {fileID: 1212706273}
   m_Layer: 16
   m_Name: Q1-A3
   m_TagString: Answer
@@ -2957,6 +3126,20 @@ MonoBehaviour:
   minSortingOrder: 12
   activationScaleDuration: 1
   activationScaleEase: 27
+--- !u!114 &1212706273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212706268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: AnswerAppear
+  playOnEnable: 1
 --- !u!1 &1215107127
 GameObject:
   m_ObjectHideFlags: 0
@@ -2969,6 +3152,7 @@ GameObject:
   - component: {fileID: 1215107128}
   - component: {fileID: 1215107130}
   - component: {fileID: 1215107131}
+  - component: {fileID: 1215107132}
   m_Layer: 16
   m_Name: Q2-A5
   m_TagString: Answer
@@ -3114,6 +3298,20 @@ MonoBehaviour:
   minSortingOrder: 12
   activationScaleDuration: 1
   activationScaleEase: 27
+--- !u!114 &1215107132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215107127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: AnswerAppear
+  playOnEnable: 1
 --- !u!1 &1219319622
 GameObject:
   m_ObjectHideFlags: 0
@@ -3126,6 +3324,7 @@ GameObject:
   - component: {fileID: 1219319623}
   - component: {fileID: 1219319625}
   - component: {fileID: 1219319626}
+  - component: {fileID: 1219319627}
   m_Layer: 16
   m_Name: Q3-A3
   m_TagString: Answer
@@ -3271,6 +3470,20 @@ MonoBehaviour:
   minSortingOrder: 12
   activationScaleDuration: 1
   activationScaleEase: 27
+--- !u!114 &1219319627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219319622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: AnswerAppear
+  playOnEnable: 1
 --- !u!1 &1262400458
 GameObject:
   m_ObjectHideFlags: 0
@@ -3281,6 +3494,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1262400460}
   - component: {fileID: 1262400459}
+  - component: {fileID: 1262400462}
+  - component: {fileID: 1262400461}
   m_Layer: 0
   m_Name: EndConvo1
   m_TagString: Untagged
@@ -3361,6 +3576,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1262400461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262400458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: ProcessingAnswers
+  playOnEnable: 1
+--- !u!114 &1262400462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262400458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: MessageShown
+  playOnEnable: 1
 --- !u!1 &1282812119
 GameObject:
   m_ObjectHideFlags: 0
@@ -3371,6 +3614,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1282812121}
   - component: {fileID: 1282812120}
+  - component: {fileID: 1282812122}
   m_Layer: 0
   m_Name: Q1
   m_TagString: Untagged
@@ -3451,6 +3695,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1565958708}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1282812122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282812119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: MessageShown
+  playOnEnable: 1
 --- !u!1 &1357422441
 GameObject:
   m_ObjectHideFlags: 0
@@ -3499,6 +3757,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1446950524}
   - component: {fileID: 1446950523}
+  - component: {fileID: 1446950525}
   m_Layer: 0
   m_Name: Q2
   m_TagString: Untagged
@@ -3579,6 +3838,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1179888833}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1446950525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446950522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: MessageShown
+  playOnEnable: 1
 --- !u!1 &1449897303
 GameObject:
   m_ObjectHideFlags: 0
@@ -3591,6 +3864,7 @@ GameObject:
   - component: {fileID: 1449897304}
   - component: {fileID: 1449897306}
   - component: {fileID: 1449897307}
+  - component: {fileID: 1449897308}
   m_Layer: 16
   m_Name: Q2-A2
   m_TagString: Answer
@@ -3736,6 +4010,20 @@ MonoBehaviour:
   minSortingOrder: 12
   activationScaleDuration: 1
   activationScaleEase: 27
+--- !u!114 &1449897308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449897303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: AnswerAppear
+  playOnEnable: 1
 --- !u!1 &1469109428
 GameObject:
   m_ObjectHideFlags: 0
@@ -3746,6 +4034,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1469109430}
   - component: {fileID: 1469109429}
+  - component: {fileID: 1469109431}
   m_Layer: 0
   m_Name: EndConvo2
   m_TagString: Untagged
@@ -3826,6 +4115,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1469109431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469109428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: MessageShown
+  playOnEnable: 1
 --- !u!1 &1542569371
 GameObject:
   m_ObjectHideFlags: 0
@@ -3995,6 +4298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1784180063}
   - component: {fileID: 1784180062}
+  - component: {fileID: 1784180064}
   m_Layer: 0
   m_Name: Q3
   m_TagString: Untagged
@@ -4075,6 +4379,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1357422442}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1784180064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784180061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: MessageShown
+  playOnEnable: 1
 --- !u!1 &1810271164
 GameObject:
   m_ObjectHideFlags: 0
@@ -4087,6 +4405,7 @@ GameObject:
   - component: {fileID: 1810271165}
   - component: {fileID: 1810271167}
   - component: {fileID: 1810271168}
+  - component: {fileID: 1810271169}
   m_Layer: 16
   m_Name: Q1-A4
   m_TagString: Answer
@@ -4232,6 +4551,20 @@ MonoBehaviour:
   minSortingOrder: 12
   activationScaleDuration: 1
   activationScaleEase: 27
+--- !u!114 &1810271169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810271164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: AnswerAppear
+  playOnEnable: 1
 --- !u!1 &1816114430
 GameObject:
   m_ObjectHideFlags: 0
@@ -4334,6 +4667,7 @@ GameObject:
   - component: {fileID: 1857221315}
   - component: {fileID: 1857221317}
   - component: {fileID: 1857221318}
+  - component: {fileID: 1857221319}
   m_Layer: 16
   m_Name: Q3-A6
   m_TagString: Answer
@@ -4479,6 +4813,20 @@ MonoBehaviour:
   minSortingOrder: 13
   activationScaleDuration: 1
   activationScaleEase: 27
+--- !u!114 &1857221319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857221314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: AnswerAppear
+  playOnEnable: 1
 --- !u!1 &1939699996
 GameObject:
   m_ObjectHideFlags: 0
@@ -4489,6 +4837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1939699998}
   - component: {fileID: 1939699997}
+  - component: {fileID: 1939699999}
   m_Layer: 0
   m_Name: EndConvo3
   m_TagString: Untagged
@@ -4569,6 +4918,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1939699999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939699996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: MessageShown
+  playOnEnable: 1
 --- !u!1001 &1942633761
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4780,6 +5143,7 @@ GameObject:
   - component: {fileID: 1983060650}
   - component: {fileID: 1983060652}
   - component: {fileID: 1983060653}
+  - component: {fileID: 1983060654}
   m_Layer: 16
   m_Name: Q3-A4
   m_TagString: Answer
@@ -4925,6 +5289,20 @@ MonoBehaviour:
   minSortingOrder: 12
   activationScaleDuration: 1
   activationScaleEase: 27
+--- !u!114 &1983060654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983060649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: AnswerAppear
+  playOnEnable: 1
 --- !u!1 &1990718213
 GameObject:
   m_ObjectHideFlags: 0
@@ -4937,6 +5315,7 @@ GameObject:
   - component: {fileID: 1990718214}
   - component: {fileID: 1990718216}
   - component: {fileID: 1990718217}
+  - component: {fileID: 1990718218}
   m_Layer: 16
   m_Name: Q2-A1
   m_TagString: Answer
@@ -5082,6 +5461,20 @@ MonoBehaviour:
   minSortingOrder: 12
   activationScaleDuration: 1
   activationScaleEase: 27
+--- !u!114 &1990718218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990718213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: AnswerAppear
+  playOnEnable: 1
 --- !u!1 &2112596553
 GameObject:
   m_ObjectHideFlags: 0
@@ -5094,6 +5487,7 @@ GameObject:
   - component: {fileID: 2112596554}
   - component: {fileID: 2112596556}
   - component: {fileID: 2112596557}
+  - component: {fileID: 2112596558}
   m_Layer: 16
   m_Name: Q2-A4
   m_TagString: Answer
@@ -5239,6 +5633,20 @@ MonoBehaviour:
   minSortingOrder: 11
   activationScaleDuration: 1
   activationScaleEase: 27
+--- !u!114 &2112596558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112596553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: AnswerAppear
+  playOnEnable: 1
 --- !u!1 &2146440561
 GameObject:
   m_ObjectHideFlags: 0
@@ -5251,6 +5659,7 @@ GameObject:
   - component: {fileID: 2146440562}
   - component: {fileID: 2146440564}
   - component: {fileID: 2146440565}
+  - component: {fileID: 2146440566}
   m_Layer: 16
   m_Name: Q2-A3
   m_TagString: Answer
@@ -5396,6 +5805,20 @@ MonoBehaviour:
   minSortingOrder: 12
   activationScaleDuration: 1
   activationScaleEase: 27
+--- !u!114 &2146440566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146440561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: AnswerAppear
+  playOnEnable: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

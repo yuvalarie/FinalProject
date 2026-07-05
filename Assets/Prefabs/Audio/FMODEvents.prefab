@@ -544,14 +544,6 @@ MonoBehaviour:
           Data3: -538604627
           Data4: 899408711
         Path: event:/Page6/PullCurtain
-    - name: Gasp
-      eventReference:
-        Guid:
-          Data1: -190389785
-          Data2: 1170293729
-          Data3: -773553504
-          Data4: -1449774272
-        Path: event:/Page6/Gasp
     - name: Helda Walking Hard Floor
       eventReference:
         Guid:
@@ -571,7 +563,55 @@ MonoBehaviour:
     ambianceEvents: []
   - sceneName: MiniGame1_5
     musicEvents: []
-    sfxEvents: []
+    sfxEvents:
+    - name: Answer Hover
+      eventReference:
+        Guid:
+          Data1: 1179213902
+          Data2: 1234382452
+          Data3: 637954690
+          Data4: -1247682399
+        Path: event:/MiniGame1_5/AnswerHover
+    - name: Answer Exit Hover
+      eventReference:
+        Guid:
+          Data1: -190999521
+          Data2: 1273752843
+          Data3: 740453792
+          Data4: 209129402
+        Path: event:/MiniGame1_5/AnswerUnHover
+    - name: Answer Chosen
+      eventReference:
+        Guid:
+          Data1: 1903852918
+          Data2: 1138870928
+          Data3: 357651105
+          Data4: 2100018403
+        Path: event:/MiniGame1_5/AnswerChosen
+    - name: Answer Appear
+      eventReference:
+        Guid:
+          Data1: 1688330571
+          Data2: 1326713811
+          Data3: 32128190
+          Data4: 1258728996
+        Path: event:/MiniGame1_5/AnswerAppear
+    - name: Message Shown
+      eventReference:
+        Guid:
+          Data1: -1570178208
+          Data2: 1111025249
+          Data3: 971943072
+          Data4: -1573871674
+        Path: event:/MiniGame1_5/MessageShowen
+    - name: Processing Answers
+      eventReference:
+        Guid:
+          Data1: -222623842
+          Data2: 1131396653
+          Data3: 79975552
+          Data4: 1601039280
+        Path: event:/MiniGame1_5/ProcessingAnswers
     ambianceEvents: []
   - sceneName: MiniGame2
     musicEvents: []
