@@ -86,6 +86,7 @@ namespace Audio
         
         
         //minigame 3
+        public const string TikTokSound = "TikTok Sound";
         public const string Tool1Preview = "Tool 1 Preview";
         public const string Tool2Preview = "Tool 2 Preview";
         public const string Tool3Preview = "Tool 3 Preview";

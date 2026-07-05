@@ -1545,6 +1545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool1Preview
   playOnEnable: 1
+  playOnStart: 0
 --- !u!1 &183110562
 GameObject:
   m_ObjectHideFlags: 0
@@ -2381,6 +2382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool3Preview
   playOnEnable: 1
+  playOnStart: 0
 --- !u!1 &246450445
 GameObject:
   m_ObjectHideFlags: 0
@@ -3255,6 +3257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool4Preview
   playOnEnable: 1
+  playOnStart: 0
 --- !u!1 &422671007
 GameObject:
   m_ObjectHideFlags: 0
@@ -3360,6 +3363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool1Preview
   playOnEnable: 1
+  playOnStart: 0
 --- !u!1 &460013548
 GameObject:
   m_ObjectHideFlags: 0
@@ -3846,6 +3850,7 @@ GameObject:
   - component: {fileID: 668321924}
   - component: {fileID: 668321923}
   - component: {fileID: 668321926}
+  - component: {fileID: 668321927}
   m_Layer: 0
   m_Name: AnimationPhone
   m_TagString: Untagged
@@ -3965,6 +3970,21 @@ MonoBehaviour:
   phone1: {fileID: 668321922}
   phone2: {fileID: 1428781625}
   hand: {fileID: 108931525}
+--- !u!114 &668321927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668321922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: TikTokSound
+  playOnEnable: 0
+  playOnStart: 0
 --- !u!1 &720036357
 GameObject:
   m_ObjectHideFlags: 0
@@ -4505,6 +4525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool2Preview
   playOnEnable: 1
+  playOnStart: 0
 --- !u!1 &912940435
 GameObject:
   m_ObjectHideFlags: 0
@@ -5135,6 +5156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool2Preview
   playOnEnable: 1
+  playOnStart: 0
 --- !u!1 &1000060987
 GameObject:
   m_ObjectHideFlags: 0
@@ -5526,6 +5548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool2Preview
   playOnEnable: 1
+  playOnStart: 0
 --- !u!1 &1104236482
 GameObject:
   m_ObjectHideFlags: 0
@@ -5631,6 +5654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool4Preview
   playOnEnable: 1
+  playOnStart: 0
 --- !u!1 &1136808477
 GameObject:
   m_ObjectHideFlags: 0
@@ -5944,6 +5968,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool1Preview
   playOnEnable: 1
+  playOnStart: 0
 --- !u!1 &1193172873
 GameObject:
   m_ObjectHideFlags: 0
@@ -6139,6 +6164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool3Preview
   playOnEnable: 1
+  playOnStart: 0
 --- !u!1 &1266043634
 GameObject:
   m_ObjectHideFlags: 0
@@ -6478,6 +6504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool4Preview
   playOnEnable: 1
+  playOnStart: 0
 --- !u!1 &1403801400
 GameObject:
   m_ObjectHideFlags: 0
@@ -6584,6 +6611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool2Preview
   playOnEnable: 1
+  playOnStart: 0
 --- !u!1 &1423278992
 GameObject:
   m_ObjectHideFlags: 0
@@ -8026,6 +8054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool3Preview
   playOnEnable: 1
+  playOnStart: 0
 --- !u!1 &1667209533
 GameObject:
   m_ObjectHideFlags: 0
@@ -8163,6 +8192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool1Preview
   playOnEnable: 1
+  playOnStart: 0
 --- !u!1 &1716723361
 GameObject:
   m_ObjectHideFlags: 0
@@ -8358,6 +8388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool4Preview
   playOnEnable: 1
+  playOnStart: 0
 --- !u!1 &1777162459
 GameObject:
   m_ObjectHideFlags: 0
@@ -9444,6 +9475,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool3Preview
   playOnEnable: 1
+  playOnStart: 0
 --- !u!1 &1932084746
 GameObject:
   m_ObjectHideFlags: 0
