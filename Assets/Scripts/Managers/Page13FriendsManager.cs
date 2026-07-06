@@ -46,12 +46,14 @@ namespace Managers
         
         private void Start()
         {
+            _friendsDictionary = allFriendsDatabase.friendsDictionary;
+
             foreach (var friend in setFriends)
             {
-                chosenFriendsData.friends.Add(friend.id);
+                chosenFriendsData.AddFriend(friend.id);
             }
-            _friendsDictionary = allFriendsDatabase.friendsDictionary;
-            foreach (int friendId in chosenFriendsData.friends)
+
+            foreach (int friendId in chosenFriendsData.Friends)
             {
                 if (friendId != 9) _friendsWaitingToSpawn.Enqueue(friendId);
             }
@@ -130,7 +132,12 @@ namespace Managers
         
         private void SpawnFriend(int id, Transform targetLineSpot, bool isForFrame4)
         {
-            FriendsDataPage13 friendData = _friendsDictionary[id];
+            if (!_friendsDictionary.TryGetValue(id, out FriendsDataPage13 friendData))
+            {
+                Debug.LogWarning($"No Page13 friend data found for friend id {id}");
+                return;
+            }
+
             if (friendData == null) return;
 
             GameObject container = new GameObject($"Friend_{id}_Sequence");
@@ -154,7 +161,6 @@ namespace Managers
             FriendSequenceController controller = container.AddComponent<FriendSequenceController>();
             
             controller.Initialize(this, f2Obj, f4Obj, frame2duration, frame4duration, isForFrame4, handObj, handStartPosition, handEndPosition, noteObj, frame3duration);
-            notes.RemoveAt(0);
             
             if (isForFrame4)
             {
