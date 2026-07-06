@@ -98,7 +98,10 @@ namespace Player.Pages
                 .OnComplete(() =>
                 {
                     isAnimating = false;
-                    interactionCount = 1;
+                    helda.SetActive(false);
+                    heldaState1.SetActive(true);
+                    radio.SetTrigger("Text1");
+                    interactionCount = 2;
                 });
         }
 
