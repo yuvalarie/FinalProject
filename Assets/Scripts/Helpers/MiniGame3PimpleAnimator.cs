@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Audio.AudioEmitters;
 using UnityEngine;
 
 namespace Objects
@@ -19,6 +20,8 @@ namespace Objects
         [SerializeField] private float wait3;
         [SerializeField] private float wait4;
         [SerializeField] private float wait5;
+        
+        [SerializeField] private AudioEmitterBase pimplePopSfxEmitter;
 
         private void Start()
         {
@@ -29,14 +32,19 @@ namespace Objects
         {
             yield return new WaitForSeconds(wait1);
             pimple1Animator.SetTrigger(Pop);
+            pimplePopSfxEmitter?.PlayAudioOnce();
             yield return new WaitForSeconds(wait2);
             pimple2Animator.SetTrigger(Pop);
+            pimplePopSfxEmitter?.PlayAudioOnce();
             yield return new WaitForSeconds(wait3);
             pimple3Animator.SetTrigger(Pop);
+            pimplePopSfxEmitter?.PlayAudioOnce();
             yield return new WaitForSeconds(wait4);
             pimple4Animator.SetTrigger(Pop);
+            pimplePopSfxEmitter?.PlayAudioOnce();
             yield return new WaitForSeconds(wait5);
             pimple5Animator.SetTrigger(Pop);
+            pimplePopSfxEmitter?.PlayAudioOnce();
         }
     }
 }

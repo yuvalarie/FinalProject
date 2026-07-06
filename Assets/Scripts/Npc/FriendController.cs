@@ -53,7 +53,7 @@
               friendSpriteRenderer.sortingLayerName = roamingLayer;
               friendSpriteRenderer.sortingOrder = roamingOrder;
               speechBubbleSpriteRenderer.sortingLayerName = roamingLayer;
-              speechBubbleSpriteRenderer.sortingOrder = roamingOrder + 2;
+              speechBubbleSpriteRenderer.sortingOrder = roamingOrder + 1;
               _thrownSortingLayer = thrownLayer;
               _thrownSortingOrder = thrownOrder;
           }

@@ -66,6 +66,8 @@ namespace Objects.Poster
         public Bounds StickerBounds => _spriteRenderer.bounds;
 
         public Category GetCategory => category;
+
+        public bool IsPlaced => isPlaced;
         
         public void SetPickedUp()
         {

@@ -55,9 +55,11 @@ namespace Objects
         [SerializeField] private HellPortal hellPortal;
         [SerializeField] private MotherReactionController motherReactionController;
 
-        [Header("Discard")]
-        [SerializeField] private AudioEmitterBase discardAudioEmitter;
-        [SerializeField, Range(0f, 1f)] private float discardSoundProbability = 0.5f;
+        [Header("Audio")]
+        [SerializeField] private AudioEmitterBase flyingToPortalAudioEmitter;
+        [SerializeField, Range(0f, 1f)] private float flyingToPortalSoundProbability = 0.5f;
+        [SerializeField] private AudioEmitterBase friendChosenAudioEmitter;
+        [SerializeField] private AudioEmitterBase friendDiscardedAudioEmitter;
         
         
         [Header("Debug")]
@@ -106,6 +108,7 @@ namespace Objects
         {
             if (_isDone || !_hasStartedSpawning) return;
             motherReactionController.ShowAcceptedReaction();
+            friendChosenAudioEmitter?.PlayAudioOnce();
             FriendData data = _orderedFriends[_currentFriendIndex];
             AreaBounds bounds = GetBoundsForArea(data.assignedArea);
             chosenFriendsData.friends.Add(data.friendId);
@@ -145,7 +148,8 @@ namespace Objects
         { 
             if(_isDone || !_hasStartedSpawning) return;
             motherReactionController.ShowRejectedReaction();
-            if(Random.value <= discardSoundProbability) discardAudioEmitter?.PlayAudioOnce();
+            if(Random.value <= flyingToPortalSoundProbability) flyingToPortalAudioEmitter?.PlayAudioOnce();
+            friendDiscardedAudioEmitter?.PlayAudioOnce();
             FriendData data = _orderedFriends[_currentFriendIndex];
             AreaBounds bounds = GetBoundsForArea(data.assignedArea);
 
