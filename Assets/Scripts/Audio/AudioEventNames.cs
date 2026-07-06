@@ -19,6 +19,7 @@ namespace Audio
         public const string PickupHat = "Pickup Hat";
         public const string HellPortal = "Hell Portal";
         public const string LetterOpen = "Open Letter";
+        public const string LetterOpenShort = "Short Letter Open";
         public const string LetterChangeShort = "Short Letter Change";
         public const string CharacterVoice = "Character Voice";
         public const string HittingTube = "Hitting Tube";

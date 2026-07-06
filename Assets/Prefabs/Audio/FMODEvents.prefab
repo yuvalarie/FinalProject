@@ -112,6 +112,14 @@ MonoBehaviour:
           Data3: 1477213082
           Data4: 822601527
         Path: event:/General/InteractionFeedback
+    - name: Short Letter Open
+      eventReference:
+        Guid:
+          Data1: -2063754836
+          Data2: 1269771513
+          Data3: 1464250531
+          Data4: -1042229790
+        Path: event:/General/LetterOpenShort
     ambianceEvents: []
   - sceneName: Page 1
     musicEvents: []

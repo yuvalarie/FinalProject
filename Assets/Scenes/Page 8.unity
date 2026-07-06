@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 62777274}
   - component: {fileID: 62777273}
   - component: {fileID: 62777275}
+  - component: {fileID: 62777276}
   m_Layer: 0
   m_Name: Letter 3
   m_TagString: Untagged
@@ -304,6 +305,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &62777276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62777272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: LetterOpenShort
+  playOnEnable: 0
 --- !u!1 &76793437
 GameObject:
   m_ObjectHideFlags: 0
@@ -3867,6 +3882,7 @@ GameObject:
   - component: {fileID: 1560168510}
   - component: {fileID: 1560168512}
   - component: {fileID: 1560168511}
+  - component: {fileID: 1560168513}
   m_Layer: 0
   m_Name: puff
   m_TagString: Untagged
@@ -3969,6 +3985,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1560168513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560168509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Puff
+  playOnEnable: 0
 --- !u!1001 &1569919808
 PrefabInstance:
   m_ObjectHideFlags: 0
