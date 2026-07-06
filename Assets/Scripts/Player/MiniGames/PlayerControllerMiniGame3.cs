@@ -75,6 +75,10 @@ namespace Player
         [SerializeField, Tooltip("The layer mask for your tools and areas.")]
         private LayerMask interactableLayer;
         [SerializeField] private Transform grabSlot;
+        [SerializeField, Tooltip("Optional collider for the tray zone. It is detected using the same radius and layer mask as tools/areas.")]
+        private Collider2D trayZoneCollider;
+        [SerializeField, Tooltip("Optional tag for tray-zone objects. Leave empty if using the collider field only.")]
+        private string trayZoneTag = "TrayZone";
 
         [Header("Current Status (Read Only)")]
         [SerializeField] private ToolType currentHeldTool = ToolType.None;
@@ -83,6 +87,7 @@ namespace Player
 
         [Header("End Sequence")] 
         [SerializeField] private GameObject endReaction;
+        [SerializeField] private MiniGame3PimpleAnimator pimpleAnimator;
 
         private List<SimonTask> fullSequence = new List<SimonTask>();
         private int currentRound = 1; 
@@ -103,6 +108,8 @@ namespace Player
         private bool _isFacingRight = true;
         private bool _isEnd;
         private bool _flipx;
+        private bool _isTrayZoneInDetectionRange;
+        private MiniGame3PimpleInteractable _currentDetectedPimple;
         
         protected override void Start()
         {
@@ -240,9 +247,26 @@ namespace Player
             SimonInteractable closestArea = null;
             float minToolDist = float.MaxValue;
             float minAreaDist = float.MaxValue;
+            float minPimpleDist = float.MaxValue;
+            _isTrayZoneInDetectionRange = IsAssignedTrayColliderInDetectionRange(searchOrigin, _currentDetectionRadius);
+            _currentDetectedPimple = null;
 
             foreach (var hit in hitColliders)
             {
+                if (IsTrayZone(hit))
+                    _isTrayZoneInDetectionRange = true;
+
+                MiniGame3PimpleInteractable pimple = hit.GetComponentInParent<MiniGame3PimpleInteractable>();
+                if (pimple != null && !pimple.HasPopped)
+                {
+                    float dist = Vector2.Distance(searchOrigin, hit.ClosestPoint(searchOrigin));
+                    if (dist < minPimpleDist)
+                    {
+                        minPimpleDist = dist;
+                        _currentDetectedPimple = pimple;
+                    }
+                }
+
                 SimonInteractable interactable = hit.GetComponent<SimonInteractable>();
                 if (interactable != null)
                 {
@@ -297,6 +321,20 @@ namespace Player
             if (isScreenPlaying) return;
             
             UpdateClosestInteractables();
+
+            if (currentHeldTool != ToolType.None && IsInTrayZone())
+            {
+                ReturnHeldTool();
+                ClearInteractionStates();
+                return;
+            }
+
+            if (currentHeldTool != ToolType.None && _currentDetectedPimple != null)
+            {
+                _currentDetectedPimple.Pop(this);
+                ClearInteractionStates();
+                return;
+            }
 
             if (currentStandingArea != AreaType.None && currentHeldTool != ToolType.None)
             {
@@ -354,6 +392,19 @@ namespace Player
             }
             currentHeldTool = ToolType.None;
             ResetToolSettings();
+        }
+
+        private bool IsInTrayZone()
+        {
+            return _isTrayZoneInDetectionRange;
+        }
+
+        private bool IsAssignedTrayColliderInDetectionRange(Vector2 searchOrigin, float searchRadius)
+        {
+            if (trayZoneCollider == null) return false;
+
+            Vector2 closestPoint = trayZoneCollider.ClosestPoint(searchOrigin);
+            return Vector2.Distance(searchOrigin, closestPoint) <= searchRadius;
         }
 
         private void ValidatePlayerAction(ToolType usedTool, AreaType appliedArea)
@@ -438,6 +489,7 @@ namespace Player
             //yield return new WaitForSeconds(0.5f);
             _isEnd = true;
             isScreenPlaying = false;
+            StartCoroutine(pimpleAnimator.PimpleCoroutine());
         }
 
         private IEnumerator HandleFailureRoutine()
@@ -515,6 +567,13 @@ namespace Player
 
             Debug.Log("Player's turn!");
             isScreenPlaying = false;
+        }
+
+        private bool IsTrayZone(Collider2D other)
+        {
+            if (other == null) return false;
+            if (trayZoneCollider != null && other == trayZoneCollider) return true;
+            return !string.IsNullOrEmpty(trayZoneTag) && other.tag == trayZoneTag;
         }
         
         private void OnDrawGizmos()

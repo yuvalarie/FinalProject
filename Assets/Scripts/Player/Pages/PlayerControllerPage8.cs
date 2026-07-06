@@ -30,6 +30,12 @@ namespace Player
         [SerializeField] private Collider2D freezeCollider;
         [SerializeField] private Collider2D frame3Collider;
 
+        [Header("Wait Settings")] 
+        [SerializeField] private float waitForFrame1;
+        [SerializeField] private float waitForFrame2;
+        [SerializeField] private float waitForFrame3;
+        [SerializeField] private float waitForFrame4;
+
         // State Machine Variables
         private int _interactionCount = 0;
         private bool _isIntroRunning = false;
@@ -43,7 +49,6 @@ namespace Player
         protected override void Start()
         {
             base.Start();
-            SceneLoader.Instance.PreloadScene(nextSceneName);
         }
 
         protected override void OnInteraction(InputAction.CallbackContext context)
@@ -128,16 +133,17 @@ namespace Player
             BeginTextInputMode();
             _isIntroRunning = true;
             helda.SetActive(true);
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(waitForFrame1);
             if (frame2 != null) frame2.SetActive(true);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(waitForFrame2);
             if (frame3 != null) frame3.SetActive(true);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(waitForFrame3);
             if (frame4 != null) frame4.SetActive(true);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(waitForFrame4);
             if (frame4Part2 != null) frame4Part2.SetActive(true);
             
             if (freezeCollider != null) freezeCollider.enabled = false;
+            SceneLoader.Instance.PreloadScene(nextSceneName);
             
             yield return new WaitForSeconds(1f);
             
