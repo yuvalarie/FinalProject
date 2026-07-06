@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Audio.AudioEmitters;
 using DG.Tweening;
 using UnityEngine;
 
@@ -33,6 +34,11 @@ namespace Objects
         [Tooltip("How far a digit sprite travels vertically during one roll.")]
         [Min(0.01f)]
         [SerializeField] private float rollDistance = 0.5f;
+        
+        [Header("Audio")]
+        [SerializeField] private AudioEmitterBase incrementAudioEmitter;
+        [Tooltip("Delay added between each rolling digit's sound, so multiple digits changing at once don't clash.")]
+        [SerializeField] private float digitAudioStagger = 0.05f;
 
         private readonly List<SpriteRenderer> temporaryRenderers = new();
         private Vector3[] homeLocalPositions;
@@ -87,6 +93,7 @@ namespace Objects
 
             activeRoll = DOTween.Sequence();
             bool anyDigitChanged = false;
+            int changedDigitCount = 0;
 
             for (int i = 0; i < digitColumns.Length; i++)
             {
@@ -100,13 +107,15 @@ namespace Objects
 
                 anyDigitChanged = true;
                 activeRoll.Join(RollDigit(i, nextDigits[i]));
+                incrementAudioEmitter?.PlayAudioOnceWithDelay(changedDigitCount * digitAudioStagger);
+                changedDigitCount++;
             }
 
             if (!anyDigitChanged)
             {
                 return;
             }
-
+            // incrementAudioEmitter?.PlayAudioOnce(); // if we want one audio for the whole roll instead of per digit, we can do this instead of the staggered ones above
             activeRoll.OnComplete(() => ApplyDigitsInstant(nextDigits));
         }
 
