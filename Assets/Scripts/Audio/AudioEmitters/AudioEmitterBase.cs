@@ -1,3 +1,4 @@
+using System.Collections;
 using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
@@ -29,6 +30,19 @@ namespace Audio.AudioEmitters
             }
             var eventReference = FMODEvents.Instance.GetEventReferenceByName(AudioEventName);
             AudioManager.Instance.PlayOneShot(eventReference, transform.position, parameters);
+        }
+
+        public void PlayAudioOnceWithDelay(float delay) => PlayAudioOnceWithDelay(delay, System.Array.Empty<(string, float)>());
+
+        public virtual void PlayAudioOnceWithDelay(float delay, params (string paramName, float value)[] parameters)
+        {
+            StartCoroutine(PlayOnceDelayedRoutine(delay, parameters));
+        }
+
+        private IEnumerator PlayOnceDelayedRoutine(float delay, (string paramName, float value)[] parameters)
+        {
+            yield return new WaitForSeconds(delay);
+            PlayAudioOnce(parameters);
         }
 
         public void StartAudio() => StartAudio(System.Array.Empty<(string, float)>());

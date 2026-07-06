@@ -148,6 +148,14 @@ MonoBehaviour:
           Data3: 131724685
           Data4: 1809942790
         Path: event:/Page1/PhonePickUp
+    - name: Mechanical Counter
+      eventReference:
+        Guid:
+          Data1: 1365392798
+          Data2: 1077261684
+          Data3: -814775399
+          Data4: -64122429
+        Path: event:/Page1/MechanicalCounter
     ambianceEvents:
     - name: Wind Ambiance
       eventReference:

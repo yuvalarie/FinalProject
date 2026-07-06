@@ -28,6 +28,7 @@ namespace Audio
         public const string VendingMachineDrink = "Vending Machine Drink";
         public const string Puff = "Puff";
         public const string ElevatorMoving = "Elevator Moving";
+        public const string MechanicalCounter = "Mechanical Counter";
         
         // page 4
         public const string SaltShaker = "Salt Shake";
