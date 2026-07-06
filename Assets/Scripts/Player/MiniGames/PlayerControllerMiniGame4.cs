@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using Audio;
+using Audio.AudioEmitters;
 using Managers;
 using Objects.Poster;
 using UnityEngine;
@@ -30,7 +32,15 @@ namespace Player
         [SerializeField] private SpriteRenderer printSpriteRenderer;
         [SerializeField] private Sprite printOnSprite;
         [SerializeField] private PosterManager posterManager;
-        
+
+        [Header("Audio")]
+        [SerializeField] private AudioEmitterBase pickupAudioEmitter;
+        [SerializeField] private AudioEmitterBase placedAudioEmitter;
+        [SerializeField] private AudioEmitterBase discardAudioEmitter;
+        [SerializeField] private AudioEmitterBase printerButtonOnAudioEmitter;
+        [SerializeField] private AudioEmitterBase printerButtonClickedAudioEmitter;
+        [SerializeField] private AudioEmitterBase hoverAudioEmitter;
+
         private GameObject _heldItem;
         private StickerObject _heldSticker;
         private StickerObject _currentlyHoveredSticker;
@@ -42,6 +52,7 @@ namespace Player
         private bool _category2;
         private bool _category3;
         private bool _category4;
+        private bool _printerOn;
 
         protected override void Start()
         {
@@ -90,14 +101,16 @@ namespace Player
                 
                 if (_currentlyHoveredSticker != null)
                 {
-                    _currentlyHoveredSticker.SetHovered(true); 
+                    _currentlyHoveredSticker.SetHovered(true);
+                    // hoverAudioEmitter?.PlayAudioOnce();
+                    if (!_currentlyHoveredSticker.IsPlaced) hoverAudioEmitter?.PlayAudioOnce();
                 }
             }
         }
 
         private void Update()
         {
-            if(_category1 && _category2 && _category3 && _category4) printSpriteRenderer.sprite = printOnSprite;
+            // if(_category1 && _category2 && _category3 && _category4) printSpriteRenderer.sprite = printOnSprite;
             HandleHoverLogic();
         }
 
@@ -115,6 +128,7 @@ namespace Player
 
         private IEnumerator PrintCoroutine()
         {
+            printerButtonClickedAudioEmitter?.PlayAudioOnce();
             posterManager.SavePoster();
             paperAnimator.SetTrigger("Print");
             yield return new WaitForSeconds(animationDuration);
@@ -126,17 +140,32 @@ namespace Player
             switch (category)
             {
                 case Category.Category1:
+                    if (!_category1) MusicManager.Instance?.AdvanceProgress();
                     _category1 = true;
                     break;
                 case Category.Category2:
+                    if (!_category2) MusicManager.Instance?.AdvanceProgress();
                     _category2 = true;
                     break;
                 case Category.Category3:
+                    if (!_category3) MusicManager.Instance?.AdvanceProgress();
                     _category3 = true;
                     break;
                 case Category.Category4:
+                    if (!_category4) MusicManager.Instance?.AdvanceProgress();
                     _category4 = true;
                     break;
+            }
+            // if(_category1 && _category2 && _category3 && _category4)
+            // {
+            //     printSpriteRenderer.sprite = printOnSprite;
+            //     printerButtonOnAudioEmitter?.PlayAudioOnce();
+            // }
+            if(!_printerOn && _category1 && _category2 && _category3 && _category4)
+            {
+                _printerOn = true;
+                printSpriteRenderer.sprite = printOnSprite;
+                printerButtonOnAudioEmitter?.PlayAudioOnce();
             }
         }
 
@@ -152,7 +181,8 @@ namespace Player
 
             _heldSticker = _currentlyHoveredSticker;
             _heldSticker.OnPickedUp();
-            
+            pickupAudioEmitter?.PlayAudioOnce();
+
             _heldItem = _heldSticker.gameObject;
             _heldItem.transform.position = holdSlot.position;
             _heldItem.transform.SetParent(holdSlot);
@@ -191,7 +221,8 @@ namespace Player
                 {
                     Debug.Log("Dropped back to the original table.");
                     _heldSticker.OnDropped(); // Destroys the clone in hand
-                    
+                    discardAudioEmitter?.PlayAudioOnce();
+
                     // Clear the hand references
                     _heldItem = null;
                     _heldSticker = null;
@@ -219,6 +250,7 @@ namespace Player
                 
                 _heldSticker.SetPickedUp();
                 _heldSticker.OnPlaced();
+                placedAudioEmitter?.PlayAudioOnce();
                 _heldSticker.SetSortingOrder(_stickerOrder);
                 _stickerOrder++;
                 

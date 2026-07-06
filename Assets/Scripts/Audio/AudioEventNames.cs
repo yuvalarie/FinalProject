@@ -101,6 +101,15 @@ namespace Audio
         public const string Tool4Use = "Tool 4 Use";
         public const string PimplePop = "Pimple Pop";
         
+        // minigame 4
+        public const string StickerPlaced = "Sticker Placed";
+        public const string StickerPickedUp = "Sticker Picked Up";
+        public const string StickerDiscarded = "Sticker Discarded";
+        public const string StickerHover = "Sticker Hover";
+        public const string PrinterButtonOn = "Printer Button On";
+        public const string PrinterButtonClick = "Printer Button Click";
+        public const string PrintPoster = "Print Poster";
+        
         
         // Music Events
         public const string MusicOpening = "Music Opening"; // no longer used

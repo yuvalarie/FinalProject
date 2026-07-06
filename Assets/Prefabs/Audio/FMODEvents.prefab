@@ -733,3 +733,63 @@ MonoBehaviour:
           Data4: 376007159
         Path: event:/MiniGame3/Tool4Use
     ambianceEvents: []
+  - sceneName: MiniGame4
+    musicEvents: []
+    sfxEvents:
+    - name: Sticker Placed
+      eventReference:
+        Guid:
+          Data1: -1362166743
+          Data2: 1235066425
+          Data3: 512923070
+          Data4: -590190749
+        Path: event:/MiniGame4/PlaceSticker
+    - name: Sticker Picked Up
+      eventReference:
+        Guid:
+          Data1: 823328338
+          Data2: 1094308852
+          Data3: 2036240263
+          Data4: -1591296367
+        Path: event:/MiniGame4/PickupSticker
+    - name: Sticker Discarded
+      eventReference:
+        Guid:
+          Data1: -1039220832
+          Data2: 1232281744
+          Data3: 1469087621
+          Data4: 1170394348
+        Path: event:/MiniGame4/DiscardSticker
+    - name: Sticker Hover
+      eventReference:
+        Guid:
+          Data1: 514934949
+          Data2: 1232442520
+          Data3: 263785919
+          Data4: 170009538
+        Path: event:/MiniGame4/StickerHover
+    - name: Printer Button On
+      eventReference:
+        Guid:
+          Data1: -1754211533
+          Data2: 1341227342
+          Data3: 345654913
+          Data4: 2109861044
+        Path: event:/MiniGame4/PtinterButtonOn
+    - name: Printer Button Click
+      eventReference:
+        Guid:
+          Data1: -1193578420
+          Data2: 1080558407
+          Data3: 1752527504
+          Data4: 80413927
+        Path: event:/MiniGame4/PrinterButtonPress
+    - name: Print Poster
+      eventReference:
+        Guid:
+          Data1: -2134168696
+          Data2: 1305947774
+          Data3: 1331412391
+          Data4: -962960207
+        Path: event:/MiniGame4/PrintPoster
+    ambianceEvents: []
