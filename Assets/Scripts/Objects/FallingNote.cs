@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class FallingNote : MonoBehaviour
 {
@@ -38,12 +39,13 @@ public class FallingNote : MonoBehaviour
         }
     }
     
-    public void CatchByPlayer(Transform catchZoneTransform)
+    public void CatchByPlayer(Transform catchZoneTransform, List<FallingNote> caughtNotes)
     {
         // If it already landed on the floor, we can't catch it anymore
         if (!_isFalling || _isWaitingToLand) return; 
         
         LandAndScatter(catchZoneTransform, true);
+        caughtNotes.Add(this);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
