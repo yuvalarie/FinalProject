@@ -84,7 +84,9 @@ namespace Audio
 
         //minigame 2
         public const string HellPortalNoMusic = "Hell Portal No Music";
-        public const string DiscardFriend = "Discard Friend";
+        public const string FriendDiscard = "Friend Discard";
+        public const string FriendChosen = "Friend Chosen";
+        public const string FriendFlyingToPortal = "Friend Flying To Portal";
         
         
         //minigame 3

@@ -632,14 +632,30 @@ MonoBehaviour:
           Data3: 1762091933
           Data4: 1404263902
         Path: event:/MiniGame2/HellPortalWithoutMusic
-    - name: Discard Friend
+    - name: Friend Flying To Portal
       eventReference:
         Guid:
           Data1: -688600995
           Data2: 1091854836
           Data3: -2081698899
           Data4: 67276923
-        Path: event:/MiniGame2/DiscardFriend
+        Path: event:/MiniGame2/FriendFlyingToPortal
+    - name: Friend Chosen
+      eventReference:
+        Guid:
+          Data1: 1847311656
+          Data2: 1327215094
+          Data3: -2036682088
+          Data4: -1054606905
+        Path: event:/MiniGame2/FriendChosen
+    - name: Friend Discard
+      eventReference:
+        Guid:
+          Data1: -549000941
+          Data2: 1139478236
+          Data3: -2009954385
+          Data4: 714671286
+        Path: event:/MiniGame2/FriendDiscard
     ambianceEvents: []
   - sceneName: MiniGame3
     musicEvents: []
