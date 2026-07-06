@@ -112,6 +112,14 @@ MonoBehaviour:
           Data3: 1477213082
           Data4: 822601527
         Path: event:/General/InteractionFeedback
+    - name: Short Letter Open
+      eventReference:
+        Guid:
+          Data1: -2063754836
+          Data2: 1269771513
+          Data3: 1464250531
+          Data4: -1042229790
+        Path: event:/General/LetterOpenShort
     ambianceEvents: []
   - sceneName: Page 1
     musicEvents: []
@@ -656,6 +664,42 @@ MonoBehaviour:
           Data3: -2009954385
           Data4: 714671286
         Path: event:/MiniGame2/FriendDiscard
+    ambianceEvents: []
+  - sceneName: Page8
+    musicEvents: []
+    sfxEvents:
+    - name: Page 8 First Beat
+      eventReference:
+        Guid:
+          Data1: 27148219
+          Data2: 1091749180
+          Data3: 1913269398
+          Data4: 1637114023
+        Path: event:/Page8/FirstBeat
+    - name: Page 8 Second Beat
+      eventReference:
+        Guid:
+          Data1: 1832840213
+          Data2: 1149489239
+          Data3: -1499302735
+          Data4: -566974600
+        Path: event:/Page8/SecondBeat
+    - name: Page 8 Third Beat
+      eventReference:
+        Guid:
+          Data1: -1632524724
+          Data2: 1223210567
+          Data3: 1710345112
+          Data4: -862790522
+        Path: event:/Page8/ThirdBeat
+    - name: Page 8 Fourth Beat
+      eventReference:
+        Guid:
+          Data1: -247715302
+          Data2: 1263383251
+          Data3: 1672674213
+          Data4: -962018178
+        Path: event:/Page8/FourthBeat
     ambianceEvents: []
   - sceneName: MiniGame3
     musicEvents: []

@@ -19,6 +19,7 @@ namespace Audio
         public const string PickupHat = "Pickup Hat";
         public const string HellPortal = "Hell Portal";
         public const string LetterOpen = "Open Letter";
+        public const string LetterOpenShort = "Short Letter Open";
         public const string LetterChangeShort = "Short Letter Change";
         public const string CharacterVoice = "Character Voice";
         public const string HittingTube = "Hitting Tube";
@@ -87,6 +88,13 @@ namespace Audio
         public const string FriendDiscard = "Friend Discard";
         public const string FriendChosen = "Friend Chosen";
         public const string FriendFlyingToPortal = "Friend Flying To Portal";
+        
+        //page 8
+        public const string Page8FirstBeat = "Page 8 First Beat";
+        public const string Page8SecondBeat = "Page 8 Second Beat";
+        public const string Page8ThirdBeat = "Page 8 Third Beat";
+        public const string Page8FourthBeat = "Page 8 Fourth Beat";
+        
         
         
         //minigame 3

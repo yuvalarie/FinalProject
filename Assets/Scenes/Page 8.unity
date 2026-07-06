@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 62777274}
   - component: {fileID: 62777273}
   - component: {fileID: 62777275}
+  - component: {fileID: 62777276}
   m_Layer: 0
   m_Name: Letter 3
   m_TagString: Untagged
@@ -304,6 +305,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &62777276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62777272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: LetterOpenShort
+  playOnEnable: 0
 --- !u!1 &76793437
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,6 +391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 114845737}
   - component: {fileID: 114845736}
+  - component: {fileID: 114845738}
   m_Layer: 0
   m_Name: HeldaP2
   m_TagString: Untagged
@@ -456,6 +472,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114845738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114845735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Page8FourthBeat
+  playOnEnable: 1
 --- !u!1 &117384891
 GameObject:
   m_ObjectHideFlags: 0
@@ -2627,6 +2657,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 799537166}
+  - component: {fileID: 799537167}
   m_Layer: 0
   m_Name: frame3
   m_TagString: Untagged
@@ -2651,6 +2682,20 @@ Transform:
   - {fileID: 488616978}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &799537167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799537165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Page8SecondBeat
+  playOnEnable: 1
 --- !u!1 &898350756
 GameObject:
   m_ObjectHideFlags: 0
@@ -3335,6 +3380,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1247189183}
+  - component: {fileID: 1247189184}
   m_Layer: 0
   m_Name: frame4
   m_TagString: Untagged
@@ -3359,6 +3405,20 @@ Transform:
   - {fileID: 1614687851}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1247189184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247189182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Page8ThirdBeat
+  playOnEnable: 1
 --- !u!1 &1371944110
 GameObject:
   m_ObjectHideFlags: 0
@@ -3401,6 +3461,7 @@ GameObject:
   - component: {fileID: 1417039557}
   - component: {fileID: 1417039556}
   - component: {fileID: 1417039558}
+  - component: {fileID: 1417039559}
   m_Layer: 0
   m_Name: HeldaCube1
   m_TagString: Untagged
@@ -3503,6 +3564,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1417039559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417039555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: HeldaWalkingHardFloor
+  playOnEnable: 0
 --- !u!1 &1489206980
 GameObject:
   m_ObjectHideFlags: 0
@@ -3807,6 +3882,7 @@ GameObject:
   - component: {fileID: 1560168510}
   - component: {fileID: 1560168512}
   - component: {fileID: 1560168511}
+  - component: {fileID: 1560168513}
   m_Layer: 0
   m_Name: puff
   m_TagString: Untagged
@@ -3909,6 +3985,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1560168513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560168509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Puff
+  playOnEnable: 0
 --- !u!1001 &1569919808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4597,6 +4687,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1719804110}
+  - component: {fileID: 1719804111}
   m_Layer: 0
   m_Name: frame2
   m_TagString: Untagged
@@ -4623,6 +4714,20 @@ Transform:
   - {fileID: 143590249}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1719804111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719804109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Page8FirstBeat
+  playOnEnable: 1
 --- !u!1 &1764969519
 GameObject:
   m_ObjectHideFlags: 0
