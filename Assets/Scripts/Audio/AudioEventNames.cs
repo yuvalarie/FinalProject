@@ -99,6 +99,7 @@ namespace Audio
         public const string Tool2Use = "Tool 2 Use";
         public const string Tool3Use = "Tool 3 Use";
         public const string Tool4Use = "Tool 4 Use";
+        public const string PimplePop = "Pimple Pop";
         
         
         // Music Events
