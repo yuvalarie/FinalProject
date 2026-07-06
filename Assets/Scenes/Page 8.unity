@@ -4771,6 +4771,10 @@ MonoBehaviour:
   frame1Size: 0
   freezeCollider: {fileID: 224091263}
   frame3Collider: {fileID: 597187825}
+  waitForFrame1: 2
+  waitForFrame2: 1
+  waitForFrame3: 1
+  waitForFrame4: 1
 --- !u!61 &1767873369
 BoxCollider2D:
   m_ObjectHideFlags: 0

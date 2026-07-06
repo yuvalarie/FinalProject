@@ -17,6 +17,7 @@ TagManager:
   - Letter
   - Middle
   - Trash
+  - TrayZone
   layers:
   - Default
   - TransparentFX

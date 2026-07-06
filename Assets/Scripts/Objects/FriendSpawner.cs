@@ -85,7 +85,7 @@ namespace Objects
             // DebugBuildFriendList may immediately call OnAllFriendsSwiped (via debugStartIndex),
             // which will overwrite this with the finished sprite - that ordering is intentional.
             phoneDisplayRenderer.sprite = startScreenSprite;
-            chosenFriendsData.friends.Clear();
+            chosenFriendsData.Clear();
             DebugBuildFriendList();
         }
 
@@ -111,7 +111,7 @@ namespace Objects
             friendChosenAudioEmitter?.PlayAudioOnce();
             FriendData data = _orderedFriends[_currentFriendIndex];
             AreaBounds bounds = GetBoundsForArea(data.assignedArea);
-            chosenFriendsData.friends.Add(data.friendId);
+            chosenFriendsData.AddFriend(data.friendId);
 
             // Pick a random spawn position within the assigned frame
             float spawnX = UnityEngine.Random.Range(bounds.bottomLeft.x, bounds.topRight.x);

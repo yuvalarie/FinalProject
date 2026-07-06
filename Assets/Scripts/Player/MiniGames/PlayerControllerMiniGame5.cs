@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using Managers;
+using NUnit.Framework;
 using Objects;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -23,9 +25,20 @@ namespace Player.MiniGames
         [SerializeField] private Animator secondAnimator;
         [SerializeField] private float size;
         [SerializeField] private Transform holdSlot;
+        
+        [Header("End Sequence Settings")]
+        [SerializeField, Tooltip("The Animator to play at the end of the game.")]
+        private GameObject endAnimator;
+        [SerializeField, Tooltip("The sprite showing all the caught notes.")]
+        private Sprite allNotesCaughtSprite;
+        [SerializeField, Tooltip("How long the animation plays before changing to the final sprite.")]
+        private float endAnimationDuration = 1.5f;
+        [SerializeField, Tooltip("How long to show the caught notes before loading the next scene.")]
+        private float timeBeforeSceneLoad = 1.5f;
 
         private bool _atTrashCan;
         private bool _pickedUpTrashCan;
+        private List<FallingNote> _caughtNotes = new List<FallingNote>();
         
         protected override void Start()
         {
@@ -58,7 +71,7 @@ namespace Player.MiniGames
                 
                 if (note != null)
                 {
-                    note.CatchByPlayer(holdSlot);
+                    note.CatchByPlayer(holdSlot, _caughtNotes);
                 }
             }
         }
@@ -99,7 +112,17 @@ namespace Player.MiniGames
 
         public IEnumerator GameEnded()
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(endAnimationDuration);
+            if (endAnimator != null) endAnimator.SetActive(true);
+            foreach(var note in _caughtNotes)
+            {
+                var spriteRenderer = note.GetComponent<SpriteRenderer>();
+                if (spriteRenderer != null)
+                {
+                    spriteRenderer.sprite = allNotesCaughtSprite;
+                }
+            }
+            yield return new WaitForSeconds(timeBeforeSceneLoad);
             SceneLoader.Instance?.ActivatePreloadedScene();
         }
     }

@@ -1303,10 +1303,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1048576
   grabSlot: {fileID: 828422319}
+  trayZoneCollider: {fileID: 191685487}
+  trayZoneTag: TrayZone
   currentHeldTool: 0
   currentStandingArea: 0
   currentStandingToolStation: 0
   endReaction: {fileID: 1537405544}
+  pimpleAnimator: {fileID: 460013549}
 --- !u!212 &108931527
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2180,9 +2183,10 @@ GameObject:
   m_Component:
   - component: {fileID: 191685486}
   - component: {fileID: 191685485}
-  m_Layer: 0
+  - component: {fileID: 191685487}
+  m_Layer: 20
   m_Name: napkin
-  m_TagString: Untagged
+  m_TagString: TrayZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2260,6 +2264,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &191685487
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191685484}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 45.52778, y: 13.222222}
+    newSize: {x: 45.52778, y: 13.222222}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 45.52778, y: 13.222222}
+  m_EdgeRadius: 0
 --- !u!1 &194626173
 GameObject:
   m_ObjectHideFlags: 0
@@ -4127,7 +4177,9 @@ GameObject:
   - component: {fileID: 722875017}
   - component: {fileID: 722875019}
   - component: {fileID: 722875018}
-  m_Layer: 0
+  - component: {fileID: 722875021}
+  - component: {fileID: 722875020}
+  m_Layer: 20
   m_Name: Pipel4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4229,6 +4281,68 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &722875020
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722875016}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.18306899, y: 0.0000005364418}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 19.75, y: 11.111111}
+    newSize: {x: 19.75, y: 11.111111}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3.5180383, y: 3.7884226}
+  m_EdgeRadius: 0
+--- !u!114 &722875021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722875016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5eb1352f8547f4a8f10dc8f54f31a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.MiniGame3PimpleInteractable
+  pimpleAnimator: {fileID: 722875018}
+  pimpleCollider: {fileID: 722875020}
+  popTriggerName: Pop
+  popAnimationDuration: 2
 --- !u!1001 &772669691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5813,7 +5927,9 @@ GameObject:
   - component: {fileID: 1137495585}
   - component: {fileID: 1137495587}
   - component: {fileID: 1137495586}
-  m_Layer: 0
+  - component: {fileID: 1137495589}
+  - component: {fileID: 1137495588}
+  m_Layer: 20
   m_Name: Pipel1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5915,6 +6031,68 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1137495588
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137495584}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.12204623, y: 0.12204397}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 19.75, y: 11.111111}
+    newSize: {x: 19.75, y: 11.111111}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 4.372355, y: 4.2766037}
+  m_EdgeRadius: 0
+--- !u!114 &1137495589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137495584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5eb1352f8547f4a8f10dc8f54f31a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.MiniGame3PimpleInteractable
+  pimpleAnimator: {fileID: 1137495586}
+  pimpleCollider: {fileID: 1137495588}
+  popTriggerName: Pop
+  popAnimationDuration: 2
 --- !u!1 &1186815418
 GameObject:
   m_ObjectHideFlags: 0
@@ -6257,7 +6435,9 @@ GameObject:
   - component: {fileID: 1306949061}
   - component: {fileID: 1306949063}
   - component: {fileID: 1306949062}
-  m_Layer: 0
+  - component: {fileID: 1306949065}
+  - component: {fileID: 1306949064}
+  m_Layer: 20
   m_Name: Pipel3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6359,6 +6539,68 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1306949064
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306949060}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.061022043, y: 0.24409062}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 19.75, y: 11.111111}
+    newSize: {x: 19.75, y: 11.111111}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3.7621317, y: 3.0561538}
+  m_EdgeRadius: 0
+--- !u!114 &1306949065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306949060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5eb1352f8547f4a8f10dc8f54f31a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.MiniGame3PimpleInteractable
+  pimpleAnimator: {fileID: 1306949062}
+  pimpleCollider: {fileID: 1306949064}
+  popTriggerName: Pop
+  popAnimationDuration: 2
 --- !u!1 &1344078697
 GameObject:
   m_ObjectHideFlags: 0
@@ -7503,7 +7745,9 @@ GameObject:
   - component: {fileID: 1502374652}
   - component: {fileID: 1502374654}
   - component: {fileID: 1502374653}
-  m_Layer: 0
+  - component: {fileID: 1502374656}
+  - component: {fileID: 1502374655}
+  m_Layer: 20
   m_Name: Pipel5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7605,6 +7849,68 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1502374655
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502374651}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.24408877, y: -0.061024427}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 19.75, y: 11.111111}
+    newSize: {x: 19.75, y: 11.111111}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3.3959959, y: 4.1545596}
+  m_EdgeRadius: 0
+--- !u!114 &1502374656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502374651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5eb1352f8547f4a8f10dc8f54f31a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.MiniGame3PimpleInteractable
+  pimpleAnimator: {fileID: 1502374653}
+  pimpleCollider: {fileID: 1502374655}
+  popTriggerName: Pop
+  popAnimationDuration: 2
 --- !u!1 &1514219421
 GameObject:
   m_ObjectHideFlags: 0
@@ -10573,7 +10879,9 @@ GameObject:
   - component: {fileID: 2033035341}
   - component: {fileID: 2033035343}
   - component: {fileID: 2033035342}
-  m_Layer: 0
+  - component: {fileID: 2033035345}
+  - component: {fileID: 2033035344}
+  m_Layer: 20
   m_Name: Pipel2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10675,6 +10983,68 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &2033035344
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033035340}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.12204182, y: 0.06102276}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 19.75, y: 11.111111}
+    newSize: {x: 19.75, y: 11.111111}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3.6400898, y: 4.154558}
+  m_EdgeRadius: 0
+--- !u!114 &2033035345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033035340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5eb1352f8547f4a8f10dc8f54f31a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objects.MiniGame3PimpleInteractable
+  pimpleAnimator: {fileID: 2033035342}
+  pimpleCollider: {fileID: 2033035344}
+  popTriggerName: Pop
+  popAnimationDuration: 2
 --- !u!1 &2060909859
 GameObject:
   m_ObjectHideFlags: 0

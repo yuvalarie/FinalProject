@@ -13,7 +13,8 @@ namespace MiniPlayer
         [SerializeField] private Animator phoneAnimator;
         [SerializeField] private Vector3 size;
         [SerializeField] private Vector3 position;
-        [SerializeField] private Animator miniPlayerAnimator;
+        [SerializeField] private RuntimeAnimatorController miniPlayerAnimator;
+        [SerializeField] private RuntimeAnimatorController playerAnimator;
         
         [Tooltip("Set this to the exact length of the Answer animation in seconds.")]
         [SerializeField] private float animationDuration = 1.5f;
@@ -21,18 +22,20 @@ namespace MiniPlayer
         private SpriteRenderer _spriteRenderer;
         private bool _hasChangedSprite = false;
         private bool _canMove = false;
+        private Animator _animator;
 
         protected override void Start()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
+            _animator = GetComponent<Animator>();
+            _animator.runtimeAnimatorController = miniPlayerAnimator;
         }
 
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
             if (_hasChangedSprite) return;
             if (page1Sprite == null) return;
-            
-            miniPlayerAnimator.enabled = false;
+
             _spriteRenderer.sprite = page1Sprite;
             _spriteRenderer.sortingOrder -= 2;
             transform.localScale = size;
@@ -40,6 +43,7 @@ namespace MiniPlayer
             
             phoneAnimator.SetTrigger(Answer);
             _hasChangedSprite = true;
+            _animator.runtimeAnimatorController = playerAnimator;
             
             StartCoroutine(WaitForAnimationRoutine());
         }

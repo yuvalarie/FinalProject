@@ -22,13 +22,8 @@ namespace Objects
         [SerializeField] private float wait5;
         
         [SerializeField] private AudioEmitterBase pimplePopSfxEmitter;
-
-        private void Start()
-        {
-            StartCoroutine(PimpleCoroutine());
-        }
-
-        private IEnumerator PimpleCoroutine()
+        
+        public IEnumerator PimpleCoroutine()
         {
             yield return new WaitForSeconds(wait1);
             pimple1Animator.SetTrigger(Pop);

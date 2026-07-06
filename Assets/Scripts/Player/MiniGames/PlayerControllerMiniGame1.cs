@@ -69,6 +69,7 @@ namespace Player
         private bool _isEndSequenceActive = false;
         private int _endSequenceStep = 0;
         private bool _isSequenceWaiting = false;
+        private bool _hasHeldaExited = false;
 
         private int _musicStage = 0;
         
@@ -204,10 +205,11 @@ namespace Player
                 heldaAnimator.SetTrigger("Enter");
                 StartCoroutine(EyesAndBubbleRoutine());
             }
-            else if (_endSequenceStep == 1)
+            else if (_endSequenceStep == 1 && !_hasHeldaExited)
             {
                 textBubble.SetActive(false);
                 heldaAnimator.SetTrigger("Exit");
+                _hasHeldaExited = true;
             }
         }
         
