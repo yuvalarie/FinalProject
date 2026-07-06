@@ -6429,8 +6429,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.7407408, y: 1.7962962}
+  m_Offset: {x: -14.372964, y: 2.5638103}
+  m_Size: {x: 8.550886, y: 10.882761}
   m_Direction: 0
 --- !u!50 &1049715968
 Rigidbody2D:
@@ -6486,8 +6486,9 @@ MonoBehaviour:
   player: {fileID: 1428508827}
   phoneAnimator: {fileID: 194628952}
   size: {x: 0.2399655, y: 0.2399655, z: 0.2399655}
-  position: {x: -1.93, y: 0.66, z: 0}
-  miniPlayerAnimator: {fileID: 1049715970}
+  position: {x: 1.23, y: 0.66, z: 0}
+  miniPlayerAnimator: {fileID: 9100000, guid: 5499afb064778434cbf31021581ba3d3, type: 2}
+  playerAnimator: {fileID: 9100000, guid: e126f0f5622094d28a8a5e1d588a9288, type: 2}
   animationDuration: 3.11
 --- !u!95 &1049715970
 Animator:
