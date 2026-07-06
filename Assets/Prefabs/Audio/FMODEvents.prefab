@@ -793,6 +793,26 @@ MonoBehaviour:
           Data4: -707773957
         Path: event:/MiniGame3/PimplePop
     ambianceEvents: []
+  - sceneName: Page 11
+    musicEvents: []
+    sfxEvents:
+    - name: Helda Open Door
+      eventReference:
+        Guid:
+          Data1: 199875915
+          Data2: 1325382245
+          Data3: 837846707
+          Data4: -812861050
+        Path: event:/Page11/HeldaOpenDoor
+    ambianceEvents:
+    - name: Page 11 Ambiance
+      eventReference:
+        Guid:
+          Data1: -832873214
+          Data2: 1186356480
+          Data3: 46570636
+          Data4: 1251897343
+        Path: event:/Page11/HeldaRoomAmbiance
   - sceneName: MiniGame4
     musicEvents: []
     sfxEvents:

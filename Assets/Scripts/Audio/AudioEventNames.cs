@@ -110,6 +110,10 @@ namespace Audio
         public const string Tool4Use = "Tool 4 Use";
         public const string PimplePop = "Pimple Pop";
         
+        // page 11
+        public const string HeldaOpenDoor = "Helda Open Door";
+        public const string OpeningDoor = "Opening Door";
+        
         // minigame 4
         public const string StickerPlaced = "Sticker Placed";
         public const string StickerPickedUp = "Sticker Picked Up";
@@ -130,5 +134,6 @@ namespace Audio
         public const string OfficeAmbiance = "Page 1 Office Ambiance";
         public const string WindAmbiance = "Wind Ambiance";
         public const string FactoryAmbiance = "Factory Ambiance";
+        public const string Page11Ambiance = "Page 11 Ambiance";
     }
 }

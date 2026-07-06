@@ -16,6 +16,11 @@ namespace Audio.AudioEmitters
                 StartAudio();
             }
         }
+        
+        public void PlayAmbiance(params (string paramName, float value)[] parameters)
+        {
+            StartAudio(parameters);
+        }
 
         public override void SetAudioEventName()
         {
