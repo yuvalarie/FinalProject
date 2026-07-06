@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 957628536976271354}
   - component: {fileID: 1899112733900447661}
+  - component: {fileID: 4988533918953686016}
   m_Layer: 0
   m_Name: FriendSpawner
   m_TagString: Untagged
@@ -96,8 +97,24 @@ MonoBehaviour:
   speechBubbleDuration: 3
   hellPortal: {fileID: 0}
   motherReactionController: {fileID: 0}
+  discardAudioEmitter: {fileID: 4988533918953686016}
+  discardSoundProbability: 0.5
   excludedAreas: 
   skipBucketOrdering: 0
   useDebugStartIndex: 0
   debugStartIndex: 0
   logOrderedList: 0
+--- !u!114 &4988533918953686016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4998785088079839209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: DiscardFriend
+  playOnEnable: 0
