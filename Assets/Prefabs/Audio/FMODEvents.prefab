@@ -732,6 +732,14 @@ MonoBehaviour:
           Data3: 1365785768
           Data4: 376007159
         Path: event:/MiniGame3/Tool4Use
+    - name: Pimple Pop
+      eventReference:
+        Guid:
+          Data1: -1298019681
+          Data2: 1238734813
+          Data3: 2014612142
+          Data4: -707773957
+        Path: event:/MiniGame3/PimplePop
     ambianceEvents: []
   - sceneName: MiniGame4
     musicEvents: []
