@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using Audio.AudioEmitters;
 using Npc;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Objects
 {
@@ -53,8 +55,14 @@ namespace Objects
         [SerializeField] private HellPortal hellPortal;
         [SerializeField] private MotherReactionController motherReactionController;
 
+        [Header("Discard")]
+        [SerializeField] private AudioEmitterBase discardAudioEmitter;
+        [SerializeField, Range(0f, 1f)] private float discardSoundProbability = 0.5f;
+        
+        
         [Header("Debug")]
         [SerializeField] private List<MiniGame2FrameArea> excludedAreas;
+
         [SerializeField] private bool skipBucketOrdering;
         [SerializeField] private bool useDebugStartIndex;
         [SerializeField] private int debugStartIndex;
@@ -137,6 +145,7 @@ namespace Objects
         { 
             if(_isDone || !_hasStartedSpawning) return;
             motherReactionController.ShowRejectedReaction();
+            if(Random.value <= discardSoundProbability) discardAudioEmitter?.PlayAudioOnce();
             FriendData data = _orderedFriends[_currentFriendIndex];
             AreaBounds bounds = GetBoundsForArea(data.assignedArea);
 
