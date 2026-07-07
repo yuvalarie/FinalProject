@@ -864,11 +864,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 440072876}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Script: {fileID: 11500000, guid: 33ad958d769eb3b46a6ad9503f4e68e1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.LetterOpenAudioEmitter
   eventName: LetterChangeShort
   playOnEnable: 1
+  skipFirstPlay: 1
 --- !u!1 &466720709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1971,6 +1972,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Camera.CameraSizeAdjustment
   targetAspect: 1.7777778
+  updateWhenResolutionChanges: 1
+  logViewportChanges: 0
 --- !u!114 &929162306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2748,6 +2751,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerControllerPage3
   artSettings: {fileID: 0}
   speed: 3
+  acceleration: 8
+  deceleration: 8
   nextSceneName: Page 4
   initialSize: 4
   graphicsRoot: {fileID: 1428508822}
@@ -3760,6 +3765,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33ad958d769eb3b46a6ad9503f4e68e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.LetterOpenAudioEmitter
+  eventName: 
+  playOnEnable: 0
+  skipFirstPlay: 0
 --- !u!1 &1870986606
 GameObject:
   m_ObjectHideFlags: 0
@@ -4276,7 +4284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db33ff24f52ea46498076b490aeac160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.CollisionSfxEmitter
-  eventName: HittingTube
+  eventName: HittingTable
   playOnEnable: 0
   collisionSource: 0
 --- !u!60 &2118507149

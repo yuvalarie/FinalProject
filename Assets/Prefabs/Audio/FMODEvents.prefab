@@ -121,6 +121,7 @@ MonoBehaviour:
           Data4: -1042229790
         Path: event:/General/LetterOpenShort
     ambianceEvents: []
+    voiceEvents: []
   - sceneName: Page 1
     musicEvents: []
     sfxEvents:
@@ -173,6 +174,7 @@ MonoBehaviour:
           Data3: -577922937
           Data4: -502671367
         Path: event:/Page1/AmbOffice
+    voiceEvents: []
   - sceneName: Page 2
     musicEvents: []
     sfxEvents:
@@ -241,6 +243,7 @@ MonoBehaviour:
           Data3: 1998826636
           Data4: 2093788321
         Path: event:/Page2/AmbFactory
+    voiceEvents: []
   - sceneName: Page 3
     musicEvents: []
     sfxEvents:
@@ -261,6 +264,7 @@ MonoBehaviour:
           Data4: 232996827
         Path: event:/Page3/Hittingtable
     ambianceEvents: []
+    voiceEvents: []
   - sceneName: Page 4
     musicEvents: []
     sfxEvents:
@@ -345,6 +349,39 @@ MonoBehaviour:
           Data4: 1138323655
         Path: event:/Page4/WalkingDownThe Stairs
     ambianceEvents: []
+    voiceEvents:
+    - name: P04_Helda_01
+      eventReference:
+        Guid:
+          Data1: -1936991908
+          Data2: 1282233368
+          Data3: 758855312
+          Data4: -1319561187
+        Path: event:/Page4/Voice/Helda_01
+    - name: P04_Helda_02
+      eventReference:
+        Guid:
+          Data1: 1576027980
+          Data2: 1275947969
+          Data3: 1384336024
+          Data4: 653219268
+        Path: event:/Page4/Voice/Helda_02
+    - name: P04_Helda_03
+      eventReference:
+        Guid:
+          Data1: -806517886
+          Data2: 1087960300
+          Data3: -684801888
+          Data4: 683215951
+        Path: event:/Page4/Voice/Helda_03
+    - name: P04_Helda_04
+      eventReference:
+        Guid:
+          Data1: -852957663
+          Data2: 1336852435
+          Data3: -446373708
+          Data4: 513145762
+        Path: event:/Page4/Voice/Helda_04
   - sceneName: MiniGame1
     musicEvents: []
     sfxEvents:
@@ -549,6 +586,7 @@ MonoBehaviour:
           Data4: -1094005613
         Path: event:/MiniGame1/PlaceThong
     ambianceEvents: []
+    voiceEvents: []
   - sceneName: Page 6
     musicEvents: []
     sfxEvents:
@@ -585,6 +623,7 @@ MonoBehaviour:
           Data4: -785334172
         Path: event:/Page6/PotBoiling
     ambianceEvents: []
+    voiceEvents: []
   - sceneName: MiniGame1_5
     musicEvents: []
     sfxEvents:
@@ -637,6 +676,7 @@ MonoBehaviour:
           Data4: 1601039280
         Path: event:/MiniGame1_5/ProcessingAnswers
     ambianceEvents: []
+    voiceEvents: []
   - sceneName: MiniGame2
     musicEvents: []
     sfxEvents:
@@ -673,6 +713,7 @@ MonoBehaviour:
           Data4: 714671286
         Path: event:/MiniGame2/FriendDiscard
     ambianceEvents: []
+    voiceEvents: []
   - sceneName: Page8
     musicEvents: []
     sfxEvents:
@@ -709,6 +750,7 @@ MonoBehaviour:
           Data4: -962018178
         Path: event:/Page8/FourthBeat
     ambianceEvents: []
+    voiceEvents: []
   - sceneName: MiniGame3
     musicEvents: []
     sfxEvents:
@@ -793,6 +835,7 @@ MonoBehaviour:
           Data4: -707773957
         Path: event:/MiniGame3/PimplePop
     ambianceEvents: []
+    voiceEvents: []
   - sceneName: Page 11
     musicEvents: []
     sfxEvents:
@@ -813,6 +856,7 @@ MonoBehaviour:
           Data3: 46570636
           Data4: 1251897343
         Path: event:/Page11/HeldaRoomAmbiance
+    voiceEvents: []
   - sceneName: MiniGame4
     musicEvents: []
     sfxEvents:
@@ -873,3 +917,4 @@ MonoBehaviour:
           Data4: -962960207
         Path: event:/MiniGame4/PrintPoster
     ambianceEvents: []
+    voiceEvents: []
