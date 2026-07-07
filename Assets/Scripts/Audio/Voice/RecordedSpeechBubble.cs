@@ -11,7 +11,7 @@ namespace Audio.Voice
         [SerializeField] private CharacterType character;
         [SerializeField] private int lineNumber;
         [SerializeField] private bool playOnEnable = true;
-        [SerializeField] private bool canBeTalkedOver = false;
+        [SerializeField] private bool canBeTalkedOver = true;
         [SerializeField] private bool stopOnDisable = true;
 
         private EventInstance _instance;
