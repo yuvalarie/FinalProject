@@ -3,8 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Audio;
+using Audio.Voice;
+using FMOD.Studio;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 namespace Npc
 {
@@ -16,6 +19,16 @@ namespace Npc
         [SerializeField] private float reactionDuration = 1f;
         [SerializeField] private List<Sprite> acceptedReactionSprites;
         [SerializeField] private List<Sprite> rejectedReactionSprites;
+
+        [Serializable]
+        private struct VoicedReactionEntry
+        {
+            public Sprite sprite;
+            public CharacterType character;
+            public int lineNumber;
+        }
+        [SerializeField] private List<VoicedReactionEntry> acceptedVoicedReactions;
+        [SerializeField] private List<VoicedReactionEntry> rejectedVoicedReactions;
         [Header("Finished Reactions")]
         [SerializeField, Tooltip("GameObjects for the end of the minigame reactions of the mother, needs to be in order")]
         private List<GameObject> finishedReactionObjects;
@@ -34,6 +47,10 @@ namespace Npc
         private int _currentFinishedReactionIndex = 0;
         private Action _friendsLeaveAction;
         private int _lastShownIndex = -1;
+        private int _lastShownAcceptedIndex = -1;
+        private int _lastShownRejectedIndex = -1;
+        private EventInstance _activeReactionVoiceInstance;
+        private bool _isReactionVoiceInstanceInitialized;
         private Coroutine _activeReaction;
         private bool _finishedAllReactions = false;
         private Action _finishedAllReactionsAction;
@@ -49,13 +66,15 @@ namespace Npc
         public void ShowAcceptedReaction()
         {
             // public wrapper in case we split the reactions later
-            ShowRandomReaction(acceptedReactionSprites);
+            // ShowRandomReaction(acceptedReactionSprites);
+            ShowRandomVoicedReaction(acceptedVoicedReactions, ref _lastShownAcceptedIndex);
         }
-        
+
         public void ShowRejectedReaction()
-        { 
+        {
             // public wrapper in case we split the reactions later
-            ShowRandomReaction(rejectedReactionSprites);
+            // ShowRandomReaction(rejectedReactionSprites);
+            ShowRandomVoicedReaction(rejectedVoicedReactions, ref _lastShownRejectedIndex);
         }
 
         private void ShowRandomReaction(List<Sprite> sourceList = null)
@@ -93,7 +112,53 @@ namespace Npc
             _lastShownIndex = randomIndex;
             return sourceList[randomIndex];
         }
-        
+
+        private void ShowRandomVoicedReaction(List<VoicedReactionEntry> sourceList, ref int lastShownIndex)
+        {
+            if (sourceList == null || sourceList.Count == 0) return;
+            if (_activeReaction != null) StopCoroutine(_activeReaction);
+            StopReactionVoice();
+            var entry = PickRandomVoicedEntry(sourceList, ref lastShownIndex);
+            _activeReaction = StartCoroutine(VoicedReactionRoutine(entry));
+        }
+
+        private IEnumerator VoicedReactionRoutine(VoicedReactionEntry entry)
+        {
+            reactionBubbleSpriteRenderer.sprite = entry.sprite;
+            reactionBubbleSpriteRenderer.enabled = true;
+            _activeReactionVoiceInstance = VoiceManager.Instance.PlayLine(entry.character, entry.lineNumber, null);
+            _isReactionVoiceInstanceInitialized = true;
+            yield return new WaitForSeconds(reactionDuration);
+            reactionBubbleSpriteRenderer.enabled = false;
+            _activeReaction = null;
+        }
+
+        private VoicedReactionEntry PickRandomVoicedEntry(List<VoicedReactionEntry> sourceList, ref int lastShownIndex)
+        {
+            if (sourceList.Count == 1)
+            {
+                lastShownIndex = 0;
+                return sourceList[0];
+            }
+            int randomIndex;
+            do
+            {
+                randomIndex = Random.Range(0, sourceList.Count);
+            }
+            while (randomIndex == lastShownIndex);
+            lastShownIndex = randomIndex;
+            return sourceList[randomIndex];
+        }
+
+        private void StopReactionVoice()
+        {
+            if (_isReactionVoiceInstanceInitialized && _activeReactionVoiceInstance.isValid())
+            {
+                _activeReactionVoiceInstance.stop(STOP_MODE.IMMEDIATE);
+            }
+            _isReactionVoiceInstanceInitialized = false;
+        }
+
         public void UpdateAngerState(int swipedCount, int totalCount)
         {
             if (angerStateSprites == null || angerStateSprites.Count == 0) return;

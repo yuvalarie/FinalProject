@@ -2151,6 +2151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 717007729}
   - component: {fileID: 717007728}
+  - component: {fileID: 717007730}
   m_Layer: 0
   m_Name: HeldaWish
   m_TagString: Untagged
@@ -2231,6 +2232,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &717007730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717007727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 2
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &781088669
 GameObject:
   m_ObjectHideFlags: 0
@@ -2986,6 +3004,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1059695430}
   - component: {fileID: 1059695429}
+  - component: {fileID: 1059695431}
   m_Layer: 0
   m_Name: HeldaReact1
   m_TagString: Untagged
@@ -3066,6 +3085,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1059695431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059695428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 1
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1001 &1084433571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5243,6 +5279,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1498514467870661310
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.22896
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5581
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768756573667957599, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_Name
+      value: VoiceManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -5286,6 +5379,7 @@ SceneRoots:
   - {fileID: 1371944111}
   - {fileID: 646194714}
   - {fileID: 94841948}
+  - {fileID: 1498514467870661310}
   - {fileID: 1569919808}
   - {fileID: 1084433571}
   - {fileID: 672173562}

@@ -47,6 +47,7 @@ namespace Audio.Voice
             var eventRef = FMODEvents.Instance.GetEventReferenceByName(eventName);
             var instance = AudioManager.Instance.CreateInstance(eventRef);
             instance.start();
+            instance.release();
 
             _stopPreviousCallback = stopCallback;
             return instance;
