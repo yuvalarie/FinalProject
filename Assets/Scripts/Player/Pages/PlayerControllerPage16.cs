@@ -35,6 +35,7 @@ namespace Player.Pages
         [SerializeField] private float waitBeforeFinalAnimation;
         [SerializeField] private float waitAfterFinalAnimation;
         [SerializeField] private float waitAfterFinalAnimationBeforeZoomOut;
+        [SerializeField] private float waiBeforeNedText;
         
         [Header("Trigger Settings")]
         [SerializeField] private Collider2D startSequenceTrigger;
@@ -196,6 +197,7 @@ namespace Player.Pages
             yield return new WaitForSeconds(cameraAnimationDuration);
             hasAnimationEnded = true;
             SceneLoader.Instance.PreloadScene(nextSceneName);
+            yield return new WaitForSeconds(waiBeforeNedText);
             StartTextSequence();
         }
 
