@@ -2090,6 +2090,7 @@ GameObject:
   m_Component:
   - component: {fileID: 199117638}
   - component: {fileID: 199117637}
+  - component: {fileID: 199117639}
   m_Layer: 0
   m_Name: Ned1L (2)
   m_TagString: Untagged
@@ -2170,6 +2171,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &199117639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199117636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 4
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &200619991
 GameObject:
   m_ObjectHideFlags: 0
@@ -2555,6 +2573,7 @@ GameObject:
   m_Component:
   - component: {fileID: 262541463}
   - component: {fileID: 262541462}
+  - component: {fileID: 262541464}
   m_Layer: 0
   m_Name: NedBig (1)
   m_TagString: Untagged
@@ -2635,6 +2654,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &262541464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262541461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 4
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &273015150
 GameObject:
   m_ObjectHideFlags: 0
@@ -3177,6 +3213,7 @@ GameObject:
   m_Component:
   - component: {fileID: 304222939}
   - component: {fileID: 304222938}
+  - component: {fileID: 304222940}
   m_Layer: 0
   m_Name: Ned1L
   m_TagString: Untagged
@@ -3257,6 +3294,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &304222940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304222937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 4
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &310932268
 GameObject:
   m_ObjectHideFlags: 0
@@ -3538,6 +3592,7 @@ GameObject:
   m_Component:
   - component: {fileID: 346200921}
   - component: {fileID: 346200920}
+  - component: {fileID: 346200922}
   m_Layer: 0
   m_Name: Ned1R (1)
   m_TagString: Untagged
@@ -3618,6 +3673,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &346200922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346200919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 4
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &360950134
 GameObject:
   m_ObjectHideFlags: 0
@@ -5103,6 +5175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 532036255}
   - component: {fileID: 532036254}
+  - component: {fileID: 532036256}
   m_Layer: 0
   m_Name: Asset 1086
   m_TagString: Untagged
@@ -5183,6 +5256,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &532036256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532036253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 2
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &548814477
 GameObject:
   m_ObjectHideFlags: 0
@@ -5804,6 +5894,7 @@ GameObject:
   m_Component:
   - component: {fileID: 691390807}
   - component: {fileID: 691390806}
+  - component: {fileID: 691390808}
   m_Layer: 0
   m_Name: Ned1R (3)
   m_TagString: Untagged
@@ -5884,6 +5975,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &691390808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691390805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 4
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &707570198
 GameObject:
   m_ObjectHideFlags: 0
@@ -6480,6 +6588,7 @@ GameObject:
   m_Component:
   - component: {fileID: 773605017}
   - component: {fileID: 773605016}
+  - component: {fileID: 773605018}
   m_Layer: 0
   m_Name: Asset 1087
   m_TagString: Untagged
@@ -6560,6 +6669,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &773605018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773605015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 1
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &787630421
 GameObject:
   m_ObjectHideFlags: 0
@@ -7685,6 +7811,7 @@ GameObject:
   m_Component:
   - component: {fileID: 927159458}
   - component: {fileID: 927159457}
+  - component: {fileID: 927159459}
   m_Layer: 0
   m_Name: Ned1L (1)
   m_TagString: Untagged
@@ -7765,6 +7892,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &927159459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927159456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 4
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &929162300
 GameObject:
   m_ObjectHideFlags: 0
@@ -8024,6 +8168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 946464568}
   - component: {fileID: 946464567}
+  - component: {fileID: 946464569}
   m_Layer: 0
   m_Name: NedBig (5)
   m_TagString: Untagged
@@ -8104,6 +8249,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &946464569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946464566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 4
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &958822871
 GameObject:
   m_ObjectHideFlags: 0
@@ -8145,6 +8307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 979340858}
   - component: {fileID: 979340857}
+  - component: {fileID: 979340859}
   m_Layer: 0
   m_Name: NedBig (4)
   m_TagString: Untagged
@@ -8225,6 +8388,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &979340859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979340856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 4
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &985505361
 GameObject:
   m_ObjectHideFlags: 0
@@ -9013,6 +9193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1036130388}
   - component: {fileID: 1036130387}
+  - component: {fileID: 1036130389}
   m_Layer: 0
   m_Name: Asset 1088
   m_TagString: Untagged
@@ -9093,6 +9274,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1036130389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036130386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 4
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &1053020629
 GameObject:
   m_ObjectHideFlags: 0
@@ -9181,6 +9379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1058143970}
   - component: {fileID: 1058143969}
+  - component: {fileID: 1058143971}
   m_Layer: 0
   m_Name: NedBig (6)
   m_TagString: Untagged
@@ -9261,6 +9460,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1058143971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058143968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 4
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &1064934033
 GameObject:
   m_ObjectHideFlags: 0
@@ -9399,6 +9615,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1072280171}
   - component: {fileID: 1072280170}
+  - component: {fileID: 1072280172}
   m_Layer: 0
   m_Name: NedBig (7)
   m_TagString: Untagged
@@ -9479,6 +9696,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1072280172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072280169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 4
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &1092694290
 GameObject:
   m_ObjectHideFlags: 0
@@ -10078,6 +10312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1222056418}
   - component: {fileID: 1222056417}
+  - component: {fileID: 1222056419}
   m_Layer: 0
   m_Name: NedBig (3)
   m_TagString: Untagged
@@ -10158,6 +10393,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1222056419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222056416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 4
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1001 &1235343690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10233,6 +10485,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1238262041}
   - component: {fileID: 1238262040}
+  - component: {fileID: 1238262042}
   m_Layer: 0
   m_Name: NedBig
   m_TagString: Untagged
@@ -10313,6 +10566,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1238262042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238262039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 4
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &1264637858
 GameObject:
   m_ObjectHideFlags: 0
@@ -10758,6 +11028,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1312727626}
   - component: {fileID: 1312727625}
+  - component: {fileID: 1312727627}
   m_Layer: 0
   m_Name: Ned1R
   m_TagString: Untagged
@@ -10838,6 +11109,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1312727627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312727624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 4
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &1313709829
 GameObject:
   m_ObjectHideFlags: 0
@@ -11141,6 +11429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1338666365}
   - component: {fileID: 1338666364}
+  - component: {fileID: 1338666366}
   m_Layer: 0
   m_Name: Asset 1091
   m_TagString: Untagged
@@ -11221,6 +11510,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1338666366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338666363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 3
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &1345538490
 GameObject:
   m_ObjectHideFlags: 0
@@ -11352,6 +11658,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1377708950}
   - component: {fileID: 1377708949}
+  - component: {fileID: 1377708951}
   m_Layer: 0
   m_Name: Ned1R (4)
   m_TagString: Untagged
@@ -11432,6 +11739,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1377708951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377708948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 4
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &1378307598
 GameObject:
   m_ObjectHideFlags: 0
@@ -19347,6 +19671,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1898369057}
   - component: {fileID: 1898369056}
+  - component: {fileID: 1898369058}
   m_Layer: 0
   m_Name: Asset 1089
   m_TagString: Untagged
@@ -19427,6 +19752,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1898369058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898369055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 4
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &1933106251
 GameObject:
   m_ObjectHideFlags: 0
@@ -19730,6 +20072,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1979255422}
   - component: {fileID: 1979255421}
+  - component: {fileID: 1979255423}
   m_Layer: 0
   m_Name: Ned1R (2)
   m_TagString: Untagged
@@ -19810,6 +20153,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1979255423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979255420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 4
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &1997353077
 GameObject:
   m_ObjectHideFlags: 0
@@ -20038,6 +20398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2021722342}
   - component: {fileID: 2021722341}
+  - component: {fileID: 2021722343}
   m_Layer: 0
   m_Name: NedBig (2)
   m_TagString: Untagged
@@ -20118,6 +20479,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2021722343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021722340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 4
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &2042663186
 GameObject:
   m_ObjectHideFlags: 0
@@ -20595,6 +20973,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -39.212}
+--- !u!1001 &3477096602600869102
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768756573667957599, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_Name
+      value: VoiceManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -20737,6 +21172,7 @@ SceneRoots:
   - {fileID: 1377708950}
   - {fileID: 199117638}
   - {fileID: 363254646}
+  - {fileID: 3477096602600869102}
   - {fileID: 823707853}
   - {fileID: 685099581}
   - {fileID: 1544176359}
