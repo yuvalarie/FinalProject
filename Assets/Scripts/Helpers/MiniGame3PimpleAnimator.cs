@@ -21,25 +21,25 @@ namespace Objects
         [SerializeField] private float wait4;
         [SerializeField] private float wait5;
         
-        [SerializeField] private AudioEmitterBase pimplePopSfxEmitter;
+        // [SerializeField] private AudioEmitterBase pimplePopSfxEmitter;
         
         public IEnumerator PimpleCoroutine()
         {
             yield return new WaitForSeconds(wait1);
             pimple1Animator.SetTrigger(Pop);
-            pimplePopSfxEmitter?.PlayAudioOnce();
+            // pimplePopSfxEmitter?.PlayAudioOnce();
             yield return new WaitForSeconds(wait2);
             pimple2Animator.SetTrigger(Pop);
-            pimplePopSfxEmitter?.PlayAudioOnce();
+            // pimplePopSfxEmitter?.PlayAudioOnce();
             yield return new WaitForSeconds(wait3);
             pimple3Animator.SetTrigger(Pop);
-            pimplePopSfxEmitter?.PlayAudioOnce();
+            // pimplePopSfxEmitter?.PlayAudioOnce();
             yield return new WaitForSeconds(wait4);
             pimple4Animator.SetTrigger(Pop);
-            pimplePopSfxEmitter?.PlayAudioOnce();
+            // pimplePopSfxEmitter?.PlayAudioOnce();
             yield return new WaitForSeconds(wait5);
             pimple5Animator.SetTrigger(Pop);
-            pimplePopSfxEmitter?.PlayAudioOnce();
+            // pimplePopSfxEmitter?.PlayAudioOnce();
         }
     }
 }
