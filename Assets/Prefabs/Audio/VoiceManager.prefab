@@ -54,3 +54,5 @@ MonoBehaviour:
     initial: P04
   - sceneName: MiniGame1-WithArt
     initial: MG10
+  - sceneName: Page 6
+    initial: P06
