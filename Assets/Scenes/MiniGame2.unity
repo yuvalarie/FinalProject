@@ -312,6 +312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 326367266}
   - component: {fileID: 326367265}
+  - component: {fileID: 326367267}
   m_Layer: 0
   m_Name: ReactHelda4End
   m_TagString: Untagged
@@ -392,6 +393,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &326367267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326367264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 9
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &370077528
 GameObject:
   m_ObjectHideFlags: 0
@@ -1041,11 +1059,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b65602072944a45be7bd2d5633869b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Npc.MotherReactionController
---- !u!212 &943110237 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 1433364554171140419, guid: 2c82b5637459261408b6ec4e11de4702, type: 3}
-  m_PrefabInstance: {fileID: 2904323382104334640}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1035559656
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,6 +1160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1114375482}
   - component: {fileID: 1114375481}
+  - component: {fileID: 1114375483}
   m_Layer: 0
   m_Name: ReactHelda1End
   m_TagString: Untagged
@@ -1227,6 +1241,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1114375483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114375480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 7
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &1123259600
 GameObject:
   m_ObjectHideFlags: 0
@@ -2116,6 +2147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1760818662}
   - component: {fileID: 1760818661}
+  - component: {fileID: 1760818663}
   m_Layer: 0
   m_Name: ReactHelda3End
   m_TagString: Untagged
@@ -2196,6 +2228,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1760818663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760818660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 8
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &1829179769
 GameObject:
   m_ObjectHideFlags: 0
@@ -2657,50 +2706,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1433364554171140419, guid: 2c82b5637459261408b6ec4e11de4702, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1433364554171140419, guid: 2c82b5637459261408b6ec4e11de4702, type: 3}
-      propertyPath: m_SortingOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6472086462334387705, guid: 2c82b5637459261408b6ec4e11de4702, type: 3}
-      propertyPath: heldaBodyRenderer
-      value: 
-      objectReference: {fileID: 943110237}
-    - target: {fileID: 6472086462334387705, guid: 2c82b5637459261408b6ec4e11de4702, type: 3}
-      propertyPath: angerStateSprites.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6472086462334387705, guid: 2c82b5637459261408b6ec4e11de4702, type: 3}
-      propertyPath: reactionIndexWhereFriendsLeave
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6472086462334387705, guid: 2c82b5637459261408b6ec4e11de4702, type: 3}
-      propertyPath: 'angerStateSprites.Array.data[0]'
-      value: 
-      objectReference: {fileID: 21300000, guid: 36d2f05125a9c450bb72a8497f710762, type: 3}
-    - target: {fileID: 6472086462334387705, guid: 2c82b5637459261408b6ec4e11de4702, type: 3}
-      propertyPath: 'angerStateSprites.Array.data[1]'
-      value: 
-      objectReference: {fileID: 21300000, guid: f2a24b4cd3c614c2e9447d9a76b0b3ec, type: 3}
-    - target: {fileID: 6472086462334387705, guid: 2c82b5637459261408b6ec4e11de4702, type: 3}
-      propertyPath: 'angerStateSprites.Array.data[2]'
-      value: 
-      objectReference: {fileID: 21300000, guid: df4355cd27505447dba12c56864c7a0b, type: 3}
-    - target: {fileID: 6472086462334387705, guid: 2c82b5637459261408b6ec4e11de4702, type: 3}
-      propertyPath: 'angerStateSprites.Array.data[3]'
-      value: 
-      objectReference: {fileID: 21300000, guid: ac31ce978507d4c079d34dfda8bd2f58, type: 3}
-    - target: {fileID: 6472086462334387705, guid: 2c82b5637459261408b6ec4e11de4702, type: 3}
-      propertyPath: finishedReactionCooldownDuration
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6472086462334387705, guid: 2c82b5637459261408b6ec4e11de4702, type: 3}
-      propertyPath: finishedReactionObjects.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 6472086462334387705, guid: 2c82b5637459261408b6ec4e11de4702, type: 3}
       propertyPath: 'finishedReactionObjects.Array.data[0]'
       value: 
@@ -2762,6 +2767,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c82b5637459261408b6ec4e11de4702, type: 3}
+--- !u!1001 &4458742628886388783
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.22896
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5581
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768756573667957599, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_Name
+      value: VoiceManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
 --- !u!1001 &5822067558026649915
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3033,6 +3095,7 @@ SceneRoots:
   - {fileID: 1760818662}
   - {fileID: 326367266}
   - {fileID: 186344250}
+  - {fileID: 4458742628886388783}
   - {fileID: 1755537697}
   - {fileID: 892811531}
   - {fileID: 1983481469}
