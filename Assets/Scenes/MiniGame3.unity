@@ -3452,7 +3452,6 @@ GameObject:
   m_Component:
   - component: {fileID: 460013550}
   - component: {fileID: 460013549}
-  - component: {fileID: 460013551}
   m_Layer: 0
   m_Name: pimpleAnimator
   m_TagString: Untagged
@@ -3482,7 +3481,6 @@ MonoBehaviour:
   wait3: 0
   wait4: 0
   wait5: 0
-  pimplePopSfxEmitter: {fileID: 460013551}
 --- !u!4 &460013550
 Transform:
   m_ObjectHideFlags: 0
@@ -3498,20 +3496,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &460013551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 460013548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
-  eventName: PimplePop
-  playOnEnable: 0
 --- !u!1 &494638339
 GameObject:
   m_ObjectHideFlags: 0
@@ -4181,6 +4165,7 @@ GameObject:
   - component: {fileID: 722875018}
   - component: {fileID: 722875021}
   - component: {fileID: 722875020}
+  - component: {fileID: 722875022}
   m_Layer: 20
   m_Name: Pipel4
   m_TagString: Untagged
@@ -4345,6 +4330,20 @@ MonoBehaviour:
   pimpleCollider: {fileID: 722875020}
   popTriggerName: Pop
   popAnimationDuration: 2
+--- !u!114 &722875022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722875016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PimplePop
+  playOnEnable: 0
 --- !u!1001 &772669691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5931,6 +5930,7 @@ GameObject:
   - component: {fileID: 1137495586}
   - component: {fileID: 1137495589}
   - component: {fileID: 1137495588}
+  - component: {fileID: 1137495590}
   m_Layer: 20
   m_Name: Pipel1
   m_TagString: Untagged
@@ -6095,6 +6095,20 @@ MonoBehaviour:
   pimpleCollider: {fileID: 1137495588}
   popTriggerName: Pop
   popAnimationDuration: 2
+--- !u!114 &1137495590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137495584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PimplePop
+  playOnEnable: 0
 --- !u!1 &1186815418
 GameObject:
   m_ObjectHideFlags: 0
@@ -6439,6 +6453,7 @@ GameObject:
   - component: {fileID: 1306949062}
   - component: {fileID: 1306949065}
   - component: {fileID: 1306949064}
+  - component: {fileID: 1306949066}
   m_Layer: 20
   m_Name: Pipel3
   m_TagString: Untagged
@@ -6603,6 +6618,20 @@ MonoBehaviour:
   pimpleCollider: {fileID: 1306949064}
   popTriggerName: Pop
   popAnimationDuration: 2
+--- !u!114 &1306949066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306949060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PimplePop
+  playOnEnable: 0
 --- !u!1 &1344078697
 GameObject:
   m_ObjectHideFlags: 0
@@ -7749,6 +7778,7 @@ GameObject:
   - component: {fileID: 1502374653}
   - component: {fileID: 1502374656}
   - component: {fileID: 1502374655}
+  - component: {fileID: 1502374657}
   m_Layer: 20
   m_Name: Pipel5
   m_TagString: Untagged
@@ -7913,6 +7943,20 @@ MonoBehaviour:
   pimpleCollider: {fileID: 1502374655}
   popTriggerName: Pop
   popAnimationDuration: 2
+--- !u!114 &1502374657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502374651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PimplePop
+  playOnEnable: 0
 --- !u!1 &1514219421
 GameObject:
   m_ObjectHideFlags: 0
@@ -10914,6 +10958,7 @@ GameObject:
   - component: {fileID: 2033035342}
   - component: {fileID: 2033035345}
   - component: {fileID: 2033035344}
+  - component: {fileID: 2033035346}
   m_Layer: 20
   m_Name: Pipel2
   m_TagString: Untagged
@@ -11078,6 +11123,20 @@ MonoBehaviour:
   pimpleCollider: {fileID: 2033035344}
   popTriggerName: Pop
   popAnimationDuration: 2
+--- !u!114 &2033035346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033035340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: PimplePop
+  playOnEnable: 0
 --- !u!1 &2060909859
 GameObject:
   m_ObjectHideFlags: 0
