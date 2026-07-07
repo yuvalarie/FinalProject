@@ -242,10 +242,10 @@ MonoBehaviour:
   - {fileID: 881040131}
   start: {fileID: 220141007}
   end: {fileID: 1405235367}
-  minDuration: 7
-  maxDuration: 10
+  minDuration: 130
+  maxDuration: 170
   minDelay: 0
-  maxDelay: 1.5
+  maxDelay: 3
   minSeparationTime: 1
   loopContinuously: 1
   pauseBetweenLoops: 0.1
@@ -573,10 +573,10 @@ MonoBehaviour:
   - {fileID: 1755009124}
   start: {fileID: 870004372}
   end: {fileID: 1910406927}
-  minDuration: 7
-  maxDuration: 10
+  minDuration: 80
+  maxDuration: 100
   minDelay: 0
-  maxDelay: 1.5
+  maxDelay: 0
   minSeparationTime: 1
   loopContinuously: 1
   pauseBetweenLoops: 0.1
@@ -992,10 +992,10 @@ MonoBehaviour:
   - {fileID: 199737627}
   start: {fileID: 657334165}
   end: {fileID: 915502088}
-  minDuration: 7
-  maxDuration: 10
+  minDuration: 160
+  maxDuration: 190
   minDelay: 0
-  maxDelay: 1.5
+  maxDelay: 7
   minSeparationTime: 1
   loopContinuously: 1
   pauseBetweenLoops: 0.1
@@ -1336,7 +1336,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: 6f6a9aa9533bd46c582cbeed869cb8b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1762,10 +1762,10 @@ MonoBehaviour:
   - {fileID: 356028243}
   start: {fileID: 356028243}
   end: {fileID: 171631762}
-  minDuration: 7
-  maxDuration: 10
+  minDuration: 90
+  maxDuration: 150
   minDelay: 0
-  maxDelay: 1.5
+  maxDelay: 2
   minSeparationTime: 1
   loopContinuously: 1
   pauseBetweenLoops: 0.1
@@ -1849,12 +1849,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Helpers.CloudAnimator
   clouds:
   - {fileID: 2122359036}
-  start: {fileID: 1400209264}
-  end: {fileID: 140701684}
-  minDuration: 7
-  maxDuration: 10
+  start: {fileID: 140701684}
+  end: {fileID: 1400209264}
+  minDuration: 100
+  maxDuration: 180
   minDelay: 0
-  maxDelay: 1.5
+  maxDelay: 4
   minSeparationTime: 1
   loopContinuously: 1
   pauseBetweenLoops: 0.1
@@ -2218,12 +2218,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Helpers.CloudAnimator
   clouds:
   - {fileID: 1572977507}
-  start: {fileID: 186662623}
-  end: {fileID: 1650651546}
-  minDuration: 7
-  maxDuration: 10
+  start: {fileID: 1650651546}
+  end: {fileID: 186662623}
+  minDuration: 100
+  maxDuration: 120
   minDelay: 0
-  maxDelay: 1.5
+  maxDelay: 0.5
   minSeparationTime: 1
   loopContinuously: 1
   pauseBetweenLoops: 0.1
@@ -2278,11 +2278,11 @@ MonoBehaviour:
   - {fileID: 1953440221}
   start: {fileID: 890601791}
   end: {fileID: 1860613454}
-  minDuration: 7
-  maxDuration: 10
+  minDuration: 100
+  maxDuration: 110
   minDelay: 0
   maxDelay: 1.5
-  minSeparationTime: 1
+  minSeparationTime: 7
   loopContinuously: 1
   pauseBetweenLoops: 0.1
 --- !u!4 &1457669823
@@ -2661,8 +2661,8 @@ Transform:
   m_GameObject: {fileID: 1572977505}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.18, y: 0, z: 0}
-  m_LocalScale: {x: 0.2399655, y: 0.2399655, z: 0.2399655}
+  m_LocalPosition: {x: 16.6951, y: 0, z: 0}
+  m_LocalScale: {x: 0.18266174, y: 0.18266174, z: 0.18266174}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1438760813}
@@ -3089,11 +3089,11 @@ MonoBehaviour:
   - {fileID: 109791724}
   start: {fileID: 2062923018}
   end: {fileID: 657900307}
-  minDuration: 7
-  maxDuration: 10
+  minDuration: 60
+  maxDuration: 100
   minDelay: 0
-  maxDelay: 1.5
-  minSeparationTime: 1
+  maxDelay: 0
+  minSeparationTime: 0
   loopContinuously: 1
   pauseBetweenLoops: 0.1
 --- !u!4 &1833829535
@@ -3559,11 +3559,11 @@ MonoBehaviour:
   - {fileID: 1880827889}
   start: {fileID: 1374305388}
   end: {fileID: 1827032253}
-  minDuration: 7
-  maxDuration: 10
+  minDuration: 70
+  maxDuration: 110
   minDelay: 0
-  maxDelay: 1.5
-  minSeparationTime: 1
+  maxDelay: 5
+  minSeparationTime: 6
   loopContinuously: 1
   pauseBetweenLoops: 0.1
 --- !u!4 &1881455495
@@ -3699,8 +3699,8 @@ Transform:
   m_GameObject: {fileID: 1953440219}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2399655, y: 0.2399655, z: 0.2399655}
+  m_LocalPosition: {x: -0.799, y: -0.4457, z: 0}
+  m_LocalScale: {x: 0.13080518, y: 0.13080518, z: 0.13080518}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1457669823}
