@@ -56,3 +56,5 @@ MonoBehaviour:
     initial: MG10
   - sceneName: Page 6
     initial: P06
+  - sceneName: Page 8
+    initial: P08
