@@ -88,6 +88,8 @@ namespace Player
         [Header("End Sequence")] 
         [SerializeField] private GameObject endReaction;
         [SerializeField] private MiniGame3PimpleAnimator pimpleAnimator;
+        [SerializeField] private Transform endPosition;
+        [SerializeField] private float endDuration = 1f;
 
         private List<SimonTask> fullSequence = new List<SimonTask>();
         private int currentRound = 1; 
@@ -315,7 +317,10 @@ namespace Player
             if (!context.performed) return;
             if(_isEnd)
             {
-                SceneLoader.Instance.ActivatePreloadedScene();
+                transform.DOMove(endPosition.position, endDuration).OnComplete(() =>
+                {
+                    SceneLoader.Instance.ActivatePreloadedScene();
+                });
                 return;
             }
             if (isScreenPlaying) return;
