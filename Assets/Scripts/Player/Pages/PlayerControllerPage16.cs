@@ -1,8 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using DG.Tweening;
 using Managers;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Player.Pages
 {
@@ -14,7 +15,8 @@ namespace Player.Pages
         
         [Header("Helda Settings")]
         [SerializeField] private GameObject heldaObject;
-        [SerializeField] private GameObject heldaText;
+        [SerializeField] private GameObject heldaText1;
+        [SerializeField] private GameObject heldaText2;
         [SerializeField] private Transform heldaEnterPosition;
         [SerializeField] private float heldaEnterDuration;
         [SerializeField, Tooltip("How high she bounces on the Y axis while moving.")] 
@@ -33,6 +35,7 @@ namespace Player.Pages
         [SerializeField] private float waitBeforeFinalAnimation;
         [SerializeField] private float waitAfterFinalAnimation;
         [SerializeField] private float waitAfterFinalAnimationBeforeZoomOut;
+        [SerializeField] private float waiBeforeNedText;
         
         [Header("Trigger Settings")]
         [SerializeField] private Collider2D startSequenceTrigger;
@@ -45,12 +48,16 @@ namespace Player.Pages
         [SerializeField] private GameObject blackScreen;
         [SerializeField] private float blackScreenFadeDuration;
 
-        private bool hasHeldaEntered;
         private bool hasHeldaSequenceStarted;
         private bool hasAnimationPlayed;
         private bool hasAnimationEnded;
 
         private bool atHeldaCollider;
+        
+        private bool isHeldaTextSequenceActive;
+        private bool isHeldaTextSequenceAnimating;
+        private int heldaTextSequenceState;
+        private Coroutine currentHeldaTextSequenceRoutine;
         
         private bool isTextSequenceActive;
         private bool isTextSequenceAnimating;
@@ -61,11 +68,6 @@ namespace Player.Pages
         protected override void OnInteraction(InputAction.CallbackContext context)
         {
             if(!context.performed) return;
-            if(hasHeldaEntered && !hasAnimationPlayed)
-            {
-                hasAnimationPlayed = true;
-                StartCoroutine(FinalAnimationCoroutine());
-            }
             if(hasTextSequenceEnded && atHeldaCollider)
             {
                 StartCoroutine(EndSequenceCoroutine());
@@ -84,7 +86,7 @@ namespace Player.Pages
 
         protected override void HandleMovement()
         {
-            if (isTextSequenceActive)
+            if (isHeldaTextSequenceActive || isTextSequenceActive)
             {
                 if (Rb != null) Rb.linearVelocity = Vector2.zero;
                 return;
@@ -95,7 +97,19 @@ namespace Player.Pages
 
         protected override void OnTextForward(InputAction.CallbackContext context)
         {
-            if (!context.performed || !isTextSequenceActive || isTextSequenceAnimating || textSequenceState >= 4) return;
+            if (!context.performed) return;
+
+            if (isHeldaTextSequenceActive)
+            {
+                if (isHeldaTextSequenceAnimating || heldaTextSequenceState >= 3) return;
+
+                heldaTextSequenceState++;
+                if (currentHeldaTextSequenceRoutine != null) StopCoroutine(currentHeldaTextSequenceRoutine);
+                currentHeldaTextSequenceRoutine = StartCoroutine(TransitionToHeldaTextState(heldaTextSequenceState));
+                return;
+            }
+
+            if (!isTextSequenceActive || isTextSequenceAnimating || textSequenceState >= 4) return;
 
             textSequenceState++;
             if (currentTextSequenceRoutine != null) StopCoroutine(currentTextSequenceRoutine);
@@ -104,16 +118,69 @@ namespace Player.Pages
 
         protected override void OnTextBackward(InputAction.CallbackContext context)
         {
-            if (!context.performed || !isTextSequenceActive || isTextSequenceAnimating || textSequenceState <= 1) return;
+            if (!context.performed) return;
+
+            if (isHeldaTextSequenceActive)
+            {
+                if (isHeldaTextSequenceAnimating || heldaTextSequenceState <= 1) return;
+
+                heldaTextSequenceState--;
+                if (currentHeldaTextSequenceRoutine != null) StopCoroutine(currentHeldaTextSequenceRoutine);
+                currentHeldaTextSequenceRoutine = StartCoroutine(TransitionToHeldaTextState(heldaTextSequenceState));
+                return;
+            }
+
+            if (!isTextSequenceActive || isTextSequenceAnimating || textSequenceState <= 1) return;
 
             textSequenceState--;
             if (currentTextSequenceRoutine != null) StopCoroutine(currentTextSequenceRoutine);
             currentTextSequenceRoutine = StartCoroutine(TransitionToTextState(textSequenceState));
         }
 
+        private void StartHeldaTextSequence()
+        {
+            BeginTextInputMode();
+            isHeldaTextSequenceActive = true;
+            heldaTextSequenceState = 1;
+            
+            if (currentHeldaTextSequenceRoutine != null) StopCoroutine(currentHeldaTextSequenceRoutine);
+            currentHeldaTextSequenceRoutine = StartCoroutine(TransitionToHeldaTextState(heldaTextSequenceState));
+        }
+
+        private IEnumerator TransitionToHeldaTextState(int targetState)
+        {
+            isHeldaTextSequenceAnimating = true;
+
+            heldaText1.SetActive(false);
+            heldaText2.SetActive(false);
+
+            switch (targetState)
+            {
+                case 1:
+                    heldaText1.SetActive(true);
+                    break;
+                case 2:
+                    heldaText2.SetActive(true);
+                    break;
+                case 3:
+                    isHeldaTextSequenceActive = false;
+                    EndTextInputMode();
+                    if (!hasAnimationPlayed)
+                    {
+                        hasAnimationPlayed = true;
+                        StartCoroutine(FinalAnimationCoroutine());
+                    }
+                    break;
+            }
+
+            yield return null;
+            isHeldaTextSequenceAnimating = false;
+        }
+
         private IEnumerator FinalAnimationCoroutine()
         {
-            heldaText.SetActive(false);
+            heldaText1.SetActive(false);
+            heldaText2.SetActive(false);
             cameraAnimator.SetTrigger("ZoomIn");
             yield return new WaitForSeconds(cameraAnimationDuration);
             yield return new WaitForSeconds(waitBeforeFinalAnimation);
@@ -130,6 +197,7 @@ namespace Player.Pages
             yield return new WaitForSeconds(cameraAnimationDuration);
             hasAnimationEnded = true;
             SceneLoader.Instance.PreloadScene(nextSceneName);
+            yield return new WaitForSeconds(waiBeforeNedText);
             StartTextSequence();
         }
 
@@ -177,10 +245,7 @@ namespace Player.Pages
         {
             heldaObject.transform.DOJump(heldaEnterPosition.position, jumpPower, numberOfJumps, heldaEnterDuration)
                 .SetEase(Ease.Linear)
-                .OnComplete(() => { 
-                    heldaText.SetActive(true);
-                    hasHeldaEntered = true;
-                });
+                .OnComplete(StartHeldaTextSequence);
         }
 
         protected override void OnTriggerEnter2D(Collider2D other)
@@ -207,3 +272,5 @@ namespace Player.Pages
         }
     }
 }
+
+
