@@ -1173,7 +1173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &108931526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1310,6 +1310,8 @@ MonoBehaviour:
   currentStandingToolStation: 0
   endReaction: {fileID: 1537405544}
   pimpleAnimator: {fileID: 460013549}
+  endPosition: {fileID: 1649365540}
+  endDuration: 1
 --- !u!212 &108931527
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2298,7 +2300,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -1.0663617}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2308,7 +2310,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 45.52778, y: 13.222222}
+  m_Size: {x: 45.52778, y: 11.0895}
   m_EdgeRadius: 0
 --- !u!1 &194626173
 GameObject:
@@ -3475,11 +3477,11 @@ MonoBehaviour:
   pimple3Animator: {fileID: 1306949062}
   pimple4Animator: {fileID: 722875018}
   pimple5Animator: {fileID: 1502374653}
-  wait1: 10
-  wait2: 17
-  wait3: 20
-  wait4: 25
-  wait5: 35
+  wait1: 0
+  wait2: 0
+  wait3: 0
+  wait4: 0
+  wait5: 0
   pimplePopSfxEmitter: {fileID: 460013551}
 --- !u!4 &460013550
 Transform:
@@ -3949,7 +3951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &668321923
 Animator:
   serializedVersion: 7
@@ -6065,7 +6067,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.12204623, y: 0.12204397}
+  m_Offset: {x: -0.34448195, y: 0.40008944}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -6075,7 +6077,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.372355, y: 4.2766037}
+  m_Size: {x: 3.9274836, y: 3.7205129}
   m_EdgeRadius: 0
 --- !u!114 &1137495589
 MonoBehaviour:
@@ -7481,7 +7483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1428781626
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8408,6 +8410,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: Tool3Preview
   playOnEnable: 1
+--- !u!1 &1649365539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1649365540}
+  m_Layer: 0
+  m_Name: endPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1649365540
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649365539}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.08, y: -10, z: 0}
+  m_LocalScale: {x: 0.18683, y: 0.18683, z: 0.18683}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1667209533
 GameObject:
   m_ObjectHideFlags: 0
@@ -11017,7 +11050,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.12204182, y: 0.06102276}
+  m_Offset: {x: -0.12204182, y: 0.33906835}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -11027,7 +11060,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.6400898, y: 4.154558}
+  m_Size: {x: 3.6400898, y: 3.5984669}
   m_EdgeRadius: 0
 --- !u!114 &2033035345
 MonoBehaviour:
@@ -11260,6 +11293,7 @@ SceneRoots:
   - {fileID: 2060909861}
   - {fileID: 1032811792}
   - {fileID: 108931528}
+  - {fileID: 1649365540}
   - {fileID: 668321925}
   - {fileID: 1428781627}
   - {fileID: 185805800}
