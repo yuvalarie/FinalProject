@@ -4863,6 +4863,7 @@ MonoBehaviour:
   frame3: {fileID: 799537165}
   frame4: {fileID: 1247189182}
   frame4Part2: {fileID: 114845735}
+  frame2Part2: {fileID: 1791249665}
   frame3Object: {fileID: 1550232372}
   frame5Object: {fileID: 1715616731}
   helda: {fileID: 1417039555}
@@ -4969,7 +4970,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1791249666
 Transform:
   m_ObjectHideFlags: 0
