@@ -8,7 +8,7 @@ namespace DebugTools
 
         private static readonly DebugSceneEntry[] SceneEntries =
         {
-            Reserved("StartScreen"),
+            Scene("StartScreen"),
             Reserved("Reserved - Scene 2"),
             Scene("Page 1"),
             Scene("Page 2"),
@@ -26,7 +26,7 @@ namespace DebugTools
             Scene("MiniGame4P2", "MIniGame4P2"),
             Scene("Page 15"),
             Scene("Page 16"),
-            Reserved("Reserved - Ending Scene 1"),
+            Scene("FinalScreen"),
             Reserved("Reserved - Ending Scene 2"),
             Reserved("Reserved - Ending Scene 3"),
         };
