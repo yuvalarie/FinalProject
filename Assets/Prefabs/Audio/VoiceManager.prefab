@@ -62,3 +62,5 @@ MonoBehaviour:
     initial: MG20
   - sceneName: MiniGame3
     initial: MG30
+  - sceneName: Page 11
+    initial: P11
