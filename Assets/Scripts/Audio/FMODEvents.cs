@@ -13,6 +13,7 @@ namespace Audio
         public EventReferenceWithName[] musicEvents;
         public EventReferenceWithName[] sfxEvents;
         public EventReferenceWithName[] ambianceEvents;
+        public EventReferenceWithName[] voiceEvents;
     }
     [Serializable]
     public class EventReferenceWithName
@@ -49,6 +50,10 @@ namespace Audio
                 foreach (var musicEvent in sceneAudioReference.musicEvents)
                 {
                     AddEventReference(musicEvent);
+                }
+                foreach (var voiceEvent in sceneAudioReference.voiceEvents)
+                {
+                    AddEventReference(voiceEvent);
                 }
             }
         }
