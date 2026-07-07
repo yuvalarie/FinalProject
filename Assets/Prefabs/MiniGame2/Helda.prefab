@@ -170,7 +170,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: bdbb23167c887430b9b83af395af1d4f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -213,10 +213,35 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7692bdcfabf6c4cea8980fa62d5c747c, type: 3}
   - {fileID: 21300000, guid: 8b0d93365a5854c4ba7ab69e2b494b07, type: 3}
   - {fileID: 21300000, guid: 555ab7af8fc674998b0232576141cf6d, type: 3}
-  finishedReactionSprites:
-  - {fileID: 21300000, guid: d927976020d8747fbab1dab298979e40, type: 3}
-  - {fileID: 21300000, guid: f2efc17ac43694268b666293762e48fb, type: 3}
-  - {fileID: 21300000, guid: 26c091df6891b4856ae3d2514a201b8d, type: 3}
-  - {fileID: 21300000, guid: 7b758b3b7654b45da8beb2c4f8858cfe, type: 3}
-  reactionIndexWhereFriendsLeave: 4
-  finishedReactionCooldownDuration: 0.2
+  acceptedVoicedReactions:
+  - sprite: {fileID: 21300000, guid: 57a91509049df4459b62439909c47da5, type: 3}
+    character: 0
+    lineNumber: 4
+  - sprite: {fileID: 21300000, guid: 185614a8f1948486aaca840e74709635, type: 3}
+    character: 0
+    lineNumber: 5
+  - sprite: {fileID: 21300000, guid: a312f60b7abe4497080a26f75f39827e, type: 3}
+    character: 0
+    lineNumber: 6
+  rejectedVoicedReactions:
+  - sprite: {fileID: 21300000, guid: 7692bdcfabf6c4cea8980fa62d5c747c, type: 3}
+    character: 0
+    lineNumber: 1
+  - sprite: {fileID: 21300000, guid: 8b0d93365a5854c4ba7ab69e2b494b07, type: 3}
+    character: 0
+    lineNumber: 2
+  - sprite: {fileID: 21300000, guid: 555ab7af8fc674998b0232576141cf6d, type: 3}
+    character: 0
+    lineNumber: 3
+  finishedReactionObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  reactionIndexWhereFriendsLeave: 3
+  finishedReactionCooldownDuration: 0.1
+  heldaBodyRenderer: {fileID: 1433364554171140419}
+  angerStateSprites:
+  - {fileID: 21300000, guid: 36d2f05125a9c450bb72a8497f710762, type: 3}
+  - {fileID: 21300000, guid: f2a24b4cd3c614c2e9447d9a76b0b3ec, type: 3}
+  - {fileID: 21300000, guid: df4355cd27505447dba12c56864c7a0b, type: 3}
+  - {fileID: 21300000, guid: ac31ce978507d4c079d34dfda8bd2f58, type: 3}
