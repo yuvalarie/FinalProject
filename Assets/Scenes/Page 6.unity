@@ -1091,6 +1091,7 @@ GameObject:
   m_Component:
   - component: {fileID: 188705274}
   - component: {fileID: 188705275}
+  - component: {fileID: 188705276}
   m_Layer: 0
   m_Name: TextP1
   m_TagString: Untagged
@@ -1171,6 +1172,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &188705276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188705273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 1
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &196392896
 GameObject:
   m_ObjectHideFlags: 0
@@ -1605,6 +1623,7 @@ GameObject:
   m_Component:
   - component: {fileID: 361101153}
   - component: {fileID: 361101154}
+  - component: {fileID: 361101155}
   m_Layer: 0
   m_Name: TextP2
   m_TagString: Untagged
@@ -1685,6 +1704,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &361101155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361101152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 2
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &362590205
 GameObject:
   m_ObjectHideFlags: 0
@@ -5888,7 +5924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
-  eventName: LetterOpen
+  eventName: LetterOpenShort
   playOnEnable: 1
 --- !u!1 &1274614956
 GameObject:
@@ -6106,6 +6142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1339225642}
   - component: {fileID: 1339225641}
+  - component: {fileID: 1339225643}
   m_Layer: 0
   m_Name: TextP3
   m_TagString: Untagged
@@ -6186,6 +6223,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1948575289}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1339225643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339225640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c1b7d3932f8a54d9fb2cc44df8fcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.Voice.RecordedSpeechBubble
+  character: 0
+  lineNumber: 3
+  playOnEnable: 1
+  canBeTalkedOver: 1
+  stopOnDisable: 1
 --- !u!1 &1341904334
 GameObject:
   m_ObjectHideFlags: 0
@@ -9666,6 +9720,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029765799}
   m_CullTransparentMesh: 1
+--- !u!1001 &1287856153326336891
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.83006
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.72925
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752596430314069938, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768756573667957599, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
+      propertyPath: m_Name
+      value: VoiceManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e21269a801b72747b808ce9bb54c446, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -9750,6 +9861,7 @@ SceneRoots:
   - {fileID: 797378016}
   - {fileID: 32716044}
   - {fileID: 1751444394}
+  - {fileID: 1287856153326336891}
   - {fileID: 1595676969}
   - {fileID: 871349215}
   - {fileID: 1118975150}
