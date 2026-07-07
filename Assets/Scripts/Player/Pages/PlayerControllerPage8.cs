@@ -12,6 +12,7 @@ namespace Player
         [SerializeField] private GameObject frame3;
         [SerializeField] private GameObject frame4;
         [SerializeField] private GameObject frame4Part2;
+        [SerializeField] private GameObject frame2Part2;
         [SerializeField] private GameObject frame3Object;
         [SerializeField] private GameObject frame5Object;
         [SerializeField] private GameObject helda;
@@ -141,6 +142,7 @@ namespace Player
             if (frame4 != null) frame4.SetActive(true);
             yield return new WaitForSeconds(waitForFrame4);
             if (frame4Part2 != null) frame4Part2.SetActive(true);
+            if (frame2Part2 != null) frame2Part2.SetActive(true);
             
             if (freezeCollider != null) freezeCollider.enabled = false;
             SceneLoader.Instance.PreloadScene(nextSceneName);
