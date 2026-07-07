@@ -58,3 +58,5 @@ MonoBehaviour:
     initial: P06
   - sceneName: Page 8
     initial: P08
+  - sceneName: MiniGame2
+    initial: MG20
