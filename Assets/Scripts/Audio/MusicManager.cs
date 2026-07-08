@@ -8,7 +8,7 @@ using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 namespace Audio
 {
-    public enum MusicArea { Start, Main, MG1, MG2, MG3, MG4_1, MG4_2, End }
+    public enum MusicArea { Start, Main, MG1, MG2, MG3, MG4_1, MG4_2, End, Breakdown }
 
     public class MusicManager : PersistentMonoSingleton<MusicManager>
     {
@@ -90,6 +90,16 @@ namespace Audio
                 _musicInstance.stop(STOP_MODE.IMMEDIATE);
                 _musicInstance.release();
             }
+        }
+
+        public void StartBreakdown()
+        {
+            SetArea(MusicArea.Breakdown);
+        }
+
+        public void StopBreakdown()
+        {
+            HandleSceneMusic(SceneManager.GetActiveScene().name);
         }
     }
 }

@@ -278,6 +278,7 @@ GameObject:
   - component: {fileID: 142067742}
   - component: {fileID: 142067741}
   - component: {fileID: 142067740}
+  - component: {fileID: 142067743}
   m_Layer: 0
   m_Name: FinalAnimation
   m_TagString: Untagged
@@ -380,6 +381,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &142067743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142067739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6f7dbae6fb48f2488b4ae8cc43d167d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.FinalAnimationSfx
+  shakeEvent: BreakdownShaker
+  walkEvent: BreakdownBabyWalking
+  showPaperEvent: PickupPoster
+  ahhhEvent: 
 --- !u!1 &179466686
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,6 +776,7 @@ GameObject:
   - component: {fileID: 741051825}
   - component: {fileID: 741051827}
   - component: {fileID: 741051828}
+  - component: {fileID: 741051829}
   m_Layer: 0
   m_Name: HeldaBack
   m_TagString: Untagged
@@ -908,6 +926,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &741051829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741051824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Puff
+  playOnEnable: 0
 --- !u!1 &819073850
 GameObject:
   m_ObjectHideFlags: 0
@@ -1747,6 +1779,7 @@ GameObject:
   - component: {fileID: 1302571818}
   - component: {fileID: 1302571817}
   - component: {fileID: 1302571816}
+  - component: {fileID: 1302571819}
   m_Layer: 0
   m_Name: bigLetter
   m_TagString: Untagged
@@ -1849,6 +1882,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1302571819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302571815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: LetterOpenShort
+  playOnEnable: 0
 --- !u!1 &1312152288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1974,6 +2021,7 @@ GameObject:
   - component: {fileID: 1428508824}
   - component: {fileID: 1428508826}
   - component: {fileID: 1428508829}
+  - component: {fileID: 1428508830}
   m_Layer: 10
   m_Name: DaveTheAngel
   m_TagString: Angel
@@ -2103,6 +2151,7 @@ MonoBehaviour:
   heldaEnterDuration: 3
   jumpPower: 0.2
   numberOfJumps: 3
+  heldaFootstepSfx: {fileID: 1428508830}
   nedText: {fileID: 236429377}
   smallLetter: {fileID: 83418264}
   bigLetter: {fileID: 1302571815}
@@ -2119,6 +2168,20 @@ MonoBehaviour:
   poofDuration: 1.2
   blackScreen: {fileID: 1898673978}
   blackScreenFadeDuration: 1
+--- !u!114 &1428508830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428508820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: HeldaWalkingHardFloor
+  playOnEnable: 0
 --- !u!1001 &1433759115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2536,6 +2599,7 @@ GameObject:
   - component: {fileID: 1876541765}
   - component: {fileID: 1876541767}
   - component: {fileID: 1876541766}
+  - component: {fileID: 1876541768}
   m_Layer: 0
   m_Name: poof
   m_TagString: Untagged
@@ -2638,6 +2702,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1876541768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876541764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Puff
+  playOnEnable: 0
 --- !u!1 &1898673978
 GameObject:
   m_ObjectHideFlags: 0

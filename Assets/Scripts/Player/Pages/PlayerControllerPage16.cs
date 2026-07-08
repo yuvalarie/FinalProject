@@ -1,4 +1,5 @@
 using System.Collections;
+using Audio.AudioEmitters;
 using DG.Tweening;
 using Managers;
 using UnityEngine;
@@ -21,9 +22,12 @@ namespace Player.Pages
         [SerializeField] private float heldaEnterDuration;
         [SerializeField, Tooltip("How high she bounces on the Y axis while moving.")] 
         private float jumpPower = 0.2f;
-        [SerializeField, Tooltip("How many 'hops' she takes to reach the target.")] 
+        [SerializeField, Tooltip("How many 'hops' she takes to reach the target.")]
         private int numberOfJumps = 3;
-        
+
+        [Header("Footstep SFX")]
+        [SerializeField] private AudioEmitterBase heldaFootstepSfx;
+
         [Header("Letter Settings")]
         [SerializeField] private GameObject nedText;
         [SerializeField] private GameObject smallLetter;
@@ -241,8 +245,18 @@ namespace Player.Pages
             isTextSequenceAnimating = false;
         }
 
+        private void PlayHeldaFootstepSfx(float duration)
+        {
+            float interval = duration / numberOfJumps;
+            for (int i = 1; i <= numberOfJumps; i++)
+            {
+                DOVirtual.DelayedCall(interval * i, () => heldaFootstepSfx?.PlayAudioOnce());
+            }
+        }
+
         private void HeldaSequence()
         {
+            PlayHeldaFootstepSfx(heldaEnterDuration);
             heldaObject.transform.DOJump(heldaEnterPosition.position, jumpPower, numberOfJumps, heldaEnterDuration)
                 .SetEase(Ease.Linear)
                 .OnComplete(StartHeldaTextSequence);
