@@ -114,6 +114,11 @@ namespace Audio
         public const string HeldaOpenDoor = "Helda Open Door";
         public const string OpeningDoor = "Opening Door";
         
+        // page 13
+        public const string SneakerWalking = "Sneaker Walking";
+        public const string PickupCard = "Pickup Card";
+        public const string HeelsWalking = "Heels Walking";
+        
         // minigame 4
         public const string StickerPlaced = "Sticker Placed";
         public const string StickerPickedUp = "Sticker Picked Up";
