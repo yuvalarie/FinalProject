@@ -57,6 +57,10 @@ namespace Player
         [SerializeField] private GameObject endColliders;
         [SerializeField] private GameObject sideColliders;
         [SerializeField] private float enterAnimationDuration;
+        [SerializeField, Tooltip("Bubble to show if the player does not leave after the end sequence finishes.")]
+        private GameObject delayedEndTextBubble;
+        [SerializeField, Min(0f), Tooltip("How many seconds to wait after the end sequence finishes before showing the delayed bubble.")]
+        private float delayedEndTextBubbleDelay = 3f;
         
         [Header("Audio")]
         [SerializeField] private AudioEmitterBase misplacedAudioEmitter;
@@ -70,6 +74,8 @@ namespace Player
         private int _endSequenceStep = 0;
         private bool _isSequenceWaiting = false;
         private bool _hasHeldaExited = false;
+        private bool _hasReachedEndTrigger = false;
+        private Coroutine _delayedEndTextBubbleRoutine;
 
         private int _musicStage = 0;
         
@@ -79,6 +85,7 @@ namespace Player
         protected override void Start()
         {
             base.Start();
+            if (delayedEndTextBubble != null) delayedEndTextBubble.SetActive(false);
             StartCoroutine(TurnOffBlackScreenCoroutine());
         }
 
@@ -210,7 +217,37 @@ namespace Player
                 textBubble.SetActive(false);
                 heldaAnimator.SetTrigger("Exit");
                 _hasHeldaExited = true;
+                StartDelayedEndTextBubbleCountdown();
             }
+        }
+
+        protected override void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("End"))
+            {
+                _hasReachedEndTrigger = true;
+                if (delayedEndTextBubble != null) delayedEndTextBubble.SetActive(false);
+            }
+
+            base.OnTriggerEnter2D(other);
+        }
+
+        private void StartDelayedEndTextBubbleCountdown()
+        {
+            if (_delayedEndTextBubbleRoutine != null) StopCoroutine(_delayedEndTextBubbleRoutine);
+            _delayedEndTextBubbleRoutine = StartCoroutine(DelayedEndTextBubbleRoutine());
+        }
+
+        private IEnumerator DelayedEndTextBubbleRoutine()
+        {
+            yield return new WaitForSeconds(delayedEndTextBubbleDelay);
+
+            if (!_hasReachedEndTrigger && delayedEndTextBubble != null)
+            {
+                delayedEndTextBubble.SetActive(true);
+            }
+
+            _delayedEndTextBubbleRoutine = null;
         }
         
         private IEnumerator EyesAndBubbleRoutine()
