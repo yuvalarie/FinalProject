@@ -991,6 +991,14 @@ MonoBehaviour:
           Data3: 2145441441
           Data4: 361201018
         Path: event:/Page11/IdeaLamp
+    - name: Radio Static
+      eventReference:
+        Guid:
+          Data1: 670300139
+          Data2: 1158180022
+          Data3: -1925509472
+          Data4: -316753523
+        Path: event:/Page11/Radio
     ambianceEvents:
     - name: Page 11 Ambiance
       eventReference:
