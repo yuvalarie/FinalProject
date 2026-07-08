@@ -1460,7 +1460,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 11.564815, y: 47.12037}
+    oldSize: {x: 11.564815, y: 47.133812}
     newSize: {x: 10.5, y: 18.546297}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2427,7 +2427,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 45.52778, y: 13.222222}
+    oldSize: {x: 45.52778, y: 13.227065}
     newSize: {x: 45.52778, y: 13.222222}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3421,7 +3421,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -9823,7 +9823,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 43.407406, y: 9.203704}
+    oldSize: {x: 43.431297, y: 9.203704}
     newSize: {x: 43.407406, y: 9.203704}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -10577,7 +10577,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 43.407406, y: 9.203704}
+    oldSize: {x: 43.431297, y: 9.203704}
     newSize: {x: 43.407406, y: 9.203704}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -12129,6 +12129,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: PimplePop
   playOnEnable: 0
+--- !u!1 &2049309835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2049309837}
+  - component: {fileID: 2049309836}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2049309836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049309835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 5f86acaf1b54b8e40a1d7324082405d4, type: 2}
+--- !u!4 &2049309837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049309835}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.116329, y: -0.92523116, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2060909859
 GameObject:
   m_ObjectHideFlags: 0
@@ -12423,3 +12472,4 @@ SceneRoots:
   - {fileID: 772669691}
   - {fileID: 1488407628}
   - {fileID: 272091302}
+  - {fileID: 2049309837}
