@@ -975,6 +975,14 @@ MonoBehaviour:
           Data3: 837846707
           Data4: -812861050
         Path: event:/Page11/HeldaOpenDoor
+    - name: Idea Lightbulb
+      eventReference:
+        Guid:
+          Data1: 1434561492
+          Data2: 1259316048
+          Data3: 2145441441
+          Data4: 361201018
+        Path: event:/Page11/IdeaLamp
     ambianceEvents:
     - name: Page 11 Ambiance
       eventReference:
@@ -1068,5 +1076,34 @@ MonoBehaviour:
           Data3: 1331412391
           Data4: -962960207
         Path: event:/MiniGame4/PrintPoster
+    ambianceEvents: []
+    voiceEvents: []
+  - sceneName: Page13
+    musicEvents: []
+    sfxEvents:
+    - name: Sneaker Walking
+      eventReference:
+        Guid:
+          Data1: 91031603
+          Data2: 1334814139
+          Data3: 111668609
+          Data4: 154353628
+        Path: event:/Page13/SneakerWalking
+    - name: Heels Walking
+      eventReference:
+        Guid:
+          Data1: -138657010
+          Data2: 1125405973
+          Data3: -579002712
+          Data4: -1491384750
+        Path: event:/Page6/HardFloorWalking
+    - name: Pickup Card
+      eventReference:
+        Guid:
+          Data1: 7111099
+          Data2: 1324177156
+          Data3: -333630539
+          Data4: 1888992446
+        Path: event:/Page13/PickupCard
     ambianceEvents: []
     voiceEvents: []

@@ -1,4 +1,5 @@
 ﻿using System;
+using Audio.AudioEmitters;
 using DG.Tweening;
 using Managers;
 using Objects.Poster;
@@ -26,6 +27,9 @@ namespace Player.Pages
         [SerializeField] private Collider2D poster3Collider;
         [SerializeField] private GameObject rolledPoster3;
         [SerializeField] private GameObject poster3Location;
+        [SerializeField] private AudioEmitterBase placePosterSfx;
+        [SerializeField] private AudioEmitterBase heldaFootstepSfx;
+        [SerializeField] private AudioEmitterBase cardTakeSfx;
 
         [Header("Helda Sequence Settings")] 
         [SerializeField] private GameObject heldaFrame2;
@@ -83,6 +87,7 @@ namespace Player.Pages
                 _isPlaced1 = true;
                 poster1.gameObject.transform.position = poster1Location.transform.position;
                 poster1.gameObject.transform.parent = null;
+                placePosterSfx?.PlayAudioOnce();
                 poster1.gameObject.SetActive(true);
                 poster1Collider.gameObject.SetActive(false);
                 Destroy(rolledPoster1);
@@ -93,6 +98,7 @@ namespace Player.Pages
                 _isPlaced2 = true;
                 poster2.gameObject.transform.position = poster2Location.transform.position;
                 poster2.gameObject.transform.parent = null;
+                placePosterSfx?.PlayAudioOnce();
                 poster2.gameObject.SetActive(true);
                 poster2Collider.gameObject.SetActive(false);
                 Destroy(rolledPoster2);
@@ -103,6 +109,7 @@ namespace Player.Pages
                 _isPlaced3 = true;
                 poster3.gameObject.transform.position = poster3Location.transform.position;
                 poster3.gameObject.transform.parent = null;
+                placePosterSfx?.PlayAudioOnce();
                 poster3.gameObject.SetActive(true);
                 poster3Collider.gameObject.SetActive(false);
                 Destroy(rolledPoster3);
@@ -115,6 +122,15 @@ namespace Player.Pages
             else Rb.linearVelocity = Vector2.zero;
         }
 
+        private void PlayHeldaFootstepSfx(float segmentDuration)
+        {
+            float interval = segmentDuration / numberOfJumps;
+            for (int i = 1; i <= numberOfJumps; i++)
+            {
+                DOVirtual.DelayedCall(interval * i, () => heldaFootstepSfx?.PlayAudioOnce());
+            }
+        }
+
         private void HeldaSequence()
         {
             canMove = false;
@@ -125,21 +141,27 @@ namespace Player.Pages
 
             // 1. Helda Frame 2 Movement
             heldaFrame2.transform.position = frame2Start.position;
+            PlayHeldaFootstepSfx(frame2Duration);
             heldaSeq.Append(heldaFrame2.transform.DOJump(frame2End.position, jumpPower, numberOfJumps, frame2Duration)
                 .SetEase(Ease.Linear));
 
             // 2. Hand Frame 3 Movement
             handFrame3.transform.position = frame3Start.position;
             heldaSeq.Append(handFrame3.transform.DOMove(frame3End.position, frame3Duration));
-    
+
             // Callback: Parenting the note
-            heldaSeq.AppendCallback(() => note.transform.parent = handFrame3.transform);
-    
+            heldaSeq.AppendCallback(() =>
+            {
+                note.transform.parent = handFrame3.transform;
+                cardTakeSfx?.PlayAudioOnce();
+            });
+
             // 3. Hand Frame 3 Return
             heldaSeq.Append(handFrame3.transform.DOMove(frame3Start.position, frame3Duration));
 
             // 4. Helda Frame 4 Movement
             heldaFrame4.transform.position = frame4Start.position;
+            PlayHeldaFootstepSfx(frame4Duration);
             // Note: Use heldaFrame4 here, not heldaFrame2!
             heldaSeq.Append(heldaFrame4.transform.DOJump(frame4End.position, jumpPower, numberOfJumps, frame4Duration)
                 .SetEase(Ease.Linear));

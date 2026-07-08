@@ -9,5 +9,12 @@ namespace Objects.Poster
         public GameObject frame2Object;
         public GameObject frame4Object;
         public GameObject hand;
+        public ShoeType shoeType;
+    }
+
+    public enum ShoeType
+    {
+        Sneakers,
+        Heels
     }
 }
