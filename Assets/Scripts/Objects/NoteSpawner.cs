@@ -27,6 +27,8 @@ namespace Objects
     
         [SerializeField, Tooltip("Max angle (in degrees) notes can deviate from falling straight down. e.g., 30 = -30 to 30 degrees spread.")] 
         private float maxSpreadAngle = 30f;
+        [SerializeField, Tooltip("Minimum angle difference from the previous note, so notes are less likely to fly in the same direction repeatedly.")]
+        private float minAngleDifferenceFromPrevious = 12f;
 
         [Header("Difficulty Levels")]
         [SerializeField] private List<SpawnerLevel> difficultyLevels;
@@ -34,6 +36,8 @@ namespace Objects
 
         private bool _isSpawning = true;
         private bool _hasStarted;
+        private float _lastSpreadAngle;
+        private bool _hasLastSpreadAngle;
 
         public void StartGame()
         {
@@ -63,14 +67,44 @@ namespace Objects
             Vector3 spawnPos = spawnOrigin.position;
             FallingNote newNote = Instantiate(notePrefab, spawnPos, Quaternion.identity);
 
-            // 2. Pick a random angle
-            float randomAngle = Random.Range(-maxSpreadAngle, maxSpreadAngle);
+            // 2. Pick a random angle, avoiding directions that are too close to the previous note.
+            float randomAngle = GetRandomSpreadAngle();
         
             // 3. Rotate the "Down" direction by that random angle to get our diagonal trajectory
             Vector2 fallDirection = Quaternion.Euler(0, 0, randomAngle) * Vector2.down;
 
             // 4. Pass both the speed and the new direction to the note
             newNote.Initialize(speed, fallDirection);
+        }
+
+        private float GetRandomSpreadAngle()
+        {
+            float randomAngle = Random.Range(-maxSpreadAngle, maxSpreadAngle);
+
+            if (!_hasLastSpreadAngle || maxSpreadAngle <= 0f)
+            {
+                _lastSpreadAngle = randomAngle;
+                _hasLastSpreadAngle = true;
+                return randomAngle;
+            }
+
+            float usableMinDifference = Mathf.Clamp(minAngleDifferenceFromPrevious, 0f, maxSpreadAngle);
+            const int maxAttempts = 8;
+
+            for (int i = 0; i < maxAttempts && Mathf.Abs(randomAngle - _lastSpreadAngle) < usableMinDifference; i++)
+            {
+                randomAngle = Random.Range(-maxSpreadAngle, maxSpreadAngle);
+            }
+
+            if (Mathf.Abs(randomAngle - _lastSpreadAngle) < usableMinDifference)
+            {
+                randomAngle = _lastSpreadAngle >= 0f
+                    ? Random.Range(-maxSpreadAngle, -usableMinDifference)
+                    : Random.Range(usableMinDifference, maxSpreadAngle);
+            }
+
+            _lastSpreadAngle = randomAngle;
+            return randomAngle;
         }
         
         private IEnumerator AutoLevelUpRoutine()

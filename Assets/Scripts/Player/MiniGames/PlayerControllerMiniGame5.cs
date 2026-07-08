@@ -25,12 +25,15 @@ namespace Player.MiniGames
         [SerializeField] private Animator secondAnimator;
         [SerializeField] private float size;
         [SerializeField] private Transform holdSlot;
-        
-        [Header("End Sequence Settings")]
+
+        [Header("End Sequence Settings")] 
+        [SerializeField] private GameObject endText;
+        [SerializeField] private float endTextDuration;
         [SerializeField, Tooltip("The Animator to play at the end of the game.")]
         private GameObject endAnimator;
         [SerializeField, Tooltip("The sprite showing all the caught notes.")]
         private Sprite allNotesCaughtSprite;
+        [SerializeField] private float notesCaughtScale;
         [SerializeField, Tooltip("How long the animation plays before changing to the final sprite.")]
         private float endAnimationDuration = 1.5f;
         [SerializeField, Tooltip("How long to show the caught notes before loading the next scene.")]
@@ -112,6 +115,8 @@ namespace Player.MiniGames
 
         public IEnumerator GameEnded()
         {
+            endText.SetActive(true);
+            yield return new WaitForSeconds(endTextDuration);
             if (endAnimator != null) endAnimator.SetActive(true);
             yield return new WaitForSeconds(endAnimationDuration);
             foreach(var note in _caughtNotes)
@@ -121,6 +126,7 @@ namespace Player.MiniGames
                 {
                     spriteRenderer.sprite = allNotesCaughtSprite;
                 }
+                note.transform.localScale = new Vector3(notesCaughtScale, notesCaughtScale, 1f);
             }
             yield return new WaitForSeconds(timeBeforeSceneLoad);
             SceneLoader.Instance?.ActivatePreloadedScene();

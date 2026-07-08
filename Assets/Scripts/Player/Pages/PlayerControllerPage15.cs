@@ -83,6 +83,7 @@ namespace Player.Pages
                     screen4.SetActive(true);
                     break;
                 case 5:
+                    screen0.SetActive(true);
                     isSequenceActive = false;
                     EndTextInputMode();
                     break;
