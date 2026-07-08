@@ -1202,6 +1202,9 @@ MonoBehaviour:
   rollDuration: 1
   rollEase: 9
   rollDistance: 0.5
+  saveValueForNextScene: 1
+  loadSavedValueOnStart: 1
+  persistenceKey: WishesFulfilled
   incrementAudioEmitter: {fileID: 425000296}
   digitAudioStagger: 0.05
 --- !u!4 &425000298
@@ -4750,7 +4753,6 @@ GameObject:
   - component: {fileID: 1856725119}
   - component: {fileID: 1856725118}
   - component: {fileID: 1856725120}
-  - component: {fileID: 1856725121}
   m_Layer: 0
   m_Name: Asset 799
   m_TagString: Untagged
@@ -4853,21 +4855,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1856725121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1856725117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33ad958d769eb3b46a6ad9503f4e68e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.LetterOpenAudioEmitter
-  eventName: 
-  playOnEnable: 0
-  skipFirstPlay: 0
 --- !u!1 &1857026635
 GameObject:
   m_ObjectHideFlags: 0
