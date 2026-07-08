@@ -15,6 +15,7 @@ namespace Player
         private bool _interactionLocked = true;
         private Action _interactionAction;
         private float _baseY;
+        public bool HasReachedEndTrigger { get; private set; }
 
         protected override void Start()
         {
@@ -46,6 +47,16 @@ namespace Player
             if (_interactionLocked || !context.performed) return;
             // for now, not used in this part
             _interactionAction?.Invoke();
+        }
+
+        protected override void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("End"))
+            {
+                HasReachedEndTrigger = true;
+            }
+
+            base.OnTriggerEnter2D(other);
         }
         
         public void EnableMovement()

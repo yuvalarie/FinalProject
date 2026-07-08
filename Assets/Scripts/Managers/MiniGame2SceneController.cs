@@ -30,17 +30,25 @@ namespace Managers
         [SerializeField] private FriendSpawner friendSpawner;
         [SerializeField] private MotherReactionController motherController;
 
+        [Header("End Reminder")]
+        [SerializeField, Tooltip("Bubble to show if the player does not leave after the end sequence finishes.")]
+        private GameObject delayedEndTextBubble;
+        [SerializeField, Min(0f), Tooltip("How many seconds to wait after the end sequence finishes before showing the delayed bubble.")]
+        private float delayedEndTextBubbleDelay = 3f;
+
         [Header("Debug")]
         [SerializeField] private bool skipWalkIn;
         [SerializeField] private bool skipHandEntry;
 
         private bool _hasCompletedHandExit = false;
         private bool _hasEnteredStopTrigger = false;
+        private Coroutine _delayedEndTextBubbleRoutine;
 
         private void Start()
         {
             hand.position = handHiddenPosition.position;
             handController.DisableSwiping();
+            if (delayedEndTextBubble != null) delayedEndTextBubble.SetActive(false);
             friendSpawner.FriendSwiped += OnFriendSwiped;
             DebugStart();
         }
@@ -168,9 +176,28 @@ namespace Managers
             walkController.EnableMovement();
             motherController.HideCurrentFinishedReaction();
             _hasCompletedHandExit = true;
+            StartDelayedEndTextBubbleCountdown();
         }
 
         // Handles debug entry points — skips walk-in and/or hand entry if flagged
+        private void StartDelayedEndTextBubbleCountdown()
+        {
+            if (_delayedEndTextBubbleRoutine != null) StopCoroutine(_delayedEndTextBubbleRoutine);
+            _delayedEndTextBubbleRoutine = StartCoroutine(DelayedEndTextBubbleRoutine());
+        }
+
+        private IEnumerator DelayedEndTextBubbleRoutine()
+        {
+            yield return new WaitForSeconds(delayedEndTextBubbleDelay);
+
+            if (walkController != null && !walkController.HasReachedEndTrigger && delayedEndTextBubble != null)
+            {
+                delayedEndTextBubble.SetActive(true);
+            }
+
+            _delayedEndTextBubbleRoutine = null;
+        }
+
         private void DebugStart()
         {
             if (skipWalkIn)

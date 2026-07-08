@@ -93,6 +93,7 @@ namespace Player
         [SerializeField] private Animator parsilAnimator;
         [SerializeField] private float parsilDuration;
         [SerializeField] private float waitForEnd = 0.5f;
+        [SerializeField] private float reactionDuration = 1f;
 
         private List<SimonTask> fullSequence = new List<SimonTask>();
         private int currentRound = 1; 
@@ -109,6 +110,8 @@ namespace Player
         private Vector3 _playerStartPosition;
         private Transform _currentRightGrabSlot;
         private Transform _currentLeftGrabSlot;
+        private Animator _currentRightReactionAnimator;
+        private Animator _currentLeftReactionAnimator;
         private float _currentDetectionRadius;
         private bool _isFacingRight = true;
         private bool _isEnd;
@@ -186,6 +189,8 @@ namespace Player
 
             _currentRightGrabSlot = toolInteractable.rightGrabSlot;
             _currentLeftGrabSlot = toolInteractable.leftGrabSlot;
+            _currentRightReactionAnimator = toolInteractable.rightReactionAnimator;
+            _currentLeftReactionAnimator = toolInteractable.leftReactionAnimator;
             _currentDetectionRadius = toolInteractable.detectionRadius > 0f
                 ? toolInteractable.detectionRadius
                 : detectionRadius;
@@ -195,6 +200,8 @@ namespace Player
         {
             _currentRightGrabSlot = null;
             _currentLeftGrabSlot = null;
+            _currentRightReactionAnimator = null;
+            _currentLeftReactionAnimator = null;
             _currentDetectionRadius = detectionRadius;
         }
 
@@ -464,6 +471,7 @@ namespace Player
                 _heldToolSpriteRenderer.flipX = _flipx;
                 
             if(_heldToolAnimator != null) _heldToolAnimator.SetTrigger("Play");
+            PlayToolReaction(_flipx);
             yield return new WaitForSeconds(toolVibrateDuration);
             ReturnHeldTool();
             
@@ -490,12 +498,23 @@ namespace Player
             }
         }
 
+        private void PlayToolReaction(bool isFlipped)
+        {
+            Animator reactionAnimator = isFlipped
+                ? _currentLeftReactionAnimator
+                : _currentRightReactionAnimator;
+
+            if (reactionAnimator != null)
+                reactionAnimator.SetTrigger("Play");
+        }
+
         private IEnumerator EndSequence()
         {
             yield return new WaitForSeconds(waitForEnd);
             parsilAnimator.SetTrigger("Play");
             yield return new WaitForSeconds(parsilDuration);
             endReaction.SetActive(true);
+            yield return new WaitForSeconds(reactionDuration);
             _isEnd = true;
             isScreenPlaying = false;
             StartCoroutine(pimpleAnimator.PimpleCoroutine());
