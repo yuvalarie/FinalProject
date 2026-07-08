@@ -8,6 +8,10 @@ namespace Audio.AudioEmitters
         [Header("Ambiance Configuration")]
         [SerializeField, AudioEventName] private string eventName;
         [SerializeField] private bool playOnStart = false;
+        [SerializeField] private bool startOnEnable = false;
+        [SerializeField] private bool stopOnEnable = false;
+        [SerializeField] private bool startOnDisable = false;
+        [SerializeField] private bool stopOnDisable = false;
 
         private void Start()
         {
@@ -16,7 +20,32 @@ namespace Audio.AudioEmitters
                 StartAudio();
             }
         }
-        
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            if (startOnEnable)
+            {
+                StartAudio();
+            }
+            if (stopOnEnable)
+            {
+                StopAudio();
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (startOnDisable)
+            {
+                StartAudio();
+            }
+            if (stopOnDisable)
+            {
+                StopAudio();
+            }
+        }
+
         public void PlayAmbiance(params (string paramName, float value)[] parameters)
         {
             StartAudio(parameters);

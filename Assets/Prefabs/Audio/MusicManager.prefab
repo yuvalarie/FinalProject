@@ -65,3 +65,9 @@ MonoBehaviour:
     area: 5
   - sceneName: MIniGame4P2
     area: 6
+  - sceneName: Page 15
+    area: 7
+  - sceneName: Page 16
+    area: 7
+  - sceneName: FinalScreen
+    area: 7
