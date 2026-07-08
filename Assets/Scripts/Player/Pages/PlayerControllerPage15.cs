@@ -45,7 +45,7 @@ namespace Player.Pages
         
         protected override void OnTextForward(InputAction.CallbackContext context)
         {
-            if (!context.performed || !isSequenceActive || isAnimating || interactionCount >= 4) return;
+            if (!context.performed || !isSequenceActive || isAnimating || interactionCount >= 5) return;
 
             interactionCount++;
             TransitionToState(interactionCount, true);
@@ -81,6 +81,8 @@ namespace Player.Pages
                     break;
                 case 4:
                     screen4.SetActive(true);
+                    break;
+                case 5:
                     isSequenceActive = false;
                     EndTextInputMode();
                     break;

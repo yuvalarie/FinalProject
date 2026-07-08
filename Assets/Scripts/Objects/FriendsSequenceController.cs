@@ -45,6 +45,8 @@ namespace Objects
 
             _handStart = handStart;
             _handEnd = handEnd;
+            
+            _handObj.SetActive(false);
 
             if (startInFrame4)
             {
@@ -105,6 +107,7 @@ namespace Objects
         private void Frame3HandRoutine()
         {
             _handObj.transform.position = _handStart.position;
+            _handObj.SetActive(true);
             _handObj.transform.DOMove(_handEnd.position, _handDuration)
                 .OnComplete(() =>
                 {

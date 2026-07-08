@@ -90,6 +90,9 @@ namespace Player
         [SerializeField] private MiniGame3PimpleAnimator pimpleAnimator;
         [SerializeField] private Transform endPosition;
         [SerializeField] private float endDuration = 1f;
+        [SerializeField] private Animator parsilAnimator;
+        [SerializeField] private float parsilDuration;
+        [SerializeField] private float waitForEnd = 0.5f;
 
         private List<SimonTask> fullSequence = new List<SimonTask>();
         private int currentRound = 1; 
@@ -489,9 +492,10 @@ namespace Player
 
         private IEnumerator EndSequence()
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(waitForEnd);
+            parsilAnimator.SetTrigger("Play");
+            yield return new WaitForSeconds(parsilDuration);
             endReaction.SetActive(true);
-            //yield return new WaitForSeconds(0.5f);
             _isEnd = true;
             isScreenPlaying = false;
             StartCoroutine(pimpleAnimator.PimpleCoroutine());

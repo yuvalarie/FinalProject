@@ -112,8 +112,8 @@ namespace Player.MiniGames
 
         public IEnumerator GameEnded()
         {
-            yield return new WaitForSeconds(endAnimationDuration);
             if (endAnimator != null) endAnimator.SetActive(true);
+            yield return new WaitForSeconds(endAnimationDuration);
             foreach(var note in _caughtNotes)
             {
                 var spriteRenderer = note.GetComponent<SpriteRenderer>();
