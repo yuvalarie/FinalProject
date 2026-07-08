@@ -41,6 +41,8 @@ namespace Audio.Voice
 
         public EventInstance PlayLine(CharacterType character, int lineNumber, Action stopCallback)
         {
+            if (!VoiceSystem.Enabled) return default;
+
             _stopPreviousCallback?.Invoke();
 
             string eventName = VoiceLineId.Build(_currentSceneName, character, lineNumber);
