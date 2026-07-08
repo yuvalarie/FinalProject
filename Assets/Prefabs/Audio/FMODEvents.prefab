@@ -1107,3 +1107,24 @@ MonoBehaviour:
         Path: event:/Page13/PickupCard
     ambianceEvents: []
     voiceEvents: []
+  - sceneName: Breakdown
+    musicEvents: []
+    sfxEvents:
+    - name: Breakdown Shaker
+      eventReference:
+        Guid:
+          Data1: -462330905
+          Data2: 1138640080
+          Data3: -1673708914
+          Data4: 1375950307
+        Path: event:/Breakdown/Shaker
+    - name: Breakdown Baby Walking
+      eventReference:
+        Guid:
+          Data1: 1524825828
+          Data2: 1256218206
+          Data3: 1807850640
+          Data4: -2019174785
+        Path: event:/Breakdown/BabyWalking
+    ambianceEvents: []
+    voiceEvents: []

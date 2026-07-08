@@ -129,6 +129,11 @@ namespace Audio
         public const string PrinterButtonClick = "Printer Button Click";
         public const string PrintPoster = "Print Poster";
         
+        //Breakdown
+        public const string BreakdownShaker = "Breakdown Shaker";
+        public const string BreakdownBabyWalking = "Breakdown Baby Walking";
+        
+        
         
         // Music Events
         public const string MusicOpening = "Music Opening"; // no longer used
