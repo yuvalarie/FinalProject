@@ -47,6 +47,8 @@ MonoBehaviour:
   sceneAreaMappings:
   - sceneName: StartScreen
     area: 0
+  - sceneName: Tutorial
+    area: 0
   - sceneName: Page 1
     area: 0
   - sceneName: Page 2
