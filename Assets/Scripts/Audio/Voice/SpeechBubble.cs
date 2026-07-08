@@ -29,6 +29,7 @@ namespace Audio.Voice
 
         public void Speak()
         {
+            if (!VoiceSystem.Enabled) return;
             _voiceEmitter.Speak(text);
         }
     }
