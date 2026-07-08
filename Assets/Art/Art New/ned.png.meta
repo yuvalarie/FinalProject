@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 31a597dc06d40413fb7fcaf6d56a746c
+guid: 44616c0b988d74a3fbff5378d36fa31f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1036630883829687873
-    second: DaveS0031_0
-  - first:
-      213: -4015427721812219164
-    second: DaveS0031_1
+      213: -7241992059760726920
+    second: ned_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DaveS0031_0
+      name: ned_0
       rect:
         serializedVersion: 2
-        x: 3843
-        y: 1987
-        width: 313
-        height: 368
+        x: 0
+        y: 0
+        width: 1100
+        height: 1027
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fb9d12614b52d91f0800000000000000
-      internalID: -1036630883829687873
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DaveS0031_1
-      rect:
-        serializedVersion: 2
-        x: 3853
-        y: 2352
-        width: 102
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4ea602cf2c55648c0800000000000000
-      internalID: -4015427721812219164
+      spriteID: 87c23c367964f7b90800000000000000
+      internalID: -7241992059760726920
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      DaveS0031_0: -1036630883829687873
-      DaveS0031_1: -4015427721812219164
+      ned_0: -7241992059760726920
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
