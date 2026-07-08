@@ -975,6 +975,14 @@ MonoBehaviour:
           Data3: 837846707
           Data4: -812861050
         Path: event:/Page11/HeldaOpenDoor
+    - name: Idea Lightbulb
+      eventReference:
+        Guid:
+          Data1: 1434561492
+          Data2: 1259316048
+          Data3: 2145441441
+          Data4: 361201018
+        Path: event:/Page11/IdeaLamp
     ambianceEvents:
     - name: Page 11 Ambiance
       eventReference:

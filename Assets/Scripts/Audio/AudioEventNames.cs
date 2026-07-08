@@ -113,6 +113,7 @@ namespace Audio
         // page 11
         public const string HeldaOpenDoor = "Helda Open Door";
         public const string OpeningDoor = "Opening Door";
+        public const string IdeaLightbulb = "Idea Lightbulb";
         
         // page 13
         public const string SneakerWalking = "Sneaker Walking";
