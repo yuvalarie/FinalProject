@@ -35,10 +35,17 @@ namespace Objects
         [Min(0.01f)]
         [SerializeField] private float rollDistance = 0.5f;
         
+        [Header("Scene Continuity")]
+        [SerializeField] private bool saveValueForNextScene = true;
+        [SerializeField] private bool loadSavedValueOnStart = true;
+        [SerializeField] private string persistenceKey = "WishesFulfilled";
+
         [Header("Audio")]
         [SerializeField] private AudioEmitterBase incrementAudioEmitter;
         [Tooltip("Delay added between each rolling digit's sound, so multiple digits changing at once don't clash.")]
         [SerializeField] private float digitAudioStagger = 0.05f;
+
+        private static readonly Dictionary<string, long> PersistedValues = new();
 
         private readonly List<SpriteRenderer> temporaryRenderers = new();
         private Vector3[] homeLocalPositions;
@@ -48,10 +55,17 @@ namespace Objects
         private Coroutine incrementRoutine;
         private bool initialized;
 
-        private void Awake()
+private void Awake()
         {
             Initialize();
-            SetValueInstant(startingValue);
+            long initialValue = startingValue;
+
+            if (loadSavedValueOnStart && PersistedValues.TryGetValue(persistenceKey, out long savedValue))
+            {
+                initialValue = savedValue;
+            }
+
+            SetValueInstant(initialValue);
         }
 
         private void OnEnable()
@@ -66,6 +80,7 @@ namespace Objects
         {
             StopAutoIncrement();
             activeRoll?.Kill();
+            SavePersistedValue();
             ClearTemporaryRenderers();
         }
 
@@ -81,6 +96,7 @@ namespace Objects
             value = value < 0L ? 0L : value;
             int[] nextDigits = ToDigits(value);
             currentValue = value;
+            SavePersistedValue();
 
             activeRoll?.Kill();
             ClearTemporaryRenderers();
@@ -125,6 +141,7 @@ namespace Objects
             value = value < 0L ? 0L : value;
             ApplyDigitsInstant(ToDigits(value));
             currentValue = value;
+            SavePersistedValue();
         }
 
         public void Increment()
@@ -317,5 +334,26 @@ namespace Objects
 
             temporaryRenderers.Clear();
         }
-    }
+    
+
+private void SavePersistedValue()
+        {
+            if (!saveValueForNextScene || string.IsNullOrEmpty(persistenceKey))
+            {
+                return;
+            }
+
+            PersistedValues[persistenceKey] = currentValue;
+        }
+        public static void ClearPersistedValues()
+        {
+            PersistedValues.Clear();
+        }
+
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void ResetPersistedValues()
+        {
+            ClearPersistedValues();
+        }
+}
 }

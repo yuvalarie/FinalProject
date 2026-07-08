@@ -608,6 +608,7 @@ MonoBehaviour:
   notePrefab: {fileID: 8147833566116765907, guid: b1bc1e247c4b8f440ba134a55e578a0a, type: 3}
   spawnOrigin: {fileID: 466818288}
   maxSpreadAngle: 45
+  minAngleDifferenceFromPrevious: 8
   difficultyLevels:
   - spawnInterval: 3
     fallSpeed: 5
@@ -1983,7 +1984,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1141387476
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2030,7 +2031,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 94083a9c320aa45889feb03f477e9d6b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2051,7 +2052,7 @@ Transform:
   m_GameObject: {fileID: 1141387475}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.9374833, y: 7.9683824, z: 0}
+  m_LocalPosition: {x: -0.88, y: 2.3, z: 0}
   m_LocalScale: {x: 0.2399655, y: 0.2399655, z: 0.2399655}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2459,9 +2460,12 @@ MonoBehaviour:
   secondAnimator: {fileID: 1428508830}
   size: 0.2399655
   holdSlot: {fileID: 792709450}
+  endText: {fileID: 1141387475}
+  endTextDuration: 1
   endAnimator: {fileID: 496246536}
-  allNotesCaughtSprite: {fileID: 21300000, guid: 0c22cd959724f45278340fae371318d5, type: 3}
-  endAnimationDuration: 5
+  allNotesCaughtSprite: {fileID: 21300000, guid: 7e46d1cf920374445b0573b9d766c896, type: 3}
+  notesCaughtScale: 1.610014
+  endAnimationDuration: 0.1
   timeBeforeSceneLoad: 8
 --- !u!95 &1428508830
 Animator:
@@ -3564,6 +3568,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6263463726660617292, guid: b1bc1e247c4b8f440ba134a55e578a0a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 10.092592
+      objectReference: {fileID: 0}
+    - target: {fileID: 6263463726660617292, guid: b1bc1e247c4b8f440ba134a55e578a0a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 9.601851
+      objectReference: {fileID: 0}
     - target: {fileID: 6986286552287722161, guid: b1bc1e247c4b8f440ba134a55e578a0a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.15
