@@ -12,6 +12,10 @@ namespace Player.Pages
 {
     public class PlayerControllerPage13 : PlayerControllerBase
     {
+        [Header("Frame 2 Settings")]
+        [SerializeField] private Collider2D frame2ExitCollider;
+        [SerializeField] private Transform frame2ExitPosition;
+        
         [Header("Poster Settings")] 
         [SerializeField] private PosterDisplay poster1;
         [SerializeField] private Collider2D poster1Collider;
@@ -208,6 +212,11 @@ namespace Player.Pages
             if (other.CompareTag("Helda"))
             {
                 HeldaSequence();
+            }
+
+            if (other == frame2ExitCollider)
+            {
+                transform.position = new Vector3(transform.position.x, frame2ExitPosition.position.y);
             }
         }
 

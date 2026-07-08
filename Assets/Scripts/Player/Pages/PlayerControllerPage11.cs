@@ -48,6 +48,7 @@ namespace Player.Pages
         [SerializeField] private int backSortingOrder;
         [SerializeField] private SizeSettings backSize;
         [SerializeField] private Collider2D backCollider;
+        [SerializeField] private float door1AnimationDuration;
         
         [Header("Frame 2 front Transition Setting")] 
         [SerializeField] private Collider2D frame2BackExit;
@@ -124,14 +125,20 @@ namespace Player.Pages
             }
             else if (atDoor3 && !isDoor3Open)
             {
-                door3.SetTrigger("Open");
-                var col = door3.GetComponent<Collider2D>();
-                col.enabled = false;
-                door3SpriteRenderer.sortingOrder = frontSortingOrder - 1;
-                isDoor3Open = true;
+                Door3Coroutine();
             }
         }
-        
+
+        private IEnumerator Door3Coroutine()
+        {
+            door3.SetTrigger("Open");
+            yield return new WaitForSeconds(door1AnimationDuration);
+            var col = door3.GetComponent<Collider2D>();
+            col.enabled = false;
+            door3SpriteRenderer.sortingOrder = frontSortingOrder - 1;
+            isDoor3Open = true;
+        }
+
         protected override void HandleMovement()
         {
             if (isSequenceActive)
@@ -238,12 +245,14 @@ namespace Player.Pages
                 SpriteRenderer.sortingOrder = backSortingOrder;
                 if(!isDoor1Open)
                 {
-                    door1.SetTrigger("Open");
-                    isDoor1Open = true;
+                   StartCoroutine(Door1Coroutine());
                 }
-                door1SpriteRenderer.sortingOrder = backSortingOrder - 1;
-                var col = door1.GetComponent<Collider2D>();
-                col.enabled = false;
+                else
+                {
+                    door1SpriteRenderer.sortingOrder = backSortingOrder - 1;
+                    var col = door1.GetComponent<Collider2D>();
+                    col.enabled = false;
+                }
             }
             else if (other == frame2FrontEnter)
             {
@@ -272,6 +281,16 @@ namespace Player.Pages
                 CurrentSize = frontSize;
                 SetSize();
             }
+        }
+
+        private IEnumerator Door1Coroutine()
+        {
+            door1.SetTrigger("Open");
+            yield return new WaitForSeconds(door1AnimationDuration);
+            isDoor1Open = true;
+            door1SpriteRenderer.sortingOrder = backSortingOrder - 1;
+            var col = door1.GetComponent<Collider2D>();
+            col.enabled = false;
         }
 
         private void OnTriggerExit2D(Collider2D other)

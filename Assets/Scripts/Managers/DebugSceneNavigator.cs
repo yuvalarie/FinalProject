@@ -1,3 +1,4 @@
+using Objects;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -120,6 +121,7 @@ namespace DebugTools
             }
 
             Debug.Log("[DebugSceneNavigator] Restarting game from build scene 0.");
+            MechanicalCounter.ClearPersistedValues();
             SceneManager.LoadScene(0);
         }
 
