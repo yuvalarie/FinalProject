@@ -518,6 +518,8 @@ GameObject:
   - component: {fileID: 1013395472}
   - component: {fileID: 1013395471}
   - component: {fileID: 1013395473}
+  - component: {fileID: 1013395475}
+  - component: {fileID: 1013395474}
   m_Layer: 0
   m_Name: Hell0001
   m_TagString: Untagged
@@ -621,6 +623,40 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1013395474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013395470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce4148dc5c7df9a468d41bcd33c2b8a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.AmbianceEmitter
+  eventName: HellAmbiance
+  playOnStart: 0
+  startOnEnable: 0
+  stopOnEnable: 0
+  startOnDisable: 0
+  stopOnDisable: 0
+--- !u!114 &1013395475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013395470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5de29d4e2b774e14e8d9553a4893fd8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.HellAnimationSfx
+  closeCircleEvent: HellCloseCircle
+  sparkleEvent: HellSparkle
+  popEvent: HellPop
+  hellAmbianceEmitter: {fileID: 1013395474}
 --- !u!1001 &1126787430
 PrefabInstance:
   m_ObjectHideFlags: 0

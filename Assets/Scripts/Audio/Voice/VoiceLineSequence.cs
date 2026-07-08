@@ -27,6 +27,7 @@ namespace Audio.Voice
 
         public void PlayLineByIndex(int index)
         {
+            if (!VoiceSystem.Enabled) return;
             if (index < 0 || index >= lines.Count)
             {
                 Debug.LogWarning($"VoiceLineSequence: index {index} out of range on {name}");

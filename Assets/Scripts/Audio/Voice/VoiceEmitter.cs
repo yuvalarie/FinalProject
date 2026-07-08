@@ -42,6 +42,7 @@ namespace Audio.Voice
 
         public void Speak(string text)
         {
+            if (!VoiceSystem.Enabled) return;
             if (string.IsNullOrEmpty(text)) return;
 
             if (_speakCoroutine != null)
@@ -81,6 +82,8 @@ namespace Audio.Voice
 
         private void StartAudio(VoiceProfile profile)
         {
+            if (!VoiceSystem.Enabled) return;
+
             var eventReference = FMODEvents.Instance.GetEventReferenceByName(profile.eventName);
             var parameters = new (string, float)[profile.parameters?.Length ?? 0];
             if (profile.parameters != null)

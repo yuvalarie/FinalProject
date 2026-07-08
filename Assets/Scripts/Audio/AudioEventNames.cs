@@ -109,6 +109,7 @@ namespace Audio
         public const string Tool3Use = "Tool 3 Use";
         public const string Tool4Use = "Tool 4 Use";
         public const string PimplePop = "Pimple Pop";
+        public const string BloodSplat = "Blood Splat";
         
         // page 11
         public const string HeldaOpenDoor = "Helda Open Door";
@@ -138,6 +139,11 @@ namespace Audio
         //Breakdown
         public const string BreakdownShaker = "Breakdown Shaker";
         public const string BreakdownBabyWalking = "Breakdown Baby Walking";
+
+        // Hell animation
+        public const string HellCloseCircle = "Hell Close Circle";
+        public const string HellSparkle = "Hell Sparkle";
+        public const string HellPop = "Hell Pop";
         
         
         
@@ -153,5 +159,6 @@ namespace Audio
         public const string FactoryAmbiance = "Factory Ambiance";
         public const string Page11Ambiance = "Page 11 Ambiance";
         public const string TVStaticAmbiance = "TV Static Ambiance";
+        public const string HellAmbiance = "Hell Ambiance";
     }
 }

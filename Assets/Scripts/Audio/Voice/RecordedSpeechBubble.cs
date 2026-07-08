@@ -36,6 +36,7 @@ namespace Audio.Voice
 
         public void Speak()
         {
+            if (!VoiceSystem.Enabled) return;
             StopSelf();
             _instance = VoiceManager.Instance.PlayLine(character, lineNumber, canBeTalkedOver ? null : (Action)StopSelf);
             _isInstanceInitialized = true;
