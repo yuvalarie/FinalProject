@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulkSpriteOptimizerWindow : EditorWindow
 {
-    private const int TargetMaxSize = 8192;
+    private const int TargetMaxSize = 4096;
     private const int AssetsPerTick = 1;
 
     private static readonly string KeyPrefix = "BulkSpriteOptimizer_" + Application.dataPath.GetHashCode() + "_";
