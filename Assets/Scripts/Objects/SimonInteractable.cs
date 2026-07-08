@@ -19,6 +19,10 @@ namespace Objects
         public Transform rightGrabSlot;
         [Tooltip("Only used by tool stations. Where this tool searches from when facing left.")]
         public Transform leftGrabSlot;
+        [Tooltip("Only used by tool stations. Played on success when the tool is not flipped.")]
+        public Animator rightReactionAnimator;
+        [Tooltip("Only used by tool stations. Played on success when the tool is flipped.")]
+        public Animator leftReactionAnimator;
         
         [Space(10)]
         public bool isArea;

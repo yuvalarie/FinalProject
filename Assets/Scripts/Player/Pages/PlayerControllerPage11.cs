@@ -125,18 +125,18 @@ namespace Player.Pages
             }
             else if (atDoor3 && !isDoor3Open)
             {
-                Door3Coroutine();
+                StartCoroutine(Door3Coroutine());
             }
         }
 
         private IEnumerator Door3Coroutine()
         {
             door3.SetTrigger("Open");
+            isDoor3Open = true;
             yield return new WaitForSeconds(door1AnimationDuration);
             var col = door3.GetComponent<Collider2D>();
             col.enabled = false;
             door3SpriteRenderer.sortingOrder = frontSortingOrder - 1;
-            isDoor3Open = true;
         }
 
         protected override void HandleMovement()
@@ -286,8 +286,8 @@ namespace Player.Pages
         private IEnumerator Door1Coroutine()
         {
             door1.SetTrigger("Open");
-            yield return new WaitForSeconds(door1AnimationDuration);
             isDoor1Open = true;
+            yield return new WaitForSeconds(door1AnimationDuration);
             door1SpriteRenderer.sortingOrder = backSortingOrder - 1;
             var col = door1.GetComponent<Collider2D>();
             col.enabled = false;

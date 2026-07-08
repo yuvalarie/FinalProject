@@ -38,7 +38,7 @@ namespace Managers
             if (WasStartInputPressedThisFrame())
             {
                 Debug.Log("[OpeningSceneManager] Start input accepted. Loading Page 1.");
-                SceneManager.LoadScene("Page 1");
+                SceneManager.LoadScene("Tutorial");
             }
         }
 

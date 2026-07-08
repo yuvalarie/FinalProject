@@ -41,7 +41,6 @@ namespace Managers
             new TutorialPair(),
             new TutorialPair(),
             new TutorialPair(),
-            new TutorialPair()
         };
 
         [Header("Timing")]
@@ -87,6 +86,7 @@ namespace Managers
 
         private IEnumerator ShowSecondPairAfterDelay()
         {
+            SceneLoader.Instance.PreloadScene("Page 1");
             yield return new WaitForSeconds(timeBeforeSecondPair);
 
             ShowPair(1);
@@ -95,6 +95,10 @@ namespace Managers
 
         private void OnTextForward(InputAction.CallbackContext context)
         {
+            if (currentStep == TutorialStep.Complete)
+            {
+                SceneLoader.Instance.ActivatePreloadedScene();
+            }
             if (currentStep == TutorialStep.WaitingForForward)
             {
                 ShowPair(2);
@@ -110,7 +114,7 @@ namespace Managers
 
             if (currentStep != TutorialStep.RegularTextSequence) return;
 
-            if (regularSequenceIndex >= 7)
+            if (regularSequenceIndex >= 6)
             {
                 currentStep = TutorialStep.Complete;
                 return;
@@ -122,6 +126,10 @@ namespace Managers
 
         private void OnTextBackward(InputAction.CallbackContext context)
         {
+            if (currentStep == TutorialStep.Complete)
+            {
+                SceneLoader.Instance.ActivatePreloadedScene();
+            }
             if (currentStep == TutorialStep.WaitingForBackward)
             {
                 ShowPair(3);
