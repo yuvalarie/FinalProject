@@ -46,7 +46,6 @@ namespace Audio.Voice
             if (_isInstanceInitialized)
             {
                 _instance.stop(STOP_MODE.IMMEDIATE);
-                _instance.release();
                 _isInstanceInitialized = false;
             }
         }

@@ -16,3 +16,4 @@ MonoBehaviour:
   frame2Object: {fileID: 2385730977302661915, guid: 8642ecec1c5743740a8624f35a3ba735, type: 3}
   frame4Object: {fileID: 390563288386535614, guid: fe8d63cc9010be146aa5385d8d3a9f1b, type: 3}
   hand: {fileID: 6543011788602895334, guid: 36440bc4581331a4cb715f5a87eb8c9c, type: 3}
+  shoeType: 0

@@ -392,7 +392,7 @@ MonoBehaviour:
           Data2: 1222436562
           Data3: -1877524050
           Data4: -1619107717
-        Path: event:/MiniGame1/PickupMagazine
+        Path: event:/MiniGame1/SFX/PickupMagazine
     - name: Place Magazine
       eventReference:
         Guid:
@@ -400,7 +400,7 @@ MonoBehaviour:
           Data2: 1107747963
           Data3: 1686566055
           Data4: 902792413
-        Path: event:/MiniGame1/PlaceMagazine
+        Path: event:/MiniGame1/SFX/PlaceMagazine
     - name: Pickup Pill Bottle
       eventReference:
         Guid:
@@ -408,7 +408,7 @@ MonoBehaviour:
           Data2: 1247321365
           Data3: -1742650472
           Data4: 1909271961
-        Path: event:/MiniGame1/PickupPillBottle
+        Path: event:/MiniGame1/SFX/PickupPillBottle
     - name: Place Pill Bottle
       eventReference:
         Guid:
@@ -416,7 +416,7 @@ MonoBehaviour:
           Data2: 1076524681
           Data3: -660188244
           Data4: -233090036
-        Path: event:/MiniGame1/PlacePillBottle
+        Path: event:/MiniGame1/SFX/PlacePillBottle
     - name: Pickup Poster
       eventReference:
         Guid:
@@ -424,7 +424,7 @@ MonoBehaviour:
           Data2: 1102662314
           Data3: -608093052
           Data4: 1653039659
-        Path: event:/MiniGame1/PickupPoster
+        Path: event:/MiniGame1/SFX/PickupPoster
     - name: Place Poster
       eventReference:
         Guid:
@@ -432,7 +432,7 @@ MonoBehaviour:
           Data2: 1201356405
           Data3: -834090078
           Data4: -117811774
-        Path: event:/MiniGame1/PlacePoster
+        Path: event:/MiniGame1/SFX/PlacePoster
     - name: Pickup Tooth Box
       eventReference:
         Guid:
@@ -440,7 +440,7 @@ MonoBehaviour:
           Data2: 1312678604
           Data3: -1417988444
           Data4: 1383016100
-        Path: event:/MiniGame1/PickupToothBox
+        Path: event:/MiniGame1/SFX/PickupToothBox
     - name: Place Tooth Box
       eventReference:
         Guid:
@@ -448,7 +448,7 @@ MonoBehaviour:
           Data2: 1273989426
           Data3: -377682507
           Data4: 44320824
-        Path: event:/MiniGame1/PlaceToothBox
+        Path: event:/MiniGame1/SFX/PlaceToothBox
     - name: Pickup Book
       eventReference:
         Guid:
@@ -456,7 +456,7 @@ MonoBehaviour:
           Data2: 1247477919
           Data3: -1925822575
           Data4: 907544011
-        Path: event:/MiniGame1/PickupBook
+        Path: event:/MiniGame1/SFX/PickupBook
     - name: Place Book
       eventReference:
         Guid:
@@ -464,7 +464,7 @@ MonoBehaviour:
           Data2: 1187242491
           Data3: 210159793
           Data4: 1751573691
-        Path: event:/MiniGame1/PlaceBook
+        Path: event:/MiniGame1/SFX/PlaceBook
     - name: Pickup Chip Bag
       eventReference:
         Guid:
@@ -472,7 +472,7 @@ MonoBehaviour:
           Data2: 1292077974
           Data3: 205249710
           Data4: -1738979398
-        Path: event:/MiniGame1/PickupChipBag
+        Path: event:/MiniGame1/SFX/PickupChipBag
     - name: Place Chip Bag
       eventReference:
         Guid:
@@ -480,7 +480,7 @@ MonoBehaviour:
           Data2: 1338571664
           Data3: 1414937225
           Data4: -853605212
-        Path: event:/MiniGame1/PlaceChipBag
+        Path: event:/MiniGame1/SFX/PlaceChipBag
     - name: Pickup Camera
       eventReference:
         Guid:
@@ -488,7 +488,7 @@ MonoBehaviour:
           Data2: 1285156720
           Data3: -407830603
           Data4: 17927942
-        Path: event:/MiniGame1/PickupCamera
+        Path: event:/MiniGame1/SFX/PickupCamera
     - name: Place Camera
       eventReference:
         Guid:
@@ -496,7 +496,7 @@ MonoBehaviour:
           Data2: 1334686342
           Data3: -1856085578
           Data4: -1238041981
-        Path: event:/MiniGame1/PlaceCamera
+        Path: event:/MiniGame1/SFX/PlaceCamera
     - name: Pickup Action Figure
       eventReference:
         Guid:
@@ -504,7 +504,7 @@ MonoBehaviour:
           Data2: 1158510536
           Data3: 326963362
           Data4: 1250079949
-        Path: event:/MiniGame1/PickupActionFigure
+        Path: event:/MiniGame1/SFX/PickupActionFigure
     - name: Place Action Figure
       eventReference:
         Guid:
@@ -512,7 +512,7 @@ MonoBehaviour:
           Data2: 1323279701
           Data3: -1591122522
           Data4: 1671067191
-        Path: event:/MiniGame1/PlaceActionFigure
+        Path: event:/MiniGame1/SFX/PlaceActionFigure
     - name: Pickup Doll
       eventReference:
         Guid:
@@ -520,7 +520,7 @@ MonoBehaviour:
           Data2: 1204589184
           Data3: 301271175
           Data4: -1789088317
-        Path: event:/MiniGame1/PickupDoll
+        Path: event:/MiniGame1/SFX/PickupDoll
     - name: Place Doll
       eventReference:
         Guid:
@@ -528,7 +528,7 @@ MonoBehaviour:
           Data2: 1212152984
           Data3: -359104361
           Data4: 1321363871
-        Path: event:/MiniGame1/PlaceDoll
+        Path: event:/MiniGame1/SFX/PlaceDoll
     - name: Pickup Flashlight
       eventReference:
         Guid:
@@ -536,7 +536,7 @@ MonoBehaviour:
           Data2: 1303469111
           Data3: 1574026409
           Data4: 251421045
-        Path: event:/MiniGame1/PickupFlashlight
+        Path: event:/MiniGame1/SFX/PickupFlashlight
     - name: Place Flashlight
       eventReference:
         Guid:
@@ -544,7 +544,7 @@ MonoBehaviour:
           Data2: 1119498738
           Data3: 2097804981
           Data4: -571889784
-        Path: event:/MiniGame1/PlaceFlashlight
+        Path: event:/MiniGame1/SFX/PlaceFlashlight
     - name: Pickup Snow Globe
       eventReference:
         Guid:
@@ -552,7 +552,7 @@ MonoBehaviour:
           Data2: 1206077239
           Data3: 169976484
           Data4: -254000496
-        Path: event:/MiniGame1/PickupSnowGlobe
+        Path: event:/MiniGame1/SFX/PickupSnowGlobe
     - name: Place Snow Globe
       eventReference:
         Guid:
@@ -560,7 +560,7 @@ MonoBehaviour:
           Data2: 1193002474
           Data3: 142735764
           Data4: 1227554653
-        Path: event:/MiniGame1/PlaceSnowGlobe
+        Path: event:/MiniGame1/SFX/PlaceSnowGlobe
     - name: MiniGame1 Mistake
       eventReference:
         Guid:
@@ -568,7 +568,7 @@ MonoBehaviour:
           Data2: 1271206608
           Data3: -1547223632
           Data4: -987026573
-        Path: event:/MiniGame1/MisplacedItem
+        Path: event:/MiniGame1/SFX/MisplacedItem
     - name: Pickup Thong
       eventReference:
         Guid:
@@ -576,7 +576,7 @@ MonoBehaviour:
           Data2: 1256288764
           Data3: 1750292869
           Data4: 1191745722
-        Path: event:/MiniGame1/PickupThong
+        Path: event:/MiniGame1/SFX/PickupThong
     - name: Place Thong
       eventReference:
         Guid:
@@ -584,9 +584,17 @@ MonoBehaviour:
           Data2: 1113988625
           Data3: -1430338933
           Data4: -1094005613
-        Path: event:/MiniGame1/PlaceThong
+        Path: event:/MiniGame1/SFX/PlaceThong
     ambianceEvents: []
-    voiceEvents: []
+    voiceEvents:
+    - name: MG10_Helda_01
+      eventReference:
+        Guid:
+          Data1: 442831688
+          Data2: 1319834542
+          Data3: -1693015156
+          Data4: 558860642
+        Path: event:/MiniGame1/Voice/MG10_Helda_01
   - sceneName: Page 6
     musicEvents: []
     sfxEvents:
@@ -623,7 +631,31 @@ MonoBehaviour:
           Data4: -785334172
         Path: event:/Page6/PotBoiling
     ambianceEvents: []
-    voiceEvents: []
+    voiceEvents:
+    - name: P06_Helda_01
+      eventReference:
+        Guid:
+          Data1: 1895297715
+          Data2: 1141583258
+          Data3: 1315034013
+          Data4: -193532011
+        Path: event:/Page6/Voice/P06_Helda_01
+    - name: P06_Helda_02
+      eventReference:
+        Guid:
+          Data1: 2143137965
+          Data2: 1266748379
+          Data3: -1096766573
+          Data4: 2058431584
+        Path: event:/Page6/Voice/P06_Helda_02
+    - name: P06_Helda_03
+      eventReference:
+        Guid:
+          Data1: 1429638956
+          Data2: 1278373184
+          Data3: -1875393911
+          Data4: 1949850585
+        Path: event:/Page6/Voice/P06_Helda_03
   - sceneName: MiniGame1_5
     musicEvents: []
     sfxEvents:
@@ -713,7 +745,79 @@ MonoBehaviour:
           Data4: 714671286
         Path: event:/MiniGame2/FriendDiscard
     ambianceEvents: []
-    voiceEvents: []
+    voiceEvents:
+    - name: MG20_Helda_01
+      eventReference:
+        Guid:
+          Data1: -1236734785
+          Data2: 1090694193
+          Data3: 1649733772
+          Data4: -1744061669
+        Path: event:/MiniGame2/Voice/MG20_Helda_01
+    - name: MG20_Helda_02
+      eventReference:
+        Guid:
+          Data1: -1756934968
+          Data2: 1148582049
+          Data3: 53937799
+          Data4: -579219524
+        Path: event:/MiniGame2/Voice/MG20_Helda_02
+    - name: MG20_Helda_03
+      eventReference:
+        Guid:
+          Data1: -1456760741
+          Data2: 1315049332
+          Data3: -1492493895
+          Data4: 258930033
+        Path: event:/MiniGame2/Voice/MG20_Helda_03
+    - name: MG20_Helda_04
+      eventReference:
+        Guid:
+          Data1: 607884929
+          Data2: 1080184765
+          Data3: 1964911747
+          Data4: -1278213305
+        Path: event:/MiniGame2/Voice/MG20_Helda_04
+    - name: MG20_Helda_05
+      eventReference:
+        Guid:
+          Data1: -1164138534
+          Data2: 1268681156
+          Data3: 1203907988
+          Data4: -407104211
+        Path: event:/MiniGame2/Voice/MG20_Helda_05
+    - name: MG20_Helda_06
+      eventReference:
+        Guid:
+          Data1: -1900384922
+          Data2: 1271335591
+          Data3: 625985165
+          Data4: -1562484307
+        Path: event:/MiniGame2/Voice/MG20_Helda_06
+    - name: MG20_Helda_07
+      eventReference:
+        Guid:
+          Data1: -1838771843
+          Data2: 1074494565
+          Data3: 213984687
+          Data4: 1071821658
+        Path: event:/MiniGame2/Voice/MG20_Helda_07
+    - name: MG20_Helda_08
+      eventReference:
+        Guid:
+          Data1: -664262597
+          Data2: 1151527724
+          Data3: 727052178
+          Data4: -541313785
+        Path: event:/MiniGame2/Voice/MG20_Helda_08
+    - name: MG20_Helda_09
+      eventReference:
+        Guid:
+          Data1: 1186190590
+          Data2: 1271753301
+          Data3: 170174390
+          Data4: 1485388873
+        Path: event:/MiniGame2/Voice/MG20_Helda_09
   - sceneName: Page8
     musicEvents: []
     sfxEvents:
@@ -750,7 +854,23 @@ MonoBehaviour:
           Data4: -962018178
         Path: event:/Page8/FourthBeat
     ambianceEvents: []
-    voiceEvents: []
+    voiceEvents:
+    - name: P08_Helda_01
+      eventReference:
+        Guid:
+          Data1: -1407352174
+          Data2: 1076737583
+          Data3: 1563083692
+          Data4: 1236082401
+        Path: event:/Page8/Voice/P08_Helda_01
+    - name: P08_Helda_02
+      eventReference:
+        Guid:
+          Data1: -1408013841
+          Data2: 1087814075
+          Data3: 1811852969
+          Data4: -680209732
+        Path: event:/Page8/Voice/P08_Helda_02
   - sceneName: MiniGame3
     musicEvents: []
     sfxEvents:
@@ -835,7 +955,15 @@ MonoBehaviour:
           Data4: -707773957
         Path: event:/MiniGame3/PimplePop
     ambianceEvents: []
-    voiceEvents: []
+    voiceEvents:
+    - name: MG30_Helda_01
+      eventReference:
+        Guid:
+          Data1: -2002229827
+          Data2: 1146675835
+          Data3: -863771503
+          Data4: 1741862480
+        Path: event:/MiniGame3/Voice/MG30_Helda_01
   - sceneName: Page 11
     musicEvents: []
     sfxEvents:
@@ -847,6 +975,14 @@ MonoBehaviour:
           Data3: 837846707
           Data4: -812861050
         Path: event:/Page11/HeldaOpenDoor
+    - name: Idea Lightbulb
+      eventReference:
+        Guid:
+          Data1: 1434561492
+          Data2: 1259316048
+          Data3: 2145441441
+          Data4: 361201018
+        Path: event:/Page11/IdeaLamp
     ambianceEvents:
     - name: Page 11 Ambiance
       eventReference:
@@ -856,7 +992,31 @@ MonoBehaviour:
           Data3: 46570636
           Data4: 1251897343
         Path: event:/Page11/HeldaRoomAmbiance
-    voiceEvents: []
+    voiceEvents:
+    - name: P11_Helda_01
+      eventReference:
+        Guid:
+          Data1: 1628030973
+          Data2: 1199689713
+          Data3: 1517293734
+          Data4: -508807941
+        Path: event:/Page11/Voice/P11_Helda_01
+    - name: P11_Helda_02
+      eventReference:
+        Guid:
+          Data1: 813913021
+          Data2: 1243099490
+          Data3: -122041937
+          Data4: 1929684542
+        Path: event:/Page11/Voice/P11_Helda_02
+    - name: P11_Helda_03
+      eventReference:
+        Guid:
+          Data1: 325491812
+          Data2: 1311998805
+          Data3: -1129957730
+          Data4: -1081589158
+        Path: event:/Page11/Voice/P11_Helda_03
   - sceneName: MiniGame4
     musicEvents: []
     sfxEvents:
@@ -916,5 +1076,34 @@ MonoBehaviour:
           Data3: 1331412391
           Data4: -962960207
         Path: event:/MiniGame4/PrintPoster
+    ambianceEvents: []
+    voiceEvents: []
+  - sceneName: Page13
+    musicEvents: []
+    sfxEvents:
+    - name: Sneaker Walking
+      eventReference:
+        Guid:
+          Data1: 91031603
+          Data2: 1334814139
+          Data3: 111668609
+          Data4: 154353628
+        Path: event:/Page13/SneakerWalking
+    - name: Heels Walking
+      eventReference:
+        Guid:
+          Data1: -138657010
+          Data2: 1125405973
+          Data3: -579002712
+          Data4: -1491384750
+        Path: event:/Page6/HardFloorWalking
+    - name: Pickup Card
+      eventReference:
+        Guid:
+          Data1: 7111099
+          Data2: 1324177156
+          Data3: -333630539
+          Data4: 1888992446
+        Path: event:/Page13/PickupCard
     ambianceEvents: []
     voiceEvents: []

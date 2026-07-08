@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Audio.AudioEmitters;
 using Objects;
 using Objects.Poster;
 using UnityEngine;
@@ -35,9 +36,16 @@ namespace Managers
         [Tooltip("Where they walk to completely exit Frame 4 and be destroyed")]
         [SerializeField] private Transform frame4ExitPoint;
 
-        [Header("Friend Settings")] 
+        [Header("Friend Settings")]
         [SerializeField] private float frame2duration;
         [SerializeField] private float frame4duration;
+
+        [Header("Footstep SFX")]
+        [SerializeField] private AudioEmitterBase sneakersFootstepSfx;
+        [SerializeField] private AudioEmitterBase heelsFootstepSfx;
+
+        [Header("Card Take SFX")]
+        [SerializeField] private AudioEmitterBase cardTakeSfx;
         
         private readonly Queue<int> _friendsWaitingToSpawn = new Queue<int>();
         private readonly List<FriendSequenceController> _activeLineF2 = new List<FriendSequenceController>();
@@ -159,8 +167,10 @@ namespace Managers
             }
         
             FriendSequenceController controller = container.AddComponent<FriendSequenceController>();
-            
-            controller.Initialize(this, f2Obj, f4Obj, frame2duration, frame4duration, isForFrame4, handObj, handStartPosition, handEndPosition, noteObj, frame3duration);
+
+            AudioEmitterBase footstepSfx = friendData.shoeType == ShoeType.Heels ? heelsFootstepSfx : sneakersFootstepSfx;
+
+            controller.Initialize(this, f2Obj, f4Obj, frame2duration, frame4duration, isForFrame4, handObj, handStartPosition, handEndPosition, noteObj, frame3duration, footstepSfx, cardTakeSfx);
             
             if (isForFrame4)
             {

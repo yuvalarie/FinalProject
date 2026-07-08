@@ -52,3 +52,15 @@ MonoBehaviour:
   sceneInitialMappings:
   - sceneName: Page 4
     initial: P04
+  - sceneName: MiniGame1-WithArt
+    initial: MG10
+  - sceneName: Page 6
+    initial: P06
+  - sceneName: Page 8
+    initial: P08
+  - sceneName: MiniGame2
+    initial: MG20
+  - sceneName: MiniGame3
+    initial: MG30
+  - sceneName: Page 11
+    initial: P11
