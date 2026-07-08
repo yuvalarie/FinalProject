@@ -7524,6 +7524,7 @@ GameObject:
   - component: {fileID: 871815630}
   - component: {fileID: 871815629}
   - component: {fileID: 871815631}
+  - component: {fileID: 871815632}
   m_Layer: 0
   m_Name: Pillow2Hand
   m_TagString: Untagged
@@ -7627,6 +7628,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &871815632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871815628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: HittingPillow
+  playOnEnable: 0
 --- !u!1 &887019205
 GameObject:
   m_ObjectHideFlags: 0
