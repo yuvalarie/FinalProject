@@ -114,11 +114,17 @@ namespace Audio
         public const string HeldaOpenDoor = "Helda Open Door";
         public const string OpeningDoor = "Opening Door";
         public const string IdeaLightbulb = "Idea Lightbulb";
+        public const string RadioStatic = "Radio Static";
         
         // page 13
         public const string SneakerWalking = "Sneaker Walking";
         public const string PickupCard = "Pickup Card";
         public const string HeelsWalking = "Heels Walking";
+        
+        // page 15
+        public const string TVOn = "TV On";
+        public const string TVOff = "TV Off";
+        public const string TVChangeChannel = "TV Change Channel";
         
         // minigame 4
         public const string StickerPlaced = "Sticker Placed";
@@ -146,5 +152,6 @@ namespace Audio
         public const string WindAmbiance = "Wind Ambiance";
         public const string FactoryAmbiance = "Factory Ambiance";
         public const string Page11Ambiance = "Page 11 Ambiance";
+        public const string TVStaticAmbiance = "TV Static Ambiance";
     }
 }
