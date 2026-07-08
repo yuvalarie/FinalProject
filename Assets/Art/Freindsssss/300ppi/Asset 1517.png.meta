@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 008d63481103940a7bb543bc106386db
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2928784001028932919
+    second: Asset 1517_0
+  - first:
+      213: -3784710243479898515
+    second: Asset 1517_1
+  - first:
+      213: -2373439793102700942
+    second: Asset 1517_2
+  - first:
+      213: -7669808268451628851
+    second: Asset 1517_3
+  - first:
+      213: 6463801772158048272
+    second: Asset 1517_4
+  - first:
+      213: 991472932805913722
+    second: Asset 1517_5
+  - first:
+      213: 2877397711814734124
+    second: Asset 1517_6
+  - first:
+      213: -8437052321512737263
+    second: Asset 1517_7
+  - first:
+      213: -689451456458234664
+    second: Asset 1517_8
+  - first:
+      213: -9132665821344946020
+    second: Asset 1517_9
+  - first:
+      213: -4082114763128911520
+    second: Asset 1517_10
+  - first:
+      213: -4047729798731667009
+    second: Asset 1517_11
+  - first:
+      213: -7016974609176622916
+    second: Asset 1517_12
+  - first:
+      213: -781689999529150347
+    second: Asset 1517_13
+  - first:
+      213: 1793401710286817722
+    second: Asset 1517_14
+  - first:
+      213: 6076607917142713145
+    second: Asset 1517_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 108
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Asset 1517_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 150
+        width: 1249
+        height: 665
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cab2dae77eda57d0800000000000000
+      internalID: -2928784001028932919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset 1517_1
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 376
+        width: 63
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d663997f5120a7bc0800000000000000
+      internalID: -3784710243479898515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset 1517_2
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 20
+        width: 46
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27e365c4519df0fd0800000000000000
+      internalID: -2373439793102700942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset 1517_3
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 24
+        width: 31
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc83697240e5f8590800000000000000
+      internalID: -7669808268451628851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset 1517_4
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 27
+        width: 49
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0185500177904b950800000000000000
+      internalID: 6463801772158048272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset 1517_5
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 24
+        width: 41
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7caf4c116b62cd00800000000000000
+      internalID: 991472932805913722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset 1517_6
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 24
+        width: 41
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c213d3a49f19ee720800000000000000
+      internalID: 2877397711814734124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset 1517_7
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 24
+        width: 46
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11639d07d9199ea80800000000000000
+      internalID: -8437052321512737263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset 1517_8
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 24
+        width: 21
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d46eef9d839e66f0800000000000000
+      internalID: -689451456458234664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset 1517_9
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 24
+        width: 32
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c98226a82d0424180800000000000000
+      internalID: -9132665821344946020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset 1517_10
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 28
+        width: 44
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 069c25b304a6957c0800000000000000
+      internalID: -4082114763128911520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset 1517_11
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 24
+        width: 41
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb9e5df913393d7c0800000000000000
+      internalID: -4047729798731667009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset 1517_12
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 24
+        width: 32
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb8871e35c2be9e90800000000000000
+      internalID: -7016974609176622916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset 1517_13
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 25
+        width: 44
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 578f6954611e625f0800000000000000
+      internalID: -781689999529150347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset 1517_14
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 24
+        width: 31
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab949398a5173e810800000000000000
+      internalID: 1793401710286817722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset 1517_15
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 24
+        width: 32
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9332e9494b2745450800000000000000
+      internalID: 6076607917142713145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Asset 1517_0: -2928784001028932919
+      Asset 1517_1: -3784710243479898515
+      Asset 1517_10: -4082114763128911520
+      Asset 1517_11: -4047729798731667009
+      Asset 1517_12: -7016974609176622916
+      Asset 1517_13: -781689999529150347
+      Asset 1517_14: 1793401710286817722
+      Asset 1517_15: 6076607917142713145
+      Asset 1517_2: -2373439793102700942
+      Asset 1517_3: -7669808268451628851
+      Asset 1517_4: 6463801772158048272
+      Asset 1517_5: 991472932805913722
+      Asset 1517_6: 2877397711814734124
+      Asset 1517_7: -8437052321512737263
+      Asset 1517_8: -689451456458234664
+      Asset 1517_9: -9132665821344946020
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
