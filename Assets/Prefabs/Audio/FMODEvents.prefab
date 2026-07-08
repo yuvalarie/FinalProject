@@ -954,6 +954,14 @@ MonoBehaviour:
           Data3: 2014612142
           Data4: -707773957
         Path: event:/MiniGame3/PimplePop
+    - name: Blood Splat
+      eventReference:
+        Guid:
+          Data1: -361282554
+          Data2: 1194888308
+          Data3: -1066127446
+          Data4: 901046590
+        Path: event:/MiniGame3/Blood
     ambianceEvents: []
     voiceEvents:
     - name: MG30_Helda_01
