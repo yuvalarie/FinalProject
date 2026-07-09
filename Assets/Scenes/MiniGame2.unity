@@ -3092,6 +3092,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5822067558026649916}
     - target: {fileID: 1899112733900447661, guid: 654f6c994c5bc094d8241869bcb6bac0, type: 3}
+      propertyPath: startScreenSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 008d63481103940a7bb543bc106386db, type: 3}
+    - target: {fileID: 1899112733900447661, guid: 654f6c994c5bc094d8241869bcb6bac0, type: 3}
       propertyPath: phoneIconsRenderer
       value: 
       objectReference: {fileID: 399376798}

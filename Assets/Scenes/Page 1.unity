@@ -6444,8 +6444,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1049715965}
   - component: {fileID: 1049715968}
-  - component: {fileID: 1049715967}
   - component: {fileID: 1049715969}
+  - component: {fileID: 1049715970}
   m_Layer: 0
   m_Name: angle
   m_TagString: Angel
@@ -6462,50 +6462,13 @@ Transform:
   m_GameObject: {fileID: 1049715963}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.08, y: -0.16, z: 0}
+  m_LocalPosition: {x: -4.5999994, y: 0.100000024, z: 0}
   m_LocalScale: {x: 0.2399655, y: 0.2399655, z: 0.2399655}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 893222276}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &1049715967
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1049715963}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: -14.372964, y: 2.5638103}
-  m_Size: {x: 8.550886, y: 10.882761}
-  m_Direction: 0
 --- !u!50 &1049715968
 Rigidbody2D:
   serializedVersion: 5
@@ -6545,12 +6508,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc7da1fd90b46b6974f11bfdb58f9cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MiniPlayer.BigPlayerPage1Behaviour
-  artSettings: {fileID: 0}
+  artSettings: {fileID: 11400000, guid: c1b789050763e8f43a87bf566564bad2, type: 2}
   speed: 5
   acceleration: 8
   deceleration: 8
   nextSceneName: 
-  initialSize: 4
+  initialSize: 1
   graphicsRoot: {fileID: 893222276}
   smallCollider: {fileID: 0}
   mediumLargeCollider: {fileID: 0}
@@ -6560,10 +6523,47 @@ MonoBehaviour:
   player: {fileID: 1428508827}
   phoneAnimator: {fileID: 194628952}
   size: {x: 0.2399655, y: 0.2399655, z: 0.2399655}
-  position: {x: 1.49, y: 0.39, z: 0}
+  position: {x: -2.0000002, y: 0.78, z: 0}
   miniPlayerAnimator: {fileID: 9100000, guid: 5499afb064778434cbf31021581ba3d3, type: 2}
   playerAnimator: {fileID: 9100000, guid: e126f0f5622094d28a8a5e1d588a9288, type: 2}
   animationDuration: 3.11
+--- !u!70 &1049715970
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049715963}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.32378024, y: 0.50914854}
+  m_Size: {x: 8.550771, y: 11.374607}
+  m_Direction: 0
 --- !u!1 &1063866871
 GameObject:
   m_ObjectHideFlags: 0
