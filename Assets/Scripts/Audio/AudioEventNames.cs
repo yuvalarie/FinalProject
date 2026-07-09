@@ -160,5 +160,6 @@ namespace Audio
         public const string Page11Ambiance = "Page 11 Ambiance";
         public const string TVStaticAmbiance = "TV Static Ambiance";
         public const string HellAmbiance = "Hell Ambiance";
+        public const string VotingAmbiance = "Voting Ambiance";
     }
 }

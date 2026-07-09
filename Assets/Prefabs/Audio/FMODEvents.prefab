@@ -1129,7 +1129,15 @@ MonoBehaviour:
           Data3: -333630539
           Data4: 1888992446
         Path: event:/Page13/PickupCard
-    ambianceEvents: []
+    ambianceEvents:
+    - name: Voting Ambiance
+      eventReference:
+        Guid:
+          Data1: -73480688
+          Data2: 1208316212
+          Data3: 1819169922
+          Data4: -1471538809
+        Path: event:/Page13/VotingAmbiance
     voiceEvents: []
   - sceneName: Breakdown
     musicEvents: []
