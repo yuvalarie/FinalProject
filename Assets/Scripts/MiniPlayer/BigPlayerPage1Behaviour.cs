@@ -38,7 +38,7 @@ namespace MiniPlayer
             SpriteRenderer.sprite = page1Sprite;
             SpriteRenderer.sortingOrder -= 2;
             transform.localScale = size;
-            //transform.localPosition = position;
+            transform.localPosition = position;
             
             phoneAnimator.SetTrigger(Answer);
             _hasChangedSprite = true;
