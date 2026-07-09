@@ -6045,6 +6045,7 @@ GameObject:
   - component: {fileID: 1604132753}
   - component: {fileID: 1604132752}
   - component: {fileID: 1604132755}
+  - component: {fileID: 1604132756}
   m_Layer: 0
   m_Name: Dave1
   m_TagString: Untagged
@@ -6146,6 +6147,7 @@ MonoBehaviour:
   frame4Enter: {fileID: 684116233}
   frame4Size: 0
   door5: {fileID: 633900978}
+  doorOpenSfx: {fileID: 1604132756}
 --- !u!4 &1604132754
 Transform:
   m_ObjectHideFlags: 0
@@ -6208,6 +6210,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.8727214, y: 0.8272424}
   m_EdgeRadius: 0
+--- !u!114 &1604132756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604132750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: OpeningDoor
+  playOnEnable: 0
 --- !u!1 &1668432724
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Audio.AudioEmitters;
 using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,7 +11,7 @@ namespace Player.Pages
 {
     public class PlayerControllerPage11 : PlayerControllerBase
     {
-        [Header("Start Sequence")] 
+        [Header("Start Sequence")]
         [SerializeField] private Animator door;
         [SerializeField] private GameObject helda;
         [SerializeField] private Transform targetPos;
@@ -68,7 +69,10 @@ namespace Player.Pages
         [SerializeField] private Collider2D frame4Enter;
         [SerializeField] private SizeSettings frame4Size;
         [SerializeField] private Animator door5;
-        
+
+        [Header("Door SFX")]
+        [SerializeField] private AudioEmitterBase doorOpenSfx;
+
         private bool isSequenceActive = false;
         private bool isAnimating = false;
         private int interactionCount;
@@ -114,6 +118,7 @@ namespace Player.Pages
                 door2Open.SetActive(true);
                 door2Close.SetActive(false);
                 isDoor2Open = true;
+                doorOpenSfx?.PlayAudioOnce();
             }
             else if (atFrontCollider && !isDoor4Open && isDoor2Open)
             {
@@ -122,6 +127,7 @@ namespace Player.Pages
                 door4Close.SetActive(false);
                 door5.SetTrigger("Open");
                 isDoor4Open = true;
+                doorOpenSfx?.PlayAudioOnce();
             }
             else if (atDoor3 && !isDoor3Open)
             {
@@ -133,6 +139,7 @@ namespace Player.Pages
         {
             door3.SetTrigger("Open");
             isDoor3Open = true;
+            doorOpenSfx?.PlayAudioOnce();
             yield return new WaitForSeconds(door1AnimationDuration);
             var col = door3.GetComponent<Collider2D>();
             col.enabled = false;
@@ -287,6 +294,7 @@ namespace Player.Pages
         {
             door1.SetTrigger("Open");
             isDoor1Open = true;
+            doorOpenSfx?.PlayAudioOnce();
             yield return new WaitForSeconds(door1AnimationDuration);
             door1SpriteRenderer.sortingOrder = backSortingOrder - 1;
             var col = door1.GetComponent<Collider2D>();

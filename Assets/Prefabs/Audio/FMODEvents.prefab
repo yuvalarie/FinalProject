@@ -999,6 +999,14 @@ MonoBehaviour:
           Data3: -1925509472
           Data4: -316753523
         Path: event:/Page11/Radio
+    - name: Opening Door
+      eventReference:
+        Guid:
+          Data1: -1588190491
+          Data2: 1191217549
+          Data3: 252824470
+          Data4: -467659139
+        Path: event:/Page11/DaveOpenDoor
     ambianceEvents:
     - name: Page 11 Ambiance
       eventReference:
