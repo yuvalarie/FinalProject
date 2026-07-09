@@ -135,7 +135,7 @@ namespace Player.MiniGames
                 {
                     spriteRenderer.sprite = allNotesCaughtSprite;
                 }
-                note.transform.localScale = new Vector3(notesCaughtScale, notesCaughtScale, 1f);
+                //note.transform.localScale = new Vector3(notesCaughtScale, notesCaughtScale, 1f);
             }
             yield return new WaitForSeconds(timeBeforeSceneLoad);
             SceneLoader.Instance?.ActivatePreloadedScene();
