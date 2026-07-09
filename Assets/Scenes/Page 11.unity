@@ -1317,6 +1317,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1853877041}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.01}
+--- !u!1 &426838283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 426838285}
+  - component: {fileID: 426838284}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &426838284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426838283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 14065845f3c114667b2286717a98aa2a, type: 2}
+--- !u!4 &426838285
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426838283}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.116329, y: -0.92523116, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &451404027
 GameObject:
   m_ObjectHideFlags: 0
@@ -3428,7 +3477,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -3777,7 +3826,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 49.962963, y: 14.944445}
+    oldSize: {x: 49.96934, y: 14.944445}
     newSize: {x: 49.97222, y: 14.953704}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3823,7 +3872,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 49.962963, y: 14.944445}
+    oldSize: {x: 49.96934, y: 14.944445}
     newSize: {x: 49.97222, y: 14.953704}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3869,7 +3918,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 49.962963, y: 14.944445}
+    oldSize: {x: 49.96934, y: 14.944445}
     newSize: {x: 49.97222, y: 14.953704}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -4866,6 +4915,7 @@ GameObject:
   - component: {fileID: 1305561551}
   - component: {fileID: 1305561550}
   - component: {fileID: 1305561552}
+  - component: {fileID: 1305561553}
   m_Layer: 0
   m_Name: Radio
   m_TagString: Untagged
@@ -4968,6 +5018,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1305561553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305561549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: RadioStatic
+  playOnEnable: 0
 --- !u!1 &1346034056
 GameObject:
   m_ObjectHideFlags: 0
@@ -5981,6 +6045,7 @@ GameObject:
   - component: {fileID: 1604132753}
   - component: {fileID: 1604132752}
   - component: {fileID: 1604132755}
+  - component: {fileID: 1604132756}
   m_Layer: 0
   m_Name: Dave1
   m_TagString: Untagged
@@ -6082,6 +6147,7 @@ MonoBehaviour:
   frame4Enter: {fileID: 684116233}
   frame4Size: 0
   door5: {fileID: 633900978}
+  doorOpenSfx: {fileID: 1604132756}
 --- !u!4 &1604132754
 Transform:
   m_ObjectHideFlags: 0
@@ -6144,6 +6210,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.8727214, y: 0.8272424}
   m_EdgeRadius: 0
+--- !u!114 &1604132756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604132750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: OpeningDoor
+  playOnEnable: 0
 --- !u!1 &1668432724
 GameObject:
   m_ObjectHideFlags: 0
@@ -6280,6 +6360,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.AmbianceEmitter
   eventName: Page11Ambiance
   playOnStart: 1
+  startOnEnable: 0
+  stopOnEnable: 0
+  startOnDisable: 0
+  stopOnDisable: 0
 --- !u!1 &1712552976
 GameObject:
   m_ObjectHideFlags: 0
@@ -7385,7 +7469,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 74.07407, y: 41.666668}
+    oldSize: {x: 74.07407, y: 41.666664}
     newSize: {x: 74.07407, y: 41.666668}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -8465,7 +8549,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 45.787037, y: 12.12037}
+    oldSize: {x: 45.798004, y: 12.120371}
     newSize: {x: 45.787037, y: 12.12037}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -8511,7 +8595,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 45.787037, y: 12.12037}
+    oldSize: {x: 45.798004, y: 12.120371}
     newSize: {x: 45.787037, y: 12.12037}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -8557,7 +8641,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 45.787037, y: 12.12037}
+    oldSize: {x: 45.798004, y: 12.120371}
     newSize: {x: 45.787037, y: 12.12037}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -9019,7 +9103,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 74.07407, y: 41.666668}
+    oldSize: {x: 74.07407, y: 41.666664}
     newSize: {x: 74.07407, y: 41.666668}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -9111,3 +9195,4 @@ SceneRoots:
   - {fileID: 299583746}
   - {fileID: 1876217941}
   - {fileID: 1712552978}
+  - {fileID: 426838285}

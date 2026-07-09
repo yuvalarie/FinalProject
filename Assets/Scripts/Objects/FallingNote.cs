@@ -39,13 +39,14 @@ public class FallingNote : MonoBehaviour
         }
     }
     
-    public void CatchByPlayer(Transform catchZoneTransform, List<FallingNote> caughtNotes)
+    public bool CatchByPlayer(Transform catchZoneTransform, List<FallingNote> caughtNotes)
     {
         // If it already landed on the floor, we can't catch it anymore
-        if (!_isFalling || _isWaitingToLand) return; 
-        
+        if (!_isFalling || _isWaitingToLand) return false;
+
         LandAndScatter(catchZoneTransform, true);
         caughtNotes.Add(this);
+        return true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
