@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Audio.AudioEmitters;
 using Managers;
 using NUnit.Framework;
 using Objects;
@@ -26,7 +27,11 @@ namespace Player.MiniGames
         [SerializeField] private float size;
         [SerializeField] private Transform holdSlot;
 
-        [Header("End Sequence Settings")] 
+        [Header("Audio")]
+        [SerializeField] private AudioEmitterBase ballotGrabbedEmitter;
+        [SerializeField] private AudioEmitterBase ashtrayPickupEmitter;
+
+        [Header("End Sequence Settings")]
         [SerializeField] private GameObject endText;
         [SerializeField] private float endTextDuration;
         [SerializeField, Tooltip("The Animator to play at the end of the game.")]
@@ -74,7 +79,10 @@ namespace Player.MiniGames
                 
                 if (note != null)
                 {
-                    note.CatchByPlayer(holdSlot, _caughtNotes);
+                    if (note.CatchByPlayer(holdSlot, _caughtNotes))
+                    {
+                        ballotGrabbedEmitter?.PlayAudioOnce();
+                    }
                 }
             }
         }
@@ -86,6 +94,7 @@ namespace Player.MiniGames
             if (_atTrashCan && !_pickedUpTrashCan)
             {
                 _pickedUpTrashCan = true;
+                ashtrayPickupEmitter?.PlayAudioOnce();
                 trashCan.SetActive(false);
                 SpriteRenderer.sprite = secondSprite;
                 Animator.enabled = false;

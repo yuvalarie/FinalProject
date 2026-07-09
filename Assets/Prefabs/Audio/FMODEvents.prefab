@@ -999,6 +999,14 @@ MonoBehaviour:
           Data3: -1925509472
           Data4: -316753523
         Path: event:/Page11/Radio
+    - name: Opening Door
+      eventReference:
+        Guid:
+          Data1: -1588190491
+          Data2: 1191217549
+          Data3: 252824470
+          Data4: -467659139
+        Path: event:/Page11/DaveOpenDoor
     ambianceEvents:
     - name: Page 11 Ambiance
       eventReference:
@@ -1121,7 +1129,15 @@ MonoBehaviour:
           Data3: -333630539
           Data4: 1888992446
         Path: event:/Page13/PickupCard
-    ambianceEvents: []
+    ambianceEvents:
+    - name: Voting Ambiance
+      eventReference:
+        Guid:
+          Data1: -73480688
+          Data2: 1208316212
+          Data3: 1819169922
+          Data4: -1471538809
+        Path: event:/Page13/VotingAmbiance
     voiceEvents: []
   - sceneName: Breakdown
     musicEvents: []
@@ -1217,4 +1233,33 @@ MonoBehaviour:
           Data3: 441425053
           Data4: -1968944857
         Path: event:/Hell/AmbHell
+    voiceEvents: []
+  - sceneName: MiniGame4_2
+    musicEvents: []
+    sfxEvents:
+    - name: Ballot Inserted
+      eventReference:
+        Guid:
+          Data1: 411754838
+          Data2: 1077076313
+          Data3: 932141727
+          Data4: 1843455108
+        Path: event:/MiniGame4_2/BallotInserted
+    - name: Ballot Grabbed
+      eventReference:
+        Guid:
+          Data1: 374927427
+          Data2: 1290341599
+          Data3: -1799241324
+          Data4: 400347201
+        Path: event:/MiniGame4_2/BallotGrabbed
+    - name: Ashtray Pickup
+      eventReference:
+        Guid:
+          Data1: -642468948
+          Data2: 1103549928
+          Data3: 730354572
+          Data4: -588240375
+        Path: event:/MiniGame4_2/PickupAshTray
+    ambianceEvents: []
     voiceEvents: []

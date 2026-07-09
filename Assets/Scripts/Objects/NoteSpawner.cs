@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Audio;
+using Audio.AudioEmitters;
 using Player.MiniGames;
 using UnityEngine;
 
@@ -19,7 +21,10 @@ namespace Objects
     public class NoteSpawner : MonoBehaviour
     {
         [SerializeField] PlayerControllerMiniGame5 playerController;
-        
+
+        [Header("Audio")]
+        [SerializeField] private AudioEmitterBase ballotInsertedEmitter;
+
         [Header("Spawn Settings")]
         [SerializeField] private FallingNote notePrefab;
         [SerializeField, Tooltip("Exact point where ALL notes spawn from.")] 
@@ -66,6 +71,7 @@ namespace Objects
             // 1. All notes spawn at the exact same origin point
             Vector3 spawnPos = spawnOrigin.position;
             FallingNote newNote = Instantiate(notePrefab, spawnPos, Quaternion.identity);
+            ballotInsertedEmitter?.PlayAudioOnce();
 
             // 2. Pick a random angle, avoiding directions that are too close to the previous note.
             float randomAngle = GetRandomSpreadAngle();
@@ -119,6 +125,8 @@ namespace Objects
                 if (waitTime <= 0) yield break; 
 
                 yield return new WaitForSeconds(waitTime);
+
+                MusicManager.Instance?.AdvanceProgress();
 
                 // Time is up! Move to the next level if one exists
                 if (currentLevelIndex < difficultyLevels.Count - 1)
