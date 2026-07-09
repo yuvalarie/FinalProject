@@ -585,6 +585,7 @@ GameObject:
   m_Component:
   - component: {fileID: 123814598}
   - component: {fileID: 123814597}
+  - component: {fileID: 123814599}
   m_Layer: 0
   m_Name: NoteSpawner
   m_TagString: Untagged
@@ -605,6 +606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Objects.NoteSpawner
   playerController: {fileID: 1428508829}
+  ballotInsertedEmitter: {fileID: 123814599}
   notePrefab: {fileID: 8147833566116765907, guid: b1bc1e247c4b8f440ba134a55e578a0a, type: 3}
   spawnOrigin: {fileID: 466818288}
   maxSpreadAngle: 45
@@ -638,6 +640,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &123814599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123814596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: BallotInserted
+  playOnEnable: 0
 --- !u!1 &152830221
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,6 +1068,7 @@ GameObject:
   - component: {fileID: 496246537}
   - component: {fileID: 496246539}
   - component: {fileID: 496246538}
+  - component: {fileID: 496246540}
   m_Layer: 0
   m_Name: puff0001
   m_TagString: Untagged
@@ -1154,6 +1171,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &496246540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496246536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: Puff
+  playOnEnable: 0
 --- !u!1 &672242148
 GameObject:
   m_ObjectHideFlags: 0
@@ -2329,6 +2360,8 @@ GameObject:
   - component: {fileID: 1428508826}
   - component: {fileID: 1428508829}
   - component: {fileID: 1428508830}
+  - component: {fileID: 1428508832}
+  - component: {fileID: 1428508831}
   m_Layer: 10
   m_Name: DaveTheAngel
   m_TagString: Angel
@@ -2460,6 +2493,8 @@ MonoBehaviour:
   secondAnimator: {fileID: 1428508830}
   size: 0.2399655
   holdSlot: {fileID: 792709450}
+  ballotGrabbedEmitter: {fileID: 1428508832}
+  ashtrayPickupEmitter: {fileID: 1428508831}
   endText: {fileID: 1141387475}
   endTextDuration: 1
   endAnimator: {fileID: 496246536}
@@ -2489,6 +2524,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1428508831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428508820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: AshtrayPickup
+  playOnEnable: 0
+--- !u!114 &1428508832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428508820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bb17ab993d88045b5d23f3ab85eb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
+  eventName: BallotGrabbed
+  playOnEnable: 0
 --- !u!1001 &1433759115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3609,6 +3672,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2119406827
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 934972082996722310, guid: 45986c94faa1cdf4fb2d5f3e53c7ece4, type: 3}
+      propertyPath: m_Name
+      value: MusicManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684130868598711440, guid: 45986c94faa1cdf4fb2d5f3e53c7ece4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.31229
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684130868598711440, guid: 45986c94faa1cdf4fb2d5f3e53c7ece4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.08658
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684130868598711440, guid: 45986c94faa1cdf4fb2d5f3e53c7ece4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684130868598711440, guid: 45986c94faa1cdf4fb2d5f3e53c7ece4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684130868598711440, guid: 45986c94faa1cdf4fb2d5f3e53c7ece4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684130868598711440, guid: 45986c94faa1cdf4fb2d5f3e53c7ece4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684130868598711440, guid: 45986c94faa1cdf4fb2d5f3e53c7ece4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684130868598711440, guid: 45986c94faa1cdf4fb2d5f3e53c7ece4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684130868598711440, guid: 45986c94faa1cdf4fb2d5f3e53c7ece4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684130868598711440, guid: 45986c94faa1cdf4fb2d5f3e53c7ece4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 45986c94faa1cdf4fb2d5f3e53c7ece4, type: 3}
 --- !u!1001 &7679451787533235931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3687,8 +3807,6 @@ SceneRoots:
   - {fileID: 844817798}
   - {fileID: 97119571}
   - {fileID: 1328185593}
-  - {fileID: 1433759115}
-  - {fileID: 1126787430}
   - {fileID: 1184682920}
   - {fileID: 1857329450}
   - {fileID: 986267453}
@@ -3711,4 +3829,7 @@ SceneRoots:
   - {fileID: 1759946383}
   - {fileID: 2057576026}
   - {fileID: 1141387477}
+  - {fileID: 2119406827}
+  - {fileID: 1433759115}
+  - {fileID: 1126787430}
   - {fileID: 1659198083}

@@ -1234,3 +1234,32 @@ MonoBehaviour:
           Data4: -1968944857
         Path: event:/Hell/AmbHell
     voiceEvents: []
+  - sceneName: MiniGame4_2
+    musicEvents: []
+    sfxEvents:
+    - name: Ballot Inserted
+      eventReference:
+        Guid:
+          Data1: 411754838
+          Data2: 1077076313
+          Data3: 932141727
+          Data4: 1843455108
+        Path: event:/MiniGame4_2/BallotInserted
+    - name: Ballot Grabbed
+      eventReference:
+        Guid:
+          Data1: 374927427
+          Data2: 1290341599
+          Data3: -1799241324
+          Data4: 400347201
+        Path: event:/MiniGame4_2/BallotGrabbed
+    - name: Ashtray Pickup
+      eventReference:
+        Guid:
+          Data1: -642468948
+          Data2: 1103549928
+          Data3: 730354572
+          Data4: -588240375
+        Path: event:/MiniGame4_2/PickupAshTray
+    ambianceEvents: []
+    voiceEvents: []
