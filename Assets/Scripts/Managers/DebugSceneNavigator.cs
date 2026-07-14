@@ -1,4 +1,5 @@
 using Objects;
+using Managers;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -37,8 +38,10 @@ namespace DebugTools
         private void Update()
         {
             Keyboard keyboard = Keyboard.current;
-            if (keyboard == null)
+
+            if (DebugSceneHotkeys.QuitGamePressed(keyboard))
             {
+                QuitGame();
                 return;
             }
 
@@ -66,6 +69,16 @@ namespace DebugTools
             }
         }
 
+        public void QuitGame()
+        {
+            Debug.Log("[DebugSceneNavigator] Quitting game.");
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
+        }
+
         public void LoadSceneSlot(int sceneSlot)
         {
             if (!DebugSceneCatalog.TryGetScene(sceneSlot, out DebugSceneEntry entry))
@@ -89,7 +102,7 @@ namespace DebugTools
             if (activeScene.buildIndex >= 0)
             {
                 Debug.Log($"[DebugSceneNavigator] Restarting current scene: {activeScene.name}.");
-                SceneManager.LoadScene(activeScene.buildIndex);
+                LoadScene(activeScene.buildIndex);
                 return;
             }
 
@@ -109,7 +122,7 @@ namespace DebugTools
             int nextBuildIndex = currentBuildIndex < 0 ? 0 : (currentBuildIndex + 1) % sceneCount;
 
             Debug.Log($"[DebugSceneNavigator] Loading next build scene: index {nextBuildIndex}.");
-            SceneManager.LoadScene(nextBuildIndex);
+            LoadScene(nextBuildIndex);
         }
 
         public void RestartGame()
@@ -122,7 +135,7 @@ namespace DebugTools
 
             Debug.Log("[DebugSceneNavigator] Restarting game from build scene 0.");
             MechanicalCounter.ClearPersistedValues();
-            SceneManager.LoadScene(0);
+            LoadScene(0);
         }
 
         private static void LoadSceneByName(string sceneName, string label)
@@ -134,6 +147,28 @@ namespace DebugTools
             }
 
             Debug.Log($"[DebugSceneNavigator] Loading {label}.");
+            LoadScene(sceneName);
+        }
+
+        private static void LoadScene(int buildIndex)
+        {
+            if (SceneLoader.Instance != null)
+            {
+                SceneLoader.Instance.ForceLoadScene(buildIndex);
+                return;
+            }
+
+            SceneManager.LoadScene(buildIndex);
+        }
+
+        private static void LoadScene(string sceneName)
+        {
+            if (SceneLoader.Instance != null)
+            {
+                SceneLoader.Instance.ForceLoadScene(sceneName);
+                return;
+            }
+
             SceneManager.LoadScene(sceneName);
         }
     }
