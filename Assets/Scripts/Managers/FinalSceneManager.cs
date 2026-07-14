@@ -26,7 +26,14 @@ namespace Managers
 
             Debug.Log("[FinalSceneManager] Restarting game from build scene 0.");
             MechanicalCounter.ClearPersistedValues();
-            SceneManager.LoadScene(0);
+            if (SceneLoader.Instance != null)
+            {
+                SceneLoader.Instance.ForceLoadScene(0);
+            }
+            else
+            {
+                SceneManager.LoadScene(0);
+            }
         }
     }
 }

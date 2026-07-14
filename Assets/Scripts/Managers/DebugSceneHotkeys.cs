@@ -9,24 +9,33 @@ namespace DebugTools
 
         public static bool RestartScenePressed(Keyboard keyboard)
         {
-            return HasDebugModifiers(keyboard) && WasPressed(keyboard.rKey);
+            return (keyboard != null && HasDebugModifiers(keyboard) && WasPressed(keyboard.rKey))
+                   || AnyGamepadButtonPressed(gamepad => gamepad.buttonWest);
         }
 
         public static bool NextScenePressed(Keyboard keyboard)
         {
-            return HasDebugModifiers(keyboard) && WasPressed(keyboard.nKey);
+            return (keyboard != null && HasDebugModifiers(keyboard) && WasPressed(keyboard.nKey))
+                   || AnyGamepadButtonPressed(gamepad => gamepad.buttonEast);
         }
 
         public static bool RestartGamePressed(Keyboard keyboard)
         {
-            return HasDebugModifiers(keyboard) && WasPressed(keyboard.gKey);
+            return (keyboard != null && HasDebugModifiers(keyboard) && WasPressed(keyboard.gKey))
+                   || AnyGamepadButtonPressed(gamepad => gamepad.buttonNorth);
+        }
+
+        public static bool QuitGamePressed(Keyboard keyboard)
+        {
+            return (keyboard != null && IsShiftHeld(keyboard) && WasPressed(keyboard.tabKey))
+                   || AnyGamepadButtonPressed(gamepad => gamepad.buttonSouth);
         }
 
         public static bool TryReadSceneSlot(Keyboard keyboard, out int sceneSlot)
         {
             sceneSlot = 0;
 
-            if (!HasDebugModifiers(keyboard))
+            if (keyboard == null || !HasDebugModifiers(keyboard))
             {
                 return false;
             }
@@ -84,9 +93,22 @@ namespace DebugTools
             return -1;
         }
 
-        private static bool WasPressed(KeyControl key)
+        private static bool WasPressed(ButtonControl key)
         {
             return key.wasPressedThisFrame;
+        }
+
+        private static bool AnyGamepadButtonPressed(System.Func<Gamepad, ButtonControl> getButton)
+        {
+            foreach (Gamepad gamepad in Gamepad.all)
+            {
+                if (WasPressed(getButton(gamepad)))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

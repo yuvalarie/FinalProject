@@ -70,6 +70,18 @@ namespace Managers
             StartCoroutine(TransitionRoutine());
         }
 
+        public void ForceLoadScene(int buildIndex)
+        {
+            if (isTransitioning) return;
+            StartCoroutine(ForceLoadSceneRoutine(() => SceneManager.LoadScene(buildIndex)));
+        }
+
+        public void ForceLoadScene(string sceneName)
+        {
+            if (isTransitioning) return;
+            StartCoroutine(ForceLoadSceneRoutine(() => SceneManager.LoadScene(sceneName)));
+        }
+
         private IEnumerator TransitionRoutine()
         {
             isTransitioning = true;
@@ -91,6 +103,26 @@ namespace Managers
             // 3. Uncover the new scene
             //yield return StartCoroutine(Fade(0f));
 
+            isTransitioning = false;
+        }
+
+        private IEnumerator ForceLoadSceneRoutine(System.Action loadScene)
+        {
+            isTransitioning = true;
+
+            if (preloadedSceneOperation != null)
+            {
+                AsyncOperation stalePreload = preloadedSceneOperation;
+                preloadedSceneOperation = null;
+                stalePreload.allowSceneActivation = true;
+
+                while (!stalePreload.isDone)
+                {
+                    yield return null;
+                }
+            }
+
+            loadScene?.Invoke();
             isTransitioning = false;
         }
 
