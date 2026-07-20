@@ -27,7 +27,7 @@ namespace DebugTools
 
         public static bool QuitGamePressed(Keyboard keyboard)
         {
-            return (keyboard != null && IsShiftHeld(keyboard) && WasPressed(keyboard.tabKey))
+            return (keyboard != null && HasDebugModifiers(keyboard) && WasPressed(keyboard.qKey))
                    || AnyGamepadButtonPressed(gamepad => gamepad.buttonSouth);
         }
 
@@ -60,6 +60,11 @@ namespace DebugTools
         private static bool HasDebugModifiers(Keyboard keyboard)
         {
             return IsControlHeld(keyboard) && IsAltHeld(keyboard);
+        }
+
+        private static bool HasDebugModifiers(Gamepad gamepad)
+        {
+            return gamepad.leftTrigger.isPressed && gamepad.rightTrigger.isPressed;
         }
 
         private static bool IsControlHeld(Keyboard keyboard)
@@ -102,7 +107,7 @@ namespace DebugTools
         {
             foreach (Gamepad gamepad in Gamepad.all)
             {
-                if (WasPressed(getButton(gamepad)))
+                if (HasDebugModifiers(gamepad) && WasPressed(getButton(gamepad)))
                 {
                     return true;
                 }
