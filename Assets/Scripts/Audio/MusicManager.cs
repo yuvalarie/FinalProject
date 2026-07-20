@@ -30,6 +30,7 @@ namespace Audio
         protected override void Awake()
         {
             base.Awake();
+            if (Instance != this) return;
             _sceneAreaDict = new Dictionary<string, MusicArea>();
             foreach (var entry in sceneAreaMappings)
                 _sceneAreaDict[entry.sceneName] = entry.area;

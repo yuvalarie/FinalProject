@@ -30,6 +30,7 @@ namespace Audio
         protected override void Awake()
         {
             base.Awake();
+            if (Instance != this) return;
             _masterBus = RuntimeManager.GetBus("bus:/");
             _musicBus = RuntimeManager.GetBus("bus:/Music");
             _sfxBus = RuntimeManager.GetBus("bus:/SFX");
@@ -63,6 +64,7 @@ namespace Audio
         
         public EventInstance CreateInstance(EventReference eventReference, params(string paramName, float value)[] parameters)
         {
+            _activeEvents.RemoveAll(IsFinished);
             var eventInstance = RuntimeManager.CreateInstance(eventReference);
             foreach (var (paramName, value) in parameters)
             {
@@ -70,6 +72,13 @@ namespace Audio
             }
             _activeEvents.Add(eventInstance);
             return eventInstance;
+        }
+
+        private static bool IsFinished(EventInstance eventInstance)
+        {
+            if (!eventInstance.isValid()) return true;
+            eventInstance.getPlaybackState(out var state);
+            return state == PLAYBACK_STATE.STOPPED;
         }
 
         // public StudioEventEmitter InitializeEventEmitter(EventReference eventReference, GameObject emitterGameObject,

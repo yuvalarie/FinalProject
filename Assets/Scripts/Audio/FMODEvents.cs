@@ -31,6 +31,7 @@ namespace Audio
         protected override void Awake()
         {
             base.Awake();
+            if (Instance != this) return;
             // Add all event references to the dictionary
             InitializeEventReferences();
         }

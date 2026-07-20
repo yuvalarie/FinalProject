@@ -1121,7 +1121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a966323436e841f3a42b2dbb86704936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Managers.OpeningSceneManager
-  inputDelay: 5
+  inputDelay: 0.5
 --- !u!4 &790426494
 Transform:
   m_ObjectHideFlags: 0
