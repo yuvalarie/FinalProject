@@ -52,5 +52,5 @@ loading anything if triggered.
 ## Idle auto-reset (not a manual hotkey)
 
 Separately, `IdleResetWatcher.cs` automatically resets the game to `StartScreen` after a period of
-no input (default 180s), for the unattended display build. This is not a hotkey — it fires on its
+no input (default 90s), for the unattended display build. This is not a hotkey — it fires on its
 own timer and only outside the `StartScreen` scene.
