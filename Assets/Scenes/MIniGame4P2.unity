@@ -2501,7 +2501,7 @@ MonoBehaviour:
   allNotesCaughtSprite: {fileID: 21300000, guid: 44616c0b988d74a3fbff5378d36fa31f, type: 3}
   notesCaughtScale: 1.610014
   endAnimationDuration: 0.1
-  timeBeforeSceneLoad: 8
+  timeBeforeSceneLoad: 1
 --- !u!95 &1428508830
 Animator:
   serializedVersion: 7

@@ -220,7 +220,7 @@ MonoBehaviour:
     pairedObject: {fileID: 1781927076}
   - textBubble: {fileID: 861640569}
     pairedObject: {fileID: 861640569}
-  timeBeforeSecondPair: 5
+  timeBeforeSecondPair: 0.5
 --- !u!4 &207246492
 Transform:
   m_ObjectHideFlags: 0
