@@ -28,7 +28,7 @@ namespace Managers
             WaitingForBackward,
             WaitingForRegularTextSequence,
             RegularTextSequence,
-            Complete
+            // Complete
         }
 
         [Header("Tutorial Pairs")]
@@ -108,10 +108,10 @@ namespace Managers
 
         private void OnTextForward(InputAction.CallbackContext context)
         {
-            if (currentStep == TutorialStep.Complete)
-            {
-                SceneLoader.Instance.ActivatePreloadedScene();
-            }
+            // if (currentStep == TutorialStep.Complete)
+            // {
+            //     SceneLoader.Instance.ActivatePreloadedScene();
+            // }
             if (currentStep == TutorialStep.WaitingForForward)
             {
                 ShowPair(2);
@@ -129,7 +129,9 @@ namespace Managers
 
             if (regularSequenceIndex >= 6)
             {
-                currentStep = TutorialStep.Complete;
+                // currentStep = TutorialStep.Complete;
+                // return;
+                SceneLoader.Instance.ActivatePreloadedScene();
                 return;
             }
 
@@ -139,10 +141,10 @@ namespace Managers
 
         private void OnTextBackward(InputAction.CallbackContext context)
         {
-            if (currentStep == TutorialStep.Complete)
-            {
-                SceneLoader.Instance.ActivatePreloadedScene();
-            }
+            // if (currentStep == TutorialStep.Complete)
+            // {
+            //     SceneLoader.Instance.ActivatePreloadedScene();
+            // }
             if (currentStep == TutorialStep.WaitingForBackward)
             {
                 ShowPair(3);
