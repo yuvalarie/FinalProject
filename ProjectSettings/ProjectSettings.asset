@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: Bar Cohen yuval arie
   productName: One More Thing
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -299,7 +299,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 925fcdb241bcf46eaa318f13c1bf8443, type: 3}
+      m_Icon: {fileID: 2800000, guid: e79bfc43d05934319ab8d31ef50cc471, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
