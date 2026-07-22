@@ -1798,9 +1798,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1261456534}
   - component: {fileID: 1261456533}
-  - component: {fileID: 1261456537}
   - component: {fileID: 1261456536}
-  - component: {fileID: 1261456535}
   m_Layer: 0
   m_Name: News 4
   m_TagString: Untagged
@@ -1881,24 +1879,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1261456535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261456532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce4148dc5c7df9a468d41bcd33c2b8a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.AmbianceEmitter
-  eventName: TVStaticAmbiance
-  playOnStart: 0
-  startOnEnable: 0
-  stopOnEnable: 0
-  startOnDisable: 1
-  stopOnDisable: 0
 --- !u!114 &1261456536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1913,20 +1893,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.SfxEmitter
   eventName: TVChangeChannel
   playOnEnable: 1
---- !u!114 &1261456537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261456532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d45287f60d984ba44adf716b25c2c07d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.ReversedSfxEmitter
-  eventName: TVOff
-  playOnDisable: 1
 --- !u!1001 &1433759115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2753,6 +2719,7 @@ GameObject:
   - component: {fileID: 1980851525}
   - component: {fileID: 1980851524}
   - component: {fileID: 1980851526}
+  - component: {fileID: 1980851527}
   m_Layer: 0
   m_Name: Screens
   m_TagString: Untagged
@@ -2846,11 +2813,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.AmbianceEmitter
   eventName: TVStaticAmbiance
-  playOnStart: 1
-  startOnEnable: 0
+  playOnStart: 0
+  startOnEnable: 1
   stopOnEnable: 0
   startOnDisable: 0
   stopOnDisable: 1
+--- !u!114 &1980851527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980851523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cacb065bd708c5742ad2cd34d7c06d3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioEmitters.RepeatableSfxEmitter
+  eventName: TVOff
+  playOnEnable: 1
+  muteFirstPlay: 1
+  onlyFirstPlay: 0
 --- !u!1 &2034563228
 GameObject:
   m_ObjectHideFlags: 0
