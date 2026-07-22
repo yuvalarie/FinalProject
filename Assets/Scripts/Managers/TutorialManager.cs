@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 
 namespace Managers
 {
@@ -44,7 +45,7 @@ namespace Managers
         };
 
         [Header("Timing")]
-        [SerializeField] private float timeBeforeSecondPair = 1f;
+        [SerializeField] private float timeBeforeSecondPair = 3f;
 
         private InputSystem_Actions inputActions;
         private TutorialStep currentStep;
@@ -86,8 +87,20 @@ namespace Managers
 
         private IEnumerator ShowSecondPairAfterDelay()
         {
+            yield return null;
             SceneLoader.Instance.PreloadScene("Page 1");
-            yield return new WaitForSeconds(timeBeforeSecondPair);
+
+            bool inputReceived = false;
+            IDisposable inputListener = InputSystem.onAnyButtonPress.CallOnce(_ => inputReceived = true);
+
+            float elapsed = 0f;
+            while (elapsed < timeBeforeSecondPair && !inputReceived)
+            {
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            inputListener.Dispose();
 
             ShowPair(1);
             currentStep = TutorialStep.WaitingForForward;
