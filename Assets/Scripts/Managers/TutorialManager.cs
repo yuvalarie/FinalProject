@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 
 namespace Managers
 {
@@ -27,7 +28,7 @@ namespace Managers
             WaitingForBackward,
             WaitingForRegularTextSequence,
             RegularTextSequence,
-            Complete
+            // Complete
         }
 
         [Header("Tutorial Pairs")]
@@ -44,7 +45,7 @@ namespace Managers
         };
 
         [Header("Timing")]
-        [SerializeField] private float timeBeforeSecondPair = 1f;
+        [SerializeField] private float timeBeforeSecondPair = 3f;
 
         private InputSystem_Actions inputActions;
         private TutorialStep currentStep;
@@ -86,8 +87,20 @@ namespace Managers
 
         private IEnumerator ShowSecondPairAfterDelay()
         {
+            yield return null;
             SceneLoader.Instance.PreloadScene("Page 1");
-            yield return new WaitForSeconds(timeBeforeSecondPair);
+
+            bool inputReceived = false;
+            IDisposable inputListener = InputSystem.onAnyButtonPress.CallOnce(_ => inputReceived = true);
+
+            float elapsed = 0f;
+            while (elapsed < timeBeforeSecondPair && !inputReceived)
+            {
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            inputListener.Dispose();
 
             ShowPair(1);
             currentStep = TutorialStep.WaitingForForward;
@@ -95,10 +108,10 @@ namespace Managers
 
         private void OnTextForward(InputAction.CallbackContext context)
         {
-            if (currentStep == TutorialStep.Complete)
-            {
-                SceneLoader.Instance.ActivatePreloadedScene();
-            }
+            // if (currentStep == TutorialStep.Complete)
+            // {
+            //     SceneLoader.Instance.ActivatePreloadedScene();
+            // }
             if (currentStep == TutorialStep.WaitingForForward)
             {
                 ShowPair(2);
@@ -116,7 +129,9 @@ namespace Managers
 
             if (regularSequenceIndex >= 6)
             {
-                currentStep = TutorialStep.Complete;
+                // currentStep = TutorialStep.Complete;
+                // return;
+                SceneLoader.Instance.ActivatePreloadedScene();
                 return;
             }
 
@@ -126,10 +141,10 @@ namespace Managers
 
         private void OnTextBackward(InputAction.CallbackContext context)
         {
-            if (currentStep == TutorialStep.Complete)
-            {
-                SceneLoader.Instance.ActivatePreloadedScene();
-            }
+            // if (currentStep == TutorialStep.Complete)
+            // {
+            //     SceneLoader.Instance.ActivatePreloadedScene();
+            // }
             if (currentStep == TutorialStep.WaitingForBackward)
             {
                 ShowPair(3);
