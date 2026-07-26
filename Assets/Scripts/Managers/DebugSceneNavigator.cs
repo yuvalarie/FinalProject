@@ -1,3 +1,4 @@
+using System;
 using Objects;
 using Managers;
 using UnityEngine;
@@ -8,6 +9,8 @@ namespace DebugTools
 {
     public sealed class DebugSceneNavigator : MonoBehaviour
     {
+        public static event Action OnDebugHotkeyPressed;
+
         private static DebugSceneNavigator instance;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -41,30 +44,35 @@ namespace DebugTools
 
             if (DebugSceneHotkeys.QuitGamePressed(keyboard))
             {
+                OnDebugHotkeyPressed?.Invoke();
                 QuitGame();
                 return;
             }
 
             if (DebugSceneHotkeys.TryReadSceneSlot(keyboard, out int sceneSlot))
             {
+                OnDebugHotkeyPressed?.Invoke();
                 LoadSceneSlot(sceneSlot);
                 return;
             }
 
             if (DebugSceneHotkeys.RestartScenePressed(keyboard))
             {
+                OnDebugHotkeyPressed?.Invoke();
                 RestartCurrentScene();
                 return;
             }
 
             if (DebugSceneHotkeys.NextScenePressed(keyboard))
             {
+                OnDebugHotkeyPressed?.Invoke();
                 LoadNextScene();
                 return;
             }
 
             if (DebugSceneHotkeys.RestartGamePressed(keyboard))
             {
+                OnDebugHotkeyPressed?.Invoke();
                 RestartGame();
             }
         }

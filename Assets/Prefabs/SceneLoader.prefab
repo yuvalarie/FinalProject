@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b662e8ff35709064aacf8f429622c2a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Managers.IdleResetWatcher
-  idleTimeoutSeconds: 90
+  idleTimeoutSeconds: 50
+  idleInputThreshold: 0.3
 --- !u!1 &3861887362245759629
 GameObject:
   m_ObjectHideFlags: 0
